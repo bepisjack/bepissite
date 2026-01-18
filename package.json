@@ -1,6 +1,5 @@
 {
   "name": "c-users-jack-bepissite",
-  "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -9,6 +8,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.11"
-  }
+    "astro": "^5.16.11",
+    "body-parser": "^2.2.2",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bepisjack/bepissite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bepisjack/bepissite/issues"
+  },
+  "homepage": "https://github.com/bepisjack/bepissite#readme"
 }
