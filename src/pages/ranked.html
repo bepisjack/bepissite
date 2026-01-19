@@ -15,7 +15,6 @@
 async function getData() {
     try {
         const response = await fetch(
-            // NOTE: API keys expire quickly. This one might already be invalid.
             "https://na1.api.riotgames.com/lol/league/v4/entries/by-puuid/oZXLm8liBiw0-5-bVvV7X49ZMcYACJ0_pJRlKbg3d1xhihcve_Tq8Ajla3PHmwF9TFY6u-Lt_sOc7g?api_key=RGAPI-fda36c9f-16d0-4852-b887-fee063e5a92f"
         );
 
@@ -25,7 +24,6 @@ async function getData() {
 
         const data = await response.json();
         
-        // Pass the fetched 'data' array to the display function
         displayRank(data); 
 
     } catch (error) {
@@ -33,22 +31,18 @@ async function getData() {
     }
 }
 
-// Function to process and display the data
 function displayRank(rankDataArray) {
-    // FIX 1: The parameter name here must match the variable used in the find() call
     const soloQueueEntry = rankDataArray.find(entry => entry.queueType === "RANKED_SOLO_5x5");
 
     if (soloQueueEntry) {
         const tier = soloQueueEntry.tier;
         const rank = soloQueueEntry.rank;
         const lp = soloQueueEntry.leaguePoints;
-        
-        // FIX 2: Use backticks (`) instead of single quotes (') for template literals
+ 
         const displayString = `${tier} ${rank} (${lp} LP)`;
         
-        console.log('Rank:', displayString); // Logs to the browser console
+        console.log('Rank:', displayString); 
         
-        // NEW STEP: Display the data in the <p id="rank"> element
         document.getElementById("rank").textContent = displayString;
 
     } else {
@@ -57,12 +51,10 @@ function displayRank(rankDataArray) {
     }
 }
 
-// Call the function to start the process
 getData(); 
 
 </script>
 
-<!-- The initial text "Gold IV" will be replaced by the script -->
 <div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center;font-family:cursive; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
 <p id="rank">Loading Rank...</p> 
 <p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
