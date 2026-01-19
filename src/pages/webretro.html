@@ -19,9 +19,9 @@
 		<br>
 		<a href="/webretro-master/embed/roms/LICENSE.txt">License for the example game "2048"</a>	
 
-		<script type="text/javascript" src="/webretro-master/embed/embed.js"></script>
+		<script type="text/javascript" src="/src/webretro-master/embed/embed.js"></script>
 		<script>
-			var frame = webretroEmbed(document.getElementById("webretro-container"), "../", {system: "mgba", rom: "/webretro-master/embed/roms.Pokemon - Emerald Version (USA, Europe).gba"});
+			var frame = webretroEmbed(document.getElementById("webretro-container"), "../", {core: "mgba"});
 			document.getElementById("fullscreen").onclick = function() {
 				frame.requestFullscreen();
 			};
