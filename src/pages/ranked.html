@@ -10,7 +10,7 @@
         background-color: black;
     }
 </style>
-
+<body onload="getData()">
 <script>
 
 async function getData() {
@@ -43,25 +43,39 @@ function displayRank(rankDataArray) {
         const displayString = `${tier} ${rank} (${lp} LP)`;
         
         console.log('Rank:', displayString); 
+
+        
         
         document.getElementById("rank").textContent = displayString;
+
+   const rankdollar = `/${tier.toLowerCase()}hayden.png`;
+
+const imageElement = document.getElementById('dynamic-image');
+
+imageElement.src = rankdollar;
+
 
     } else {
         console.log("No Solo Queue data found for this player");
         document.getElementById("rank").textContent = "Unranked or no data found";
     }
+
+ 
 }
 
-getData(); 
 
 </script>
+
+
 
 <div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center;font-family:cursive; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
 <p id="rank">Loading Rank...</p> 
 <p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
-<img src="/haydendollar.png">
+<img id="dynamic-image" src="/haydendollar.png" alt="dynamic-image">
 </p>
 
 </div>
 </body>
 </html>
+
+
