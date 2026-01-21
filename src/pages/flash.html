@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruffle Flash Player</title>
+    <title>gaming zone</title>
     <script src="/ruffle/ruffle.js"></script>
 <style>
     div {
@@ -13,13 +13,31 @@
     width: fit-content;
     }
 
- body{background-color: black;}
+     
+
+    #container {
+        /* This creates a flexible area for the game */
+        width: 65vw; 
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Ensure the player fills the container but respects aspect ratio */
+    ruffle-player {
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+ body{background-color: rgb(0, 0, 0);}
 
 </style>
 </head>
 <body>
-    <div id="container">
-         </div>
+    
     <select id="fileSelector">
         <option value="/swf/papas.swf">papa's pizzeria</option>
         <option value="/swf/run2.swf">run 2</option>
@@ -29,8 +47,13 @@
         <option value="/swf/fancypants.swf">fancy pants</option>
         <option value="/swf/flashsonic.swf">flash sonic</option>
 
-        <!-- Add more options for other files -->
-    </select>
+           </select>
+
+        <div id="container">
+         </div>
+
+
+ 
 
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
@@ -46,12 +69,13 @@
             player.load({
                 url: selectedFile,
                 backgroundColor: "#000",
+                letterbox: "on"
             });
         };
 
             container.appendChild(player);
-            player.style.width = "700px";
-            player.style.height = "700px";
+            
+            fileSelector.addEventListener("change", loadSelectedFile);
 
             loadSelectedFile();
         });
