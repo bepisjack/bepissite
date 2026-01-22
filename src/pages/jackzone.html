@@ -27,12 +27,18 @@ audio {
 
 <p style="line-height:0.4; text-align: center; font-family: cursive; font-size: 80px; color:rgb(49, 226, 232); text-shadow: 2px 2px rgb(250, 139, 235)">jack zone</p>
 <br><br><br><br><br>
-<div class="audio">
-<audio controls>
-    <source src="/ost1.mp3" type="audio/mpeg">
-</audio>
-</div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var bgm = new Howl({
+        src: ['/ost1.mp3', 'pseudoregalia boss b'],
+        loop: true,
+        volume: 0,
+      });
+      bgm.play();
+      bgm.fade(0, 0.2, 4000);
+    </script>
 
 <br>
 <br>

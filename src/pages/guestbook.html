@@ -4,9 +4,29 @@
 display: flex;
 align-content: center;
 margin: auto;
-
-
 }
 
+
+body {
+ background-image: url("/azalea2.gif");
+ background-repeat:repeat;
+ background-size: 70%;
+ 
+}
+
+
 </style>
-<iframe src="https://serapher.atabook.org/" width=800px height=600px class="guestbook"></iframe>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var bgm = new Howl({
+        src: ['/untamedheart.mp3', 'klonoa'],
+        loop: true,
+        volume: 0,
+      });
+      bgm.play();
+      bgm.fade(0, 0.2, 4000);
+    </script>
+
+<iframe src="https://serapher.atabook.org/" width=800px height=800px class="guestbook"></iframe>
