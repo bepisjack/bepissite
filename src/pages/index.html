@@ -41,8 +41,56 @@ a:active {
 div {text-decoration: none !important;
 }
 
-</style>
+p {
+    align-content: center;
+    margin: auto;
+    width: fit-content;
+    color: white;
+    font-size: 400%;
+    text-shadow:2px 2px rgb(226, 136, 8);
+}
+h3 {
+    align-content: center;
+    margin: auto;
+    width: fit-content;
+    color: white;
+    font-size: 250%;
+    text-shadow:2px 2px rgb(226, 136, 8);
+}
 
+
+</style>
+<script>
+   async function getNewCard() {
+    const response = await fetch('http://localhost:3000/randomcard');
+    const data = await response.json();
+
+    const titleObj = data.title;
+    const descObj = data.description;
+
+    const allTitles = Object.values(titleObj);
+    const allDescs = Object.values(descObj);
+
+    const finalTitle = allTitles[0][0];
+    const finalDesc = allDescs[0][0];
+
+    document.getElementById('title').innerText = finalTitle;
+    document.getElementById('description').innerText = finalDesc;
+   }
+
+</script>
+
+<p id="title">title</p>
+<br>
+<h3 id="description">description</p>
+
+
+</head>
+
+<h2><a href="/ranked/">>>rift report</a></h2>
+<h2><a href="/guestbook/">>>guestbook</a></h2>
+<h2><a href="/flash/">>>gamers only</a></h2>
+<h2><a href="/bepisopoly/">>>Bepisopoly</a></h2>
 
 <div class="bdiv">
 <a href="https://untappd.com/user/tristanpvy"><img src="/beer.png" alt="beer !!"></a>
@@ -50,12 +98,6 @@ div {text-decoration: none !important;
 <div style="text-decoration: none !important;">
     <h1 style="text-decoration:none !important; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 300%; color:rgb(100, 217, 209);text-shadow: 2px 2px rgb(226, 136, 82);text-align:center;">working on the next step of the <a style="text-decoration: none;" href="/jackzone/">operation...</a></h1>
 </div>
-</head>
-
-<h2><a href="/ranked/">>>rift report</a></h2>
-<h2><a href="/guestbook/">>>guestbook</a></h2>
-<h2><a href="/flash/">>>gamers only</a></h2>
-<h2><a href="/bepisopoly/">>>Bepisopoly</a></h2>
 
 
 
