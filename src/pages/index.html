@@ -3,7 +3,6 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <title> Bepis Esports </title>
 </head>
-<head>
 <style>
 
     body {
@@ -58,11 +57,20 @@ h3 {
     text-shadow:2px 2px rgb(226, 136, 8);
 }
 
+h4 {
+    align-content: center;
+    margin: auto;
+    width: fit-content;
+    color: white;
+    font-size: 160%;
+    text-shadow:2px 2px rgb(100, 217, 209)
+}
 
 </style>
 <script>
    async function getNewCard() {
-    const response = await fetch('http://localhost:3000/randomcard');
+    try {
+    const response = await fetch('https://bepisbackend.fly.dev/randomcard');
     const data = await response.json();
 
     const titleObj = data.title;
@@ -76,29 +84,41 @@ h3 {
 
     document.getElementById('title').innerText = finalTitle;
     document.getElementById('description').innerText = finalDesc;
-   }
+    
+    }
+    catch (error) {
+        console.error("Error fetching data", error);
+    }
+}
 
-</script>
+  document.addEventListener('DOMContentLoaded', getNewCard);
+    </script>
+<body>
 
-<p id="title">title</p>
+<h4>bepisopoly card of the day</h4>
+<hr style="color:rgb(226, 136, 8); width: 17%;">
 <br>
-<h3 id="description">description</p>
+<p id="title"></p>
+<br>
+<h3 id="description"></h3>
+<br><br>
+<hr style="color:rgb(226, 136, 8); width: 25%;">
 
-
-</head>
+<div style="text-decoration: none !important;">
+    <h1 style="text-decoration:none !important; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 300%; color:rgb(100, 217, 209);text-shadow: 2px 2px rgb(226, 136, 82);text-align:center;">working on the next step of the <a style="text-decoration: none;" href="/jackzone/">operation...</a></h1>
+</div>
 
 <h2><a href="/ranked/">>>rift report</a></h2>
 <h2><a href="/guestbook/">>>guestbook</a></h2>
 <h2><a href="/flash/">>>gamers only</a></h2>
 <h2><a href="/bepisopoly/">>>Bepisopoly</a></h2>
 
+
 <div class="bdiv">
 <a href="https://untappd.com/user/tristanpvy"><img src="/beer.png" alt="beer !!"></a>
 </div>
-<div style="text-decoration: none !important;">
-    <h1 style="text-decoration:none !important; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 300%; color:rgb(100, 217, 209);text-shadow: 2px 2px rgb(226, 136, 82);text-align:center;">working on the next step of the <a style="text-decoration: none;" href="/jackzone/">operation...</a></h1>
-</div>
 
 
+</body>
 
 
