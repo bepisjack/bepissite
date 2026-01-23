@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "bepisbackend",
+			"path": "../bepisbackend/bepisbackend"
+		}
+	],
+	"settings": {}
+}
