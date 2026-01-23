@@ -4,8 +4,7 @@
 			"path": "."
 		},
 		{
-			"name": "bepisbackend",
-			"path": "../bepisbackend/bepisbackend"
+			"path": "../bepisbackend"
 		}
 	],
 	"settings": {}
