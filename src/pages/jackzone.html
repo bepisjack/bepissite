@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<title>jack zone</title>
+<title>jack zone</title><head>
+<meta charset="UTF-8"></head>
 <style>
 body {
  background-image: url("/stairs.gif");
@@ -23,7 +24,53 @@ audio {
     height: 1.5vw;
 }
 
+.ticker-wrap {
+  
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #000000c5; 
+  color: white;
+  overflow: hidden; 
+  padding: 0.2rem 0;
+  z-index: 1000; 
+}
+
+.ticker-content {
+  display: flex;
+  white-space: nowrap; 
+  width: max-content;
+  animation: scrolling 30s linear infinite; 
+}
+
+.ticker-content span {
+  margin: 0 35rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+
+}
+
+.ticker-wrap:hover .ticker-content {
+  animation-play-state: running;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
+
+
+
+
 </style>
+
+<div class="ticker-wrap">
+<div id="song-display" class="ticker-content"></div></div>
 
 <p style="line-height:0.4; text-align: center; font-family: cursive; font-size: 80px; color:rgb(49, 226, 232); text-shadow: 2px 2px rgb(250, 139, 235)">jack zone</p>
 <br><br><br><br><br>
@@ -31,13 +78,52 @@ audio {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+      var playlist = ['/Forest Frenzy.mp3', '/Untamed Heart.mp3', '/Worlds End Valentine.mp3', '/Paramnesiac.mp3', '/Head in the Clouds.mp3', '/Time.mp3'];
+        var currentIndex = 0;
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+         [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+      shuffle(playlist);
+
+     function playSong(index) {
+
+      var songName = playlist[index].replace('/', '').replace('.mp3', '');
+
+      const content = `<span>♫  ${songName}  ♫</span>`;
+
+      document.getElementById('song-display').innerHTML = content.repeat(6);
+
       var bgm = new Howl({
-        src: ['/untamedheart.mp3', 'klonoa 6-1'],
-        loop: true,
-        volume: 0,
+        src: [playlist[index]],
+        onend: function() {
+          currentIndex++;
+
+          if (currentIndex >= playlist.length) {
+            currentIndex = 0;
+            shuffle(playlist);
+
+          }
+           playSong(currentIndex);
+        }
       });
+  
       bgm.play();
       bgm.fade(0, 0.15, 4000);
+    }
+playSong(currentIndex);
+     
+        
+
+
+
+
+
     </script>
 
 <br>
