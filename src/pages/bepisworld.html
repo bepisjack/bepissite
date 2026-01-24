@@ -12,20 +12,33 @@
 .playa {align-content: center;
     margin: auto;
     display: flex;
-    width: 63vw;
+    width: 61vw;
     height: 72vh;
+    box-shadow: 4px 4px 20px rgb(226, 136, 82);
+    border: solid; color:rgb(226, 136, 82); border-width: 2px;
 }
 
 
 
 </style>
+
+<script>
+    window.onload = function() {
+    let vid =document.getElementById("myVid");
+
+    vid.volume = 0.08;
+    }
+    
+</script>
+
+
 <body>
 <br>
 <p style="font-size: 45px;">super bepis world!!</p>
 <br>
 <p style="font-size: 25px;">available soon..</p>
 <br><br><br><br>
-<video controls class="playa">
+<video id="myVid" controls class="playa">
 <source src="https://bepisbackend.fly.dev/bepisworldtrailer6.mp4" type="video/mp4">
 </video>
 </body>
