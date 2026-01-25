@@ -4,8 +4,20 @@
 <body>
 <style>
 
+.flex-container {
+    display: flex;
+    gap: 20px;
+}
+
+.flex-child {
+    flex: 1;
+    padding: 20px;
+}
+
+
+
 .dollar {
-    width: 28vw;
+    width: 40vw;
 }
 
     body {
@@ -106,19 +118,24 @@ imageElement2.src = rankdollar2;
 
 
 
+<div class="flex-container">
+    <div class="flex-child">
 <div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
 <p id="rank">Loading Rank</p> <p id="wins">...</p>
 <p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
     <a href="https://www.youtube.com/watch?v=210R0ozmLwg">
 <img id="dynamic-image" src="" alt="dynamic-image" class="dollar">
-</p></a></div>
+</p></a></div></div>
 
+ <div class="flex-child">
 <div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
 <p id="rank2">Loading Rank</p> <p id="wins2">...</p>
 <p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
     <a href="https://www.youtube.com/watch?v=HO7wfTrlh08">
 <img id="dynamic-image2" src="" alt="dynamic-image" class="dollar">
-</p></a>
+</p></a></div>
+
+
 
 </div>
 </body>
