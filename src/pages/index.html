@@ -13,12 +13,13 @@
     display:flex;
     justify-content: center;
     box-shadow: 5px 5px rgb(226, 136, 82);
-    margin:auto;
-    width:fit-content;
+    left:0;
+    width: max-content;
+    height: auto;
 }
 
 h2 {
-    font-style: italic;font-size: 400%;text-align: center;color:white;
+    font-style: italic;font-size: 400%;text-align: center;color:white; margin: 22px 0; width: auto; text-align:center;
 }
 
 a:link {
@@ -69,6 +70,24 @@ h4 {
     text-shadow:2px 2px rgb(100, 217, 209)
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:60vh;
+    gap: 200px;
+    
+}
+
+.flex-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
 </style>
 <script>
    const refreshcard = async function() {
@@ -104,25 +123,25 @@ h4 {
 <p id="title"></p>
 <br>
 <h3 id="description"></h3>
-<br><br>
+<br>
 <hr style="color:rgb(226, 136, 8); width: 25%;">
 
 <div style="text-decoration: none !important;">
-    <h1 style="text-decoration:none !important; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 300%; color:rgb(100, 217, 209);text-shadow: 2px 2px rgb(226, 136, 82);text-align:center;">working on the next step of the <a style="text-decoration: none;" href="/jackzone/">operation...</a></h1>
-</div>
+    <h1 style="text-decoration:none !important; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 300%; color:rgb(100, 217, 209);text-shadow: 2px 2px rgb(226, 136, 82);text-align:center; line-height: 0.5;">working on the next step of the <a style="text-decoration: none;" href="/jackzone/">operation...</a></h1>
+</div><br>
+<div class="flex-container"><div class="flex-child">
 
 <h2><a href="/ranked/">>>rift report</a></h2>
 <h2><a href="/guestbook/">>>guestbook</a></h2>
 <h2><a href="/bepisworld/">>>bepis world</a></h2>
 <h2><a href="/flash/">>>gamers only</a></h2>
-<h2><a href="/bepisopoly/">>>Bepisopoly</a></h2>
+<h2><a href="/bepisopoly/">>>Bepisopoly</a></h2></div>
 
-
+<div class="flex-child">
 <div class="bdiv">
 <a href="https://untappd.com/user/tristanpvy"><img src="/beer.png" alt="beer !!"></a>
-</div>
+</div></div></div>
 
 
 </body>
-<br>
 
