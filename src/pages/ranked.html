@@ -3,6 +3,11 @@
 <title>Rank Check</title>
 <body>
 <style>
+
+.dollar {
+    width: 28vw;
+}
+
     body {
         background-image: url(/rift2.jpg);
         background-size:105%;
@@ -21,21 +26,23 @@ async function getData() {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        const data = await response.json();
-        displayRank(data);
+        const allPlayerData = await response.json();
+        displayRank(allPlayerData);
     } catch (error) {
         console.error(error.message);
     }
 }
 
-function displayRank(rankDataArray) {
-    const soloQueueEntry = rankDataArray.find(entry => entry.queueType === "RANKED_SOLO_5x5");
+function displayRank(allPlayerData) {
+    const haydenData = allPlayerData[0].find(queue => queue.queueType === 'RANKED_SOLO_5x5');
+    const corbenData = allPlayerData[1].find(queue => queue.queueType === 'RANKED_SOLO_5x5');
 
-    if (soloQueueEntry) {
-        const tier = soloQueueEntry.tier;
-        const rank = soloQueueEntry.rank;
-        const lp = soloQueueEntry.leaguePoints;
-        const wins = soloQueueEntry.wins;
+
+    if (haydenData) {
+        const tier = haydenData.tier;
+        const rank = haydenData.rank;
+        const lp = haydenData.leaguePoints;
+        const wins = haydenData.wins;
  
         const displayString = `${tier} ${rank} (${lp} LP)`;
 
@@ -61,18 +68,56 @@ imageElement.src = rankdollar;
         document.getElementById("rank").textContent = "Unranked or no data found";
     }
 
+    if (corbenData) {
+        const tier2 = corbenData.tier;
+        const rank2 = corbenData.rank;
+        const lp2 = corbenData.leaguePoints;
+        const wins2 = corbenData.wins;
  
+        const displayString2 = `${tier2} ${rank2} (${lp2} LP)`;
+
+        const winstring2 = `Wins: ${wins2}`;
+        
+        console.log('Rank:', displayString2); 
+
+        console.log('Wins:', winstring2);
+
+        document.getElementById("rank2").textContent = displayString2;
+
+        document.getElementById("wins2").textContent = winstring2;
+
+   const rankdollar2 = `/${tier2.toLowerCase()}corben.png`;
+
+const imageElement2 = document.getElementById('dynamic-image2'); 
+
+imageElement2.src = rankdollar2;
+
+
+    } else {
+        console.log("No Solo Queue data found for this player");
+        document.getElementById("rank2").textContent = "Unranked or no data found";
+    }
+
+
+
 }
 
 </script>
 
 
 
-<div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
+<div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
 <p id="rank">Loading Rank</p> <p id="wins">...</p>
 <p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
     <a href="https://www.youtube.com/watch?v=210R0ozmLwg">
-<img id="dynamic-image" src="" alt="dynamic-image">
+<img id="dynamic-image" src="" alt="dynamic-image" class="dollar">
+</p></a></div>
+
+<div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 200%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
+<p id="rank2">Loading Rank</p> <p id="wins2">...</p>
+<p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
+    <a href="https://www.youtube.com/watch?v=HO7wfTrlh08">
+<img id="dynamic-image2" src="" alt="dynamic-image" class="dollar">
 </p></a>
 
 </div>
