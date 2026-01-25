@@ -6,13 +6,22 @@
     <title>gaming zone</title>
     <script src="/ruffle/ruffle.js"></script>
 <style>
-    div {
+
+    .select2 {
+        width:8vw;
+        text-align: center;
+    }
+
+    .container2 {
         display: flex;
     align-content: center;
     margin: auto;
     width: fit-content;
     }
 
+    #volume-value {
+        color: white;
+    }
      
 
     #container {
@@ -38,7 +47,7 @@
 </head>
 <body>
     
-    <select id="fileSelector">
+    <select id="fileSelector" select class="select2">
         <option value="/swf/papas.swf">papa's pizzeria</option>
         <option value="/swf/run2.swf">run 2</option>
         <option value="/swf/impossiblequiz.swf">impossible quiz</option>
@@ -49,39 +58,65 @@
         <option value="/swf/papermario.swf">paper mario world</option>
         <option value="/swf/portal.swf">portal</option>
         <option value="/swf/raftwars.swf">raft wars</option>
-
-           </select>
-
-        <div id="container">
+ </select>
+<br>
+        <div class="controls">
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+            <span id="volume-value"> 🕪 </span>
          </div>
 
+          
 
+        <div id="container" class="container2">
+         </div>
+         <br>
  
-
     <script>
+
         window.RufflePlayer = window.RufflePlayer || {};
+
         window.addEventListener("load", () => {
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
             const container = document.getElementById("container");
             const fileSelector = document.getElementById("fileSelector");
 
-            // Load the selected file when an option is chosen
+            const slider = document.getElementById("volume-slider");
+            const display = document.getElementById("volume-value");
+
+        
+        
+
            const loadSelectedFile = () => {
             const selectedFile = fileSelector.value;
             player.load({
                 url: selectedFile,
                 backgroundColor: "#000",
-                letterbox: "on"
-            });
-        };
+                letterbox: "on",
+
+            }).then(() => {
+            player.volume= slider.value / 100;
+
+        });
+           };
+
+        slider.addEventListener("input", (e) => {
+            const value =e.target.value;
+
+
+            const volumeLevel = value / 100;
+
+            player.volume = volumeLevel;
+        });
+            
+        
 
             container.appendChild(player);
             
             fileSelector.addEventListener("change", loadSelectedFile);
 
             loadSelectedFile();
-        });
+    });
     </script>
 </body>
 </html>
