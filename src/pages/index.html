@@ -66,8 +66,8 @@ h4 {
     margin: auto;
     width: fit-content;
     color: white;
-    font-size: 24px;
-    text-shadow:2px 2px rgb(100, 217, 209)
+    font-size: 26px;
+    text-shadow:2px 2px rgb(100, 217, 209);
 }
 
 .flex-container {
@@ -85,10 +85,53 @@ h4 {
     text-align: right;
 }
 
+.ticker-wrap {
+  
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  background:  rgba(97, 243, 233, 0.212);
+  color: rgb(255, 255, 255);
+  overflow: hidden; 
+  padding-bottom: 0.2rem;
+  padding-top: 0.2rem;
+  z-index: 1000; 
+  border-bottom:outset rgba(100, 217, 209, 0.568);
+ 
+}
+
+.ticker-content {
+  display: flex;
+  white-space: nowrap; 
+  width: max-content;
+  animation: scrolling 60s linear infinite; 
+}
+
+.ticker-content span {
+  margin: 0 35rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+
+}
+
+.ticker-wrap:hover .ticker-content {
+  animation-play-state: running;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
 
 
 </style>
 <script>
+
    const refreshcard = async function() {
     try {
     const response = await fetch('https://bepisbackend.fly.dev/randomcard');
@@ -113,9 +156,29 @@ h4 {
 }
 
   document.addEventListener('DOMContentLoaded', refreshcard);
+
+
+
+
     </script>
 <body>
 
+<div class="ticker-wrap"> 
+
+
+
+<div id="news-display" class="ticker-content">
+    <span>Bepi$ News Network..</span>
+    <span>New "Card Ideas" link added to the homepage..</span>
+    <span>Super Bepi$ World releasing soon..</span>
+    <span>Tristan Peevy achieves greatness in Super Mario Bros Wii with a 35:35..</span>
+    <span>Bepi$ News Network..</span>
+    <span>New "Card Ideas" link added to the homepage..</span>
+    <span>Super Bepi$ World releasing soon..</span>
+    <span>Tristan Peevy achieves greatness in Super Mario Bros Wii with a 35:35..</span>
+</div>
+</div>
+<br><br>
 <h4>bepisopoly card of the<a style="text-decoration: none; color: white;" href="/jackzone/"> day</a></h4>
 <hr style="color:rgb(226, 136, 8); width: 17%;">
 
