@@ -6,7 +6,9 @@
 
 body {
 
-    background-color: black;
+   background: url(/glyphs.jpg), rgba(0, 0, 0, 0.784);
+    background-blend-mode: multiply;
+    background-size: cover;
 }
 
 .back {
@@ -14,6 +16,9 @@ body {
     text-shadow: 1px 1px 15px black;
 }
 
+.form1 {
+    color: white;
+}
 
 </style>
 <a href="https://bepisesports.com/" class="back">> back</a>
@@ -22,10 +27,10 @@ body {
 
 <form class="form1" action="https://bepisbackend.fly.dev/password" method="POST">
 <label for="password">the first clue will be revealed soon...</label>
-<br>
-<textarea id="text" id="passwordEntry" name="password" rows="1" required></textarea>
+<br><br>
+<input text id="text" id="passwordEntry" name="password" rows="1" required></textarea>
 <br><br><br>
-<button type="submit" id="submitButton">submit !!</button>
+<button type="submit" id="submitButton">enter...</button>
 
 </form>
 
