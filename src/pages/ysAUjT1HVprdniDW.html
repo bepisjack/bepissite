@@ -1,2 +1,34 @@
 <!DOCTYPE html>
-hi
+<div>
+    <h1>submit to Bepi$ News Network</h1>
+    <input type="text" id="newsInput" maxlength="100">
+    <br><br>
+    <button onlock="sendHeadline()">post</button>
+</div>
+
+<script>
+    async function sendHeadline() {
+        const msg = document.getElementById('newsInput').value;
+        const status = document.getElementById('status');
+
+        if(!msg) return;
+
+        try {
+            const response = await fetch('https://bepisbackend.fly.dev/submit-news', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ message: msg})
+    }); 
+
+    if (response.ok) {
+        status.innerText = "sent!";
+        document.getElementById('newsInput').value = '';
+    }
+    } catch (err) {
+        status.innerText = "post failed !";
+    }
+    }
+
+
+
+</script>

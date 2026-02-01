@@ -21,6 +21,12 @@
 h2 {
     font-style: italic;font-size: 50px;text-align: right;color:white; margin: 22px 0; width: auto; text-shadow: 1px 1px rgb(226, 136, 82);
 }
+h5 {
+    font-style: italic;font-size: 50px;text-align: center;color:white; margin: 22px 0; width: auto; text-shadow: 1px 1px rgb(226, 136, 82);
+}
+.secret {
+    font-style: italic;font-size: 50px;text-align: right;color:white; margin: 22px 0; width: auto; text-decoration: none;
+}
 
 a:link {
     color: rgb(100, 217, 209);
@@ -157,8 +163,27 @@ h4 {
 
   document.addEventListener('DOMContentLoaded', refreshcard);
 
+const refreshTicker = async function() {
+    try {
+        const response = await fetch('https://bepisbackend.fly.dev/news');
+        const headlines = await response.json(); // Assumes backend returns an array of strings
+        
+        const ticker = document.getElementById('news-display');
+        // Map headlines to spans and join them
+        ticker.innerHTML = headlines.map(text => `<span>${text}</span>`).join('');
+        
+        // Duplicate the content to ensure the loop is seamless
+        ticker.innerHTML += ticker.innerHTML; 
+    } catch (error) {
+        console.error("Ticker failed to load", error);
+    }
+}
 
-
+// Update your existing DOMContentLoaded listener
+document.addEventListener('DOMContentLoaded', () => {
+    refreshcard();
+    refreshTicker();
+});
 
     </script>
 <body>
@@ -168,14 +193,6 @@ h4 {
 
 
 <div id="news-display" class="ticker-content">
-    <span>Bepi$ News Network</span>
-    <span>The temple will soon open once more... </span>
-    <span>New "Card Ideas" link added to the homepage!</span>
-    <span>Super Bepi$ World releasing soon!</span>
-    <span>Bepi$ News Network</span>
-    <span>The temple will soon open once more... </span>
-    <span>New "Card Ideas" link added to the homepage!</span>
-    <span>Super Bepi$ World releasing soon!</span>
 </div>
 </div>
 <br><br>
@@ -195,13 +212,14 @@ h4 {
 <h2><a href="/guestbook/">>>guestbook</a></h2>
 <h2><a href="/ideas/">>>card ideas</a></h2>
 <h2><a href="/bepisworld/">>>bepis world</a></h2>
-<h2><a href="/flash/">>>gamers only</a></h2></div>
-
+<h2><a href="/flash/">>>gamers only</a></h2>
+</div>
 
 <div class="flex-child"><br><br>
 <div class="bdiv">
-<a href="https://untappd.com/user/tristanpvy"><img src="/beer.png"></a>
-</div></div></div>
+<a href="https://untappd.com/user/tristanpvy"><img src="/beer.png"></a></div>
+<h5><a style="text-decoration: none; color:rgb(14, 11, 11); text-shadow: none;" href="/secret/">>>if you dare..</a></h5>
+</div></div>
 
 
 </body>
