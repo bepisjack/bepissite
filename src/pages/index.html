@@ -165,21 +165,20 @@ h4 {
 
 const refreshTicker = async function() {
     try {
-        const response = await fetch('https://bepisbackend.fly.dev/news/submit-news');
-        const headlines = await response.json(); // Assumes backend returns an array of strings
+        const response = await fetch('https://bepisbackend.fly.dev/news/news');
+        const headlines = await response.json(); 
         
         const ticker = document.getElementById('news-display');
-        // Map headlines to spans and join them
+
         ticker.innerHTML = headlines.map(text => `<span>${text}</span>`).join('');
         
-        // Duplicate the content to ensure the loop is seamless
+
         ticker.innerHTML += ticker.innerHTML; 
     } catch (error) {
         console.error("Ticker failed to load", error);
     }
 }
 
-// Update your existing DOMContentLoaded listener
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
     refreshTicker();
