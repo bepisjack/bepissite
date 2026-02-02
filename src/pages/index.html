@@ -170,10 +170,10 @@ const refreshTicker = async function() {
         
         const ticker = document.getElementById('news-display');
 
-        ticker.innerHTML = headlines.map(text => `<span>${text}</span>`).join('');
-        
+        const content = headlines.map(text => `<span>${text}</span>`).join('');
 
-        ticker.innerHTML += ticker.innerHTML; 
+        ticker.innerHTML = content + content;
+        
     } catch (error) {
         console.error("Ticker failed to load", error);
     }
