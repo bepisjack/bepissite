@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<div>
-    <h1>submit to Bepi$ News Network</h1>
+<style>
+
+body {
+    background-color: black;
+    text-align: center;
+}
+
+h2 {
+    font-size: 18pt;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36pt;
+    color: white;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+    line-height: 1.25;
+}
+
+#newsInput {
+    width: 45vw;
+    height: 4vh;
+    font-size: 18pt;
+}
+
+#button {
+    width: 5vw;
+    height: 3.5vh;
+    font-size: 16pt;
+}
+
+</style>
+
+
+<body>
+<br><br><br>
+    <h1>..you stand in front of the ancient bepisonian supercomputer...</h1>
+    <br>
+    <h1>..a technology too advanced for it's time has now risen from it's slumber.. to operate bepisesports.com..</h1>
+    <br>
+     <h1>..the one who shall now be known as the thinker... state your name and address the people..!</h1>
+
+<br>
+     <h2>(use this box to submit headlines to the homepage!)</h2>
+     <div>
     <input type="text" id="newsInput" maxlength="100">
     <br><br>
-    <button onclick="sendHeadline()">post</button>
+    <button id="button" onclick="sendHeadline()">post!</button>
     
     <p id="status" style="color: white;"></p>
 </div>
-
+</body>
 <script>
     async function sendHeadline() {
         const msg = document.getElementById('newsInput').value;
