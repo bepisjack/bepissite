@@ -136,7 +136,13 @@ h4 {
 
 
 </style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
+
+    $(document).on("contextmenu", function(e) {
+    return false; // Blocks the right-click menu
+});
 
    const refreshcard = async function() {
     try {
