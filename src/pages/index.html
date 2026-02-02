@@ -165,7 +165,7 @@ h4 {
 
 const refreshTicker = async function() {
     try {
-        const response = await fetch('https://bepisbackend.fly.dev/news');
+        const response = await fetch('https://bepisbackend.fly.dev/news/submit-news');
         const headlines = await response.json(); // Assumes backend returns an array of strings
         
         const ticker = document.getElementById('news-display');

@@ -3,7 +3,9 @@
     <h1>submit to Bepi$ News Network</h1>
     <input type="text" id="newsInput" maxlength="100">
     <br><br>
-    <button onlock="sendHeadline()">post</button>
+    <button onclick="sendHeadline()">post</button>
+    
+    <p id="status" style="color: white;"></p>
 </div>
 
 <script>
@@ -11,7 +13,10 @@
         const msg = document.getElementById('newsInput').value;
         const status = document.getElementById('status');
 
-        if(!msg) return;
+        if(!msg) {
+            status.innerText = "type something !!";
+        return;
+        }
 
         try {
             const response = await fetch('https://bepisbackend.fly.dev/submit-news', {
