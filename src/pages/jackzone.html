@@ -199,7 +199,7 @@ input[type=range]:focus::-ms-fill-upper {
 <p style="line-height:0.4; text-align: center; font-family: cursive; font-size: 80px; color:rgb(100, 1, 87); text-shadow: 2px 2px 1px rgb(0, 0, 0), 0px 0px 25px rgb(29, 4, 175), 3px 3px 15px rgba(255, 255, 255, 0.329);">jack zone</p>
 
 
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
@@ -254,7 +254,9 @@ input[type=range]:focus::-ms-fill-upper {
 playSong(currentIndex);
      
         
-
+$(document).on("contextmenu", function(e) {
+    return false; // Blocks the right-click menu
+});
 
     
 
