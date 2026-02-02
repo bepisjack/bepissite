@@ -4,8 +4,10 @@
 <style>
 
 body {
-    background-color: black;
+    background:url(/eye1.gif),rgba(0, 0, 0, 0.99);
+    background-blend-mode: multiply;
     text-align: center;
+    background-size: cover;
 }
 
 h2 {
@@ -57,7 +59,18 @@ h1 {
     <p id="status" style="color: white;"></p>
 </div>
 </body>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+
+      var bgm = new Howl({
+        src: ['/WorldMachine.mp3'],
+        loop: true,
+        volume: 0,
+          });
+      bgm.play();
+      bgm.fade(0, 0.08, 4000);
+
     async function sendHeadline() {
         const msg = document.getElementById('newsInput').value;
         const status = document.getElementById('status');
