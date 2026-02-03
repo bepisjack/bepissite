@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<head>
+<link rel="preload" as="image" href="lakitulinksflyover.gif">
+<title>the toadstool tour</title>
+
+
+</head>
+<style>
+
+@font-face {
+    font-family: supamario;
+    src: url(/SuperMario256.ttf);
+}
+
+
+body {
+    background-color: rgba(0, 0, 0, 0.805);
+    transition: background-image 0.5s ease-in-out;
+    background-blend-mode: multiply;
+    background-image: url(/black.jpg);
+}
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+  
+    gap: 40px;
+    
+}
+
+.flex-child {
+    display: flex;
+    flex-direction: column;
+    font-family:supamario;
+    text-align: right;
+}
+
+.flex-container2 {
+    display: flex;
+    justify-content: center;
+  
+    gap: 160px;
+    
+}
+
+.flex-child2 {
+    display: flex;
+    flex-direction: column;
+    font-family:supamario;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+.leaderboard {
+    display: flex;
+    align-content: center;
+    margin:auto;
+    width: 20vw;
+}
+
+input {
+    width: 7vw;
+}
+
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+      var bgm = new Howl({
+        src: ['/menu2.mp3'],
+        loop: true,
+        volume: 0,
+          });
+      bgm.play();
+      bgm.fade(0, 0.015, 4000);
+
+document.addEventListener('DOMContentLoaded', () => {
+
+const button1 = document.getElementById('lakitubutton');
+
+button1.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('lakitulinksflyover.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "-11";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "-7";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "-5";
+    document.getElementById("coursename").textContent = "Lakitu Valley";
+});
+
+const button2 = document.getElementById('cheepbutton');
+
+button2.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('cheepcheepfallsflyover.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "N/A";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "N/A";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "N/A";
+    document.getElementById("coursename").textContent = "Cheep Cheep Falls";
+});
+const button3 = document.getElementById('shiftingbutton');
+
+button3.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('shiftingsandsflyover.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "N/A";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "N/A";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "N/A";
+    document.getElementById("coursename").textContent = "Shifting Sands";
+});
+const button4 = document.getElementById('blooperbutton');
+
+button4.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('blooperbayflyover.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "N/A";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "N/A";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "N/A";
+    document.getElementById("coursename").textContent = "Blooper Bay";
+});
+const button5 = document.getElementById('peachbutton');
+
+button5.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('peachescastlegroundsflyover.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "N/A";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "N/A";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "N/A";
+    document.getElementById("coursename").textContent = "Peach's Castle Grounds";
+});
+
+const button6 = document.getElementById('bowserbutton');
+
+button6.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('bowsersbadlandsflyover.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "N/A";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "N/A";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "N/A";
+    document.getElementById("coursename").textContent = "Bowser's Badlands";
+});
+
+});
+
+
+
+</script>
+
+
+<br><div style="width:fit-content; margin: auto;">
+<div style="font-family: supamario; font-size: 75pt; color: rgb(255, 255, 255); text-shadow: 2px 2px rgb(255, 0, 0), 0px 0px 5px rgb(255, 255, 255), 0px 0px 5px rgb(255, 0, 0); text-align: center;">Course Records</div>
+
+<hr style="width: 110%; margin-left: -5%; border-style: outset;"></div>
+<br>
+<div class="flex-container">
+    
+<div class="flex-child">
+<input type="image" src="/lakitulinks.png" id="lakitubutton"></div>
+<div class="flex-child">
+<input type="image" src="/cheepcheepfalls.png" id="cheepbutton"></div>
+<div class="flex-child">
+<input type="image" src="/shiftingsands.png" id="shiftingbutton"></div>
+<div class="flex-child">
+<input type="image" src="/blooperbay.png" id="blooperbutton"></div>
+<div class="flex-child">
+<input type="image" src="/peachescastlegrounds.png" id="peachbutton"></div>
+<div class="flex-child">
+<input type="image" src="/bowsersbadlands.png" id="bowserbutton"></div>
+</div>
+<br>
+
+<div style="width:fit-content; margin: auto;">
+<div id="coursename" style="font-family: supamario; font-size: 65pt; color: rgba(255, 255, 255, 0.935); text-shadow: 2px 2px rgb(78, 66, 240), 0px 0px 5px rgb(219, 219, 219); text-align: center;">pick a course!</div>
+
+
+<hr style="width: 110%; margin-left: -5%; border-style: outset;"></div>
+<br>
+<div class="flex-container2">
+    
+<div class="flex-child2" style="width:8vw">
+<div style="font-family: supamario; font-size: 56pt; color: rgba(78, 66, 240, 0.938); text-shadow: 2px 2px rgb(255, 255, 255), 0px 0px 15px black; text-align: center;">name</div>
+
+<br><br>
+<div id="name1" style="color: rgb(255, 255, 255); text-align:center; font-size: 40pt; text-shadow: 2px 2px goldenrod, 0px 0px 5px black;">???</div>
+<br>
+<div id="name2" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px silver, 0px 0px 10px black;"></div>
+<br>
+<div id="name3" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px chocolate, 0px 0px 10px black;"></div>
+</div>
+<div class="flex-child2" style="width:8vw">
+<div style="font-family: supamario; font-size: 56pt; color: rgba(78, 66, 240, 0.935); text-shadow: 2px 2px rgb(255, 255, 255), 0px 0px 15px black; text-align: center;">score</div>
+<br><br>
+<div id="score1" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px goldenrod, 0px 0px 10px black;">???</div>
+<br>
+<div id="score2" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px silver, 0px 0px 10px black;"></div>
+<br>
+<div id="score3" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px chocolate, 0px 0px 10px black;"></div>
+</div>
