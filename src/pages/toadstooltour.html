@@ -7,6 +7,7 @@
 <link rel="preload" as="image" href="/peachescastlegroundsflyover.gif">
 <link rel="preload" as="image" href="/bowsersbadlandsflyover.gif">
 
+
 <title>the toadstool tour</title>
 </head>
 <style>
@@ -18,7 +19,7 @@
 
 
 body {
-    background-color: rgba(0, 0, 0, 0.805);
+    background-color: rgba(0, 0, 0, 0.599);
     transition: background-image 0.5s ease-in-out;
     background-blend-mode: multiply;
     background-image: url(/black.jpg);
@@ -94,6 +95,34 @@ input {
       
 document.addEventListener('DOMContentLoaded', () => {
 
+    document.addEventListener('click', () => {
+    if (Howler.ctx && Howler.ctx.state === 'suspended') {
+        Howler.ctx.resume();
+    }
+}, { once: true });
+
+const clicksound1 = new Howl({
+    src: ['/menuselect.wav'],
+    volume: 0.03,
+});
+const clicksound2 = new Howl({
+    src: ['/switchingclubs.wav'],
+    volume: 0.03,
+});
+const clicksound3 = new Howl({
+    src: ['/zoomout.wav'],
+    volume: 0.03,
+});
+const clicksound4 = new Howl({
+    src: ['/optionchange.wav'],
+    volume: 0.03,
+    preload: true
+});
+const clicksound5 = new Howl({
+    src: ['/pause.wav'],
+    volume: 0.03,
+});
+
 const button1 = document.getElementById('lakitubutton');
 
 button1.addEventListener('click', function() {
@@ -106,11 +135,13 @@ button1.addEventListener('click', function() {
     document.getElementById("name3").textContent = "CLG";
     document.getElementById("score3").textContent = "-5";
     document.getElementById("coursename").textContent = "Lakitu Valley";
+    clicksound4.play();
 });
 
 const button2 = document.getElementById('cheepbutton');
 
 button2.addEventListener('click', function() {
+    
     document.body.style.backgroundImage = "url('/cheepcheepfallsflyover.gif')";
     document.body.style.backgroundSize = "cover";
     document.getElementById("name1").textContent = "JKR";
@@ -120,6 +151,7 @@ button2.addEventListener('click', function() {
     document.getElementById("name3").textContent = "CLG";
     document.getElementById("score3").textContent = "N/A";
     document.getElementById("coursename").textContent = "Cheep Cheep Falls";
+    clicksound4.play();
 });
 const button3 = document.getElementById('shiftingbutton');
 
@@ -133,6 +165,7 @@ button3.addEventListener('click', function() {
     document.getElementById("name3").textContent = "CLG";
     document.getElementById("score3").textContent = "N/A";
     document.getElementById("coursename").textContent = "Shifting Sands";
+    clicksound4.play();
 });
 const button4 = document.getElementById('blooperbutton');
 
@@ -146,6 +179,7 @@ button4.addEventListener('click', function() {
     document.getElementById("name3").textContent = "CLG";
     document.getElementById("score3").textContent = "N/A";
     document.getElementById("coursename").textContent = "Blooper Bay";
+    clicksound4.play();
 });
 const button5 = document.getElementById('peachbutton');
 
@@ -159,6 +193,7 @@ button5.addEventListener('click', function() {
     document.getElementById("name3").textContent = "CLG";
     document.getElementById("score3").textContent = "N/A";
     document.getElementById("coursename").textContent = "Peach's Castle Grounds";
+    clicksound4.play();
 });
 
 const button6 = document.getElementById('bowserbutton');
@@ -173,13 +208,22 @@ button6.addEventListener('click', function() {
     document.getElementById("name3").textContent = "CLG";
     document.getElementById("score3").textContent = "N/A";
     document.getElementById("coursename").textContent = "Bowser's Badlands";
+    clicksound4.play();
 });
 
+const backbutton = document.getElementById("backbutton");
+
+backbutton.addEventListener('click', function(event) {
+    event.preventDefault();
+    clicksound5.play();
+    setTimeout(() => {  window.location.href = this.href; }, 600);
+    })
 });
+
 
 </script>
 
-<a href="https://bepisesports.com/" class="back">> back</a>
+<a id="backbutton" href="https://bepisesports.com/" class="back">> back</a>
 
 <br><div style="width:fit-content; margin: auto;">
 <div style="font-family: supamario; font-size: 75pt; color: rgb(255, 255, 255); text-shadow: 2px 2px rgb(255, 0, 0), 0px 0px 5px rgb(255, 255, 255), 0px 0px 5px rgb(255, 0, 0); text-align: center;">Course Records</div>
