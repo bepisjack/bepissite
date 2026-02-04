@@ -22,7 +22,7 @@ body {
     background-color: rgba(0, 0, 0, 0.397);
     transition: background-image 0.5s ease-in-out;
     background-blend-mode: multiply;
-    background-image: url("/efix.gif");
+    background-image: url("/C.gif");
     background-size: cover;
 }
 
@@ -84,12 +84,12 @@ input {
     <script>
 
       var bgm = new Howl({
-        src: ['/doorintosummer.mp3'],
+        src: ['/vallhalla.mp3'],
         loop: true,
         volume: 0,
           });
       bgm.play();
-      bgm.fade(0, 0.015, 4000);
+      bgm.fade(0, 0.3, 4000);
 
 
 
@@ -116,12 +116,12 @@ const clicksound3 = new Howl({
 });
 const clicksound4 = new Howl({
     src: ['/optionchange.wav'],
-    volume: 0.03,
+    volume: 0.08,
     preload: true
 });
 const clicksound5 = new Howl({
     src: ['/pause.wav'],
-    volume: 0.03,
+    volume: 0.08,
 });
 
 const button1 = document.getElementById('lakitubutton');
