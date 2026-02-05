@@ -88,8 +88,9 @@ h4 {
 .flex-container {
     display: flex;
     justify-content: center;
-    margin-left: 4vw;
-    
+    align-items: stretch;
+    margin-left: 6vw;
+    margin-right: 6vw;
     gap: 40px;
     
 }
@@ -109,6 +110,8 @@ h4 {
     flex-direction: column;
     text-align: right;
  flex: 1;
+ height: auto;
+
 }
 
 
@@ -165,14 +168,18 @@ h4 {
 }
 
 #beerpic {
-     box-shadow: 4px 4px rgb(226, 136, 82);
-     width:fit-content;
+    
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
      
 }
 
 #title {
 font-size: 44pt;
-line-height: 0.7;
+line-height: 1;
 
 }
 
@@ -198,14 +205,45 @@ line-height: 0.7;
     text-shadow: 4px 4px rgb(226, 136, 8);
 }
 
+.flex-childright img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.flex-child, .flex-childmiddle, .flex-childright {
+    flex: 1 1 0;
+    min-width: 0;
+    
+}
+
+#beerpics {
+     box-shadow: 4px 4px rgb(226, 136, 82);
+     display:block;
+     height: fit-content;
+     align-self: center;
+}
 
 
 </style>
 
 
 <script>
+  
+    const setRandomImage = function() {
+        const images = [
+            '/freaky.jpg',
+            '/beer.png',
+            '/beer.png',
+            '/beer.png',
+            '/beer.png',
+            '/beer.png'
+        ];
 
+        const randomIndex = Math.floor(Math.random() * images.length);
 
+        document.getElementById('beerpic').src = images[randomIndex];
+    }
 
    const refreshcard = async function() {
     try {
@@ -251,6 +289,7 @@ const refreshTicker = async function() {
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
     refreshTicker();
+    setRandomImage();
 });
 
     </script>
@@ -294,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="flex-childright"><br><br>
 <br>
-<a id="beerpic" href="https://untappd.com/user/tristanpvy"><img src="/beer.png"></a>
+<a id="beerpics" href="https://untappd.com/user/tristanpvy"><img id="beerpic" src=""></a>
 
 </div>
 
