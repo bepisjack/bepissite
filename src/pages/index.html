@@ -34,7 +34,7 @@
 }
 
 h2 {
-    font-style: italic;font-size: 50px;text-align: right;color:white; margin: 17px 0; width: auto; text-shadow: 1px 1px rgb(226, 136, 82);
+    font-style: italic;font-size: 50px;text-align: center;color:white; margin: 17px 0; width: auto; text-shadow: 1px 1px rgb(226, 136, 82);
 }
 h6 {
     font-style: italic;font-size: 30px;text-align: center;color:white; margin: 17px 0; width: auto; text-shadow: 2px 2px rgb(226, 136, 82);
@@ -108,7 +108,6 @@ h4 {
     display: flex;
     flex-direction: column;
     flex: 1;
-    text-align: right;
     align-items: center;
     
     
@@ -117,7 +116,6 @@ h4 {
 .flex-childright {
     display: flex;
     flex-direction: column;
-    text-align: right;
  flex: 1;
  height: auto;
 
@@ -151,7 +149,7 @@ h4 {
   display: flex;
   white-space: nowrap; 
   width: max-content;
-  animation: scrolling 60s linear infinite; 
+  animation: scrolling  linear infinite; 
   transform: translateZ(0);
   will-change: transform;
 }
@@ -294,6 +292,13 @@ const refreshTicker = async function() {
         const content = headlines.map(text => `<span>${text}</span>`).join('');
 
         ticker.innerHTML = content + content;
+
+        const scrollWidth = ticker.scrollWidth / 2;
+
+        const pixelsPerSecond = 110;
+        const duration = scrollWidth / pixelsPerSecond;
+
+        ticker.style.animationDuration = `${duration}s`;
         
     } catch (error) {
         console.error("Ticker failed to load", error);
