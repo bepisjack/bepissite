@@ -189,7 +189,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 </style>
-<body onload="getData()"></body>
+<body onload="getData()">
  <a href="https://bepisesports.com/" class="back">> back</a>
 
 <div class="ticker-wrap">
@@ -205,19 +205,20 @@ input[type=range]:focus::-ms-fill-upper {
 
       async function getData() {
     try {
-        const response = await get('https://bepisbackend.fly.dev/commits');  // Call your backend endpoint
+        const response = await fetch('https://bepisbackend.fly.dev/commits');  // Call your backend endpoint
         
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
 
         const commitCount = await response.json();
+        document.getElementById("commits").innerHTML = commitCount;
     } catch (error) {
         console.error(error.message);
     }
 }
 
-document.getElementById(commits).innerHTML = commitCount;
+
 
       var playlist = ['/Forest Frenzy.mp3', '/Untamed Heart.mp3', '/Worlds End Valentine.mp3', '/Paramnesiac.mp3', '/Head in the Clouds.mp3', '/Time.mp3', '/................mp3'];
         var currentIndex = 0;
@@ -270,6 +271,9 @@ document.getElementById(commits).innerHTML = commitCount;
 playSong(currentIndex);
      
         
+$(document).on("contextmenu", function(e) {
+    return false; // Blocks the right-click menu
+});
 
     
 
@@ -280,6 +284,6 @@ playSong(currentIndex);
 
 <div class="react">
 <img src="/tuckergreen.gif"></div>
-
+</body>
 
 
