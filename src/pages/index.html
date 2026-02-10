@@ -65,6 +65,16 @@ a:active {
 div {text-decoration: none !important;
 }
 
+.data {
+    color: green;
+    position: fixed; 
+  bottom: 0.15rem;
+ right: 0.5rem;
+ font-size: 12pt;
+ font-weight: 500;
+ font-style: italic;
+}
+
 p {
     align-content: center;
     text-align: center;
@@ -305,10 +315,51 @@ const refreshTicker = async function() {
     }
 }
 
+      async function getData2() {
+    try {
+        const response = await fetch('https://bepisbackend.fly.dev/commits');  // Call your backend endpoint
+        
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const commitCount = await response.json();
+        updateStats('ver 1.' + commitCount, null);
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+      async function getData1() {
+    try {
+        const response = await fetch('https://bepisbackend.fly.dev/pagecount');  // Call your backend endpoint
+        
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const pagesCount = await response.json();
+        updateStats(null, "pages: " + pagesCount);
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+let currentVer = "..";
+let currentPages = "..";
+
+function updateStats(ver, pages) {
+    if (ver) currentVer = ver;
+    if (pages) currentPages = pages;
+    document.getElementById("stats").innerText = `${currentVer} | ${currentPages}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
     refreshTicker();
     setRandomImage();
+    getData1();
+    getData2();
 });
 
     </script>
@@ -335,6 +386,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <h6 id="description"></h6>
 
+
+
 </div>
 <div class="flex-childmiddle">
     <br>
@@ -355,6 +408,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <a id="beerpics" href="https://untappd.com/user/tristanpvy"><img id="beerpic" src=""></a>
 
 </div>
+
+<div class="data" id="stats">..</div>
+
+
 
 </body>
 
