@@ -30,11 +30,28 @@ body {background-color: black;
     }
 }
 
+      async function getData() {
+    try {
+        const response = await fetch('https://bepisbackend.fly.dev/pagescount');  // Call your backend endpoint
+        
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const pagesCount = await response.json();
+        document.getElementById("pagescount").innerText = "pages: " + pagesCount;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+
+
 </script>
 
 <div class="data" id="commits">..</div>
-
-
+<br>
+<div class="data" id="pagescount">..</div>
 
 
 
