@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<body onload="getData()">
+<style>
+body {background-color: black;
+}
+
+.data {
+    color: green;
+}
+
+</style>
+
+
+
+
+<script>
+    
+      async function getData() {
+    try {
+        const response = await fetch('https://bepisbackend.fly.dev/commits');  // Call your backend endpoint
+        
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const commitCount = await response.json();
+        document.getElementById("commits").innerText = "ver 1." + commitCount;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+</script>
+
+<div class="data" id="commits">..</div>
+
+
+
+
+
+
+
+
+
+</body>
