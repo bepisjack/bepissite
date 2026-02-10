@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<body onload="getData()">
+<body>
 <style>
 body {background-color: black;
 }
@@ -15,7 +15,7 @@ body {background-color: black;
 
 <script>
     
-      async function getData() {
+      async function getData2() {
     try {
         const response = await fetch('https://bepisbackend.fly.dev/commits');  // Call your backend endpoint
         
@@ -45,6 +45,10 @@ body {background-color: black;
     }
 }
 
+document.addEventListener('load', () => {
+    getData();
+    getData2();
+});
 
 
 </script>
