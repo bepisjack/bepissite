@@ -55,7 +55,7 @@ async function getData() {
 function displayRank(allPlayerData) {
     const haydenData = allPlayerData[0].find(queue => queue.queueType === 'RANKED_SOLO_5x5');
     const corbenData = allPlayerData[1].find(queue => queue.queueType === 'RANKED_SOLO_5x5');
-
+    const jackData = allPlayerData[2].find(queue => queue.queueType === 'RANKED_SOLO_5x5');
 
     if (haydenData) {
         const tier = haydenData.tier;
@@ -112,12 +112,37 @@ const imageElement2 = document.getElementById('dynamic-image2');
 imageElement2.src = rankdollar2;
 
 
+
+
     } else {
         console.log("No Solo Queue data found for this player");
         document.getElementById("rank2").textContent = "Unranked or no data found";
     }
 
+ if (jackData) {
+        const tier3 = jackData.tier;
+        const rank3 = jackData.rank;
+        const lp3 = jackData.leaguePoints;
+        const wins3 = jackData.wins;
+ 
+        const displayString3 = `${tier3} ${rank3} (${lp3} LP)`;
 
+        const winstring3 = `Wins: ${wins3}`;
+        
+        console.log('Rank:', displayString3); 
+
+        console.log('Wins:', winstring3);
+
+        document.getElementById("rank3").textContent = displayString3;
+
+        document.getElementById("wins3").textContent = winstring3;
+
+ 
+
+    } else {
+        console.log("No Solo Queue data found for this player");
+        document.getElementById("rank").textContent = "Unranked or no data found";
+    }
 
 }
 
@@ -142,6 +167,15 @@ imageElement2.src = rankdollar2;
 <p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
     <a href="https://www.youtube.com/shorts/SHSBsaoTHdQ">
 <img id="dynamic-image2" src="" alt="dynamic-image" class="dollar">
+</p></a></div></div>
+
+
+ <div class="flex-child">
+<div style="display: block; align-content: center; width: fit-content; margin: auto; text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 300%; line-height: 0.4; color: rgb(0, 0, 0); text-shadow: 2px 2px rgb(255, 255, 255), 1px 1px 30px black, 1px 1px 10px black;":>
+<p id="rank3">Loading Rank</p> <p id="wins3">...</p>
+<p style="box-shadow: 4px 4px black, 1px 1px 25px black;">
+    <a href="https://youtu.be/LECSVlc6O1g?si=ubhideljWOgPVLJN">
+<img id="dynamic-image3" src="/jackdollar.png" alt="dynamic-image" class="dollar">
 </p></a></div>
 
 
