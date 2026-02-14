@@ -12,27 +12,64 @@
   align-content: center;
   width: fit-content;
   margin: auto;
-  margin-top: 5vh;
-
+ 
+  box-shadow: black 2px 2px 5px, black 0px 0px 15px;
 
 }
 .back {
     color: rgb(0, 0, 0);
-    text-shadow: 1px 1px 15px black;
+    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.438);
+ 
+}
+.select2 {
+        width:120px;
+        text-align: center;
+    }
+
+.play {
+  font-size: 14pt;
+  line-height: 0;
+  font-weight: 500;
 }
 
 
 </style>
 
 
+
+
 <a href="https://bepisesports.com/" class="back">> back</a>
+<br>
+
+
+<p class="play">play the archive!</p>
+
+
+<select id="fileSelector" select class="select2">
+        <option value="https://crosshare.org/embed/HFaApRdoteLcRo1lG00k/K8m9nADqSSRGiPW0Bd7qI9ePH8I3">bepis mini #1</option>
+        <option value="https://crosshare.org/embed/Ht1c6uRKvDuVyocwJWJw/K8m9nADqSSRGiPW0Bd7qI9ePH8I3" selected>bepis mini #2</option>   
+ </select>
 
 
 
 
+<iframe class="puzzle" id="crossword" style="height: 80vh; width: 70vw;" src="" frameborder="0" allowfullscreen="true" allowtransparency="true" allow="clipboard-write *"></iframe>
+
+<script>
+
+const loadSelectedFile = () => {
+document.getElementById("crossword").src = fileSelector.value;
+
+};
+
+const fileSelector= document.getElementById("fileSelector");
+fileSelector.addEventListener("change", loadSelectedFile);
+
+            loadSelectedFile();
+
+</script>
 
 
 
-<iframe class="puzzle" style="height: 80vh; width: 60%;" src="https://crosshare.org/embed/HFaApRdoteLcRo1lG00k/K8m9nADqSSRGiPW0Bd7qI9ePH8I3" frameborder="0" allowfullscreen="true" allowtransparency="true" allow="clipboard-write *"></iframe>
 
 </body>
