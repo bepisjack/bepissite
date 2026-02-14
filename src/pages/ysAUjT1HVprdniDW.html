@@ -43,10 +43,17 @@ h1 {
     font-size: 16pt;
 }
 
+.back {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 15px black;
+}
+
+
 </style>
 
 
 <body>
+    <a id="backbutton" href="https://bepisesports.com/" class="back">> back</a>
 <br><br><br>
     <h1>...you stand in front of the ancient bepisonian biocomputer...</h1>
     <br>
@@ -83,6 +90,25 @@ h1 {
           });
       bgm.play();
       bgm.fade(0, 0.08, 4000);
+
+           document.addEventListener('click', () => {
+    if (Howler.ctx && Howler.ctx.state === 'suspended') {
+        Howler.ctx.resume();
+    }
+}, { once: true });
+
+const clicksound1 = new Howl({
+    src: ['/nikkiexit.wav'],
+    volume: 0.03,
+});
+
+const backbutton = document.getElementById("backbutton");
+
+backbutton.addEventListener('click', function(event) {
+    event.preventDefault();
+    clicksound1.play();
+    setTimeout(() => {  window.location.href = this.href; }, 600);
+    })
 
     async function sendHeadline() {
         const msg = document.getElementById('newsInput').value;
