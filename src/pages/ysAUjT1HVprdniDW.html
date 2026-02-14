@@ -46,14 +46,19 @@ h1 {
 .back {
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 15px black;
+    display: block;
+    text-align: left;
+  
+    
 }
 
 
 </style>
-
-
+<a id="backbutton" href="https://bepisesports.com/" class="back">> back</a>
 <body>
-    <a id="backbutton" href="https://bepisesports.com/" class="back">> back</a>
+ 
+
+   
 <br><br><br>
     <h1>...you stand in front of the ancient bepisonian biocomputer...</h1>
     <br>
@@ -107,7 +112,7 @@ const backbutton = document.getElementById("backbutton");
 backbutton.addEventListener('click', function(event) {
     event.preventDefault();
     clicksound1.play();
-    setTimeout(() => {  window.location.href = this.href; }, 600);
+    setTimeout(() => {  window.location.href = this.href; }, 1800);
     })
 
     async function sendHeadline() {
