@@ -5,6 +5,7 @@
 
 body {
     background:url(/eye1.gif),rgba(0, 0, 0, 0.99);
+    transition: background-color 3s ease-in-out;
     background-blend-mode: multiply;
     text-align: center;
     background-size: cover;
@@ -107,13 +108,29 @@ const clicksound1 = new Howl({
     volume: 0.03,
 });
 
+const clicksound2 = new Howl({
+    src: ['/nikkiwarp.wav'],
+    volume: 0.03,
+});
+
+const submitbutton = document.getElementById("button");
+
 const backbutton = document.getElementById("backbutton");
 
 backbutton.addEventListener('click', function(event) {
+     document.body.style.backgroundColor = 'white';
+     document.body.style.backgroundImage = 'none';
     event.preventDefault();
     clicksound1.play();
     setTimeout(() => {  window.location.href = this.href; }, 1800);
     })
+
+submitbutton.addEventListener('click', function() {
+    
+    
+    clicksound2.play();
+});
+
 
     async function sendHeadline() {
         const msg = document.getElementById('newsInput').value;
