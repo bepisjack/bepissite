@@ -67,12 +67,12 @@
 
 <script>
 function checkUnlock() {
-const releaseDate = new Date('2026-02-15T18:00:00-5:00');
+const releaseDate = new Date('2026-02-15T18:00:00-5:00').getTime();
 
 
-const nowEST = new Date(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
+const now = new Date().getTime();
 
-if (nowEST >= releaseDate) {
+if (now >= releaseDate) {
   const secret = document.getElementById('secret');
   if (secret) {
   secret.hidden = false;
