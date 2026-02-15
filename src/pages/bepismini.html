@@ -50,6 +50,7 @@
         <option value="https://crosshare.org/embed/HFaApRdoteLcRo1lG00k/K8m9nADqSSRGiPW0Bd7qI9ePH8I3">bepis mini #1</option>
         <option value="https://crosshare.org/embed/Ht1c6uRKvDuVyocwJWJw/K8m9nADqSSRGiPW0Bd7qI9ePH8I3" >bepis mini #2</option>   
         <option value="https://crosshare.org/embed/ySwppN79Hz0EWntoD2aQ/K8m9nADqSSRGiPW0Bd7qI9ePH8I3" selected>bepis mini #3</option>   
+        <option id="secret" value="https://crosshare.org/embed/IOm8fMPnrvXefSSXyCHK/K8m9nADqSSRGiPW0Bd7qI9ePH8I3" hidden>bepis mini #4</option>  
 </optgroup>
 <hr />
 <optgroup label="bepis connections">
@@ -65,6 +66,22 @@
 <iframe class="puzzle" id="crossword" style="height: 80vh; width: 70vw;" src="" frameborder="0" allowfullscreen="true" allowtransparency="true" allow="clipboard-write *"></iframe>
 
 <script>
+function checkUnlock() {
+const releaseDate = new Date('2026-02-15T18:00:00-5:00');
+
+
+const nowEST = new Date(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
+
+if (nowEST >= releaseDate) {
+  const secret = document.getElementById('secret');
+  if (secret) {
+  secret.hidden = false;
+  secret.selected = true;
+}
+} else {
+  setTimeout(checkUnlock, 60000);
+}
+}
 
 const loadSelectedFile = () => {
 document.getElementById("crossword").src = fileSelector.value;
@@ -74,7 +91,8 @@ document.getElementById("crossword").src = fileSelector.value;
 const fileSelector= document.getElementById("fileSelector");
 fileSelector.addEventListener("change", loadSelectedFile);
 
-            loadSelectedFile();
+checkUnlock();
+loadSelectedFile();
 
 </script>
 

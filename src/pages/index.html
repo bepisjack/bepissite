@@ -241,12 +241,44 @@ line-height: 1;
      align-self: center;
 }
 
+#stati {
+    line-height: 3.5;
+}
+
 
 </style>
 
 
 <script>
-  
+
+function updateDailyClock () {
+    const nowEST = new Date(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
+
+    const target = new Date(nowEST);
+    target.setHours(18, 0, 0, 0);
+
+    let diff = target - nowEST;
+    const status = document.getElementById('status');
+    
+    if (diff <= 0) {
+        status.innerText = "new bepis mini just dropped!!";
+    
+    setTimeout(updateDailyClock, 60000);
+} else {
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const hDisplay = String(hours).padStart(2, '0');
+    const mDisplay = String(mins).padStart(2, '0');
+    const sDisplay = String(secs).padStart(2, '0');
+
+    status.innerText = `new bepis mini in ${hDisplay}:${mDisplay}:${sDisplay}`;
+
+    setTimeout(updateDailyClock, 1000);
+}
+}
+
     const setRandomImage = function() {
         const images = [
             '/freaky.jpg',
@@ -360,6 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setRandomImage();
     getData1();
     getData2();
+    updateDailyClock();
 });
 
     </script>
@@ -379,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<div class="flex-container"><div class="flex-child"><br><br>
+<div class="flex-container"><div class="flex-child"><br>
 <h6 id="cotd">bepisopoly card<br>of the<a style="text-decoration: none; color: white; line-height: 0.1;" href="/jackzone/"> day</a></h6>
 <hr style="color:rgb(226, 136, 8); width: 60%;">
 <h6 id="title"></h6>
@@ -404,8 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 
-<div class="flex-childright"><br><br>
-<br>
+<div class="flex-childright">
+<br><h2 style="line-height: 1.1; font-size: 36pt;" id="status"></h2>
+<hr style="width:80%;">
+<br><br>
 <a id="beerpics" href="https://untappd.com/user/tristanpvy"><img id="beerpic" src=""></a>
 
 </div>
