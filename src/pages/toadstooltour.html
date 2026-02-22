@@ -77,6 +77,16 @@ input {
     text-shadow: 1px 1px 15px black;
 }
 
+.toad {
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+    z-index: 100;
+    height: 12%;
+    width: auto;
+}
+
+
 </style>
 
 
@@ -212,6 +222,21 @@ button6.addEventListener('click', function() {
     clicksound4.play();
 });
 
+const button7 = document.getElementById('totalbutton');
+
+button7.addEventListener('click', function() {
+    document.body.style.backgroundImage = "url('/D.gif')";
+    document.body.style.backgroundSize = "cover";
+    document.getElementById("name1").textContent = "JKR";
+    document.getElementById("score1").textContent = "-35";
+    document.getElementById("name2").textContent = "TLP";
+    document.getElementById("score2").textContent = "-16";
+    document.getElementById("name3").textContent = "CLG";
+    document.getElementById("score3").textContent = "-11";
+    document.getElementById("coursename").textContent = "Totals";
+    clicksound4.play();
+});
+
 const backbutton = document.getElementById("backbutton");
 
 backbutton.addEventListener('click', function(event) {
@@ -274,4 +299,6 @@ backbutton.addEventListener('click', function(event) {
 <div id="score2" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px silver, 0px 0px 10px black;"></div>
 <br>
 <div id="score3" style="color:white; text-align: center; font-size: 40pt; text-shadow: 2px 2px chocolate, 0px 0px 10px black;"></div>
-</div>
+</div></div>
+
+<input type="image" class="toad" src="/totalstoad.png" id="totalbutton">
