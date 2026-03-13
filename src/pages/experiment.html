@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
     <meta charset="utf-8">
     <title>My first three.js app</title>
     <style>
@@ -19,6 +27,6 @@ color: white;
   </head>
   <body>
     <div id="info">Description</div>
-    <script type="module" src="../scripts/main.js"></script>
+    <script type="module" src="/src/scripts/main.js"></script>
   </body>
 </html>
