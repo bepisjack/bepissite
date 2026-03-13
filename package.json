@@ -12,7 +12,8 @@
     "body-parser": "^2.2.2",
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "three": "^0.183.2"
   },
   "description": "",
   "main": "index.js",
@@ -26,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/bepisjack/bepissite/issues"
   },
-  "homepage": "https://github.com/bepisjack/bepissite#readme"
+  "homepage": "https://github.com/bepisjack/bepissite#readme",
+  "devDependencies": {
+    "vite": "^8.0.0"
+  }
 }
