@@ -252,7 +252,7 @@ line-height: 1;
 <script>
 
 function updateDailyClock () {
-    const releaseDate = new Date('2026-03-13T22:00:00Z').getTime();
+    const releaseDate = new Date('2026-03-19T22:00:00Z').getTime();
 
     const now = new Date().getTime();
 
@@ -260,7 +260,7 @@ function updateDailyClock () {
     const status = document.getElementById('status');
 
     if (diff <= 0) {
-        status.innerText = "bepis mini crossword #11 now available!!";
+        status.innerText = "bepis mini crossword #12 now available!!";
         return;
 } else {
     const hours = Math.floor(diff / (1000 * 60 * 60));
