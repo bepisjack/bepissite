@@ -34,8 +34,20 @@ const loadusername = async function() {
     }
 }
 
+const loadBalance = async () => {
+    const response = await fetch('https://api.bepisesports.com/accounts/balances', {
+        credentials: 'include'
+    });
+    if (response.ok) {
+        const data = await response.json();
+        document.getElementById('balanceDisplay').innerText = '$(data.currency} bepiscoin';
+    }
+};
+
+
 document.addEventListener('DOMContentLoaded', () => {
     loadusername();
+    loadBalance();
 });   
 
 </script>
