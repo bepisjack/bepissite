@@ -4,6 +4,14 @@
 <div id="usernameblank"></div>
 <div id="balanceDisplay"></div>
 
+<form action="https://api.bepisesports.com/accounts/logout" method="POST">
+<button id="logoutButton" style="display: none;" onclick="handleLogout()">logout!</button>
+
+</form>
+<button id="loginButton" style="display: none;" href="/racelogin">login!!</button>
+<button id="registerButton" style="display: none;" href="/raceregister">register!!</button>
+
+
 <script>
 
 const loadusername = async function() {
@@ -21,8 +29,11 @@ const loadusername = async function() {
 
     if (data && data.username) {
         document.getElementById('usernameblank').innerText = data.username;
+        document.getElementById('logoutButton').style.display = 'block';
     } else {
         document.getElementById('usernameblank').innerText = "Not Logged In!";
+        document.getElementById('loginButton').style.display = 'block';
+        document.getElementById('registerButton').style.display = 'block';
     }
 
     const username = data.username;
@@ -45,6 +56,17 @@ const loadBalance = async () => {
     }
 };
 
+const handleLogout = async () => {
+    const response = await fetch('https://api.bepisesports.com/accounts/logout', {
+        method: 'POST',
+        credentials: 'include'
+    });
+    if (resopnse.ok) {
+        window.location.href = 'https://bepisesports.com/bepisracetests.html';
+    } else {
+        alert("logout failed");
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     loadusername();
