@@ -1,15 +1,36 @@
+<!DOCTYPE html>
+<body>
 
-<form class="form1" action="https://bepisbackend.fly.dev/accountinfo" method="POST">
+<div id="usernameblank"></div>
 
-<label for="username">username: </label>
-<input text id="usernameEntry" name="username" rows="1"></textarea>
-<br>
-<br>
-<label for="pin">pin: </label>
-<input text id="pinEntry" name="pin" maxlength="4"></textarea>
+<script>
 
-<br><br>
-<button type="submit" id="submitButton">login!</button>
+const loadusername = async function() {
+    try {
+    const response = await fetch('https://bepisbackend.fly.dev/accounts/me'); {
+        credentials: 'include'
+    }
+    const data = await response.json();
 
-</form>
+    if (data && data.username) {
+        document.getElementById('usernameblank').innerText = data.username;
+    } else {
+        document.getElementById('usernameblank').innerText = "Not Logged In!";
+    }
 
+    const username = data.username;
+
+    document.getElementById('usernameblank').innerText = username;
+
+      }
+    catch (error) {
+        console.error("Error fetching data", error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadusername();
+});   
+
+</script>
+</body>
