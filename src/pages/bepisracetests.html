@@ -25,6 +25,8 @@ const loadusername = async function() {
 
     if (!response.ok) {
             document.getElementById('usernameblank').innerText = "Not Logged In!";
+             document.getElementById('loginButton').style.display = 'block';
+            document.getElementById('registerButton').style.display = 'block';
             return;
         }
 
@@ -35,8 +37,6 @@ const loadusername = async function() {
         document.getElementById('logoutButton').style.display = 'block';
     } else {
         document.getElementById('usernameblank').innerText = "Not Logged In!";
-        document.getElementById('loginButton').style.display = 'block';
-        document.getElementById('registerButton').style.display = 'block';
     }
 
     const username = data.username;
