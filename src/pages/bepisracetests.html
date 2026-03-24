@@ -41,7 +41,7 @@ const loadBalance = async () => {
     });
     if (response.ok) {
         const data = await response.json();
-        document.getElementById('balanceDisplay').innerText = '$(data.currency} bepiscoin';
+        document.getElementById('balanceDisplay').innerText = '${data.currency} bepiscoin';
     }
 };
 
