@@ -10,6 +10,14 @@
 
 <br><br>
 <button type="submit" id="submitButton">login!</button>
-
+<br>
+<div id="errorMessage" style="color: red; display: none;">invalid login!</div>
 </form>
-
+<script>
+window.onload = () => {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('error') === 'invalid') {
+    document.getElementById('errorMessage').style.display = 'block';
+    }
+};
+</script>
