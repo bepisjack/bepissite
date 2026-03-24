@@ -7,15 +7,15 @@
 
 const loadusername = async function() {
     try {
-    const response = await fetch('https://bepisbackend.fly.dev/accounts/me', {
-        credentials: 'include'
+   const response = await fetch('https://api.bepisesports.com/accounts/me', {
+    credentials: 'include'
     });
 
     if (!response.ok) {
             document.getElementById('usernameblank').innerText = "Not Logged In!";
             return;
         }
-        
+
     const data = await response.json();
 
     if (data && data.username) {
