@@ -12,6 +12,8 @@
 <button id="loginButton" style="display: none;" href="/racelogin">login!!</button>
 <button id="registerButton" style="display: none;" href="/raceregister">register!!</button>
 
+<br>
+<div id="errorMessage" style="color: red; display: none;">you are logged out!</div>
 
 <script>
 
@@ -73,6 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
     loadusername();
     loadBalance();
 });   
+
+window.onload = () => {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('error') === 'loggedout') {
+    document.getElementById('errorMessage').style.display = 'block';
+    }
+};
 
 </script>
 </body>
