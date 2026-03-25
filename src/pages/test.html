@@ -3,7 +3,7 @@
 
 .usernamespot {
     background-image: linear-gradient(-90deg, red, orange);
-    width: 300px;
+    width: 350px;
     height: 40px;
 font-size: 24pt;
 clip-path: polygon(00% 00%,
@@ -24,7 +24,7 @@ clip-path: polygon(00% 00%,
   100% 00%,
   88% 100%,
   00% 100%);
-  left: -7vw;
+  left: -6vw;
   top: 7.5vh;
   position:fixed;
 }
@@ -33,15 +33,15 @@ clip-path: polygon(00% 00%,
 #usernameblank {
     color:white;
     text-shadow: 2px 2px 2px black;
-    text-align: right;
-transform: translate(-16%, 0%);
+    text-align: center;
+transform: translate(3%, 0%);
 }
 
 #balanceDisplay {
     color:white;
     text-shadow: 2px 2px 2px black;
-    text-align: right;
-transform: translate(-13%, -1%);
+    text-align: center;
+transform: translate(12%, 5%);
 }
 
 #logoutButton {
@@ -54,6 +54,36 @@ transform: translate(-13%, -1%);
     box-shadow: 2px 2px 1px red;
     height: 22px;
     width: 60px;
+    display: none;
+    cursor: pointer;
+}
+
+#loginButton {
+    bottom: 2vh;
+    right:  6vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 1px rgb(29, 230, 224);
+    height: 22px;
+    width: 54px;
+    display: none;
+    cursor: pointer;
+}
+
+#registerButton {
+    bottom: 2vh;
+    right: 1.5vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 1px rgb(29, 230, 224);
+    height: 22px;
+    width: 70px;
+    display: none;
+    cursor: pointer;
 }
 
 .shadowcontainer {
@@ -64,26 +94,109 @@ transform: translate(-13%, -1%);
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.6));
 }
 
-
+body {
+     background: url(/moneybackground.png), rgba(0, 0, 0, 0.616);
+    background-blend-mode: multiply;
+}
 
 </style>
 <body>
 <div class="shadowcontainer">
 <div class="usernamespot">
-<div id="usernameblank">serapher</div>
+<div id="usernameblank"></div>
 </div>
 </div>
 
 <div class="shadowcontainer">
 <div class="currencyspot">
-<div id="balanceDisplay">5 bepiscoin</div>
+<div id="balanceDisplay"></div>
 </div>
 </div>
 
+<form action="https://api.bepisesports.com/accounts/logout" method="POST">
+<button id="logoutButton" onclick="handleLogout()">logout!</button>
+
+</form>
 <a href="/racelogin">
-    <button id="logoutButton">login!!</button>
+    <button id="loginButton">login!!</button>
 </a>
 
+<a href="/raceregister">
+    <button id="registerButton">register!!</button>
+</a>
 
+<br>
+<div id="errorMessage" style="color: red; display: none;">you are logged out!</div>
 
+<script>
+
+const loadusername = async function() {
+    try {
+   const response = await fetch('https://api.bepisesports.com/accounts/me', {
+    credentials: 'include'
+    });
+
+    if (!response.ok) {
+            document.getElementById('usernameblank').innerText = "not logged in!!";
+            document.getElementById('loginButton').style.display = 'block';
+            document.getElementById('registerButton').style.display = 'block';
+            document.getElementById('balanceDisplay').innerText = "0 bepiscoin";
+            return;
+        }
+
+    const data = await response.json();
+
+    if (data && data.username) {
+        document.getElementById('usernameblank').innerText = data.username;
+        document.getElementById('logoutButton').style.display = 'block';
+    } else {
+        document.getElementById('usernameblank').innerText = "not logged in!";
+        document.getElementById('balanceDisplay').innerText = "0 bepiscoin";
+    }
+
+    const username = data.username;
+
+    document.getElementById('usernameblank').innerText = username;
+
+      }
+    catch (error) {
+        console.error("Error fetching data", error);
+    }
+}
+
+const loadBalance = async () => {
+    const response = await fetch('https://api.bepisesports.com/accounts/balances', {
+        credentials: 'include'
+    });
+    if (response.ok) {
+        const data = await response.json();
+        document.getElementById('balanceDisplay').innerText = `${data.currency} bepiscoin`;
+    }
+};
+
+const handleLogout = async () => {
+    const response = await fetch('https://api.bepisesports.com/accounts/logout', {
+        method: 'POST',
+        credentials: 'include'
+    });
+    if (resopnse.ok) {
+        window.location.href = 'https://bepisesports.com/bepisracetests';
+    } else {
+        alert("logout failed");
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadusername();
+    loadBalance();
+});   
+
+window.onload = () => {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('error') === 'loggedout') {
+    document.getElementById('errorMessage').style.display = 'block';
+    }
+};
+
+</script>
 </body>
