@@ -118,9 +118,9 @@ body {
     background-blend-mode: multiply;
 }
 
-.back {
+#back {
     bottom: 2vh;
-    left: 1.5vw;
+    left: 1vw;
     position: fixed;
     border: 1px white;
     background-color: black;
@@ -128,21 +128,20 @@ body {
     box-shadow: 2px 2px 0px red;
     height: 22px;
     width: 60px;
-    display: none;
+    display: block;
     cursor: pointer;
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.back:hover {
+#back:hover {
     background-color: rgb(214, 77, 52);
     transform: scale(1.1);
 }
 
 </style>
 <body>
-    <a href="https://bepisesports.com/" class="back">> back</a>
-<br>
 
+<br>
 <div class="shadowcontainer">
 <div class="usernamespot">
 <div id="usernameblank"></div>
