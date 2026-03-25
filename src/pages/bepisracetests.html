@@ -377,9 +377,9 @@ padding-left: 20vw;
 <div class="flex-child2">
 <img id="selectedRacer" src=""></img></div>
 <div class="flex-child2">
- <h1 id="yourbet">
+ <h1 id="yourbet">currently wagering...
     </h1>
-    <h2 id="typebeat"></h2>
+    <input type="number" ID="wager" name="quantity" min="1" max="4" oninput="enforceMax(this)">
 </div>
 <br><br><br></div>
 
@@ -643,6 +643,8 @@ const loadBalance = async () => {
     if (response.ok) {
         const data = await response.json();
         document.getElementById('balanceDisplay').innerText = `${data.currency} bepiscoin`;
+        const wagerInput = document.getElementById('wager');
+        wagerInput.max = data.currency;
     }
 };
 
@@ -671,6 +673,16 @@ if (urlParams.get('error') === 'loggedout') {
 };
 
 
+function enforceMax(inputElement) {
+  // Get the current value and the max limit
+  const maxValue = parseFloat(inputElement.getAttribute('max'));
+  const currentValue = parseFloat(inputElement.value);
+
+  // If the current value is greater than the max, set it to the max
+  if (currentValue > maxValue) {
+    inputElement.value = maxValue;
+  }
+}
 
 </script>
 </body>
