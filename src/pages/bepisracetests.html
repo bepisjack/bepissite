@@ -138,10 +138,35 @@ body {
     transform: scale(1.1);
 }
 
+#errorMessage {
+font-size: 40pt;
+margin: auto;
+text-align: center;
+color: white;
+text-shadow: 2px 2px 10px rgb(240, 92, 0), 2px 2px 2px rgb(240, 92, 0);
+animation-name: errorAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+animation-timing-function: ease;
+
+
+}
+
+@keyframes errorAnimation {
+    0% {transform: translateY(-300px)}
+    10% {transform: translateY(0px)}
+    14% {transform: rotate(4deg)}
+    19% {transform: rotate(-4deg)} 
+    23% {transform: rotate(2deg)}  
+    28% {transform: rotate(0deg)}  
+    60% {transform: translateY(0px)}
+    80% {transform: translateY(-300px)}
+    100% {transform: translateY(-301px)}
+}
+
 </style>
 <body>
 
-<br>
 <div class="shadowcontainer">
 <div class="usernamespot">
 <div id="usernameblank"></div>
@@ -171,7 +196,7 @@ body {
 </a>
 
 <br>
-<div id="errorMessage" style="color: red; display: none;">you are logged out!</div>
+<div id="errorMessage" style="display: none;">you are logged out!</div>
 
 <script>
 
@@ -224,7 +249,7 @@ const handleLogout = async () => {
         method: 'POST',
         credentials: 'include'
     });
-    if (resopnse.ok) {
+    if (response.ok) {
         window.location.href = 'https://bepisesports.com/bepisracetests';
     } else {
         alert("logout failed");
