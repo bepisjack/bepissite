@@ -149,7 +149,8 @@ const loadusername = async function() {
         document.getElementById('usernameblank').innerText = data.username;
         document.getElementById('logoutButton').style.display = 'block';
     } else {
-        document.getElementById('usernameblank').innerText = "Not Logged In!";
+        document.getElementById('usernameblank').innerText = "not logged in!";
+        document.getElementById('balanceDisplay').innerText = "0 bepiscoin";
     }
 
     const username = data.username;
