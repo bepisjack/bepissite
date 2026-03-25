@@ -83,6 +83,13 @@ transform: translate(-18%, 0%);
     display: none;
 }
 
+.shadowcontainer {
+    position: fixed;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.6));
+}
 
 
 
@@ -91,12 +98,16 @@ transform: translate(-18%, 0%);
 
 </style>
 <body>
+<div class="shadowcontainer">
 <div class="usernamespot">
 <div id="usernameblank">serapher</div>
 </div>
-<br>
+</div>
+
+<div class="shadowcontainer">
 <div class="currencyspot">
 <div id="balanceDisplay">5 bepiscoin</div>
+</div>
 </div>
 
 <form action="https://api.bepisesports.com/accounts/logout" method="POST">

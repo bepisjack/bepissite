@@ -24,7 +24,7 @@ clip-path: polygon(00% 00%,
   100% 00%,
   88% 100%,
   00% 100%);
-  left: -6vw;
+  left: -7vw;
   top: 7.5vh;
   position:fixed;
 }
@@ -34,14 +34,14 @@ clip-path: polygon(00% 00%,
     color:white;
     text-shadow: 2px 2px 2px black;
     text-align: right;
-transform: translate(-18%, 0%);
+transform: translate(-16%, 0%);
 }
 
 #balanceDisplay {
     color:white;
     text-shadow: 2px 2px 2px black;
     text-align: right;
-transform: translate(-18%, 0%);
+transform: translate(-13%, -1%);
 }
 
 #logoutButton {
@@ -56,17 +56,29 @@ transform: translate(-18%, 0%);
     width: 60px;
 }
 
+.shadowcontainer {
+    position: fixed;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.6));
+}
+
+
 
 </style>
 <body>
+<div class="shadowcontainer">
 <div class="usernamespot">
 <div id="usernameblank">serapher</div>
 </div>
-<br>
+</div>
+
+<div class="shadowcontainer">
 <div class="currencyspot">
 <div id="balanceDisplay">5 bepiscoin</div>
 </div>
-
+</div>
 
 <a href="/racelogin">
     <button id="logoutButton">login!!</button>
