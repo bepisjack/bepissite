@@ -44,7 +44,6 @@ transform: translate(3%, 0%);
 transform: translate(12%, 5%);
 }
 
-
 #logoutButton {
     bottom: 2vh;
     right: 1.5vw;
@@ -59,6 +58,11 @@ transform: translate(12%, 5%);
     cursor: pointer;
 }
 
+#logoutButton:hover {
+    background-color: rgb(214, 77, 52);
+    transform: scale(1.1);
+}
+
 #loginButton {
     bottom: 2vh;
     right:  6vw;
@@ -71,6 +75,12 @@ transform: translate(12%, 5%);
     width: 54px;
     display: none;
     cursor: pointer;
+    transition: transform 0.1 ease, background-color 0.1 ease;
+}
+
+#loginButton:hover {
+    background-color: aquamarine;
+    transform: scale(1.1);
 }
 
 #registerButton {
@@ -85,6 +95,12 @@ transform: translate(12%, 5%);
     width: 70px;
     display: none;
     cursor: pointer;
+    transition: transform 0.1 ease, background-color 0.1 ease;
+}
+
+#registerButton:hover {
+    background-color: aquamarine;
+    transform: scale(1.1);
 }
 
 .shadowcontainer {
