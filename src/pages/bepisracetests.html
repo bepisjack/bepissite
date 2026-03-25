@@ -189,6 +189,22 @@ animation-timing-function: ease;
     min-width: 0;
 }
 
+.flex-container2 {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 60vw;
+    margin: auto;
+}
+
+.flex-child2 {
+    display: flex;
+    flex-direction: column;
+    font-family:supamario;
+    text-align: center;
+    flex: 1 1;
+    min-width: 0;
+}
 #raceDates {
 text-align: left;
 color: white;
@@ -352,8 +368,20 @@ padding-left: 20vw;
 </div>
 
 <br><br>
-<img id="selectedRacer" src=""></img>
-<br><br><br>
+<div class="flex-container2">
+<div class="flex-child2">
+    <h1 id="flexname">
+    </h1>
+    <h2 id="flexbio"></h2>
+</div>
+<div class="flex-child2">
+<img id="selectedRacer" src=""></img></div>
+<div class="flex-child2">
+ <h1 id="yourbet">
+    </h1>
+    <h2 id="typebeat"></h2>
+</div>
+<br><br><br></div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -382,6 +410,14 @@ const button8 = document.getElementById('racer8');
 
 button1.addEventListener('click', function() {
     changeRacer.play();
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation')
+    void flexname.offsetWidth;
+    flexname.classList.add('racerAnimation')
+    flexbio.classList.remove('racerAnimation')
+    void flexbio.offsetWidth;
+    flexbio.classList.add('racerAnimation')
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer1')
     selectedSmall.classList.remove('racerAnimation3')
@@ -404,6 +440,15 @@ button1.addEventListener('click', function() {
 
 button2.addEventListener('click', function() {
     changeRacer.play();
+
+    flexname.classList.remove('racerAnimation2')
+    void flexname.offsetWidth;
+    flexname.classList.add('racerAnimation2')
+     flexbio.classList.remove('racerAnimation2')
+    void flexbio.offsetWidth;
+    flexbio.classList.add('racerAnimation2')
+         document.getElementById('flexname').innerText = "hayden gomez";
+    document.getElementById('flexbio').innerText = "he did that";
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer2')
     selectedSmall.classList.remove('racerAnimation3')
