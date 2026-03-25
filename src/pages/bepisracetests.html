@@ -60,7 +60,7 @@ transform: translate(-18%, 0%);
 
 #loginButton {
     bottom: 2vh;
-    right:  5vw;
+    right:  6vw;
     position: fixed;
     border: 1px white;
     background-color: black;
@@ -137,9 +137,10 @@ const loadusername = async function() {
     });
 
     if (!response.ok) {
-            document.getElementById('usernameblank').innerText = "Not Logged In!";
-             document.getElementById('loginButton').style.display = 'block';
+            document.getElementById('usernameblank').innerText = "not logged in!!";
+            document.getElementById('loginButton').style.display = 'block';
             document.getElementById('registerButton').style.display = 'block';
+            document.getElementById('balanceDisplay').innerText = "0 bepiscoin";
             return;
         }
 
