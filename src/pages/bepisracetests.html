@@ -12,6 +12,23 @@
   appearance: textfield;
 }
 
+#flexname {
+    font-size: 46pt;
+    color: white;
+}
+
+#flexbio {
+    font-size: 36pt;
+}
+
+#yourbet {
+    font-size: 32pt;
+}
+
+#end {
+    font-size: 32pt;
+}
+
 .usernamespot {
     background-image: linear-gradient(-90deg, red, orange);
     width: 350px;
@@ -207,9 +224,10 @@ animation-timing-function: ease;
 .flex-container2 {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    width: 60vw;
+    gap: 20px;
+    width: 70vw;
     margin: auto;
+    height: 26vh;
 }
 
 .flex-child2 {
@@ -219,12 +237,13 @@ animation-timing-function: ease;
     text-align: center;
     flex: 1 1;
     min-width: 0;
+      font-family: test2;
 }
 
 .flex-container3 {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 10px;
     width: 18vw;
     margin: auto;
 }
@@ -234,8 +253,8 @@ animation-timing-function: ease;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    flex: 1 1;
     min-width: 0;
+    justify-content: center;
 }
 
 
@@ -349,22 +368,48 @@ padding-left: 20vw;
 
 
 .plusminus {
-    width: 40px;
+    width: 30px;
     opacity: 0;
+    height: 40px;
+    font-size: 26pt;
+     background-color: transparent;
+    border: none;
 }
 
 .currently {
     text-align: center;
     opacity: 0;
+
 }
 
 .risking {
     opacity:0;
+
 }
 
 .coinnumber {
     opacity:0;
     text-align: center;
+      font-family: test2;
+          font-size: 40pt;
+          justify-content: center;
+    height: 44px;
+    background-color: transparent;
+    width: 30px;
+    border: none;
+}
+
+.submitWager {
+    opacity:0;
+    text-align: center;
+    width: 260px;
+    margin: auto;
+      font-family: test2;
+    height: 56px;
+    font-size: 32pt;
+      background-image: linear-gradient(-90deg, red, orange);
+   
+
 }
 
 </style>
@@ -431,27 +476,31 @@ padding-left: 20vw;
 <input type="image" src="/sonicmarble.png" id="racer8"></div>
 </div>
 
-<br><br>
+<br>
 <div class="flex-container2">
 <div class="flex-child2">
-    <h1 id="flexname">
-    </h1>
-    <h2 id="flexbio"></h2>
+    <div id="flexname">
+    </div>
+    <br><br>
+    <div id="flexbio"></div>
 </div>
 <div class="flex-child2">
 <img id="selectedRacer" src=""></img></div>
 <div class="flex-child2">
- <h1 id="yourbet" class="currently">currently wagering...
-    </h1>
+ <div id="yourbet" class="currently">currently wagering...
+ </div>
     <div class="flex-container3">
     <div class="flex-child3">
     <button type="button" class="plusminus" id="plusminus" onclick="incrementValue2()">-</button></div>
      <div class="flex-child3">    
+    <form class="betting" action="https://api.bepisesports.com/accounts/placebet" method="POST">
     <input type="number" id="quantityInput" class="coinnumber" name="quantity" min="0" max="4" step="1" value="0" oninput="enforceMax(this)"></div>
      <div class="flex-child3">
-    <button type="button" class="plusminus" id="plusminus2" onclick="incrementValue()">+</button></div></div>
-    <h1 id="end" class="risking">bepiscoins!</h1>
-</div></div>
+    <button type="button" class="plusminus" id="plusminus2" onclick="incrementValue()">+</button></div>
+<div class="flex-child3"><div id="end" class="risking">bepiscoins!</div></div>
+ 
+</div>
+ <button type="submit" id="submitButton" class="submitWager">submit !!</button></div>
 <br><br><br></div>
 
 
@@ -484,9 +533,11 @@ const rightside2 = document.getElementById('end');
 const rightside3 = document.getElementById('yourbet');
 const rightside4 = document.getElementById('quantityInput')
 const rightside5 = document.getElementById('plusminus2')
+const rightside6 = document.getElementById('submitButton')
 
 button1.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer1";
     document.getElementById('flexname').innerText = "jack krueger";
     document.getElementById('flexbio').innerText = "i did that";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -497,6 +548,7 @@ button1.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexbio.offsetWidth;
     flexbio.classList.add('racerAnimation2')
@@ -521,7 +573,7 @@ button1.addEventListener('click', function() {
 
 button2.addEventListener('click', function() {
     changeRacer.play();
-
+    const favorite = "racer2";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth;
     flexname.classList.add('racerAnimation2')
@@ -532,6 +584,7 @@ button2.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')    
     flexbio.classList.add('racerAnimation2')
     document.getElementById('flexname').innerText = "hayden gomez";
     document.getElementById('flexbio').innerText = "Gamer, cyclist, doing school stuff.";
@@ -557,6 +610,7 @@ button2.addEventListener('click', function() {
 
 button3.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer3";
     const selected = document.getElementById('selectedRacer')
     document.getElementById('flexname').innerText = "tristan peevy";
     document.getElementById('flexbio').innerText = "he studied abroad";
@@ -575,6 +629,7 @@ button3.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -591,6 +646,7 @@ button3.addEventListener('click', function() {
 
 button4.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer4";
     document.getElementById('flexname').innerText = "corben gomez";
     document.getElementById('flexbio').innerText = "emerald in league";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -609,6 +665,7 @@ button4.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -625,6 +682,7 @@ button4.addEventListener('click', function() {
 
 button5.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer5";
     document.getElementById('flexname').innerText = "frankie cueto";
     document.getElementById('flexbio').innerText = "coworkers with mickey mouse";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -643,6 +701,7 @@ button5.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -659,6 +718,7 @@ button5.addEventListener('click', function() {
 
 button6.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer6";
     document.getElementById('flexname').innerText = "Barack Obama";
     document.getElementById('flexbio').innerText = "michelle Obama's husband";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -677,6 +737,7 @@ button6.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -693,6 +754,7 @@ button6.addEventListener('click', function() {
 
 button7.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer7";
     document.getElementById('flexname').innerText = "jokair";
     document.getElementById('flexbio').innerText = "french subway encounter";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -711,6 +773,7 @@ button7.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -727,6 +790,7 @@ button7.addEventListener('click', function() {
 
 button8.addEventListener('click', function() {
     changeRacer.play();
+    const favorite = "racer8";
     document.getElementById('flexname').innerText = "sonic";
     document.getElementById('flexbio').innerText = "fastest thing alive!";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -745,6 +809,7 @@ button8.addEventListener('click', function() {
     rightside3.classList.add('racerAnimation2')
     rightside4.classList.add('racerAnimation2')
     rightside5.classList.add('racerAnimation2')
+    rightside6.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
