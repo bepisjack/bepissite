@@ -24,6 +24,7 @@ clip-path: polygon(00% 00%,
   left: -3vw;
   top: 2vh;
   position:fixed;
+  font-family: test;
 }
 
 .currencyspot {
@@ -40,6 +41,7 @@ clip-path: polygon(00% 00%,
   position:fixed;
     width: 60;
     text-align: center;
+      font-family: test;
 }
 
 
@@ -240,7 +242,7 @@ animation-timing-function: ease;
 #raceDates {
 text-align: left;
 color: white;
-font-family: cursive;
+font-family: test;
 font-size: 36pt;
 width: 60vw;
 padding-left: 20vw;
@@ -249,7 +251,7 @@ padding-left: 20vw;
 #raceTitle {
 text-align: left;
 color: white;
-font-family: cursive;
+font-family: test;
 font-size: 36pt;
 width: 60vw;
 padding-left: 20vw;
@@ -258,7 +260,7 @@ padding-left: 20vw;
 #racers {
 text-align: center;
 color: white;
-font-family: cursive;
+font-family: test;
 font-size: 36pt;
 width: 60vw;
 padding-left: 20vw;
@@ -335,6 +337,12 @@ padding-left: 20vw;
     100% {filter: brightness(0.5)}
 }
 
+@font-face {
+    font-family: test;
+    src: url(/GothicByte.ttf);
+}
+
+
 .plusminus {
     width: 40px;
     opacity: 0;
@@ -351,6 +359,7 @@ padding-left: 20vw;
 
 .coinnumber {
     opacity:0;
+    text-align: center;
 }
 
 </style>
@@ -520,7 +529,7 @@ button2.addEventListener('click', function() {
     rightside5.classList.add('racerAnimation2')
     flexbio.classList.add('racerAnimation2')
     document.getElementById('flexname').innerText = "hayden gomez";
-    document.getElementById('flexbio').innerText = "he did that";
+    document.getElementById('flexbio').innerText = "Gamer, cyclist, doing school stuff.";
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer2')
     selectedSmall.classList.remove('racerAnimation3')
@@ -544,8 +553,8 @@ button2.addEventListener('click', function() {
 button3.addEventListener('click', function() {
     changeRacer.play();
     const selected = document.getElementById('selectedRacer')
-    document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexname').innerText = "tristan peevy";
+    document.getElementById('flexbio').innerText = "he studied abroad";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
@@ -577,8 +586,8 @@ button3.addEventListener('click', function() {
 
 button4.addEventListener('click', function() {
     changeRacer.play();
-    document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexname').innerText = "corben gomez";
+    document.getElementById('flexbio').innerText = "emerald in league";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     const selected = document.getElementById('selectedRacer')
@@ -611,8 +620,8 @@ button4.addEventListener('click', function() {
 
 button5.addEventListener('click', function() {
     changeRacer.play();
-    document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexname').innerText = "frankie cueto";
+    document.getElementById('flexbio').innerText = "coworkers with mickey mouse";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     const selected = document.getElementById('selectedRacer')
@@ -645,8 +654,8 @@ button5.addEventListener('click', function() {
 
 button6.addEventListener('click', function() {
     changeRacer.play();
-    document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexname').innerText = "Barack Obama";
+    document.getElementById('flexbio').innerText = "michelle Obama's husband";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
@@ -679,8 +688,8 @@ button6.addEventListener('click', function() {
 
 button7.addEventListener('click', function() {
     changeRacer.play();
-    document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexname').innerText = "jokair";
+    document.getElementById('flexbio').innerText = "french subway encounter";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
@@ -713,8 +722,8 @@ button7.addEventListener('click', function() {
 
 button8.addEventListener('click', function() {
     changeRacer.play();
-    document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexname').innerText = "sonic";
+    document.getElementById('flexbio').innerText = "fastest thing alive!";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
