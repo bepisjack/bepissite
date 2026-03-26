@@ -379,7 +379,9 @@ padding-left: 20vw;
 <div class="flex-child2">
  <h1 id="yourbet">currently wagering...
     </h1>
-    <input type="number" ID="wager" name="quantity" min="0" max="4" oninput="enforceMax(this)">
+    <button type="button" onclick="incrementValue2()">-</button>
+    <input type="number" ID="wager" id="quantityInput" name="quantity" min="0" max="4" step="1" oninput="enforceMax(this)">
+    <button type="button" onclick="incrementValue()">+</button>
 </div>
 <br><br><br></div>
 
@@ -683,6 +685,15 @@ function enforceMax(inputElement) {
     inputElement.value = maxValue;
   }
 }
-
+function incrementValue() {
+  const inputElement = document.getElementById("quantityInput");
+  // stepUp() increments the value by the 'step' attribute value (defaults to 1)
+  inputElement.stepUp(); 
+}
+function incrementValue2() {
+  const inputElement = document.getElementById("quantityInput");
+  // stepUp() increments the value by the 'step' attribute value (defaults to 1)
+  inputElement.stepDown(); 
+}
 </script>
 </body>
