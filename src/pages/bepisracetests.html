@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <style>
 
+.coinnumber::-webkit-outer-spin-button,
+.coinnumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.coinnumber[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 .usernamespot {
     background-image: linear-gradient(-90deg, red, orange);
     width: 350px;
@@ -27,6 +38,8 @@ clip-path: polygon(00% 00%,
   left: -6vw;
   top: 7.5vh;
   position:fixed;
+    width: 60;
+    text-align: center;
 }
 
 
@@ -205,6 +218,25 @@ animation-timing-function: ease;
     flex: 1 1;
     min-width: 0;
 }
+
+.flex-container3 {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 18vw;
+    margin: auto;
+}
+
+.flex-child3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    flex: 1 1;
+    min-width: 0;
+}
+
+
 #raceDates {
 text-align: left;
 color: white;
@@ -303,6 +335,24 @@ padding-left: 20vw;
     100% {filter: brightness(0.5)}
 }
 
+.plusminus {
+    width: 40px;
+    opacity: 0;
+}
+
+.currently {
+    text-align: center;
+    opacity: 0;
+}
+
+.risking {
+    opacity:0;
+}
+
+.coinnumber {
+    opacity:0;
+}
+
 </style>
 <body>
 
@@ -377,12 +427,17 @@ padding-left: 20vw;
 <div class="flex-child2">
 <img id="selectedRacer" src=""></img></div>
 <div class="flex-child2">
- <h1 id="yourbet">currently wagering...
+ <h1 id="yourbet" class="currently">currently wagering...
     </h1>
-    <button type="button" onclick="incrementValue2()">-</button>
-    <input type="number" ID="wager" id="quantityInput" name="quantity" min="0" max="4" step="1" oninput="enforceMax(this)">
-    <button type="button" onclick="incrementValue()">+</button>
-</div>
+    <div class="flex-container3">
+    <div class="flex-child3">
+    <button type="button" class="plusminus" id="plusminus" onclick="incrementValue2()">-</button></div>
+     <div class="flex-child3">    
+    <input type="number" id="quantityInput" class="coinnumber" name="quantity" min="0" max="4" step="1" value="0" oninput="enforceMax(this)"></div>
+     <div class="flex-child3">
+    <button type="button" class="plusminus" id="plusminus2" onclick="incrementValue()">+</button></div></div>
+    <h1 id="end" class="risking">bepiscoins!</h1>
+</div></div>
 <br><br><br></div>
 
 
@@ -410,16 +465,27 @@ const button6 = document.getElementById('racer6');
 const button7 = document.getElementById('racer7');
 const button8 = document.getElementById('racer8');
 
+const rightside1 = document.getElementById('plusminus');
+const rightside2 = document.getElementById('end');
+const rightside3 = document.getElementById('yourbet');
+const rightside4 = document.getElementById('quantityInput')
+const rightside5 = document.getElementById('plusminus2')
+
 button1.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('flexname').innerText = "jack krueger";
     document.getElementById('flexbio').innerText = "i did that";
-    flexname.classList.remove('racerAnimation')
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth;
-    flexname.classList.add('racerAnimation')
-    flexbio.classList.remove('racerAnimation')
+    flexname.classList.add('racerAnimation2')
+    rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexbio.offsetWidth;
-    flexbio.classList.add('racerAnimation')
+    flexbio.classList.add('racerAnimation2')
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer1')
     selectedSmall.classList.remove('racerAnimation3')
@@ -434,8 +500,7 @@ button1.addEventListener('click', function() {
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/jackmarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
     selected.classList.add('racerAnimation');
 });
@@ -443,13 +508,18 @@ button1.addEventListener('click', function() {
 button2.addEventListener('click', function() {
     changeRacer.play();
 
-    flexname.classList.remove('racerAnimation2')
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth;
     flexname.classList.add('racerAnimation2')
-     flexbio.classList.remove('racerAnimation2')
+     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexbio.offsetWidth;
+    rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     flexbio.classList.add('racerAnimation2')
-         document.getElementById('flexname').innerText = "hayden gomez";
+    document.getElementById('flexname').innerText = "hayden gomez";
     document.getElementById('flexbio').innerText = "he did that";
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer2')
@@ -465,8 +535,7 @@ button2.addEventListener('click', function() {
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/haydenmarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
     selected.classList.add('racerAnimation');
     
@@ -475,10 +544,23 @@ button2.addEventListener('click', function() {
 button3.addEventListener('click', function() {
     changeRacer.play();
     const selected = document.getElementById('selectedRacer')
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
     const selectedSmall = document.getElementById('racer3')
     selectedSmall.classList.remove('racerAnimation3')
     selectedSmall.classList.remove('racerAnimation4')
     void selectedSmall.offsetWidth;
+    rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -488,19 +570,31 @@ button3.addEventListener('click', function() {
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/tristanmarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
     selected.classList.add('racerAnimation');
 });
 
 button4.addEventListener('click', function() {
     changeRacer.play();
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer4')
     selectedSmall.classList.remove('racerAnimation3')
     selectedSmall.classList.remove('racerAnimation4')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
     void selectedSmall.offsetWidth;
+     rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -510,19 +604,31 @@ button4.addEventListener('click', function() {
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/corbenmarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
     selected.classList.add('racerAnimation');
 });
 
 button5.addEventListener('click', function() {
     changeRacer.play();
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer5')
     selectedSmall.classList.remove('racerAnimation3')
     selectedSmall.classList.remove('racerAnimation4')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
     void selectedSmall.offsetWidth;
+     rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -532,19 +638,31 @@ button5.addEventListener('click', function() {
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/frankiemarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+     selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
-    selected.classList.add('racerAnimation2');
+    selected.classList.add('racerAnimation');
 });
 
 button6.addEventListener('click', function() {
     changeRacer.play();
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer6')
     selectedSmall.classList.remove('racerAnimation3')
     selectedSmall.classList.remove('racerAnimation4')
     void selectedSmall.offsetWidth;
+     rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -554,19 +672,31 @@ button6.addEventListener('click', function() {
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/obamamarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
-    selected.classList.add('racerAnimation2');
+    selected.classList.add('racerAnimation');
 });
 
 button7.addEventListener('click', function() {
     changeRacer.play();
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer7')
     selectedSmall.classList.remove('racerAnimation3')
     selectedSmall.classList.remove('racerAnimation4')
     void selectedSmall.offsetWidth;
+     rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -576,19 +706,31 @@ button7.addEventListener('click', function() {
     button6.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
     selected.src = "/jokairmarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
-    selected.classList.add('racerAnimation2');
+    selected.classList.add('racerAnimation');
 });
 
 button8.addEventListener('click', function() {
     changeRacer.play();
+    document.getElementById('flexname').innerText = "jack krueger";
+    document.getElementById('flexbio').innerText = "i did that";
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer8')
     selectedSmall.classList.remove('racerAnimation3')
     selectedSmall.classList.remove('racerAnimation4')
     void selectedSmall.offsetWidth;
+     rightside1.classList.add('racerAnimation2')
+    rightside2.classList.add('racerAnimation2')
+    rightside3.classList.add('racerAnimation2')
+    rightside4.classList.add('racerAnimation2')
+    rightside5.classList.add('racerAnimation2')
     selectedSmall.classList.add('racerAnimation3')
     button1.classList.add('racerAnimation4')
     button2.classList.add('racerAnimation4')
@@ -598,10 +740,9 @@ button8.addEventListener('click', function() {
     button6.classList.add('racerAnimation4')
     button7.classList.add('racerAnimation4')
     selected.src = "/sonicmarble.png"
-    selected.classList.remove('racerAnimation')
-    selected.classList.remove('racerAnimation2')
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
-    selected.classList.add('racerAnimation2');
+    selected.classList.add('racerAnimation');
 });
 
 const loadusername = async function() {
@@ -645,7 +786,7 @@ const loadBalance = async () => {
     if (response.ok) {
         const data = await response.json();
         document.getElementById('balanceDisplay').innerText = `${data.currency} bepiscoin`;
-        const wagerInput = document.getElementById('wager');
+        const wagerInput = document.getElementById('quantityInput');
         wagerInput.max = data.currency;
     }
 };
