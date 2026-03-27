@@ -1,17 +1,112 @@
+<!DOCTYPE html>
 
+<style>
+
+    
+body {
+     background: url(/testbg8.png), rgba(0, 0, 0, 0.418);
+    background-size: 80%;
+    background-blend-mode: multiply;
+}
+
+@font-face {
+    font-family: test;
+    src: url(/GothicByte.ttf);
+}
+
+@font-face {
+    font-family: test2;
+    src: url(/StarCrush.ttf);
+}
+
+.form1 {
+    display: flex;
+    font-family: test2;
+    width: auto;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    text-align: center;
+    width: 200px;
+    align-items: center;
+    
+}
+
+.usernamelabel {
+    color: white;
+    font-size: 34pt;
+    text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+}
+
+.usernameentry {
+  height: 40px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.271);
+    background-blend-mode: multiply;
+    color: white;
+    font-family: test2;
+    font-size: 26pt;
+    text-align: center;
+        box-shadow: 2px 2px 0px black;
+}
+
+.pinlabel {
+    color: white;
+    font-size: 28pt;
+  text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+  line-height: 1.4;
+}
+
+
+.pinentry {
+  height: 40px;
+    width: 90px;
+    background-color: rgba(0, 0, 0, 0.271);
+    background-blend-mode: multiply;
+    color: white;
+    font-family: test2;
+    font-size: 26pt;
+    text-align: center;
+    box-shadow: 2px 2px 0px black;
+}
+
+.registerbutton {
+    font-family: test2;
+    background-color: rgba(0, 0, 0, 0.267);
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    font-size: 14pt;
+    filter: drop-shadow(0px 0px 1px rgb(34, 24, 141));
+    border: 2px outset black;
+}
+
+.errormessage {
+    color: orangered;
+    font-size: 24pt;
+    width: 400px;
+    text-shadow: 2px 2px 0px rgb(0, 0, 0), 0px 0px 2px black;
+}
+
+
+</style>
+
+<br><br><br><br><br><br><br><br><br><br><br>
 <form class="form1" action="https://api.bepisesports.com/accounts/register" method="POST">
 
-<label for="username">username: </label>
-<input type="text" id="usernameEntry" name="username" rows="1"></textarea>
+<label for="username" class="usernamelabel">username</label>
+
+<input type="text" id="usernameEntry" name="username" class="usernameentry" maxlength="14" minlength="1" rows="1" required></textarea>
 <br>
 <br>
-<label for="pin">pin: </label>
-<input type="text" id="pinEntry" name="pin" maxlength="4"></textarea>
+<label for="pin" class="pinlabel">pin</label>
+<input type="text" id="pinEntry" name="pin" class="pinentry" minlength="4" maxlength="4" required></textarea>
 
 <br><br>
-<button type="submit" id="submitButton">register!</button>
+<button type="submit" class="registerbutton" id="submitButton">register!</button>
 <br>
-<div id="errorMessage" style="color: red; display: none;">username already taken!</div>
+<div id="errorMessage" class="errormessage" style="color: red; display: none;">username already taken!</div>
 </form>
 
 <script>
