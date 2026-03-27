@@ -591,7 +591,7 @@ animation-fill-mode: forwards;
     <div class="flex-child3">
     <button type="button" class="plusminus" id="plusminus" onclick="incrementValue2()">-</button></div>
      <div class="flex-child3">    
-    <form class="betting" action="https://api.bepisesports.com/accounts/placebet" method="PUT">
+    <form class="betting" onsubmit="event.preventDefault; submitBet();">
     <input type="number" id="quantityInput" class="coinnumber" name="quantity" min="0" max="0" step="1" value="0" oninput="enforceMax(this)"></div>
      <div class="flex-child3">
     <button type="button" class="plusminus" id="plusminus2" onclick="incrementValue()">+</button></div></div>
@@ -1053,5 +1053,37 @@ function incrementValue2() {
   // stepUp() increments the value by the 'step' attribute value (defaults to 1)
   inputElement.stepDown(); 
 }
+
+async function submitBet() {
+    const statusDiv = document.getElementById('bet-status');
+    const betData = {
+        quantity: document.getElementById('quantity').value,
+        selection: document.getElementById('selection').value,
+        username: document.getElementById('bettorusername').value
+    };
+
+try {
+    const response = await fetch ('/accounts/placebet', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(betData)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+        statusDiv.innerText = result.message;
+    } else {
+        statusDiv.innerText = result.error;
+    }
+} catch (err) {
+    statusDiv.innerText = "server error !";
+    }
+
+}
+
+
+
+
 </script>
 </body>
