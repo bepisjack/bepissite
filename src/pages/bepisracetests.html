@@ -1073,6 +1073,7 @@ try {
     const result = await response.json();
 
     if (response.ok) {
+        loadBalance();
         statusDiv.innerText = result.message;
         statusDiv.classList.add('errorAnimation');
                        statusDiv.classList.add('successMessage');
