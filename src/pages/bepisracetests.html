@@ -1055,9 +1055,10 @@ function incrementValue2() {
 }
 
 async function submitBet() {
+    statusDiv.className = '';
     const statusDiv = document.getElementById('statusDiv');
     const betData = {
-        quantity: document.getElementById('quantity').value,
+        quantity: document.getElementById('quantityInput').value,
         selection: document.getElementById('selection').value,
         username: document.getElementById('bettorusername').value
     };
@@ -1075,7 +1076,7 @@ try {
         statusDiv.innerText = result.message;
         statusDiv.classList.add('errorAnimation');
                        statusDiv.classList.add('successMessage');
-        getElementById('quantityInput').value = "0";
+      document.getElementById('quantityInput').value = "0";
     } else {
         statusDiv.innerText = result.error;
 
