@@ -202,12 +202,12 @@ text-shadow: 2px 2px 0px forestgreen;
     0% {opacity: 0}
     0% {transform: translateY(-600px)}
     5% {opacity: 1}
-    10% {transform: translateY(0px)}
+    10% {transform: translateY(300px)}
     14% {transform: rotate(4deg)}
     19% {transform: rotate(-4deg)} 
     23% {transform: rotate(2deg)}  
     28% {transform: rotate(0deg)}  
-    60% {transform: translateY(0px)}
+    60% {transform: translateY(300px)}
     70% {opacity: 1;}
     80% {transform: translateY(-600px)}
     90% {opacity: 0}
@@ -388,7 +388,8 @@ animation-fill-mode: forwards;
 #statusDiv {
     position: fixed;
     top:0;
-    left:50vw;
+    left:50%;
+    transform: translateX(-50%);
     margin: auto;
     width:auto;
     text-align: center;
