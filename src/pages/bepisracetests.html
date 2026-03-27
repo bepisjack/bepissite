@@ -1212,6 +1212,10 @@ const refreshTicker = async function() {
            `
             betscontainer.appendChild(row); 
         });
+
+        setTimeout(() => {
+            betscontainer.scrollTop = betscontainer.scrollHeight;
+}, 0);
         if (betscontainer.scrollHeight - betscontainer.scrollTop <= betscontainer.clientHeight + 100) {
     betscontainer.scrollTop = betscontainer.scrollHeight;
 }
@@ -1220,7 +1224,7 @@ const refreshTicker = async function() {
         }
     };    
 
-setInterval(refreshTicker, 50000);
+setInterval(refreshTicker, 5000);
 
 document.addEventListener('DOMContentLoaded', () => {
     loadusername();
