@@ -386,12 +386,18 @@ animation-fill-mode: forwards;
 }
 
 #statusDiv {
+    position: fixed;
+    top:0;
+    left:50vw;
     margin: auto;
     width:auto;
     text-align: center;
     font-family: test2;
     font-size: 36pt;
     opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 9999;
+
 }
 
 #movingcontainer {
