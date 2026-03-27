@@ -197,7 +197,9 @@ color: rgb(17, 148, 15);
 
 
 @keyframes errorAnimation {
+    0% {opacity: 0}
     0% {transform: translateY(-600px)}
+    5% {opacity: 1}
     10% {transform: translateY(0px)}
     14% {transform: rotate(4deg)}
     19% {transform: rotate(-4deg)} 
@@ -205,6 +207,7 @@ color: rgb(17, 148, 15);
     28% {transform: rotate(0deg)}  
     60% {transform: translateY(0px)}
     80% {transform: translateY(-600px)}
+    90% {opacity: 0}
     100% {transform: translateY(-601px)}
 }
 
@@ -379,6 +382,14 @@ animation-fill-mode: forwards;
     animation-timing-function: ease;
 }
 
+#statusDiv {
+    margin: auto;
+    width:auto;
+    text-align: center;
+    font-family: test2;
+    font-size: 36;
+    opacity: 0;
+}
 
 #movingcontainer {
     opacity: 0;
