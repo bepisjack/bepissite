@@ -1075,9 +1075,10 @@ try {
         statusDiv.innerText = result.message;
         statusDiv.classList.add('errorAnimation');
                        statusDiv.classList.add('successMessage');
-
+        getElementById('quantityInput').value = "0";
     } else {
         statusDiv.innerText = result.error;
+
                 statusDiv.classList.add('errorAnimation');
             statusDiv.classList.add('errorMessage'); 
     }
