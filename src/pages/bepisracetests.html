@@ -122,26 +122,35 @@ height: 28px;
 
 .betslog {
     max-height: 400px;
-    overflow-y:hidden;
+    overflow-y:auto;
     word-wrap: break-word;
     position: absolute;
     top: 2vh;
     right: 2vw;
-     background-color: black;
+     background-color: rgba(0, 0, 0, 0.551);
+    
+     -webkit-overflow-scrolling: touch;
+}
+
+.betslog::-webkit-scrollbar {
+    display: none;
+}
+
+.betslog {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 
 .betslog p {
 padding: 5px;
-}
-
-.betslog p:nth-child(even) {
-    background-color: blue;
+  background-color: rgba(0, 0, 0, 0.586);
 }
 
 
 
 .log-time {
     color: white;
+    font-size: 12pt;
 }
 
 .log-user {
