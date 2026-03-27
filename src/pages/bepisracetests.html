@@ -295,20 +295,20 @@ text-shadow: 2px 2px 0px forestgreen;
 text-align: left;
 color: white;
 font-family: test2;
-font-size: 50pt;
+font-size: 32pt;
 width: 60vw;
-padding-left: 20vw;
-text-shadow: 2px 2px 2px goldenrod, 2px 2px 4px white;
+padding-left: 16vw;
+text-shadow: 2px 2px 2px rgb(154, 91, 2), 2px 2px 1px white, 0px 0px 8px black;
 }
 
 #raceTitle {
 text-align: left;
 color: white;
-font-family: test;
-font-size: 42pt;
+font-family: test2;
+font-size: 60pt;
 width: 60vw;
-padding-left: 20vw;
-text-shadow: 2px 2px 2px goldenrod, 2px 2px 2px white;
+padding-left: 16vw;
+text-shadow: 2px 2px 2px rgb(170, 104, 5), 2px 2px 4px white, 0px 0px 8px black,  2px 2px 0px black;
 }
 
 #racers {
@@ -538,6 +538,8 @@ animation-fill-mode: forwards;
 </style>
 <body>
 
+
+   
 <div class="shadowcontainer">
 <div class="usernamespot">
 <div id="usernameblank"></div>
@@ -873,7 +875,7 @@ button6.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "racer6";
     document.getElementById('flexname').innerText = "Barack Obama";
-    document.getElementById('flexbio').innerText = "michelle Obama's husband";
+    document.getElementById('flexbio').innerText = "Michelle Obama's husband";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
