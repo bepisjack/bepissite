@@ -1,4 +1,30 @@
+<!DOCTYPE html>
+<style>
 
+    
+@font-face {
+    font-family: test;
+    src: url(/GothicByte.ttf);
+}
+
+@font-face {
+    font-family: test2;
+    src: url(/StarCrush.ttf);
+}
+
+.form1 {
+    font-family: test2;
+    
+}
+
+
+
+
+
+</style>
+
+
+<body>
 <form class="form1" action="https://api.bepisesports.com/accounts/login" method="POST">
 
 <label for="username">username: </label>
@@ -13,6 +39,8 @@
 <br>
 <div id="errorMessage" style="color: red; display: none;">invalid login!</div>
 </form>
+
+
 <script>
 window.onload = () => {
 const urlParams = new URLSearchParams(window.location.search);
@@ -21,3 +49,5 @@ if (urlParams.get('error') === 'invalid') {
     }
 };
 </script>
+
+</body>
