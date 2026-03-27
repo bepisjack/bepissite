@@ -1055,8 +1055,9 @@ function incrementValue2() {
 }
 
 async function submitBet() {
-    statusDiv.className = '';
     const statusDiv = document.getElementById('statusDiv');
+    statusDiv.className = '';
+  
     const betData = {
         quantity: document.getElementById('quantityInput').value,
         selection: document.getElementById('selection').value,
