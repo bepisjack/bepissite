@@ -215,6 +215,10 @@ animation-timing-function: ease;
     margin: auto;
 }
 
+#blockthree {
+    display: block;
+}
+
 .flex-child {
     display: flex;
     flex-direction: column;
@@ -268,6 +272,13 @@ animation-timing-function: ease;
     justify-content: center;
 }
 
+#submitButton {
+    display: none;
+}
+
+change this back to none when tested
+change this back to none when tested
+change this back to none when tested
 
 #raceDates {
 text-align: left;
@@ -576,7 +587,7 @@ animation-fill-mode: forwards;
 <div id="movingcontainer"><img id="selectedRacer" class="rainbowanimation2" src=""></div>
 
 </div>
-<div class="flex-child2">
+<div class="flex-child2" id="blockthree">
  <div id="yourbet" class="currently">currently wagering...
  </div>
  <br>
@@ -590,8 +601,10 @@ animation-fill-mode: forwards;
     <button type="button" class="plusminus" id="plusminus2" onclick="incrementValue()">+</button></div></div>
 <div class="flex-child2"><div id="end" class="risking">bepiscoins!</div></div>
  
+<input type="hidden" name="predicted" id="favored">
+<input type="hidden" name="username" id="bettorusername" value="">
 
- <button type="submit" id="submitButton" class="submitWager">submit !!</button></div>
+ <button type="submit" id="submitButton" class="submitWager">submit !!</button></form></div>
 <br><br><br></div>
 <br>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -627,9 +640,10 @@ const rightside6 = document.getElementById('submitButton')
 const mover = document.getElementById('movingcontainer')
 const rainbowwide = document.getElementById('flexwide')
 
+
 button1.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer1";
+    document.getElementById('favored').value = "racer1";
     document.getElementById('flexname').innerText = "jack krueger";
     document.getElementById('flexbio').innerText = "i did that";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -672,7 +686,7 @@ button1.addEventListener('click', function() {
 
 button2.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer2";
+    document.getElementById('favored').value = "racer2";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth;
     flexname.classList.add('racerAnimation2')
@@ -713,7 +727,7 @@ button2.addEventListener('click', function() {
 
 button3.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer3";
+    document.getElementById('favored').value = "racer3";
     const selected = document.getElementById('selectedRacer')
     document.getElementById('flexname').innerText = "tristan peevy";
     document.getElementById('flexbio').innerText = "he studied abroad";
@@ -753,7 +767,7 @@ button3.addEventListener('click', function() {
 
 button4.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer4";
+    document.getElementById('favored').value = "racer4";
     document.getElementById('flexname').innerText = "corben gomez";
     document.getElementById('flexbio').innerText = "emerald in league";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -793,7 +807,7 @@ button4.addEventListener('click', function() {
 
 button5.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer5";
+    document.getElementById('favored').value = "racer5";
     document.getElementById('flexname').innerText = "frankie cueto";
     document.getElementById('flexbio').innerText = "coworkers with mickey mouse";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -833,7 +847,7 @@ button5.addEventListener('click', function() {
 
 button6.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer6";
+    document.getElementById('favored').value = "racer6";
     document.getElementById('flexname').innerText = "Barack Obama";
     document.getElementById('flexbio').innerText = "michelle Obama's husband";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -873,7 +887,7 @@ button6.addEventListener('click', function() {
 
 button7.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer7";
+    document.getElementById('favored').value = "racer7";
     document.getElementById('flexname').innerText = "jokair";
     document.getElementById('flexbio').innerText = "french subway encounter";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -913,7 +927,7 @@ button7.addEventListener('click', function() {
 
 button8.addEventListener('click', function() {
     changeRacer.play();
-    const favorite = "racer8";
+    document.getElementById('favored').value = "racer8";
     document.getElementById('flexname').innerText = "sonic";
     document.getElementById('flexbio').innerText = "fastest thing alive!";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
@@ -962,6 +976,7 @@ const loadusername = async function() {
             document.getElementById('loginButton').style.display = 'block';
             document.getElementById('registerButton').style.display = 'block';
             document.getElementById('balanceDisplay').innerText = "0 bepiscoin";
+
             return;
         }
 
@@ -969,13 +984,13 @@ const loadusername = async function() {
 
     if (data && data.username) {
         document.getElementById('usernameblank').innerText = data.username;
+        document.getElementById('bettorusername').value = data.username;
         document.getElementById('logoutButton').style.display = 'block';
+         document.getElementById('submitButton').style.display = 'block';
     } else {
         document.getElementById('usernameblank').innerText = "not logged in!";
         document.getElementById('balanceDisplay').innerText = "0 bepiscoin";
     }
-
-    const username = data.username;
 
     document.getElementById('usernameblank').innerText = username;
 
