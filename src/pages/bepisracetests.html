@@ -133,8 +133,8 @@ height: 28px;
     border: 2px outset black;
      -webkit-overflow-scrolling: touch;
      line-height: 0.9;
-     padding-top: 10px;
-     padding-bottom: 10px;
+     padding-left: 10px;
+     padding-right: 10px;
 }
 
 .betslog::-webkit-scrollbar {
@@ -151,6 +151,7 @@ padding: 0px;
   background-color: rgba(0, 0, 0, 0.377);
 }
 
+.betslog p { margin: 0; }
 
 
 .log-time {
@@ -1196,7 +1197,7 @@ const refreshTicker = async function() {
         }
     };    
 
-setInterval(refreshTicker, 5000);
+setInterval(refreshTicker, 50000);
 
 document.addEventListener('DOMContentLoaded', () => {
     loadusername();
