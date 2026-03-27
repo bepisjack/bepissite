@@ -277,6 +277,23 @@ text-shadow: 2px 2px 0px forestgreen;
     margin: auto;
 }
 
+.flex-container4 {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    width: 70vw;
+    margin: auto;
+}
+
+
+.flex-child4 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1;
+    min-width: 0;
+}
+
 #blockthree {
     display: block;
 }
@@ -579,8 +596,15 @@ animation-fill-mode: forwards;
     font-size: 36pt;
       background-image: linear-gradient(-90deg, red, orange);
    cursor: pointer;
-
 }
+
+.writeup {
+    color: white;
+    font-family: test2;
+    font-size: 22pt;
+    text-shadow: 2px 2px 0px black, 0px 0px 4px white;
+}
+
 
 </style>
 <body>
@@ -620,10 +644,19 @@ animation-fill-mode: forwards;
 
 <div id="raceDates">March 22-28, 2026</div>
 <div id="raceTitle">Welcome to the Race Track!</div>
-<br>
+<br><br>
+
+<div class="flex-container4">
+<div class="flex-child4"><div id="writeup" class="writeup">
+
+this is it! the first day of the bepi$ esports racing league; and what a first day it is! we've brought together 8 of the finest competitors that we could get, and we're really in for a treat with this roster! We've got jack krueger, tristan peevy, hayden gomez, frankie cueto, corben gomez, barack obama, jokair, and sonic the hedgehog! stay tuned racing fans, this is a bout you're not gonna want to miss!
+
+
+</div></div>
+<div class="flex-child4">
 <video id="myVid" controls class="playa">
 <source src="https://bepisbackend.fly.dev/marblecompress.mp4" type="video/mp4">
-</video>
+</video></div></div>
 <br>
 <div id="racers" class="rainbowanimation">this week's racers!!</div>
 
