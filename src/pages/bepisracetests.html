@@ -1066,7 +1066,7 @@ async function submitBet() {
 
 try {
     const response = await fetch ('/accounts/placebet', {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(betData)
     });
