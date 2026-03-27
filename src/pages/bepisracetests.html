@@ -1088,18 +1088,18 @@ try {
     if (response.ok) {
         loadBalance();
         statusDiv.innerText = result.message;
-        statusDiv.classList.add('errorAnimation');
+        statusDiv.classList.add('responseAnimation');
                        statusDiv.classList.add('successMessage');
       document.getElementById('quantityInput').value = "0";
     } else {
         statusDiv.innerText = result.error;
 
-                statusDiv.classList.add('errorAnimation');
+                statusDiv.classList.add('responseAnimation');
             statusDiv.classList.add('errorMessage'); 
     }
 } catch (err) {
     statusDiv.innerText = "server error !";
-            statusDiv.classList.add('errorAnimation');
+            statusDiv.classList.add('responseAnimation');
                     statusDiv.classList.add('errorMessage');
     }
 
