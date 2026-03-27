@@ -101,7 +101,7 @@ body {
 <br>
 <br>
 <label for="pin" class="pinlabel">pin</label>
-<input type="text" id="pinEntry" name="pin" class="pinentry" minlength="4" maxlength="4" required></textarea>
+<input type="text" id="pinEntry" name="pin" class="pinentry" minlength="4" maxlength="4" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"></textarea>
 
 <br><br>
 <button type="submit" class="registerbutton" id="submitButton">register!</button>
