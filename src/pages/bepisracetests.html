@@ -1067,6 +1067,7 @@ async function submitBet() {
 try {
     const response = await fetch ('/https://api.bepisesports.com/accounts/placebet', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(betData)
     });
