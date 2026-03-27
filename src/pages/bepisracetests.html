@@ -128,9 +128,9 @@ height: 28px;
     position: absolute;
     top: 1vh;
     right: 1vw;
-     background-color: rgba(255, 255, 255, 0.212);
-    box-shadow: -2px 2px 0px black;
-
+     background-color: rgba(0, 0, 0, 0.212);
+    box-shadow: 0px 0px 2px black;
+    border: 2px outset black;
      -webkit-overflow-scrolling: touch;
 }
 
@@ -1185,6 +1185,9 @@ const refreshTicker = async function() {
            `
             betscontainer.appendChild(row); 
         });
+        if (betscontainer.scrollHeight - betscontainer.scrollTop <= betscontainer.clientHeight + 100) {
+    betscontainer.scrollTop = betscontainer.scrollHeight;
+}
         } catch (err) {
             console.error("could not refresh ticker!". err);
         }
