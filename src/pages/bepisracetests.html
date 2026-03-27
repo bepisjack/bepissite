@@ -173,18 +173,6 @@ background-size: 120%;
     transform: scale(1.1);
 }
 
-#errorMessage {
-font-size: 40pt;
-margin: auto;
-text-align: center;
-color: white;
-text-shadow: 2px 2px 10px rgb(240, 92, 0), 2px 2px 2px rgb(240, 92, 0);
-animation-name: errorAnimation;
-animation-duration: 4s;
-animation-fill-mode: forwards;
-animation-timing-function: ease;
-}
-
 .responseAnimation {
 animation-name: errorAnimation;
 animation-duration: 4s;
@@ -193,7 +181,7 @@ animation-timing-function: ease;
 }
 
 
-#errorMessage2 {
+#errorMessage {
 font-size: 40pt;
 margin: auto;
 text-align: center;
@@ -560,7 +548,7 @@ animation-fill-mode: forwards;
 </a>
 
 <br>
-<div id="errorMessage" style="display: none;">you are logged out!</div>
+<div id="statusDiv" style="display: none;">you are logged out!</div>
 
 <div id="raceDates">March 22-28, 2026</div>
 <div id="raceTitle">Welcome to the Race Track!</div>
@@ -1044,13 +1032,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBalance();
 });   
 
-window.onload = () => {
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('error') === 'loggedout') {
-    document.getElementById('errorMessage').style.display = 'block';
-    }
-};
-
 
 function enforceMax(inputElement) {
   // Get the current value and the max limit
@@ -1074,7 +1055,7 @@ function incrementValue2() {
 }
 
 async function submitBet() {
-    const statusDiv = document.getElementById('bet-status');
+    const statusDiv = document.getElementById('statusDiv');
     const betData = {
         quantity: document.getElementById('quantity').value,
         selection: document.getElementById('selection').value,
@@ -1093,13 +1074,17 @@ try {
     if (response.ok) {
         statusDiv.innerText = result.message;
         statusDiv.classList.add('errorAnimation');
+                       statusDiv.classList.add('successMessage');
+
     } else {
         statusDiv.innerText = result.error;
                 statusDiv.classList.add('errorAnimation');
+            statusDiv.classList.add('errorMessage'); 
     }
 } catch (err) {
     statusDiv.innerText = "server error !";
             statusDiv.classList.add('errorAnimation');
+                    statusDiv.classList.add('errorMessage');
     }
 
 }
