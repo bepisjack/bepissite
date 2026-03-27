@@ -122,12 +122,18 @@ height: 28px;
 
 .betslog {
     max-height: 400px;
-    overflow-y: scroll;
+    overflow-y:hidden;
     word-wrap: break-word;
     position: absolute;
     top: 2vh;
-    right: 4vw;
+    right: 2vw;
+    background-color: blue;
 }
+
+.betslog:nth-child(even) {
+    background-color: black;
+}
+
 
 .log-time {
     color: white;
@@ -148,7 +154,9 @@ height: 28px;
 .bet-log-entry {
     font-size: 16pt;
     color:white;
+    font-family: test2;
 }
+
 
 #registerButton {
     bottom: 2vh;
