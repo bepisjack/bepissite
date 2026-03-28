@@ -24,8 +24,10 @@ body {
     src: url(/StarCrush.ttf);
 }
 
-.form1 {
-    display: flex;
+
+
+.formdiv {
+       display: flex;
     font-family: test2;
     width: auto;
     justify-content: center;
@@ -34,7 +36,6 @@ body {
     text-align: center;
     width: 200px;
     align-items: center;
-    
 }
 
 .usernamelabel {
@@ -42,6 +43,22 @@ body {
     font-size: 34pt;
     text-shadow: 4px 4px 0px black, 0px 0px 2px black;
 }
+
+.howthisworks {
+    color: white;
+    font-size: 54pt;
+    text-shadow: 4px 4px 0px black, 0px 0px 2px black, 0px 0px 4px black;
+    width: 80vw;
+}
+
+
+.howthisworks2 {
+    color: white;
+    font-size: 24pt;
+    text-shadow: 3px 3px 0px black, 0px 0px 2px black;
+    width: 80vw;
+}
+
 
 .usernameentry {
   height: 40px;
@@ -60,6 +77,7 @@ body {
     font-size: 28pt;
   text-shadow: 4px 4px 0px black, 0px 0px 2px black;
   line-height: 1.4;
+  width: 400px;
 }
 
 
@@ -97,15 +115,40 @@ body {
 
 </style>
 
-<br><br><br><br><br><br><br><br><br><br><br>
-<form class="form1" action="https://api.bepisesports.com/accounts/register" method="POST">
+<br>
+
+
+music on this page
+
+<div class="formdiv">
+
+
+<div class="howthisworks">what is this?</div>
+
+<div class="howthisworks2">this page hosts weekly marble races that go live every Friday at 6pm, and allows users to bet their bepiscoins on the outcome!</div>
+<br>
+<div class="howthisworks">what is bepiscoin?</div>
+
+<div class="howthisworks2">when you register, you'll be given 5 bepiscoin to play with; however, bepiscoin doesn't come easy, so don't blow it all on your first bet! users will be given 2 every sunday.</div>
+<br>
+<div class="howthisworks">how do I participate?</div>
+
+<div class="howthisworks2">once you're logged in, select the racer you believe in and how many bepiscoin you're willing to wager! But be careful, you can only bet a single time each week, and cannot change it once you click submit!!</div>
+
+
+
+
+<form class="form1" action="https://api.bepisesports.com/accounts/register" method="POST"></form>
+
+
+<br><br><br><br><br><br><br>
 
 <label for="username" class="usernamelabel">username</label>
 
 <input type="text" id="usernameEntry" name="username" class="usernameentry" maxlength="14" minlength="1" rows="1" required></textarea>
 <br>
 <br>
-<label for="pin" class="pinlabel">pin</label>
+<label for="pin" class="pinlabel">pin (must be 4 digits)</label>
 <input type="text" id="pinEntry" name="pin" class="pinentry" minlength="4" maxlength="4" required oninput="this.value = this.value.replace(/[^0-9]/g, '');"></textarea>
 
 <br><br>
@@ -113,6 +156,21 @@ body {
 <br>
 <div id="errorMessage" class="errormessage" style="color: red; display: none;">username already taken!</div>
 </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+     var bgm = new Howl({
+        src: ['/convo.mp3'],
+        loop: true,
+        autoplay: true,
+
+        volume: 0,
+          });
+      bgm.play();
+      bgm.fade(0, 0.07, 4000); 
+</script>
 
 <script>
 window.onload = () => {
