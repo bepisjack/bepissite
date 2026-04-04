@@ -149,6 +149,19 @@ body {
 
 
 </style>
+
+
+
+<script>
+
+    window.onload = function() {
+    let vid =document.getElementById("myVid");
+
+    vid.volume = 0.1;
+    }
+    
+</script>
+
 <br>
 <div class="howthisworks">Week 1: March 28 - April 3, 2026</div>
 <a href="https://bepisesports.com/bepisracetests/">
@@ -162,13 +175,3 @@ body {
 <br>
 <div class="howthisworks">payouts will occur at 6pm each saturday!</div>
 
-</script>
-
-<script>
-window.onload = () => {
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('error') === 'invalid') {
-    document.getElementById('errorMessage').style.display = 'block';
-    }
-};
-</script>
