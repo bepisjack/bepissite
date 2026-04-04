@@ -666,21 +666,20 @@ animation-fill-mode: forwards;
 <br>
 <div id="statusDiv" style="display: block;">you are logged out!</div>
 
-<div id="raceDates">March 28 - April 3, 2026</div>
+<div id="raceDates">April 4 - April 10, 2026</div>
 
+<br>
+<div id="raceTitle">A Challenger Approaches</div>
+<br>
 
-<div id="raceTitle">Welcome to the Race Track!</div>
-<br><br>
-
-<div id="clickme">
-<a href="https://bepisesports.com/raceresults" id="watchtherace">Watch This Week's Race!!</a></div>
-
-<br><br><br>
+<br>
 
 <div class="flex-container4">
 <div class="flex-child4"><div id="writeup" class="writeup">
-
-The newest addition to bepisesports.com is finally here!! this is your opportunity to flex your ball knowledge and get your money up with lucrative marble racing bets!! each week will feature 8 participants in an elimination style marble race, and you get paid out in bepiscoin depending on how well your selection does! additionally, the worst performer each week will be replaced in the following week! more specifics can be found on the register screen, so be sure to read! you can also see a preview of the first three rounds on the right.<br>
+    It's week 2 of the bepis grand prix! The inaugural race saw the tragic defeat of bepis member Hayden Gomez (gone too soon!), but our first new competitor, the famed "super mario", has joined the races.
+    <br>
+    <br> All previous races, including the placed bets and other relevant information will be archived on a new page that you can access soon; but for now, evaluate these racers and decide who you're really willing to entrust your financial future to!
+    <br>
 <br>the payout structure this week will be; 
 <br>
 1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.
@@ -699,7 +698,7 @@ The newest addition to bepisesports.com is finally here!! this is your opportuni
 <div class="flex-child">
 <input type="image" class="allothers" src="/jackmarble.png" id="racer1"></div>
 <div class="flex-child">
-<input type="image" class="allothers" src="/haydenmarble.png" id="racer2"></div>
+<input type="image" class="allothers" src="/mariomarble.png" id="racer2"></div>
 <div class="flex-child">
 <input type="image" class="allothers" src="/tristanmarble.png" id="racer3"></div>
 <div class="flex-child">
@@ -795,7 +794,7 @@ button1.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "Jack";
     document.getElementById('flexname').innerText = "jack krueger";
-    document.getElementById('flexbio').innerText = "i did that";
+    document.getElementById('flexbio').innerText = "unemployed";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth;
     flexname.classList.add('racerAnimation2')
@@ -836,7 +835,7 @@ button1.addEventListener('click', function() {
 
 button2.addEventListener('click', function() {
     changeRacer.play();
-    document.getElementById('favored').value = "Hayden";
+    document.getElementById('favored').value = "Mario";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth;
     flexname.classList.add('racerAnimation2')
@@ -853,8 +852,8 @@ button2.addEventListener('click', function() {
     mover.classList.remove('raceranimation');
     void mover.offsetWidth;
     mover.classList.add('raceranimation');
-    document.getElementById('flexname').innerText = "hayden gomez";
-    document.getElementById('flexbio').innerText = "Gamer, cyclist, doing school stuff.";
+    document.getElementById('flexname').innerText = "mario";
+    document.getElementById('flexbio').innerText = "princess peach's strongest soldier";
     const selected = document.getElementById('selectedRacer')
     const selectedSmall = document.getElementById('racer2')
     selectedSmall.classList.remove('racerAnimation3')
@@ -868,7 +867,7 @@ button2.addEventListener('click', function() {
     button6.classList.add('racerAnimation4')
     button7.classList.add('racerAnimation4')
     button8.classList.add('racerAnimation4')
-    selected.src = "/haydenmarble.png"
+    selected.src = "/mariomarble.png"
     selected.classList.remove('racerAnimation', 'racerAnimation2')
     void selected.offsetWidth;
     selected.classList.add('racerAnimation');
@@ -880,7 +879,7 @@ button3.addEventListener('click', function() {
     document.getElementById('favored').value = "Tristan";
     const selected = document.getElementById('selectedRacer')
     document.getElementById('flexname').innerText = "tristan peevy";
-    document.getElementById('flexbio').innerText = "he studied abroad";
+    document.getElementById('flexbio').innerText = "bepis esports social media manager";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
@@ -919,7 +918,7 @@ button4.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "Corben";
     document.getElementById('flexname').innerText = "corben gomez";
-    document.getElementById('flexbio').innerText = "emerald in league";
+    document.getElementById('flexbio').innerText = "bepis world architect";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     const selected = document.getElementById('selectedRacer')
@@ -959,7 +958,7 @@ button5.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "Frankie";
     document.getElementById('flexname').innerText = "frankie cueto";
-    document.getElementById('flexbio').innerText = "coworkers with mickey mouse";
+    document.getElementById('flexbio').innerText = "fastest on the playground";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     const selected = document.getElementById('selectedRacer')
@@ -999,7 +998,7 @@ button6.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "Obama";
     document.getElementById('flexname').innerText = "Barack Obama";
-    document.getElementById('flexbio').innerText = "Michelle Obama's husband";
+    document.getElementById('flexbio').innerText = "Joe Biden's friend";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
@@ -1039,7 +1038,7 @@ button7.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "Jokair";
     document.getElementById('flexname').innerText = "jokair";
-    document.getElementById('flexbio').innerText = "french subway encounter";
+    document.getElementById('flexbio').innerText = "patron deity of the Paris metro";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
@@ -1079,7 +1078,7 @@ button8.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('favored').value = "Sonic";
     document.getElementById('flexname').innerText = "sonic";
-    document.getElementById('flexbio').innerText = "fastest thing alive!";
+    document.getElementById('flexbio').innerText = "living up to his reputation";
     flexname.classList.remove('racerAnimation', 'racerAnimation2')
     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
     void flexname.offsetWidth; 
