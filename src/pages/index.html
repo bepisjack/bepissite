@@ -32,7 +32,7 @@ if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
   }
 }
 
-addRVLoadEvent(rightwrite);
+
 
 function rightwrite() { if (document.getElementById) {
   var i, rwli, rwtxt, rwrit;
@@ -291,6 +291,19 @@ line-height: 1;
 
 }
 
+.titleanimation {
+  animation-name: titleanimation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes titleanimation {
+    0% {filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0));}
+    40% {filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));}
+    100% {filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.678));}
+}
+
 
 #description {
     text-shadow: 1px 1px rgb(226, 136, 82);
@@ -338,6 +351,9 @@ line-height: 1;
 
 
 </style>
+
+
+
 
 
 <script>
@@ -475,6 +491,13 @@ function updateStats(ver, pages) {
     document.getElementById("stats").innerText = `${currentVer} | ${currentPages}`;
 }
 
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const element = document.getElementById('rightwrite');
+        element.classList.add('titleanimation');
+    }, 10); // 3000 milliseconds = 3 seconds
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
     refreshTicker();
@@ -482,6 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getData1();
     getData2();
     updateDailyClock();
+    rightwrite();
 });
 
     </script>
