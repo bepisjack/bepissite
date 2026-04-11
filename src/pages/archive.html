@@ -974,8 +974,6 @@ container.classList.remove('fade-out');
 
 });
 
-
-
 button1.addEventListener('click', function() {
     changeRacer.play();
     document.getElementById('flexname').innerText = racer1name;
@@ -1331,7 +1329,15 @@ async function loadData() {
         }
     };    
 
+document.addEventListener("visibilitychange", function() {
+if (document.hidden) {
 
+    bgm.pause();
+} else {
+        bgm.play();
+          bgm.fade(0, 0.1, 4000); 
+    }
+});
 
 document.addEventListener("DOMContentLoaded", latest);
 

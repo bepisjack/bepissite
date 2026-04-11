@@ -176,4 +176,14 @@ if (urlParams.get('error') === 'invalid') {
     document.getElementById('errorMessage').style.display = 'block';
     }
 };
+
+document.addEventListener("visibilitychange", function() {
+if (document.hidden) {
+
+    bgm.pause();
+} else {
+        bgm.play();
+          bgm.fade(0, 0.07, 4000); 
+    }
+});
 </script>
