@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<head>
+<link rel="preload" as="image" href="/betabg1.png">
+
+
+<title>race archive</title>
+</head>
+<style>
+
+.coinnumber::-webkit-outer-spin-button,
+.coinnumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.coinnumber[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+#flexname {
+    font-size: 56pt;
+    color: white;
+}
+
+#flexbio {
+    font-size: 46pt;
+}
+
+#yourbet {
+    font-size: 38pt;
+    color:white;
+}
+
+#end {
+    font-size: 42pt;
+    color: white;
+}
+
+.usernamespot {
+    background-image: linear-gradient(-90deg, red, orange);
+    width: 350px;
+    height: 40px;
+font-size: 24pt;
+clip-path: polygon(00% 00%,
+  100% 00%,
+  85% 100%,
+  00% 100%);
+  left: -3vw;
+  top: 2vh;
+  position:fixed;
+  font-family: test2;
+}
+
+.currencyspot {
+    background-image: linear-gradient(-90deg, red, orange);
+    width: 300px;
+    height: 28px;
+font-size: 16pt;
+clip-path: polygon(00% 00%,
+  100% 00%,
+  88% 100%,
+  00% 100%);
+  left: -6vw;
+  top: 7.5vh;
+  position:fixed;
+    width: 60;
+    text-align: center;
+      font-family: test2;
+}
+
+
+#usernameblank {
+    color:white;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+   
+transform: translate(0%, 10%);
+height: 40px;
+}
+
+#balanceDisplay {
+    color:white;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+transform: translate(10%, 10%);
+height: 28px;
+}
+
+#logoutButton {
+    bottom: 2vh;
+    right: 1.5vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px red;
+    height: 22px;
+    width: 60px;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+#logoutButton:hover {
+    background-color: rgb(214, 77, 52);
+    transform: scale(1.1);
+}
+
+#loginButton {
+    bottom: 2vh;
+    right:  6vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(29, 230, 224);
+    height: 22px;
+    width: 54px;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+#loginButton:hover {
+       background-color:darkcyan;
+    transform: scale(1.1);
+}
+
+.betslog {
+    max-height: 180px;
+    overflow-y:auto;
+    word-wrap: break-word;
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+     background-color: rgba(0, 0, 0, 0.212);
+    box-shadow: 0px 0px 2px black;
+    border: 2px outset black;
+     -webkit-overflow-scrolling: touch;
+     line-height: 1.3;
+     padding-left: 10px;
+     padding-right: 10px;
+}
+
+.betslog::-webkit-scrollbar {
+    display: none;
+}
+
+.betslog {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.betslog p {
+padding: 0px;
+  background-color: rgba(0, 0, 0, 0.377);
+}
+
+.betslog p { margin: 0; }
+
+
+.log-time {
+ 
+    font-size: 10pt;
+}
+
+
+
+.bet-log-entry {
+    font-size: 18pt;
+    color:rgba(255, 255, 255, 0.894);
+    font-family: test2;
+}
+
+
+#registerButton {
+    bottom: 2vh;
+    right: 1.5vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(29, 230, 224);
+    height: 22px;
+    width: 70px;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, 0.2s background-color ease;
+}
+
+#registerButton:hover {
+    background-color:darkcyan;
+    transform: scale(1.1);
+}
+
+.shadowcontainer {
+    position: fixed;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.6));
+}
+
+body {
+     background: url(/betabg1.png), rgba(0, 0, 0, 0.418);
+    background-size: 80%;
+    background-blend-mode: multiply;
+}
+
+#back {
+    bottom: 2vh;
+    left: 1vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px red;
+    height: 22px;
+    width: 60px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+#week1 {
+    top: 2vh;
+    left: 1vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(0, 115, 255);
+    height: 22px;
+    width: 84px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+#week2 {
+    top: 2vh;
+    left: 6vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(0, 115, 255);
+    height: 22px;
+    width: 84px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+#week1:hover {
+    background-color:rgb(55, 140, 245);
+    transform: scale(1.1);
+}
+
+
+#week2:hover {
+    background-color:rgb(55, 140, 245);
+    transform: scale(1.1);
+}
+
+
+
+#back:hover {
+    background-color: rgb(214, 77, 52);
+    transform: scale(1.1);
+}
+
+.responseAnimation {
+animation-name: errorAnimation;
+animation-duration: 4s;
+animation-fill-mode: forwards;
+animation-timing-function: ease;
+}
+
+
+.errorMessage {
+font-size: 40pt;
+text-align: center;
+color: rgb(207, 9, 9);
+text-shadow: 2px 2px 0px orangered;
+}
+
+.successMessage {
+font-size: 40pt;
+text-align: center;
+color: rgb(17, 148, 15);
+text-shadow: 2px 2px 0px forestgreen;
+}
+
+
+@keyframes errorAnimation {
+    0% {opacity: 0}
+    0% {transform: translateY(-600px)}
+    5% {opacity: 1}
+    10% {transform: translateY(90px)}
+    14% {transform: translateY(90px) rotate(4deg)}
+    19% {transform: translateY(90px) rotate(-4deg)} 
+    23% {transform: translateY(90px) rotate(2deg)}  
+    28% {transform: translateY(90px) rotate(0deg)}  
+    60% {transform: translateY(90px)}
+    70% {opacity: 1}
+    80% {transform: translateY(-600px)}
+    90% {opacity: 0}
+    100% {transform: translateY(-601px)}
+}
+
+#myVid {align-content: center;
+border: 4px black;
+box-shadow: 2px 2px 0px black, 0px 0px 4px black;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 60vw;
+    margin: auto;
+}
+
+.flex-container4 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 80vw;
+    margin: auto;
+    align-items: center;
+}
+
+
+.flex-child4 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1;
+    min-width: 0;
+}
+
+#blockthree {
+    display: block;
+}
+
+.flex-child {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    flex: 1 1;
+    min-width: 0;
+  
+}
+
+.allothers {
+        filter: drop-shadow(0px 0px 3px rgb(255, 255, 255))
+}
+
+.flex-container2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 50vw;
+    margin: auto;
+    height: 32vh;
+    
+}
+
+.flex-child2 {
+    display: flex;
+    flex-direction: column;
+    font-family:supamario;
+    text-align: center;
+    flex: 1 1;
+    min-width: 0;
+      font-family: test2;
+      justify-content: center;
+}
+
+.flex-container3 {
+    display: flex;
+    justify-content: center;
+    
+    gap: 10px;
+    width: 22vw;
+    margin: auto;
+    align-content: center;
+}
+
+.flex-child3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    min-width: 0;
+    justify-content: center;
+}
+
+#submitButton {
+    display: none;
+}
+
+#raceDates {
+text-align: left;
+color: white;
+font-family: test2;
+font-size: 32pt;
+width: 60vw;
+padding-left: 16vw;
+text-shadow: 2px 2px 2px rgb(154, 91, 2), 2px 2px 1px white, 0px 0px 8px black;
+}
+
+#raceTitle {
+text-align: left;
+color: white;
+font-family: test2;
+font-size: 60pt;
+width: 60vw;
+padding-left: 16vw;
+text-shadow: 2px 2px 2px rgb(170, 104, 5), 2px 2px 4px white, 0px 0px 8px black,  2px 2px 0px black;
+min-height: 100px;
+}
+
+#watchtherace {
+
+color: white;
+font-family: test2;
+font-size: 60pt;
+text-shadow: 2px 2px 2px rgb(255, 255, 255), 2px 2px 4px white, 0px 0px 8px black,  2px 2px 0px black;
+animation-name: rainbowAnimation;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+display: inline-block;
+}
+
+#clickme {
+display: flex;
+justify-content: center;
+
+}
+
+
+#racers {
+text-align: center;
+color: white;
+font-family: test2;
+font-size: 36pt;
+width: 60vw;
+padding-left: 20vw;
+animation-name: rainbowAnimation;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+}
+
+#rainbowanimation {
+animation-name: rainbowAnimation;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+
+}
+
+.rainbowanimation2 {
+animation-name: rainbowAnimation2;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-fill-mode: forwards;
+}
+
+.fade-element {
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+#selectedRacer {
+    display: block;
+    width: fit-content;
+  
+    margin: auto;
+    scale: 1.3;
+}
+
+.raceranimation {
+  animation-name: selectAnimation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+
+.racerAnimation2 {
+  animation-name: selectAnimation2;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.racerAnimation3 {
+  animation-name: selectAnimation3;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.racerAnimation4 {
+  animation-name: selectAnimation4;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.racerAnimation5 {
+  animation-name: selectAnimation5;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+#statusDiv {
+    position: fixed;
+    top:20px;
+    left:25%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: test2;
+    font-size: 48pt;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    text-shadow: 2px 2px 1px rgb(0, 0, 0), 2px 2px 10px black, 0px 0px 10px black;
+}
+
+#movingcontainer {
+    opacity: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -100px;
+    margin-right: -100px;
+}
+
+@keyframes selectAnimation {
+     0% {transform:translateX(-160px) ;}
+    1% {opacity: 0;}
+    2% {filter: drop-shadow(0px 0px 2px rgba(255, 217, 0, 0.216));}
+    20% {opacity: 1;}
+    21% {transform: translateX(0px);}
+    40% {filter: drop-shadow(0px 0px 3px gold);}
+    100% {opacity: 1;}
+    100% {filter: drop-shadow(0px 0px 3px gold);}
+}
+
+    
+@keyframes selectAnimation2 {
+     0% {transform:translateX(160px) ;}
+    1% {opacity: 0;}
+    2% {filter: drop-shadow(0px 0px 2px rgba(255, 217, 0, 0.216));}
+    20% {opacity: 1;}
+    21% {transform: translateX(0px);}
+    40% {filter: drop-shadow(0px 0px 3px gold);}
+    100% {opacity: 1;}
+    100% {filter: drop-shadow(0px 0px 3px gold);}
+}
+
+@keyframes selectAnimation3 {
+    
+    0% {filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));}
+    100% {filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));}
+}
+
+@keyframes rainbowAnimation {
+    0% {text-shadow: 2px 2px 0px red;}
+    14% {text-shadow: 2px 2px 0px orange;}
+      28% {text-shadow: 2px 2px 0px yellow;}
+       42% {text-shadow: 2px 2px 0px green;}
+        57% {text-shadow: 2px 2px 0px blue;}
+         71% {text-shadow: 2px 2px 0px indigo;} 
+         86% {text-shadow: 2px 2px 0px violet;}
+         100% {text-shadow: 2px 2px 0px red;}
+}
+
+@keyframes rainbowAnimation2 {
+
+    0% {filter: drop-shadow(0px 0px 3px rgb(255, 0, 0)) ;}
+    14% {filter: drop-shadow(0px 0px 3px rgb(255, 166, 0)) ;}
+      28% {filter: drop-shadow(0px 0px 3px rgb(255, 255, 0)) ;}
+       42% {filter: drop-shadow(0px 0px 3px rgb(0, 128, 0)) ;}
+        57% {filter: drop-shadow(0px 0px 3px  rgb(0, 0, 255));}
+         71% {filter: drop-shadow(0px 0px 3px  rgb(76, 0, 130));} 
+         86% {filter: drop-shadow(0px 0px 3px rgb(238, 130, 238)) ;}
+         100% {filter: drop-shadow(0px 0px 3px  rgb(255, 0, 0)) ;}
+}
+
+@keyframes selectAnimation4 {
+    0% {filter: brightness(1) drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.397))}
+    20% {filter: brightness(0.5) drop-shadow(2px 2px 1px black)}
+    100% {filter: brightness(0.5) drop-shadow(2px 2px 1px black)}
+}
+
+@keyframes selectAnimation5 {
+     0% {transform:translateX(160px) ;}
+    1% {opacity: 0;}
+    20% {opacity: 1;}
+    21% {transform: translateX(0px);}
+    100% {opacity: 1;}
+}
+
+
+@font-face {
+    font-family: test;
+    src: url(/GothicByte.ttf);
+}
+
+@font-face {
+    font-family: test2;
+    src: url(/StarCrush.ttf);
+}
+
+
+.plusminus {
+    width: 30px;
+    opacity: 0;
+    height: 40px;
+    font-size: 26pt;
+     background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.currently {
+    text-align: center;
+    opacity: 0;
+    
+}
+
+.risking {
+    opacity:0;
+    
+}
+
+.coinnumber {
+    opacity:0;
+    text-align: center;
+      font-family: test2;
+          font-size: 54pt;
+          justify-content: center;
+    height: 60px;
+    background-color: transparent;
+    width: 50px;
+    border: none;
+    color: black;
+
+}
+
+.submitWager {
+    opacity:0;
+    text-align: center;
+    width: 260px;
+    margin: auto;
+      font-family: test2;
+    height: 56px;
+    font-size: 36pt;
+      background-image: linear-gradient(-90deg, red, orange);
+   cursor: pointer;
+}
+
+.writeup {
+    color: white;
+    font-family: test2;
+    font-size: 22pt;
+    text-shadow: 2px 2px 0px black, 0px 0px 4px white;
+    min-height: 400px;
+    align-items: center;
+}
+
+
+</style>
+<body>
+
+
+<a href="https://bepisesports.com/bepisracetests">
+    <button id="back">> back</button>
+</a>
+
+<input type="button" value="to week 1" id="week1">
+
+<input type="button" value="to week 2" id="week2">
+
+
+<br>
+
+<div id="fadeContainer" class="fade-element">
+
+<div id="raceDates"></div>
+
+<br>
+<div id="raceTitle"></div>
+<br><br>
+
+<div id="clickme">
+<a href="https://bepisesports.com/raceresults" id="watchtherace">Watch This Week's Race!!</a></div>
+
+
+<br><br><br>
+
+<div class="flex-container4">
+<div class="flex-child4"><div id="writeup" class="writeup">
+</div></div>
+<div class="flex-child4">
+<video id="myVid" autoplay muted loop>
+<source src="https://bepisbackend.fly.dev/race1preview.mp4" type="video/mp4">
+</video></div></div>
+<br>
+<div id="racers" class="rainbowanimation">this week's racers!!</div>
+
+<br>
+<div class="flex-container">
+    
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer1"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer2"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer3"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer4"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer5"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer6"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer7"></div>
+<div class="flex-child">
+<input type="image" class="allothers" src="" id="racer8"></div>
+</div>
+
+<br>
+<div class="flex-container2">
+<div class="flex-child2">
+    <div id="flexname">
+    </div>
+    <br><br>
+    <div id="flexbio"></div>
+</div>
+
+
+<div class="flex-child2">
+<div id="movingcontainer"><img id="selectedRacer" class="rainbowanimation2" src=""></div>
+
+</div>
+<br>
+
+<div id="betslog" class="betslog"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+     var bgm = new Howl({
+        src: ['/sonicmuseum.mp3'],
+        loop: true,
+        autoplay: true,
+        volume: 0,
+          });
+      bgm.play();
+      bgm.fade(0, 0.1, 4000); 
+
+ document.addEventListener('click', () => {
+    if (Howler.ctx && Howler.ctx.state === 'suspended') {
+        Howler.ctx.resume();
+    }
+}, { once: true });
+
+const changeRacer = new Howl({
+    src: ['/hit.mp3'],
+    volume: 0.08,
+    });
+
+const changeRace = new Howl({
+    src: ['/nikkichange.wav'],
+    volume: 0.06,
+    });
+
+
+    
+const button1 = document.getElementById('racer1');
+const button2 = document.getElementById('racer2');
+const button3 = document.getElementById('racer3');
+const button4 = document.getElementById('racer4');
+const button5 = document.getElementById('racer5');
+const button6 = document.getElementById('racer6');
+const button7 = document.getElementById('racer7');
+const button8 = document.getElementById('racer8');
+
+
+
+const buttonWeek1 = document.getElementById('week1');
+const buttonWeek2 = document.getElementById('week2');
+
+const selected = document.getElementById('selectedRacer');
+
+const container = document.getElementById('fadeContainer');
+
+const mover = document.getElementById('movingcontainer')
+
+
+buttonWeek1.addEventListener('click', function() {
+
+    
+
+    changeRace.play();
+
+    document.getElementById('flexname').innerText = ``;
+    document.getElementById('flexbio').innerText = ``;
+    selected.src = ``;
+
+    container.classList.add('fade-out');
+
+    setTimeout(() => {
+    document.getElementById('raceDates').innerText = `March 28 - April 3, 2026`;
+    document.getElementById('raceTitle').innerText = `Welcome to the Race Track!`;
+    document.getElementById('writeup').innerText = `The newest addition to bepisesports.com is finally here!! this is your opportunity to flex your ball knowledge and get your money up with lucrative marble racing bets!! each week will feature 8 participants in an elimination style marble race, and you get paid out in bepiscoin depending on how well your selection does! additionally, the worst performer each week will be replaced in the following week! more specifics can be found on the register screen, so be sure to read! you can also see a preview of the first three rounds on the right.
+
+    the payout structure this week will be; 
+1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+
+
+    button1.classList.remove('racerAnimation3', 'racerAnimation4')
+    button2.classList.remove('racerAnimation3', 'racerAnimation4')
+    button3.classList.remove('racerAnimation3', 'racerAnimation4')
+    button4.classList.remove('racerAnimation3', 'racerAnimation4')
+    button5.classList.remove('racerAnimation3', 'racerAnimation4')
+    button6.classList.remove('racerAnimation3', 'racerAnimation4')
+    button7.classList.remove('racerAnimation3', 'racerAnimation4')
+    button8.classList.remove('racerAnimation3', 'racerAnimation4')
+
+    racer1name = `jack krueger`;
+    racer1bio = `i did that`;
+    button1.src = `/jackmarble.png`;
+    racer1source = `/jackmarble.png`;
+
+    racer2name = `hayden gomez`;
+    racer2bio = `Gamer, cylist, doing school stuff`;
+    button2.src = `/haydenmarble.png`;
+    racer2source = `/haydenmarble.png`;
+
+    racer3name = `tristan peevy`;
+    racer3bio = `he studied abroad`;
+    button3.src = `/tristanmarble.png`;
+    racer3source = `/tristanmarble.png`;
+    
+    racer4name = `corben gomez`;
+    racer4bio = `emerald in league`;
+    button4.src = `/corbenmarble.png`;
+    racer4source = `/corbenmarble.png`;
+    
+    racer5name = `frankie cueto`;
+    racer5bio = `coworkers with mickey mouse`;
+    button5.src = `/frankiemarble.png`;
+    racer5source = `/frankiemarble.png`;
+    
+    racer6name = `Barack Obama`;
+    racer6bio = `Michelle Obama's husband`;
+    button6.src = `/obamamarble.png`;
+    racer6source = `/obamamarble.png`;
+
+    racer7name = `jokair`;
+    racer7bio = `french subway encounter`;
+    button7.src = `/jokairmarble.png`;
+    racer7source = `/jokairmarble.png`;
+
+    racer8name = `sonic`;
+    racer8bio = `fastest thing alive`;
+    button8.src = `/sonicmarble.png`;
+    racer8source = `/sonicmarble.png`;
+
+    betsthisweek = `/betsweek1.json`;
+
+     loadData();
+
+container.classList.remove('fade-out');
+    }, 300);
+
+});
+
+buttonWeek2.addEventListener('click', function() {
+
+    changeRace.play();
+
+    document.getElementById('flexname').innerText = ``;
+    document.getElementById('flexbio').innerText = ``;
+    selected.src = ``;
+
+    container.classList.add('fade-out');
+
+    setTimeout(() => {
+
+    document.getElementById('raceDates').innerText = `April 4 - April 10, 2026`;
+    document.getElementById('raceTitle').innerText = `A Challenger Approaches`;
+    document.getElementById('writeup').innerText = `It's week 2 of the bepis grand prix! The inaugural race saw the tragic defeat of bepis member Hayden Gomez (gone too soon!), but our first new competitor, the famed "super mario", has joined the races.
+    
+    All previous races, including the placed bets and other relevant information will be archived on a new page that you can access soon; but for now, evaluate these racers and decide who you're really willing to entrust your financial future to!
+   
+the payout structure this week will be; 
+1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+    button1.classList.remove('racerAnimation3', 'racerAnimation4')
+    button2.classList.remove('racerAnimation3', 'racerAnimation4')
+    button3.classList.remove('racerAnimation3', 'racerAnimation4')
+    button4.classList.remove('racerAnimation3', 'racerAnimation4')
+    button5.classList.remove('racerAnimation3', 'racerAnimation4')
+    button6.classList.remove('racerAnimation3', 'racerAnimation4')
+    button7.classList.remove('racerAnimation3', 'racerAnimation4')
+    button8.classList.remove('racerAnimation3', 'racerAnimation4')
+
+    racer1name = `jack krueger`;
+    racer1bio = `unemployed`;
+    button1.src = "/jackmarble.png";
+    racer1source = `/jackmarble.png`;
+
+    racer2name = `mario`;
+    racer2bio = `princess peach's strongest soldier`;
+    button2.src = `/mariomarble.png`;
+    racer2source = `/mariomarble.png`;
+
+    racer3name = `tristan peevy`;
+    racer3bio = `bepis esports social media manager`;
+    button3.src = `/tristanmarble.png`;
+    racer3source = `/tristanmarble.png`;
+    
+    racer4name = `corben gomez`;
+    racer4bio = `bepis world architect`;
+    button4.src = `/corbenmarble.png`;
+    racer4source = `/corbenmarble.png`;
+
+    racer5name = `frankie cueto`;
+    racer5bio = `fastest on the playground`;
+    button5.src = `/frankiemarble.png`;
+    racer5source = `/frankiemarble.png`;
+    
+    racer6name = `Barack Obama`;
+    racer6bio = `Joe Biden's friend`;
+    button6.src = `/obamamarble.png`;
+    racer6source = `/obamamarble.png`;
+
+    racer7name = `jokair`;
+    racer7bio = `patron deity of the Paris metro`;
+    button7.src = `/jokairmarble.png`;
+    racer7source = `/jokairmarble.png`;
+
+    racer8name = `sonic`;
+    racer8bio = `living up to his reputation`;
+    button8.src = `/sonicmarble.png`;
+    racer8source = `/sonicmarble.png`;
+
+    betsthisweek = `/betsweek2.json`;
+
+     loadData();
+
+container.classList.remove('fade-out');
+    }, 300);
+
+});
+
+
+
+button1.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer1name;
+    document.getElementById('flexbio').innerText = racer1bio;
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth;
+    flexname.classList.add('racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexbio.offsetWidth;
+    flexbio.classList.add('racerAnimation2')
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    const selected = document.getElementById('selectedRacer')
+    selected.classList.remove("rainbowanimation2");
+    void selected.offsetWidth;
+    selected.classList.add("rainbowanimation2");
+    const selectedSmall = document.getElementById('racer1')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button2.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer1source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+   
+});
+
+button2.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer2name;
+    document.getElementById('flexbio').innerText = racer2bio;    
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth;
+    flexname.classList.add('racerAnimation2')
+     flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexbio.offsetWidth;
+    flexbio.classList.add('racerAnimation2')
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    const selected = document.getElementById('selectedRacer')
+    const selectedSmall = document.getElementById('racer2')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer2source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+    
+});
+
+button3.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer3name;
+    document.getElementById('flexbio').innerText = racer3bio;
+    const selected = document.getElementById('selectedRacer')
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    const selectedSmall = document.getElementById('racer3')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button2.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer3source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+});
+
+button4.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer4name;
+    document.getElementById('flexbio').innerText = racer4bio;
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    const selected = document.getElementById('selectedRacer')
+    const selectedSmall = document.getElementById('racer4')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button2.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer4source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+});
+
+button5.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer5name;
+    document.getElementById('flexbio').innerText = racer5bio;
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    const selected = document.getElementById('selectedRacer')
+    const selectedSmall = document.getElementById('racer5')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button2.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer5source;
+     selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+});
+
+button6.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer6name;
+    document.getElementById('flexbio').innerText = racer6bio;
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    const selected = document.getElementById('selectedRacer')
+    const selectedSmall = document.getElementById('racer6')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button2.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer6source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+});
+
+button7.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer7name;
+    document.getElementById('flexbio').innerText = racer7bio;
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    const selected = document.getElementById('selectedRacer')
+    const selectedSmall = document.getElementById('racer7')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button2.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button8.classList.add('racerAnimation4')
+    selected.src = racer7source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+});
+
+button8.addEventListener('click', function() {
+    changeRacer.play();
+    document.getElementById('flexname').innerText = racer8name;
+    document.getElementById('flexbio').innerText = racer8bio;
+    flexname.classList.remove('racerAnimation', 'racerAnimation2')
+    flexbio.classList.remove('racerAnimation', 'racerAnimation2')
+    void flexname.offsetWidth; 
+    void flexbio.offsetWidth;
+    flexname.classList.add('racerAnimation2');
+    flexbio.classList.add('racerAnimation2');
+    mover.classList.remove('raceranimation');
+    void mover.offsetWidth;
+    mover.classList.add('raceranimation');
+    const selected = document.getElementById('selectedRacer')
+    const selectedSmall = document.getElementById('racer8')
+    selectedSmall.classList.remove('racerAnimation3')
+    selectedSmall.classList.remove('racerAnimation4')
+    void selectedSmall.offsetWidth;
+    selectedSmall.classList.add('racerAnimation3')
+    button1.classList.add('racerAnimation4')
+    button2.classList.add('racerAnimation4')
+    button3.classList.add('racerAnimation4')
+    button4.classList.add('racerAnimation4')
+    button5.classList.add('racerAnimation4')
+    button6.classList.add('racerAnimation4')
+    button7.classList.add('racerAnimation4')
+    selected.src = racer8source;
+    selected.classList.remove('racerAnimation', 'racerAnimation2')
+    void selected.offsetWidth;
+    selected.classList.add('racerAnimation');
+});
+
+function latest() {
+     document.getElementById('flexname').innerText = ``;
+    document.getElementById('flexbio').innerText = ``;
+    selected.src = ``;
+
+    document.getElementById('raceDates').innerText = `April 4 - April 10, 2026`;
+    document.getElementById('raceTitle').innerText = `A Challenger Approaches`;
+    document.getElementById('writeup').innerText = `It's week 2 of the bepis grand prix! The inaugural race saw the tragic defeat of bepis member Hayden Gomez (gone too soon!), but our first new competitor, the famed "super mario", has joined the races.
+    
+    All previous races, including the placed bets and other relevant information will be archived on a new page that you can access soon; but for now, evaluate these racers and decide who you're really willing to entrust your financial future to!
+   
+the payout structure this week will be; 
+1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+    button1.classList.remove('racerAnimation3', 'racerAnimation4')
+    button2.classList.remove('racerAnimation3', 'racerAnimation4')
+    button3.classList.remove('racerAnimation3', 'racerAnimation4')
+    button4.classList.remove('racerAnimation3', 'racerAnimation4')
+    button5.classList.remove('racerAnimation3', 'racerAnimation4')
+    button6.classList.remove('racerAnimation3', 'racerAnimation4')
+    button7.classList.remove('racerAnimation3', 'racerAnimation4')
+    button8.classList.remove('racerAnimation3', 'racerAnimation4')
+
+    racer1name = `jack krueger`;
+    racer1bio = `unemployed`;
+    button1.src = "/jackmarble.png";
+    racer1source = `/jackmarble.png`;
+
+    racer2name = `mario`;
+    racer2bio = `princess peach's strongest soldier`;
+    button2.src = `/mariomarble.png`;
+    racer2source = `/mariomarble.png`;
+
+    racer3name = `tristan peevy`;
+    racer3bio = `bepis esports social media manager`;
+    button3.src = `/tristanmarble.png`;
+    racer3source = `/tristanmarble.png`;
+    
+    racer4name = `corben gomez`;
+    racer4bio = `bepis world architect`;
+    button4.src = `/corbenmarble.png`;
+    racer4source = `/corbenmarble.png`;
+
+    racer5name = `frankie cueto`;
+    racer5bio = `fastest on the playground`;
+    button5.src = `/frankiemarble.png`;
+    racer5source = `/frankiemarble.png`;
+    
+    racer6name = `Barack Obama`;
+    racer6bio = `Joe Biden's friend`;
+    button6.src = `/obamamarble.png`;
+    racer6source = `/obamamarble.png`;
+
+    racer7name = `jokair`;
+    racer7bio = `patron deity of the Paris metro`;
+    button7.src = `/jokairmarble.png`;
+    racer7source = `/jokairmarble.png`;
+
+    racer8name = `sonic`;
+    racer8bio = `living up to his reputation`;
+    button8.src = `/sonicmarble.png`;
+    racer8source = `/sonicmarble.png`;
+
+    betsthisweek = `/betsweek2.json`;
+
+     loadData();
+
+}
+
+async function loadData() {
+  try { const response = await fetch(betsthisweek);
+        const bets = await response.json(); 
+        const betscontainer = document.getElementById('betslog');
+        betscontainer.innerHTML = " ";
+
+        bets.forEach(element => {
+           const row = document.createElement('p');
+           row.className = 'bet-log-entry';
+
+           row.innerHTML = `
+           <span class="log-time">[${element.time}]</span>
+           <span class="log-user">${element.username}</span>
+           bet <span class="log-amount">${element.amount}</span>
+           bepiscoin on <span class="log-selection">${element.selection}</span>!
+           `
+            betscontainer.appendChild(row); 
+        });
+    } catch (err) {
+            console.error("could not refresh ticker!". err);
+        }
+    };    
+
+
+
+document.addEventListener("DOMContentLoaded", latest);
+
+
+
+</script>
+</body>
