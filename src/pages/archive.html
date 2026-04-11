@@ -709,7 +709,7 @@ animation-fill-mode: forwards;
 <br><br>
 
 <div id="clickme">
-<a href="https://bepisesports.com/raceresults" id="watchtherace">Watch This Week's Race!!</a></div>
+<a href="" id="watchtherace">Watch This Week's Race!!</a></div>
 
 
 <br><br><br>
@@ -833,7 +833,7 @@ buttonWeek1.addEventListener('click', function() {
     the payout structure this week will be; 
 1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
 
-
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race1results";
 
     button1.classList.remove('racerAnimation3', 'racerAnimation4')
     button2.classList.remove('racerAnimation3', 'racerAnimation4')
@@ -913,6 +913,8 @@ buttonWeek2.addEventListener('click', function() {
    
 the payout structure this week will be; 
 1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race2results";
 
     button1.classList.remove('racerAnimation3', 'racerAnimation4')
     button2.classList.remove('racerAnimation3', 'racerAnimation4')
@@ -1247,6 +1249,9 @@ function latest() {
    
 the payout structure this week will be; 
 1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race2results";
+
 
     button1.classList.remove('racerAnimation3', 'racerAnimation4')
     button2.classList.remove('racerAnimation3', 'racerAnimation4')
