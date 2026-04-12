@@ -203,7 +203,7 @@ function newColour() {
 
 @font-face {
     font-family: gamer;
-    src: url(/PressStart2P-vaV7.ttf);
+    src: url(/DEADCRT.ttf);
 }
 
 .leaderboard {
@@ -244,10 +244,17 @@ function newColour() {
     font-size: 32pt;
 }
 
+body {
+  background-color: rgb(0, 0, 0);
+}
 
+#wholething {
+  color: white;
+}
 
 </style>
-
+<body>
+<div id="wholething">
 <div class="leaderboard">high scorers</div>
 <br><br><br><br>
 <div class="flex-container">
@@ -261,6 +268,34 @@ function newColour() {
 <p class="score">score</p>
 <p class="scores">179</p>
 </div>
-
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+     var bgm = new Howl({
+        src: ['/kongsong.mp3'],
+        loop: true,
+        autoplay: true,
+
+        volume: 0,
+          });
+      bgm.play();
+      bgm.fade(0, 0.1, 4000); 
+
+          document.addEventListener("visibilitychange", function() {
+if (document.hidden) {
+
+    bgm.pause();
+} else {
+        bgm.play();
+          bgm.fade(0, 0.1, 4000); 
+    }
+});
+
+
+    </script>
+
+</body>
