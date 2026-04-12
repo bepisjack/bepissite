@@ -791,6 +791,8 @@ animation-fill-mode: forwards;
         autoplay: true,
         volume: 0,
           });
+      bgm.play();
+      bgm.fade(0, 0.07, 4000); 
 
  document.addEventListener('click', () => {
     if (Howler.ctx && Howler.ctx.state === 'suspended') {
