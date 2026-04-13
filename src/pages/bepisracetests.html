@@ -1270,7 +1270,7 @@ try {
 
 }
 
-const refreshLeaderboard = async function() {
+const refreshTicker = async function() {
     try {
         const response = await fetch('https://api.bepisesports.com/accounts/bets');
         const bets = await response.json(); 
@@ -1302,7 +1302,7 @@ const refreshLeaderboard = async function() {
     };    
 
 
-const refreshTicker = async function() {
+const refreshLeaderboard = async function() {
     try {
         const response = await fetch('https://api.bepisesports.com/accounts/leaderboard');
         const boardData = await response.json(); 
