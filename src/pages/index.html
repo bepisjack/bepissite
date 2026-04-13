@@ -364,6 +364,11 @@ const clickSound = new Howl({
   volume: 0.1
 });
 
+window.addEventListener('mousedown', () => {
+  clickSound.play();
+});
+
+
 function updateDailyClock () {
     const releaseDate = new Date('2026-03-20T22:00:00Z').getTime();
 
