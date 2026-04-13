@@ -246,7 +246,6 @@ function newColour() {
 
 body {
   background-color: rgb(0, 0, 0);
-  cursor: url(), default;
 }
 
 #wholething {
@@ -307,11 +306,11 @@ const userPrefs = async function() {
 
     const pick = prefs.cursor;
 
-    const cursorPref = document.getElementById('body');
+    const cursorPref = document.body;
 
     const cursorString = `${pick}.cur`;
 
-      cursorPref.style.cursor = `url(${pick}), auto`;
+      cursorPref.style.cursor = `url(${pick}).cur, auto`;
      }
             } catch (error) {
         console.error("Ticker failed to load", error);
