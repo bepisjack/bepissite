@@ -509,17 +509,24 @@ const userPrefs = async function() {
 
     const pick = prefs.cursor;
 
-    const cursorPref = document.body;
-
-    const cursorString = `url(/${pick}.cur), auto`;
-
-    cursorPref.style.cursor = cursorString;
+    let style = document.getElementById('dynamic-cursor');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'dynamic-cursor';
+      document.head.appendChild(style);
+    }
 
      }
+     style.innerHTML = `
+     * {
+     cursor: url(/${pick}.cur), auto !important;
+     }
+     `;
             } catch (error) {
         console.error("Ticker failed to load", error);
     }
 }
+
 
 setInterval(userPrefs, 60000);
 
