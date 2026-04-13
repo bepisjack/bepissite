@@ -421,9 +421,9 @@ $(document).on("contextmenu", function(e) {
 
 async function submitPref() {
 
-    const prefData = {
-        cursor: document.getElementById('cursorPref').value,
-    };
+    const prefData = { selection: document.getElementById('cursorPref').value  };
+
+};
 
 try {
     const response = await fetch ('https://api.bepisesports.com/preferences/changepref', {
@@ -433,20 +433,19 @@ try {
         body: JSON.stringify(prefData)
     });
 
-    if (response.ok) {
-      userPrefs();
-        statusDiv.innerText = result.message;
-       
-    } else {
-        statusDiv.innerText = result.error;
-
-              
+if (response.ok) {
+    const result = await response.json(); 
+    userPrefs();
+    console.log(result.message); 
+} else {
+          
+            const errorResult = await response.json();
+            console.log("Server Error:", errorResult.error);
+        }
+    } catch (err) {
+        
+        console.log("Network Error:", err.message);
     }
-} catch (err) {
-  
-    }
-
-}
 
 const userPrefs = async function() {
     try {
