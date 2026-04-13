@@ -302,6 +302,7 @@ const userPrefs = async function() {
   const response = await fetch('https://api.bepisesports.com/kingofswing/preferences', {
     credentials: 'include'
     });
+     if (response.ok) {
     const prefs = await response.json(); 
 
     const pick = prefs.cursor;
@@ -311,7 +312,7 @@ const userPrefs = async function() {
     const cursorString = `${pick}.cur`;
 
       cursorPref.style.cursor = `url(${pick}), auto`;
-
+     }
             } catch (error) {
         console.error("Ticker failed to load", error);
     }
