@@ -420,10 +420,14 @@ $(document).on("contextmenu", function(e) {
 
 
 async function submitPref() {
+    const cursorValue = document.getElementById('cursorPref').value;
 
-    const prefData = { selection: document.getElementById('cursorPref').value  };
+    if (!cursorValue) {
+      console.log("none selected");
+      return;
+    }
 
-};
+const prefData = { selection: cursorValue };
 
 try {
     const response = await fetch ('https://api.bepisesports.com/preferences/changepref', {
@@ -446,6 +450,7 @@ if (response.ok) {
         
         console.log("Network Error:", err.message);
     }
+  }
 
 const userPrefs = async function() {
     try {
