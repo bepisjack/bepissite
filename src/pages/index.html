@@ -519,7 +519,8 @@ const userPrefs = async function() {
                 
                 style.innerHTML = `
                     * { 
-                        cursor: url(/${pick}.cur), auto !important; 
+                        cursor: url(/${pick}.cur), auto; 
+                        cursor: url(/${pick}.cur), pointer; 
                     }
                 `;
             }
