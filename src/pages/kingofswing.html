@@ -246,6 +246,7 @@ function newColour() {
 
 body {
   background-color: rgb(0, 0, 0);
+  cursor: url(), default;
 }
 
 #wholething {
@@ -295,6 +296,30 @@ if (document.hidden) {
     }
 });
 
+
+const userPrefs = async function() {
+    try {
+    const response = await fetch('http://api.bepisesports.com/kingofswing/preferences');
+    const prefs = await response.json(); 
+
+    const pick = prefs.cursor;
+
+    const cursorPref = document.getElementById('body');
+
+    const cursorString = `${pick}.cur`;
+
+      cursorPref.style.cursor = `url(${pick}), auto`;
+
+            } catch (error) {
+        console.error("Ticker failed to load", error);
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    userPrefs();
+
+    });   
 
     </script>
 

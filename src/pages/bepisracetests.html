@@ -852,7 +852,6 @@ animation-fill-mode: forwards;
 <div class="flex-child2"><div id="end" class="risking">bepiscoins!</div></div>
  
 <input type="hidden" name="predicted" id="favored">
-<input type="hidden" name="username" id="bettorusername" value="">
 
  <button type="submit" id="submitButton" class="submitWager">submit !!</button></form></div>
 <br><br><br></div>
@@ -1246,7 +1245,6 @@ const loadusername = async function() {
 
     if (data && data.username) {
         document.getElementById('usernameblank').innerText = data.username;
-        document.getElementById('bettorusername').value = data.username;
         document.getElementById('logoutButton').style.display = 'block';
          document.getElementById('submitButton').style.display = 'block';
     } else {
@@ -1314,7 +1312,7 @@ async function submitBet() {
     const betData = {
         quantity: document.getElementById('quantityInput').value,
         selection: document.getElementById('favored').value,
-        username: document.getElementById('bettorusername').value
+
     };
 
 try {
