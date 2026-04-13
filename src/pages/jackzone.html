@@ -470,6 +470,7 @@ const userPrefs = async function() {
     }
 }
 
+setInterval(userPrefs, 60);
 
 document.addEventListener('DOMContentLoaded', () => {
     userPrefs();
