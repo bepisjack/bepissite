@@ -499,6 +499,30 @@ window.addEventListener('load', function() {
     }, 3500); // 3000 milliseconds = 3 seconds
 });
 
+const userPrefs = async function() {
+    try {
+  const response = await fetch('https://api.bepisesports.com/preferences', {
+    credentials: 'include'
+    });
+     if (response.ok) {
+    const prefs = await response.json(); 
+
+    const pick = prefs.cursor;
+
+    const cursorPref = document.body;
+
+    const cursorString = `url(/${pick}.cur), auto`;
+
+    cursorPref.style.cursor = cursorString;
+
+     }
+            } catch (error) {
+        console.error("Ticker failed to load", error);
+    }
+}
+
+setInterval(userPrefs, 60000);
+
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
     refreshTicker();
@@ -507,6 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getData2();
     updateDailyClock();
     rightwrite();
+    userPrefs();
 });
 
     </script>
