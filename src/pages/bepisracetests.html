@@ -1306,7 +1306,7 @@ const refreshTicker = async function() {
     try {
         const response = await fetch('https://api.bepisesports.com/accounts/leaderboard');
         const boardData = await response.json(); 
-        const leaderboard = document.getElementById('leaderboardDisplay');
+        const leaderboardDisplay = document.getElementById('leaderboard');
         leaderboardDisplay.innerHTML = " ";
 
         boardData.forEach(element => {
