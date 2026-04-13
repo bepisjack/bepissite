@@ -356,7 +356,7 @@ text-shadow: 2px 2px 0px rgb(226, 136, 8);
 </style>
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 
 const clickSound = new Howl({
@@ -367,6 +367,9 @@ const clickSound = new Howl({
 window.addEventListener('mousedown', () => {
   clickSound.play();
 });
+
+
+
 
 
 function updateDailyClock () {
