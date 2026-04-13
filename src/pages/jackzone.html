@@ -472,8 +472,12 @@ const userPrefs = async function() {
                 
                 style.innerHTML = `
                     * { 
-                        cursor: url(/${pick}.cur), auto !important; 
+                        cursor: url(/${pick}.cur), auto !important;
                     }
+                
+                a, button, input[type="image"], .allothers, .back {
+                cursor: url(/${pick}2.cur), pointer !important;
+            }
                 `;
             }
         } 
