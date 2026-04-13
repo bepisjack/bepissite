@@ -299,8 +299,9 @@ if (document.hidden) {
 
 const userPrefs = async function() {
     try {
-    const response = await fetch('http://api.bepisesports.com/kingofswing/preferences');
-       credentials: 'include'
+  const response = await fetch('https://api.bepisesports.com/kingofswing/preferences', {
+    credentials: 'include'
+    });
     const prefs = await response.json(); 
 
     const pick = prefs.cursor;
