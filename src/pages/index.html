@@ -359,6 +359,11 @@ text-shadow: 2px 2px 0px rgb(226, 136, 8);
 
 <script>
 
+const clickSound = new Howl({
+  src: ['/mario-meow.mp3'], // Replace with your actual file path
+  volume: 0.1
+});
+
 function updateDailyClock () {
     const releaseDate = new Date('2026-03-20T22:00:00Z').getTime();
 
