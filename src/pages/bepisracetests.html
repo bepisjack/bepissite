@@ -1306,6 +1306,7 @@ const refreshLeaderboard = async function() {
     try {
         const response = await fetch('https://api.bepisesports.com/accounts/leaderboard');
         const boardData = await response.json(); 
+        boardData.sort((a, b) => b.currency - a.currency);
         const leaderboardDisplay = document.getElementById('leaderboard');
         leaderboardDisplay.innerHTML = " ";
 
