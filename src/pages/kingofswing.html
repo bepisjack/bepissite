@@ -308,9 +308,10 @@ const userPrefs = async function() {
 
     const cursorPref = document.body;
 
-    const cursorString = `${pick}.cur`;
+    const cursorString = `url(/${pick}.cur), auto`;
 
-      cursorPref.style.cursor = `url(${pick}).cur, auto`;
+    cursorPref.style.cursor = cursorString;
+
      }
             } catch (error) {
         console.error("Ticker failed to load", error);
