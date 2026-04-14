@@ -515,10 +515,12 @@ function makeClickSound() {
   clickSound.play();
 });
 
-function killClickSound() {
-    window.removeEventListener('mousedown')
-};
+}
 
+function killClickSound() {
+      window.addEventListener('mousedown', () => {
+  clickSound.play();
+});
 
 }
 
