@@ -317,12 +317,20 @@ input[type=range]:focus::-ms-fill-upper {
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
 <input type="hidden" name="cursor" id="cursorPref">
+<input type="checkbox" name="sound" id="soundPref">
 
 <button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+const clickSound = new Howl({
+  src: ['/mario-meow.mp3'],
+  volume: 0.1
+});
+
+
 
 const button1 = document.getElementById('cursor1');
 const button2 = document.getElementById('cursor2');
@@ -421,13 +429,18 @@ $(document).on("contextmenu", function(e) {
 
 async function submitPref() {
     const cursorValue = document.getElementById('cursorPref').value;
+    const soundValue = document.getElementById('soundPref').value;
 
     if (!cursorValue) {
       console.log("none selected");
       return;
     }
 
-const prefData = { selection: cursorValue };
+const prefData = { 
+  selection: cursorValue,
+  sound: soundValue,
+
+};
 
 try {
     const response = await fetch ('https://api.bepisesports.com/preferences/changepref', {
@@ -461,6 +474,7 @@ const userPrefs = async function() {
         if (response.ok) {
             const prefs = await response.json(); 
             const pick = prefs.cursor;
+            const soundPick = prefs.sound;
 
             if (pick) {
                 let style = document.getElementById('dynamic-cursor');
@@ -480,6 +494,9 @@ const userPrefs = async function() {
             }
                 `;
             }
+                            if (soundPick === "true") {
+                    makeClickSound();
+                }
         } 
     }
     catch (error) { 
@@ -487,6 +504,13 @@ const userPrefs = async function() {
     }
 }; 
 
+
+function makeClickSound() {
+    window.addEventListener('mousedown', () => {
+  clickSound.play();
+});
+
+}
 
 setInterval(userPrefs, 60000);
 
