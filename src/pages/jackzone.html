@@ -498,9 +498,7 @@ const userPrefs = async function() {
                             if (soundPick === "on") {
                     makeClickSound();
                 }
-                if (soundPick === "off") {
-                    killClickSound();
-                }
+               
                 
         } 
     }
@@ -517,12 +515,6 @@ function makeClickSound() {
 
 }
 
-function killClickSound() {
-      window.removeEventListener('mousedown', () => {
-  clickSound.play();
-});
-
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     userPrefs();
