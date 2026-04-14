@@ -364,9 +364,6 @@ const clickSound = new Howl({
   volume: 0.1
 });
 
-window.addEventListener('mousedown', () => {
-  clickSound.play();
-});
 
 
 
@@ -505,6 +502,13 @@ function updateStats(ver, pages) {
     document.getElementById("stats").innerText = `${currentVer} | ${currentPages}`;
 }
 
+function makeClickSound() {
+    window.addEventListener('mousedown', () => {
+  clickSound.play();
+});
+
+}
+
 window.addEventListener('load', function() {
     setTimeout(function() {
         const element = document.getElementById('rightwrite');
@@ -539,6 +543,10 @@ const userPrefs = async function() {
                 cursor: url(/${pick}2.cur), pointer !important;
             }
                 `;
+                if (pick === "wii") {
+                    makeClickSound();
+                }
+                
             }
         } 
     }
