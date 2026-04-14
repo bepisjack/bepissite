@@ -303,22 +303,22 @@ input[type=range]:focus::-ms-fill-upper {
 <br><br><br>
     
 
-<input type="image" class="allothers" src="/jackmarble.png" id="cursor1"></div>
+<input type="image" class="allothers" src="/wii.cur" id="cursor1"></div>
 
-<input type="image" class="allothers" src="/mariomarble.png" id="cursor2"></div>
+<input type="image" class="allothers" src="/gauntlet.cur" id="cursor2"></div>
 
-<input type="image" class="allothers" src="/tristanmarble.png" id="cursor3"></div>
+<input type="image" class="allothers" src="/diamondsword.cur" id="cursor3"></div>
 
-<input type="image" class="allothers" src="/corbenmarble.png" id="cursor4"></div>
+<input type="image" class="allothers" src="/sonic.cur" id="cursor4"></div>
 
-<input type="image" class="allothers" src="/frankiemarble.png" id="cursor5"></div>
+<input type="image" class="allothers" src="/goblinhand.cur" id="cursor5"></div>
 
 
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
-<input type="hidden" name="cursor" id="cursorPref">
-<label for="off" style="color: white;">no meow</label><input type="radio" name="sound" id="off" value="off">
-<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="on">
+<input type="hidden" name="cursor" id="cursorPref" required>
+<label for="off" style="color: white;">no meow</label><input type="radio" name="sound" id="off" value="off" required>
+<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="on" require>
  
 <button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
 
