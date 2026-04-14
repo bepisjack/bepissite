@@ -317,8 +317,9 @@ input[type=range]:focus::-ms-fill-upper {
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
 <input type="hidden" name="cursor" id="cursorPref">
-<input type="checkbox" name="sound" id="soundPref">
-
+<input type="radio" name="sound" id="off" value="off">
+<input type="radio" name="sound" id="on" value="on">
+ 
 <button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -429,7 +430,7 @@ $(document).on("contextmenu", function(e) {
 
 async function submitPref() {
     const cursorValue = document.getElementById('cursorPref').value;
-    const soundValue = document.getElementById('soundPref').value;
+    const soundValue = document.querySelector('input[name="sound"]:checked').value;
 
     if (!cursorValue) {
       console.log("none selected");
