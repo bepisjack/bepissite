@@ -502,12 +502,6 @@ function updateStats(ver, pages) {
     document.getElementById("stats").innerText = `${currentVer} | ${currentPages}`;
 }
 
-function makeClickSound() {
-    window.addEventListener('mousedown', () => {
-  clickSound.play();
-});
-
-}
 
 window.addEventListener('load', function() {
     setTimeout(function() {
@@ -525,6 +519,7 @@ const userPrefs = async function() {
         if (response.ok) {
             const prefs = await response.json(); 
             const pick = prefs.cursor;
+            const soundPick = prefs.sound;
 
             if (pick) {
                 let style = document.getElementById('dynamic-cursor');
@@ -543,11 +538,10 @@ const userPrefs = async function() {
                 cursor: url(/${pick}2.cur), pointer !important;
             }
                 `;
-                if (pick === "wii") {
+            }
+                            if (soundPick === "on") {
                     makeClickSound();
                 }
-                
-            }
         } 
     }
     catch (error) { 
@@ -555,6 +549,13 @@ const userPrefs = async function() {
     }
 }; 
 
+
+function makeClickSound() {
+    window.addEventListener('mousedown', () => {
+  clickSound.play();
+});
+
+}
 
 setInterval(userPrefs, 60000);
 
