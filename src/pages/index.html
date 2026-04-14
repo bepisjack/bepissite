@@ -359,14 +359,6 @@ text-shadow: 2px 2px 0px rgb(226, 136, 8);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 
-const clickSound = new Howl({
-  src: ['/mario-meow.mp3'], // Replace with your actual file path
-  volume: 0.1
-});
-
-window.addEventListener('mousedown', () => {
-  clickSound.play();
-});
 
 
 
@@ -523,6 +515,11 @@ const userPrefs = async function() {
             const pick = prefs.cursor;
 
             if (pick) {
+                const clickSound = new Howl({
+              src: ['/mario-meow.mp3'], 
+             volume: 0.1
+                });
+
                 let style = document.getElementById('dynamic-cursor');
                 if (!style) {
                     style = document.createElement('style');
@@ -549,6 +546,13 @@ const userPrefs = async function() {
 
 
 setInterval(userPrefs, 60000);
+
+
+window.addEventListener('mousedown', () => {
+  clickSound.play();
+});
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
