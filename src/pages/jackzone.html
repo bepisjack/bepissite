@@ -518,7 +518,7 @@ function makeClickSound() {
 }
 
 function killClickSound() {
-      window.addEventListener('mousedown', () => {
+      window.removeEventListener('mousedown', () => {
   clickSound.play();
 });
 
