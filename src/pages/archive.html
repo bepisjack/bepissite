@@ -239,6 +239,22 @@ body {
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
+#week3 {
+    top: 2vh;
+    left: 11vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(0, 115, 255);
+    height: 22px;
+    width: 84px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+
 #week2 {
     top: 2vh;
     left: 6vw;
@@ -266,6 +282,10 @@ body {
 }
 
 
+#week3:hover {
+    background-color:rgb(55, 140, 245);
+    transform: scale(1.1);
+}
 
 #back:hover {
     background-color: rgb(214, 77, 52);
@@ -697,6 +717,8 @@ animation-fill-mode: forwards;
 
 <input type="button" value="to week 2" id="week2">
 
+<input type="button" value="to week 3" id="week3">
+
 
 <br>
 
@@ -805,6 +827,7 @@ const button8 = document.getElementById('racer8');
 
 const buttonWeek1 = document.getElementById('week1');
 const buttonWeek2 = document.getElementById('week2');
+const buttonWeek3 = document.getElementById('week3');
 
 const selected = document.getElementById('selectedRacer');
 
@@ -973,6 +996,91 @@ container.classList.remove('fade-out');
     }, 300);
 
 });
+
+
+buttonWeek3.addEventListener('click', function() {
+
+    changeRace.play();
+
+    document.getElementById('flexname').innerText = ``;
+    document.getElementById('flexbio').innerText = ``;
+    selected.src = ``;
+
+    container.classList.add('fade-out');
+
+    setTimeout(() => {
+
+    document.getElementById('raceDates').innerText = `April 11 - April 17, 2026`;
+    document.getElementById('raceTitle').innerText = `A King's Court`;
+    document.getElementById('writeup').innerText = `  Obama has fallen in week 2 of the bepis grand prix, but LeBron James has stepped up to fill his place! Last week saw a clash between storied rivals in mario and sonic, and the first ever bet on a winning marble with hayden taking home 32 bepiscoin!!
+
+    For those wanting to do a little pocket watching, consult the new bepiscoin leaderboard so you can know who the high rollers are here at the bepis grand prix!
+
+    Also, the archive page is now live! Peer into weeks past to gather intel on eliminated racers, see old bets, or just watch old races!
+   
+the payout structure this week will be; 
+1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race3results";
+
+    button1.classList.remove('racerAnimation3', 'racerAnimation4')
+    button2.classList.remove('racerAnimation3', 'racerAnimation4')
+    button3.classList.remove('racerAnimation3', 'racerAnimation4')
+    button4.classList.remove('racerAnimation3', 'racerAnimation4')
+    button5.classList.remove('racerAnimation3', 'racerAnimation4')
+    button6.classList.remove('racerAnimation3', 'racerAnimation4')
+    button7.classList.remove('racerAnimation3', 'racerAnimation4')
+    button8.classList.remove('racerAnimation3', 'racerAnimation4')
+
+    racer1name = `jack krueger`;
+    racer1bio = `illegal sportsbook operator`;
+    button1.src = "/jackmarble.png";
+    racer1source = `/jackmarble.png`;
+
+    racer2name = `mario`;
+    racer2bio = `legendary multi-sport athlete`;
+    button2.src = `/mariomarble.png`;
+    racer2source = `/mariomarble.png`;
+
+    racer3name = `tristan peevy`;
+    racer3bio = `shower beer enjoyer`;
+    button3.src = `/tristanmarble.png`;
+    racer3source = `/tristanmarble.png`;
+    
+    racer4name = `corben gomez`;
+    racer4bio = `only person excited to see mr game & watch`;
+    button4.src = `/corbenmarble.png`;
+    racer4source = `/corbenmarble.png`;
+
+    racer5name = `frankie cueto`;
+    racer5bio = `world-class hater`;
+    button5.src = `/frankiemarble.png`;
+    racer5source = `/frankiemarble.png`;
+    
+    racer6name = `lebron james`;
+    racer6bio = `basketball warlord seeking further glory`;
+    button6.src = `/lebronmarble.png`;
+    racer6source = `/lebronmarble.png`;
+
+    racer7name = `jokair`;
+    racer7bio = `kinda clean with it`;
+    button7.src = `/jokairmarble.png`;
+    racer7source = `/jokairmarble.png`;
+
+    racer8name = `sonic`;
+    racer8bio = `seeking his runback`;
+    button8.src = `/sonicmarble.png`;
+    racer8source = `/sonicmarble.png`;
+
+    betsthisweek = `/betsweek3.json`;
+
+     loadData();
+
+container.classList.remove('fade-out');
+    }, 300);
+
+});
+
 
 button1.addEventListener('click', function() {
     changeRacer.play();
@@ -1239,16 +1347,18 @@ function latest() {
     document.getElementById('flexbio').innerText = ``;
     selected.src = ``;
 
-    document.getElementById('raceDates').innerText = `April 4 - April 10, 2026`;
-    document.getElementById('raceTitle').innerText = `A Challenger Approaches`;
-    document.getElementById('writeup').innerText = `It's week 2 of the bepis grand prix! The inaugural race saw the tragic defeat of bepis member Hayden Gomez (gone too soon!), but our first new competitor, the famed "super mario", has joined the races.
-    
-    All previous races, including the placed bets and other relevant information will be archived on a new page that you can access soon; but for now, evaluate these racers and decide who you're really willing to entrust your financial future to!
+   document.getElementById('raceDates').innerText = `April 11 - April 17, 2026`;
+    document.getElementById('raceTitle').innerText = `A King's Court`;
+    document.getElementById('writeup').innerText = `  Obama has fallen in week 2 of the bepis grand prix, but LeBron James has stepped up to fill his place! Last week saw a clash between storied rivals in mario and sonic, and the first ever bet on a winning marble with hayden taking home 32 bepiscoin!!
+
+    For those wanting to do a little pocket watching, consult the new bepiscoin leaderboard so you can know who the high rollers are here at the bepis grand prix!
+
+    Also, the archive page is now live! Peer into weeks past to gather intel on eliminated racers, see old bets, or just watch old races!
    
 the payout structure this week will be; 
 1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
 
-    document.getElementById('watchtherace').href = "https://bepisesports.com/race2results";
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race3results";
 
 
     button1.classList.remove('racerAnimation3', 'racerAnimation4')
@@ -1260,47 +1370,47 @@ the payout structure this week will be;
     button7.classList.remove('racerAnimation3', 'racerAnimation4')
     button8.classList.remove('racerAnimation3', 'racerAnimation4')
 
-    racer1name = `jack krueger`;
-    racer1bio = `unemployed`;
+       racer1name = `jack krueger`;
+    racer1bio = `illegal sportsbook operator`;
     button1.src = "/jackmarble.png";
     racer1source = `/jackmarble.png`;
 
     racer2name = `mario`;
-    racer2bio = `princess peach's strongest soldier`;
+    racer2bio = `legendary multi-sport athlete`;
     button2.src = `/mariomarble.png`;
     racer2source = `/mariomarble.png`;
 
     racer3name = `tristan peevy`;
-    racer3bio = `bepis esports social media manager`;
+    racer3bio = `shower beer enjoyer`;
     button3.src = `/tristanmarble.png`;
     racer3source = `/tristanmarble.png`;
     
     racer4name = `corben gomez`;
-    racer4bio = `bepis world architect`;
+    racer4bio = `only person excited to see mr game & watch`;
     button4.src = `/corbenmarble.png`;
     racer4source = `/corbenmarble.png`;
 
     racer5name = `frankie cueto`;
-    racer5bio = `fastest on the playground`;
+    racer5bio = `world-class hater`;
     button5.src = `/frankiemarble.png`;
     racer5source = `/frankiemarble.png`;
     
-    racer6name = `Barack Obama`;
-    racer6bio = `Joe Biden's friend`;
-    button6.src = `/obamamarble.png`;
-    racer6source = `/obamamarble.png`;
+    racer6name = `lebron james`;
+    racer6bio = `basketball warlord seeking further glory`;
+    button6.src = `/lebronmarble.png`;
+    racer6source = `/lebronmarble.png`;
 
     racer7name = `jokair`;
-    racer7bio = `patron deity of the Paris metro`;
+    racer7bio = `kinda clean with it`;
     button7.src = `/jokairmarble.png`;
     racer7source = `/jokairmarble.png`;
 
     racer8name = `sonic`;
-    racer8bio = `living up to his reputation`;
+    racer8bio = `seeking his runback`;
     button8.src = `/sonicmarble.png`;
     racer8source = `/sonicmarble.png`;
 
-    betsthisweek = `/betsweek2.json`;
+    betsthisweek = `/betsweek3.json`;
 
      loadData();
 
