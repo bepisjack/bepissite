@@ -290,6 +290,29 @@ input[type=range]:focus::-ms-fill-upper {
 
 }
 
+#cursor1 {
+  display: none;
+}
+
+#cursor2 {
+  display: none;
+}
+
+#cursor3 {
+  display: none;
+}
+
+#cursor4 {
+  display: none;
+}
+
+#cursor5 {
+  display: none;
+}
+
+
+
+
 </style>
 
  <a href="https://bepisesports.com/" class="back">> back</a>
@@ -516,8 +539,44 @@ function makeClickSound() {
 }
 
 
+async function loadWardrobe() {
+    try {
+        const response = await fetch('https://api.bepisesports.com/preferences/wardrobe', {
+            credentials: 'include'
+        });
+  if (response.ok) {
+    const data = await response.json();
+    const myCursors = data.cursors;
+  }
+
+  if (myCursors.includes("wii")) {
+    document.getElementById("cursor1").style.display = 'block'
+  }
+
+ if (myCursors.includes("gauntlet")) {
+    document.getElementById("cursor2").style.display = 'block'
+  }
+
+   if (myCursors.includes("diamondsword")) {
+    document.getElementById("cursor3").style.display = 'block'
+  }
+
+   if (myCursors.includes("sonic")) {
+    document.getElementById("cursor4").style.display = 'block'
+  }
+
+   if (myCursors.includes("goblinhand")) {
+    document.getElementById("cursor5").style.display = 'block'
+  }
+  
+} catch (err) {
+        console.error("Error loading wardrobe:", err);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     userPrefs();
+    loadWardrobe();
   });   
 
 
