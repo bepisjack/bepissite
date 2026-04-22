@@ -546,8 +546,8 @@ async function loadWardrobe() {
         });
   if (response.ok) {
     const data = await response.json();
-    const myCursors = data.cursors;
-  }
+    const myCursors = response.cursors;
+  
 
   if (myCursors.includes("wii")) {
     document.getElementById("cursor1").style.display = 'block'
@@ -568,7 +568,7 @@ async function loadWardrobe() {
    if (myCursors.includes("goblinhand")) {
     document.getElementById("cursor5").style.display = 'block'
   }
-  
+}
 } catch (err) {
         console.error("Error loading wardrobe:", err);
     }
