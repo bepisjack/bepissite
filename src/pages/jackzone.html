@@ -546,7 +546,7 @@ async function loadWardrobe() {
         });
   if (response.ok) {
     const data = await response.json();
-    const myCursors = response.cursors;
+    const myCursors = data.cursors;
   
 
   if (myCursors.includes("wii")) {
