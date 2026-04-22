@@ -310,11 +310,11 @@ input[type=range]:focus::-ms-fill-upper {
   display: none;
 }
 
-#on {
+#meowon {
   display: none;
 }
 
-#off {
+#meowoff {
   display: none;
 }
 
@@ -345,8 +345,11 @@ input[type=range]:focus::-ms-fill-upper {
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
 <input type="hidden" name="cursor" id="cursorPref" required>
-<label for="off" style="color: white;">no meow</label><input type="radio" name="sound" id="off" value="off" required>
-<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="on" require>
+
+<div id="meowoff">
+<label for="off" style="color: white;">no meow</label><input type="radio" name="sound" id="off" value="off" required></div>
+<div id="meowon"></div>
+<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="on" require></div>
  
 <button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
 
@@ -576,11 +579,11 @@ async function loadWardrobe() {
   }
 
    if (mySounds.includes("on")) {
-    document.getElementById("on").style.display = 'inline-block'
+    document.getElementById("meowon").style.display = 'inline-block'
   }
 
     if (mySounds.includes("off")) {
-  document.getElementById("off").style.display = 'inline-block'
+  document.getElementById("meowoff").style.display = 'inline-block'
   }
 }
 } catch (err) {
