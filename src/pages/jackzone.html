@@ -547,26 +547,35 @@ async function loadWardrobe() {
   if (response.ok) {
     const data = await response.json();
     const myCursors = data.cursors;
+    const mySounds = data.sounds;
   
 
   if (myCursors.includes("wii")) {
-    document.getElementById("cursor1").style.display = 'block'
+    document.getElementById("cursor1").style.display = 'inline-block'
   }
 
  if (myCursors.includes("gauntlet")) {
-    document.getElementById("cursor2").style.display = 'block'
+    document.getElementById("cursor2").style.display = 'inline-block'
   }
 
    if (myCursors.includes("diamondsword")) {
-    document.getElementById("cursor3").style.display = 'block'
+    document.getElementById("cursor3").style.display = 'inline-block'
   }
 
    if (myCursors.includes("sonic")) {
-    document.getElementById("cursor4").style.display = 'block'
+    document.getElementById("cursor4").style.display = 'inline-block'
   }
 
    if (myCursors.includes("goblinhand")) {
-    document.getElementById("cursor5").style.display = 'block'
+    document.getElementById("cursor5").style.display = 'inline-block'
+  }
+
+   if (mySounds.includes("on")) {
+    document.getElementById("on").style.display = 'inline-block'
+  }
+
+    if (mySounds.includes("off")) {
+  document.getElementById("off").style.display = 'inline-block'
   }
 }
 } catch (err) {
