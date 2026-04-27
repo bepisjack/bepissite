@@ -415,6 +415,24 @@ function updateDailyClock () {
         document.getElementById('beerpic').src = images[randomIndex];
     }
 
+    const setRandomLink = function() {
+        const links = [
+            'https://www.instagram.com/bepisesports/',
+            'https://www.instagram.com/bepisesports/',
+            'https://www.instagram.com/bepisesports/',
+            'https://www.instagram.com/bepisesports/',
+            'https://www.instagram.com/bepisesports/',
+            'https://www.instagram.com/bepisesports/',
+            'https://untappd.com/user/tristanpvy'
+        ];
+
+        const randomIndex = Math.floor(Math.random() * links.length);
+
+        document.getElementById('beerpics').href = links[randomIndex];
+    }
+
+
+
    const refreshcard = async function() {
     try {
     const response = await fetch('https://bepisbackend.fly.dev/randomcard');
@@ -566,6 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDailyClock();
     rightwrite();
     userPrefs();
+    setRandomLink();
 });
 
     </script>
@@ -616,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <br><h2 id="status" style="line-height: 1.1; font-size: 36pt;"></h2>
 <hr style="width:80%;">
 <br><br>
-<a id="beerpics" href="https://www.instagram.com/bepisesports/"><img id="beerpic" src=""></a>
+<a id="beerpics" href=""><img id="beerpic" src=""></a>
 
 </div>
 
