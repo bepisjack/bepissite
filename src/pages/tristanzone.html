@@ -22,6 +22,7 @@ img {
     position: relative;
     width: 18vw;
     height: 18vh;
+    display: inline-block;
 }
 
 .beerpic {
@@ -41,8 +42,48 @@ img {
 
 
 .wiiborder:hover {
-    box-shadow: inset 0 0 15px 15px rgb(0, 174, 255);
+    box-shadow: inset 0 0 20px 15px rgb(82, 200, 255);
+
+    
 }
+
+.hover-text {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    font-size: 30pt;
+    font-family: wii;
+    color: rgb(82, 82, 82);
+    padding: 4px;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: max-content;
+    box-sizing: border-box;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    text-align: center;
+    z-index: 9;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(120, 120, 120);
+    border-style: solid;
+    border-radius: 45px;
+    box-shadow: 2px 2px 2px rgb(40, 40, 40);
+    transition: display 0.1s allow-discrete, opacity 0.1s ease-out, transform 0.1s ease-out;
+    
+}
+
+.wiicontainer:hover .hover-text {
+    display: block;
+        z-index: 5;
+            transform: translateX(-50%) scale(1);
+        opacity: 1;
+@starting-style {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+}
+}
+
 
 .row1 {
     display: flex;
@@ -88,21 +129,25 @@ body {
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/wideber.png" class="beerpic">
+<div class="hover-text">beer!!!!!</div>
 </div>
 </div>
 
@@ -112,21 +157,25 @@ body {
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/goblinwide.png" class="beerpic">
+<div class="hover-text">the goblin</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 </div>
 
@@ -136,21 +185,25 @@ body {
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widetristan.png" class="beerpic">
+<div class="hover-text">faded asf</div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/widebron.png" class="beerpic">
+<div class="hover-text">lebron james</div>
 </div>
 </div>
 <br><br><br><br>
