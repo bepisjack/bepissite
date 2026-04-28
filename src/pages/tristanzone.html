@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <body>
-    
+<head>
+    <title>tristan zone</title>
+</head>
 
 
 
@@ -42,7 +44,7 @@ img {
 
 
 .wiiborder:hover {
-    box-shadow: inset 0 0 20px 15px rgb(82, 200, 255);
+    box-shadow: inset 0 0 1vw 1vw rgb(82, 200, 255);
 
     
 }
@@ -51,12 +53,12 @@ img {
     display: none;
     opacity: 0;
     position: absolute;
-    font-size: 30pt;
+    font-size: 2.5vw;
     font-family: wii;
     color: rgb(82, 82, 82);
-    padding: 4px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 0.5vw;
+    padding-left: 1.8vw;
+    padding-right: 1.8vw;
     width: max-content;
     box-sizing: border-box;
     top: 120%;
@@ -67,8 +69,8 @@ img {
     background-color: rgb(255, 255, 255);
     border-color: rgb(120, 120, 120);
     border-style: solid;
-    border-radius: 45px;
-    box-shadow: 2px 2px 2px rgb(40, 40, 40);
+    border-radius: 100vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(40, 40, 40, 0.654);
     transition: display 0.1s allow-discrete, opacity 0.1s ease-out, transform 0.1s ease-out;
     
 }
@@ -89,7 +91,7 @@ img {
     display: flex;
 justify-content: center;
 gap: 0vw;
-margin-top: 7vh;
+margin-top: 4vh;
 }
 
 .row2 {
@@ -112,14 +114,67 @@ body {
     cursor: url(/wii.cur), default;
 }
 
+html, body {
+  max-width: 100%;
+
+}
+
 .tristanzone {
+    position: absolute;
     font-family: wii;
     width: auto;
     margin: auto;
     text-align: center;
-    font-size: 72pt;
+    font-size: 4vw;
     color: rgb(103, 103, 103);
-    text-shadow: 3px 3px 1px darkgray;
+    text-shadow: 0.15vw 0.15vw 0.1vw darkgray;
+    top: 92%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wiibottom {
+    position: fixed;
+    width: 105vw;
+    margin: auto;
+    left: -2vw;
+    bottom: 8vh;
+    z-index: 0;
+}
+
+.backbutton {
+    position: fixed;
+    width: 8vw;
+    margin: auto;
+    left: 4vw;
+    bottom: 5vh;
+    z-index: 10;
+    filter: drop-shadow(0px 0px 0.4vw #006969);
+}
+
+#lebronbutton {
+    position: fixed;
+    width: 8vw;
+    margin: auto;
+    right: 4vw;
+    bottom: 5vh;
+    z-index: 10;
+    filter: drop-shadow(0px 0px 0.4vw #006969);
+}
+
+
+.clock {
+        position: absolute;
+    font-family: wii;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    font-size: 3vw;
+    color: rgb(122, 122, 122);
+    text-shadow: 0.15vw 0.15vw 0.08vw darkgray;
+    top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 </style>
@@ -206,13 +261,34 @@ body {
 <div class="hover-text">lebron james</div>
 </div>
 </div>
+
 <br><br><br><br>
+
+<div class="clock" id="time"></div>
+
+<img src="/wiibottom.png" class="wiibottom">
+
+<a href="https://bepisesports.com/">
+<img src="/backbutton.png" class="backbutton"></a>
+
+<input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton"></a>
+
+
 <div class="tristanzone">Tristan zone</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+
+function updateClock () {
+    const now = new Date();
+    document.getElementById('time').innerHTML = now.toLocaleTimeString('en-US', {hourCycle:"h24", weekday:"long"});
+}
+
+setInterval(updateClock, 1000);
+
+
 
       var bgm = new Howl({
         src: ['/pokemongate.mp3'],
@@ -221,6 +297,20 @@ body {
           });
       bgm.play();
       bgm.fade(0, 0.2, 4000);
+
+      
+      var bgm2 = new Howl({
+        src: ['/nationalpark.mp3'],
+        loop: true,
+        volume: 0,
+          });
+ 
+
+ document.addEventListener('click', () => {
+    if (Howler.ctx && Howler.ctx.state === 'suspended') {
+        Howler.ctx.resume();
+    }
+}, { once: true });
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -241,7 +331,24 @@ const clicksound2 = new Howl({
     volume: 0.1,
 });
 
+const clicksound3 = new Howl({
+    src: ['/lebronjames.mp3'],
+    volume: 0.04,
+});
 
+
+const button2 = document.getElementById('lebronbutton');
+
+button2.addEventListener('click', function() {
+    clicksound3.play();
+    bgm.stop();
+    bgm2.stop();
+   
+ bgm2.play();
+    bgm2.fade(0, 0.2, 6000);
+
+    });
+   
 const channels = document.querySelectorAll('.wiiborder');
 
 channels.forEach(button => {
@@ -256,6 +363,8 @@ channels.forEach(button => {
 });
 
 });
+
+updateClock();
 </script>
 
 
