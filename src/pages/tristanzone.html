@@ -3,10 +3,28 @@
 <head>
     <title>tristan zone</title>
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+  $(this).mousemove(function(e) {
+    $("#light").css({
+      "top": e.pageY,
+      "left": e.pageX,
+    })
+  }).mousedown(function(e) {
+    if (e.which === 1) {
+            $("#light").toggleClass("light-on");
+    }
+  });
+})
 
-
-
+$(document).on("contextmenu", function(e) {
+    return false; // Blocks the right-click menu
+});
 </script>
+
+
+
 <style>
 
 @font-face {
@@ -14,7 +32,7 @@
     src: url(/contm.ttf);
 }
 
-img {
+img, input, a, div {
     user-select: none;
     -webkit-user-drag:none;
 }
@@ -41,6 +59,8 @@ img {
     transition: 0.1s ease-in-out;
     cursor: url(/wii2.cur), pointer;
 }
+
+
 
 
 .wiiborder:hover {
@@ -142,6 +162,8 @@ html, body {
     z-index: 0;
 }
 
+
+
 .backbutton {
     position: fixed;
     width: 8vw;
@@ -150,6 +172,7 @@ html, body {
     bottom: 5vh;
     z-index: 10;
     filter: drop-shadow(0px 0px 0.4vw #006969);
+    cursor: url(/wii2.cur), pointer;
 }
 
 #lebronbutton {
@@ -160,6 +183,7 @@ html, body {
     bottom: 5vh;
     z-index: 10;
     filter: drop-shadow(0px 0px 0.4vw #006969);
+    cursor: url(/wii2.cur), pointer;
 }
 
 
@@ -276,7 +300,7 @@ html, body {
 
 <div class="tristanzone">Tristan zone</div>
 
-
+<br><br><br><br>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
@@ -313,13 +337,6 @@ setInterval(updateClock, 1000);
 }, { once: true });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    document.addEventListener('click', () => {
-    if (Howler.ctx && Howler.ctx.state === 'suspended') {
-        Howler.ctx.resume();
-    }
-}, { once: true });
 
 const clicksound1 = new Howl({
     src: ['/wiiselect.wav'],
@@ -362,7 +379,17 @@ channels.forEach(button => {
     });
 });
 
+document.addEventListener("visibilitychange", function() {
+if (document.hidden) {
+
+    bgm.pause();
+    bgm2.pause();
+} else {
+        bgm.play();
+          bgm.fade(0, 0.2, 4000); 
+    }
 });
+
 
 updateClock();
 </script>
