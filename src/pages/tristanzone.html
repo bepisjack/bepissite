@@ -356,11 +356,15 @@ const clicksound3 = new Howl({
 
 const button2 = document.getElementById('lebronbutton');
 
+button2.addEventListener('mouseover', function() {
+    clicksound2.play();
+});
+
+
 button2.addEventListener('click', function() {
     clicksound3.play();
     bgm.stop();
     bgm2.stop();
-   
  bgm2.play();
     bgm2.fade(0, 0.2, 6000);
 
@@ -369,12 +373,6 @@ button2.addEventListener('click', function() {
 const channels = document.querySelectorAll('.wiiborder');
 
 const backbutton = document.getElementById('backbutton');
-
-backbutton.addEventListener('mouseover', function() {
-    clicksound2.play();
-});
-
-const lebronbutton = document.getElementById('lebronbutton');
 
 backbutton.addEventListener('mouseover', function() {
     clicksound2.play();
