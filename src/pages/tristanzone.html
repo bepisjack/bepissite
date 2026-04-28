@@ -7,6 +7,17 @@
 </script>
 <style>
 
+@font-face {
+    font-family: wii;
+    src: url(/contm.ttf);
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag:none;
+}
+
+
 .wiicontainer {
     position: relative;
     width: 18vw;
@@ -56,8 +67,18 @@ margin-top: 4vh;
 }
 
 body {
-    background-color: white;
+    background-image: url(/wiibg.png);
     cursor: url(/wii.cur), default;
+}
+
+.tristanzone {
+    font-family: wii;
+    width: auto;
+    margin: auto;
+    text-align: center;
+    font-size: 72pt;
+    color: rgb(103, 103, 103);
+    text-shadow: 3px 3px 1px darkgray;
 }
 
 </style>
@@ -81,7 +102,7 @@ body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/widebron.png" class="beerpic">
+<img src="/wideber.png" class="beerpic">
 </div>
 </div>
 
@@ -90,7 +111,7 @@ body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/widebron.png" class="beerpic">
+<img src="/goblinwide.png" class="beerpic">
 </div>
 
 <div class="wiicontainer">
@@ -124,7 +145,7 @@ body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/widebron.png" class="beerpic">
+<img src="/widetristan.png" class="beerpic">
 </div>
 
 <div class="wiicontainer">
@@ -132,6 +153,9 @@ body {
 <img src="/widebron.png" class="beerpic">
 </div>
 </div>
+<br><br><br><br>
+<div class="tristanzone">Tristan zone</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
