@@ -293,7 +293,7 @@ html, body {
 <img src="/wiibottom2.png" class="wiibottom">
 
 <a href="https://bepisesports.com/">
-<img src="/backbutton.png" class="backbutton"></a>
+<img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
 <input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton"></a>
 
@@ -367,6 +367,12 @@ button2.addEventListener('click', function() {
     });
    
 const channels = document.querySelectorAll('.wiiborder');
+
+const backbutton = document.getElementById('backbutton');
+
+backbutton.addEventListener('mouseover', function() {
+    clicksound2.play();
+});
 
 channels.forEach(button => {
     button.addEventListener('click', function() {
