@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<body>
+    
+
+
+
+</script>
+<style>
+
+.wiicontainer {
+    position: relative;
+    width: 18vw;
+    height: 18vh;
+}
+
+.beerpic {
+    position: absolute;
+ 
+    z-index: 1;
+    max-width: 100%;
+}
+
+.wiiborder {
+    position: absolute;
+    max-width: 100%;
+    z-index: 2;
+    transition: 0.1s ease-in-out;
+    cursor: url(/wii2.cur), pointer;
+}
+
+
+.wiiborder:hover {
+    box-shadow: inset 0 0 15px 15px rgb(0, 174, 255);
+}
+
+.row1 {
+    display: flex;
+justify-content: center;
+gap: 0vw;
+margin-top: 7vh;
+}
+
+.row2 {
+    display: flex;
+justify-content: center;
+gap: 0vw;
+margin-top: 4vh;
+
+}
+
+.row3 {
+    display: flex;
+justify-content: center;
+gap: 0vw;
+margin-top: 4vh;
+}
+
+body {
+    background-color: white;
+    cursor: url(/wii.cur), default;
+}
+
+</style>
+
+<div class="row1">
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+</div>
+
+
+<div class="row2">
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+</div>
+
+
+<div class="row3">
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+
+<div class="wiicontainer">
+<img src="/wiitransparent.png" class="wiiborder">
+<img src="/widebron.png" class="beerpic">
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    document.addEventListener('click', () => {
+    if (Howler.ctx && Howler.ctx.state === 'suspended') {
+        Howler.ctx.resume();
+    }
+}, { once: true });
+
+const clicksound1 = new Howl({
+    src: ['/wiiselect.wav'],
+    volume: 0.1,
+});
+
+const clicksound2 = new Howl({
+    src: ['/wiihover2.wav'],
+    volume: 0.1,
+});
+
+
+const channels = document.querySelectorAll('.wiiborder');
+
+channels.forEach(button => {
+    button.addEventListener('click', function() {
+     clicksound1.play();
+    });
+});
+channels.forEach(button => {
+    button.addEventListener('mouseover', function() {
+     clicksound2.play();
+    });
+});
+
+});
+</script>
+
+
+</body>
