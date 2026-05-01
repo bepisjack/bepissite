@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <body>
 <head>
+    <meta charset="UTF-8">
     <title>tristan zone</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -164,6 +165,27 @@ html, body {
 }
 
 
+.wiidisc {
+    position: fixed;
+    width: 8vw;
+    margin: auto;
+    left: 12vw;
+    top: 6vh;
+    z-index: 0;
+    animation-name: discrotate;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes discrotate {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+}
+
 
 .backbutton {
     position: fixed;
@@ -209,7 +231,7 @@ html, body {
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
 <img src="/Bepiswiigif2.gif" class="beerpic">
-<div class="hover-text">💿 Super Bepi$ World</div>
+<div class="hover-text">💿Super Bepi$ World</div>
 </div>
 
 <div class="wiicontainer">
@@ -314,6 +336,7 @@ html, body {
 <div class="clock" id="time"></div>
 
 <img src="/wiibottom2.png" class="wiibottom">
+
 
 <a href="https://bepisesports.com/">
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
