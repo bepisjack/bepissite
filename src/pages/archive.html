@@ -285,6 +285,21 @@ body {
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
+#week5 {
+    top: 2vh;
+    left: 21vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(0, 115, 255);
+    height: 22px;
+    width: 84px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
 
 #week1:hover {
     background-color:rgb(55, 140, 245);
@@ -307,6 +322,12 @@ body {
     background-color:rgb(55, 140, 245);
     transform: scale(1.1);
 }
+
+#week5:hover {
+    background-color:rgb(55, 140, 245);
+    transform: scale(1.1);
+}
+
 
 
 #back:hover {
@@ -743,6 +764,8 @@ animation-fill-mode: forwards;
 
 <input type="button" value="to week 4" id="week4">
 
+<input type="button" value="to week 5" id="week5">
+
 <br>
 
 <div id="fadeContainer" class="fade-element">
@@ -854,6 +877,7 @@ const buttonWeek1 = document.getElementById('week1');
 const buttonWeek2 = document.getElementById('week2');
 const buttonWeek3 = document.getElementById('week3');
 const buttonWeek4 = document.getElementById('week4');
+const buttonWeek5 = document.getElementById('week5');
 
 const selected = document.getElementById('selectedRacer');
 
@@ -1099,6 +1123,88 @@ the payout structure this week will be;
     racer8source = `/sonicmarble.png`;
 
     betsthisweek = `/betsweek3.json`;
+
+     loadData();
+
+container.classList.remove('fade-out');
+    }, 300);
+
+});
+
+
+buttonWeek5.addEventListener('click', function() {
+
+    changeRace.play();
+
+    document.getElementById('flexname').innerText = ``;
+    document.getElementById('flexbio').innerText = ``;
+    selected.src = ``;
+
+    container.classList.add('fade-out');
+
+    setTimeout(() => {
+
+    document.getElementById('raceDates').innerText = `April 25 - May 1, 2026`;
+    document.getElementById('raceTitle').innerText = `In a Blaze of Glory`;
+    document.getElementById('writeup').innerText = `The fourth week of the bepis grand prix brought a sudden end to one of the greatest competitors we'll likely see for a long time in mario; the rookie who claimed back to back victories will no doubt claim a place in the hall of fame, but it's time for a new racer to take their shot at the throne!
+
+    Bettors should also keep their eyes open for new features coming soon to bepisesports.com that will allow them to spend their hard-earned bepiscoin! But don't be discouraged to take risks, it takes guts to make it big!
+
+the payout structure this week will be; 
+1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
+
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race5results";
+
+    button1.classList.remove('racerAnimation3', 'racerAnimation4')
+    button2.classList.remove('racerAnimation3', 'racerAnimation4')
+    button3.classList.remove('racerAnimation3', 'racerAnimation4')
+    button4.classList.remove('racerAnimation3', 'racerAnimation4')
+    button5.classList.remove('racerAnimation3', 'racerAnimation4')
+    button6.classList.remove('racerAnimation3', 'racerAnimation4')
+    button7.classList.remove('racerAnimation3', 'racerAnimation4')
+    button8.classList.remove('racerAnimation3', 'racerAnimation4')
+
+    racer1name = `jack krueger`;
+    racer1bio = `hopelessly poor on my own website`;
+    button1.src = "/jackmarble.png";
+    racer1source = `/jackmarble.png`;
+
+    racer2name = `supahot`;
+    racer2bio = `glasses jacket shirt man`;
+    button2.src = `/supahotmarble.png`;
+    racer2source = `/supahotmarble.png`;
+
+    racer3name = `tristan peevy`;
+    racer3bio = `dominant beerio golf champion`;
+    button3.src = `/tristanmarble.png`;
+    racer3source = `/tristanmarble.png`;
+    
+    racer4name = `faker`;
+    racer4bio = `unkillable demon marble`;
+    button4.src = `/fakermarble.png`;
+    racer4source = `/fakermarble.png`;
+
+    racer5name = `frankie cueto`;
+    racer5bio = `enigma of bepis esport`;
+    button5.src = `/frankiemarble.png`;
+    racer5source = `/frankiemarble.png`;
+    
+    racer6name = `lebron james`;
+    racer6bio = `lakers in 5`;
+    button6.src = `/lebronmarble.png`;
+    racer6source = `/lebronmarble.png`;
+
+    racer7name = `jokair`;
+    racer7bio = `marble race kingpin`;
+    button7.src = `/jokairmarble.png`;
+    racer7source = `/jokairmarble.png`;
+
+    racer8name = `sonic`;
+    racer8bio = `does what nintendon't`;
+    button8.src = `/sonicmarble.png`;
+    racer8source = `/sonicmarble.png`;
+
+    betsthisweek = `/betsweek5.json`;
 
      loadData();
 
@@ -1456,17 +1562,16 @@ function latest() {
     document.getElementById('flexbio').innerText = ``;
     selected.src = ``;
 
-     document.getElementById('raceDates').innerText = `April 18 - April 24, 2026`;
-    document.getElementById('raceTitle').innerText = `Birth of a Dynasty`;
-    document.getElementById('writeup').innerText = ` Marble analysts are already saying that week 3 will go down in bepis esports grand prix history!! Not only did we see Mario achieve the first ever back to back victory, but the talented Bepis H-Bomb established generational wealth with another winning bet!!
+   document.getElementById('raceDates').innerText = `April 25 - May 1, 2026`;
+    document.getElementById('raceTitle').innerText = `In a Blaze of Glory`;
+    document.getElementById('writeup').innerText = `The fourth week of the bepis grand prix brought a sudden end to one of the greatest competitors we'll likely see for a long time in mario; the rookie who claimed back to back victories will no doubt claim a place in the hall of fame, but it's time for a new racer to take their shot at the throne!
 
-    While the wealth gap may be widening, the competition is only getting more fierce! We'll miss seeing corben on the racetrack, but SKT T1 Faker has shown up to take his place and show our competitors what greatness really looks like.
-
+    Bettors should also keep their eyes open for new features coming soon to bepisesports.com that will allow them to spend their hard-earned bepiscoin! But don't be discouraged to take risks, it takes guts to make it big!
 
 the payout structure this week will be; 
 1st = 8x, 2nd = 5x, 3rd = 3x, 4th-5th = 1x, 6th-8th = 0x.`
 
-    document.getElementById('watchtherace').href = "https://bepisesports.com/race4results";
+    document.getElementById('watchtherace').href = "https://bepisesports.com/race5results";
 
     button1.classList.remove('racerAnimation3', 'racerAnimation4')
     button2.classList.remove('racerAnimation3', 'racerAnimation4')
@@ -1478,46 +1583,46 @@ the payout structure this week will be;
     button8.classList.remove('racerAnimation3', 'racerAnimation4')
 
     racer1name = `jack krueger`;
-    racer1bio = `just happy to be here`;
+    racer1bio = `hopelessly poor on my own website`;
     button1.src = "/jackmarble.png";
     racer1source = `/jackmarble.png`;
 
-    racer2name = `mario`;
-    racer2bio = `looking for the threepeat`;
-    button2.src = `/mariomarble.png`;
-    racer2source = `/mariomarble.png`;
+    racer2name = `supahot`;
+    racer2bio = `glasses jacket shirt man`;
+    button2.src = `/supahotmarble.png`;
+    racer2source = `/supahotmarble.png`;
 
     racer3name = `tristan peevy`;
-    racer3bio = `gets taller each time I see him`;
+    racer3bio = `dominant beerio golf champion`;
     button3.src = `/tristanmarble.png`;
     racer3source = `/tristanmarble.png`;
     
     racer4name = `faker`;
-    racer4bio = `the lebron of mouse and keyboard`;
+    racer4bio = `unkillable demon marble`;
     button4.src = `/fakermarble.png`;
     racer4source = `/fakermarble.png`;
 
     racer5name = `frankie cueto`;
-    racer5bio = `consumes his body weight in protein`;
+    racer5bio = `enigma of bepis esport`;
     button5.src = `/frankiemarble.png`;
     racer5source = `/frankiemarble.png`;
     
     racer6name = `lebron james`;
-    racer6bio = `the faker of putting ball in hoop`;
+    racer6bio = `lakers in 5`;
     button6.src = `/lebronmarble.png`;
     racer6source = `/lebronmarble.png`;
 
     racer7name = `jokair`;
-    racer7bio = `the wild card`;
+    racer7bio = `marble race kingpin`;
     button7.src = `/jokairmarble.png`;
     racer7source = `/jokairmarble.png`;
 
     racer8name = `sonic`;
-    racer8bio = `getting mogged by his eternal rival`;
+    racer8bio = `does what nintendon't`;
     button8.src = `/sonicmarble.png`;
     racer8source = `/sonicmarble.png`;
 
-    betsthisweek = `/betsweek4.json`;
+    betsthisweek = `/betsweek5.json`;
     
      loadData();
 
