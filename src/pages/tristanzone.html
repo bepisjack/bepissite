@@ -46,6 +46,7 @@ img, input, a, div {
     display: inline-block;
 }
 
+
 .beerpic {
     position: absolute;
     min-width: 100%;
@@ -55,21 +56,17 @@ img, input, a, div {
     width: 100%;
 }
 
+.wiicontainer:hover .wiiborder {
+    box-shadow: inset 0 0 1vw 1vw rgb(82, 200, 255);
+}
+
 .wiiborder {
     position: absolute;
     max-width: 100%;
     z-index: 2;
-    transition: 0.1s ease-in-out;
     cursor: url(/wii2.cur), pointer;
-}
-
-
-
-
-.wiiborder:hover {
-    box-shadow: inset 0 0 1vw 1vw rgb(82, 200, 255);
-
-    
+    pointer-events: none;
+    transition: box-shadow 0.1s ease-in-out;
 }
 
 .hover-text {
@@ -88,7 +85,7 @@ img, input, a, div {
     left: 50%;
     transform: translateX(-50%) scale(0.9);
     text-align: center;
-    z-index: 9;
+    z-index: 9999;
     background-color: rgb(255, 255, 255);
     border-color: rgb(120, 120, 120);
     border-style: solid;
@@ -100,7 +97,7 @@ img, input, a, div {
 
 .wiicontainer:hover .hover-text {
     display: block;
-        z-index: 5;
+        z-index: 9999;
             transform: translateX(-50%) scale(1);
         opacity: 1;
 @starting-style {
@@ -135,6 +132,7 @@ margin-top: 4vh;
 body {
     background-image: url(/wiibg.png);
     cursor: url(/wii.cur), default;
+    transition: background-image 0.4s ease-in-out;
 }
 
 html, body {
@@ -199,6 +197,66 @@ html, body {
     cursor: url(/wii2.cur), pointer;
 }
 
+
+.backbuttonAnimation {
+    animation-name: backbuttonSlide;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+.backbuttonAnimationInitial {
+    animation-name: backbuttonSlide2;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes backbuttonSlide {
+    0% {transform: translateX(-20vw);}
+    0% {filter: brightness(0);}
+    100% {transform: translateX(0vw);}
+    100% {filter: brightness(1)
+        drop-shadow(0px 0px 0.4vw #006969);
+        ;}
+}
+
+@keyframes backbuttonSlide2 {
+    0% {transform: translateX(0vw);}
+    100% {transform: translateX(-20vw);}
+}
+
+.rightButtonSlide {
+    animation-name: rightButtonSlide;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+.rightButtonSlide2 {
+    animation-name: rightButtonSlide2;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rightButtonSlide2 {
+    0% {transform: translateX(0vw);}
+    100% {transform: translateX(20vw);}
+}
+
+@keyframes rightButtonSlide {
+    0% {transform: translateX(20vw);}
+    0% {filter: brightness(0);}
+    100% {transform: translateX(0vw);}
+    100% {filter: brightness(1)
+        drop-shadow(0px 0px 0.4vw #006969);
+        ;}
+}
+
+
 #lebronbutton {
     position: fixed;
     width: 8vw;
@@ -208,6 +266,19 @@ html, body {
     z-index: 10;
     filter: drop-shadow(0px 0px 0.4vw #006969);
     cursor: url(/wii2.cur), pointer;
+}
+
+
+#lebronbutton2 {
+    position: fixed;
+    width: 30vw;
+    margin: auto;
+    right: 35vw;
+    bottom: 7.5vh;
+    z-index: 101;
+    filter: drop-shadow(0px 0px 0.4vw #006969);
+    cursor: url(/wii2.cur), pointer;
+    visibility: hidden;
 }
 
 
@@ -225,13 +296,985 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
+.largeChannelReverse {
+    animation-name: zoomanimationReverse;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.wiiborderLargeReverse {
+    animation-name: zoomanimationBorderReverse;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  visibility: visible !important;
+    pointer-events: none;
+}
+
+.channelButtonsReverse {
+    animation-name: zoomanimationButtonsReverse;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  visibility: visible !important;
+  pointer-events: none;
+
+}
+
+
+.largeChannel {
+    animation-name: zoomanimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge {
+    animation-name: zoomanimationBorder;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel1 {
+    animation-name: zoomanimation1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge1 {
+    animation-name: zoomanimationBorder1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel4 {
+    animation-name: zoomanimation4;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge4 {
+    animation-name: zoomanimationBorder4;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+.channelButtons {
+    animation-name: zoomanimationButtons;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel3 {
+    animation-name: zoomanimation3;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge3 {
+    animation-name: zoomanimationBorder3;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel5 {
+    animation-name: zoomanimation5;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge5 {
+    animation-name: zoomanimationBorder5;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel6 {
+    animation-name: zoomanimation6;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge6 {
+    animation-name: zoomanimationBorder6;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+.largeChannel7 {
+    animation-name: zoomanimation7;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge7 {
+    animation-name: zoomanimationBorder7;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel8 {
+    animation-name: zoomanimation8;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge8 {
+    animation-name: zoomanimationBorder8;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+.largeChannel9 {
+    animation-name: zoomanimation9;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge9 {
+    animation-name: zoomanimationBorder9;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+.largeChannel10 {
+    animation-name: zoomanimation10;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge10 {
+    animation-name: zoomanimationBorder10;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+.largeChannel11 {
+    animation-name: zoomanimation11;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge11 {
+    animation-name: zoomanimationBorder11;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+.largeChannel12 {
+    animation-name: zoomanimation12;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge12 {
+    animation-name: zoomanimationBorder12;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
+
+#largeChannel {
+    visibility: hidden;
+    position: fixed;
+    aspect-ratio: 16 / 9;
+    width: 104vw;
+    height: 70vh;
+    left: -2vw;
+     margin: auto;
+     top: 0vh;
+     z-index: 100;
+}
+
+
+#wiiborderLarge {
+    visibility: hidden;
+    position: fixed;
+    aspect-ratio: 16 / 9;
+    width: 104vw;
+    height: 100vh;
+    left: -2vw;
+     margin: auto;
+     top: 0vh;
+     z-index: 100;
+}
+
+#channelButtons {
+    visibility: hidden;
+    position: fixed;
+    aspect-ratio: 16 / 9;
+    width: 104vw;
+    height: 100vh;
+    left: -2vw;
+     margin: auto;
+     top: 42vh;
+     z-index: 90;
+}
+
+.reverseButtonDisplay {
+    animation-name: reverseButtonDisplay;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+        visibility: visible !important;
+}
+
+.reverseButtonDisplayReverse {
+    animation-name: reverseButtonDisplayReverse;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+        visibility: visible !important;
+}
+
+
+
+@keyframes zoomanimation {
+    
+    0% {opacity: 0%;
+            width: 104vw;
+    height: 100vh;
+        display: block;
+    transform: translateY(-40vh)
+    translateX(-10vw)
+    scale(0.1, 0.1)
+    ;}
+    25% {opacity: 100%;}
+    50% {        width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+       scale(1, 1)
+    ;}
+    
+    100% {display: block;
+    opacity: 100%;
+
+    transform: translateY(0vh)
+    
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-40vh)
+    translateX(-10vw)
+    scale(0.1, 0.1)
+    ;}
+   30% {opacity: 0%;}
+    50% {
+transform: translateY(0vh)
+       scale(1, 1)
+    ;}
+
+ 70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+
+@keyframes zoomanimationButtons {
+    
+    0% {opacity: 0%;
+        display: block;
+    transform:
+    scale(.1, .1)
+    ;}
+   0% {opacity: 0%;}
+    50% {
+transform:
+       scale(1, 1)
+    ;}
+
+ 70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform:
+     scale(1, 1);}
+}
+
+@keyframes reverseButtonDisplay {
+    
+    0% {opacity: 0%;
+        display: block;
+    transform:
+    scale(.1, .1)
+    ;}
+   40% {opacity: 0%;}
+    50% {
+transform:
+       scale(1, 1)
+    ;}
+
+ 70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform:
+     scale(1, 1);}
+}
+
+
+
+@keyframes zoomanimationReverse {
+    
+
+    0% {
+          width: 104vw;
+    height: 70vh;
+    opacity: 100%;
+        display: block;
+    transform: 
+    scale(1, 1)
+    ;}
+    30% {
+        height: 100vh;
+        width: 104vw;
+        opacity: 100%;}
+    60% {opacity: 0%;
+transform: translateY(60vh)
+       scale(.1, .1)
+    ;}
+
+ 70% {opacity: 0%;}
+    100% {display: block;
+    opacity: 0%;
+        transform: translateY(60vh)
+     scale(.1, .1);}
+}
+
+
+@keyframes zoomanimationBorderReverse {
+    
+   0% {opacity: 100%;
+        display: block;
+    transform: 
+    scale(1, 1)
+    ;}
+
+    20% {opacity: 0%;}
+    40% {opacity: 0%;
+transform: translateY(0vh)
+       scale(.1, .1)
+    ;}
+
+ 70% {opacity: 0%;}
+    100% {display: block;
+    opacity: 0%;
+        transform: 
+     scale(.1, .1);}
+}
+
+
+
+@keyframes zoomanimationButtonsReverse {
+    
+   0% {opacity: 100%;
+        display: block;
+    transform: 
+    scale(1, 1)
+    ;}
+    20% {opacity: 100%;}
+
+ 70% {opacity: 0%;}
+    100% {display: block;
+    opacity: 0%;
+    }
+}
+
+@keyframes reverseButtonDisplayReverse {
+    
+   0% {opacity: 100%;
+        display: block;
+    transform: translateY(0vh)
+    scale(1, 1)
+    ;}
+    20% {opacity: 100%;}
+
+ 70% { transform: translateY(20vh);
+    opacity: 0%;}
+    100% {
+        display: block;
+    opacity: 0%;
+    transform: translateY(20vh)}
+}
+
+@keyframes zoomanimation1 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-40vh)
+    translateX(-24vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder1 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-40vh)
+    translateX(-24vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+
+@keyframes zoomanimation3 {
+    
+    
+    0% {opacity: 0%;
+            width: 104vw;
+    height: 100vh;
+        display: block;
+    transform: translateY(-40)
+    translateX(10vw)
+    scale(0.1, 0.1)
+    ;}
+    25% {opacity: 100%;}
+    50% {        width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+       scale(1, 1)
+    ;}
+    
+    100% {display: block;
+    opacity: 100%;
+
+    transform: translateY(0vh)
+    
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder3 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-40vh)
+    translateX(10vw)
+    scale(0.1, 0.1)
+    ;}
+   30% {opacity: 0%;}
+    50% {
+transform: translateY(0vh)
+       scale(1, 1)
+    ;}
+
+ 70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation4 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-40)
+    translateX(24vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder4 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-40vh)
+    translateX(24vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation5 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-10vh)
+    translateX(-24vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder5 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-10vh)
+    translateX(-24vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation6 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-10vh)
+    translateX(-10vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder6 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-10vh)
+    translateX(-10vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation7 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-10vh)
+    translateX(10vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder7 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-10vh)
+    translateX(10vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimation8 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-10vh)
+    translateX(24vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder8 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-10vh)
+    translateX(24vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation9 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(14vh)
+    translateX(-24vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder9 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(14vh)
+    translateX(-24vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation10 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(14vh)
+    translateX(-10vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder10 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(14vh)
+    translateX(-10vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation11 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(14vh)
+    translateX(10vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder11 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(14vh)
+    translateX(10vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+@keyframes zoomanimation12 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(14vh)
+    translateX(24vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder12 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(14vh)
+    translateX(24vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
+.darkanimation {
+    animation-name: darkanimation;
+    animation-duration: .4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+.lightanimation {
+    animation-name: lightanimation;
+    animation-duration: .4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes darkanimation {
+    
+    0% {filter: brightness(1);}
+       
+    100% {filter: brightness(0);}
+    }
+
+@keyframes lightanimation {
+    
+    0% {filter: brightness(0);}
+       
+    100% {filter: brightness(1);}
+    }
+
 </style>
 
 <div class="row1">
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/Bepiswiigif2.gif" class="beerpic">
+<img src="/Bepiswiigif2.gif" id="box1" class="beerpic">
 <div class="hover-text">💿Super Bepi$ World
     <br> (★ 5)
 </div>
@@ -239,7 +1282,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/highlife.jpg" class="beerpic">
+<img src="/highlife.jpg" id="box2" class="beerpic">
 <div class="hover-text">Miller High Life
     <br> (★ 3.75)
 </div>
@@ -247,7 +1290,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/coorslight.jpg" class="beerpic">
+<img src="/coorslight.jpg" id="box3" class="beerpic">
 <div class="hover-text">Coors Light
     <br> (★ 2.75)
 </div>
@@ -255,7 +1298,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/prosim.jpg" class="beerpic">
+<img src="/prosim.jpg" id="box4" class="beerpic">
 <div class="hover-text">Prosim
     <br> (★ 3.5)
 </div>
@@ -267,7 +1310,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/fancypapers.jpg" class="beerpic">
+<img src="/fancypapers.jpg" id="box5" class="beerpic">
 <div class="hover-text">Fancy Papers
     <br> (★ 3.5)
 </div>
@@ -275,7 +1318,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/newskool.jpg" class="beerpic">
+<img src="/newskool.jpg" id="box6" class="beerpic">
 <div class="hover-text">New Skool West Coast IPA
     <br> (★ 3.75)
 </div>
@@ -283,7 +1326,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/lubzerpils.jpg" class="beerpic">
+<img src="/lubzerpils.jpg" id="box7" class="beerpic">
 <div class="hover-text">Lübzer Pils
     <br> (★ 3.25)
 </div>
@@ -291,7 +1334,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/reefdonkey.jpg" class="beerpic">
+<img src="/reefdonkey.jpg" id="box8" class="beerpic">
 <div class="hover-text">Reef Donkey
     <br> (★ 3.5)
 </div>
@@ -303,7 +1346,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/twoheart.jpg" class="beerpic">
+<img src="/twoheart.jpg" id="box9" class="beerpic">
 <div class="hover-text">Two Hearted IPA
     (★ 4)
 </div>
@@ -311,7 +1354,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/marzen.png" class="beerpic">
+<img src="/marzen.png" id="box10" class="beerpic">
 <div class="hover-text">Super Märzen Bros
     <br> (★3.75)
 </div>
@@ -319,7 +1362,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/milkstout.jpg" class="beerpic">
+<img src="/milkstout.jpg" id="box11" class="beerpic">
 <div class="hover-text">Milk Stout
     <br> (★ 3.25)
 </div>
@@ -327,7 +1370,7 @@ html, body {
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/floridaman.jpg" class="beerpic">
+<img src="/floridaman.jpg" id="box12" class="beerpic">
 <div class="hover-text">Florida Man
     <br> (★ 3.25)
 </div>
@@ -340,11 +1383,19 @@ html, body {
 
 <img src="/wiibottom2.png" class="wiibottom">
 
+<img src="" id="largeChannel">
+
+<img src="/blackborder.png"  id="wiiborderLarge">
+
+<img src="/wiibgline.png"  id="channelButtons">
+
 
 <a href="https://bepisesports.com/">
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
 <input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton"></a>
+
+<input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
 
 <div class="tristanzone">Tristan zone</div>
@@ -402,8 +1453,54 @@ const clicksound3 = new Howl({
     volume: 0.04,
 });
 
+const clicksound4 = new Howl({
+    src: ['/wiienter.wav'],
+    volume: 0.1,
+});
+
+const clicksound5 = new Howl({
+    src: ['/wiiexit.wav'],
+    volume: 0.1,
+});
 
 const button2 = document.getElementById('lebronbutton');
+
+const reverseButton = document.getElementById('lebronbutton2');
+
+const backbutton = document.getElementById('backbutton');
+
+const buttonBox1 = document.getElementById('box1');
+
+const buttonBox2 = document.getElementById('box2');
+
+const buttonBox3 = document.getElementById('box3');
+
+const buttonBox4 = document.getElementById('box4');
+
+const buttonBox5 = document.getElementById('box5');
+
+const buttonBox6 = document.getElementById('box6');
+
+const buttonBox7 = document.getElementById('box7');
+
+const buttonBox8 = document.getElementById('box8');
+
+const buttonBox9 = document.getElementById('box9');
+
+const buttonBox10 = document.getElementById('box10');
+
+const buttonBox11 = document.getElementById('box11');
+
+const buttonBox12 = document.getElementById('box12');
+
+
+const largeChannel = document.getElementById('largeChannel')
+
+const largeBorder = document.getElementById('wiiborderLarge')
+
+const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
+
+const menuButtons = document.getElementById('channelButtons')
 
 button2.addEventListener('mouseover', function() {
     clicksound2.play();
@@ -418,10 +1515,366 @@ button2.addEventListener('click', function() {
     bgm2.fade(0, 0.2, 6000);
 
     });
-   
-const channels = document.querySelectorAll('.wiiborder');
 
-const backbutton = document.getElementById('backbutton');
+
+buttonBox1.addEventListener('click', function() {
+    largeChannel.src = "/Bepiswiigif2.gif"
+        clicksound4.play();
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel1');
+    largeBorder.classList.add('wiiborderLarge1');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+ 
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+   
+buttonBox2.addEventListener('click', function() {
+    largeChannel.src = "/highlife.jpg"
+        clicksound4.play();
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel');
+    largeBorder.classList.add('wiiborderLarge');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+ 
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+    
+buttonBox3.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/coorslight.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel3');
+    largeBorder.classList.add('wiiborderLarge3');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+buttonBox4.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/prosim.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel4');
+    largeBorder.classList.add('wiiborderLarge4');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox5.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/fancypapers.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel5');
+    largeBorder.classList.add('wiiborderLarge5');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox6.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/newskool.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel6');
+    largeBorder.classList.add('wiiborderLarge6');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox7.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/lubzerpils.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel7');
+    largeBorder.classList.add('wiiborderLarge7');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox8.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/reefdonkey.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel8');
+    largeBorder.classList.add('wiiborderLarge8');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox9.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/twoheart.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel9');
+    largeBorder.classList.add('wiiborderLarge9');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox10.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/marzen.png"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel10');
+    largeBorder.classList.add('wiiborderLarge10');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+  
+buttonBox11.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/milkstout.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel11');
+    largeBorder.classList.add('wiiborderLarge11');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+buttonBox12.addEventListener('click', function() {
+        clicksound4.play();
+    largeChannel.src = "/floridaman.jpg"
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel12');
+    largeBorder.classList.add('wiiborderLarge12');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+
+  reverseButton.addEventListener('click', function() {
+        clicksound5.play();
+
+    reverseButton.classList.remove('reverseButtonDisplay');
+    reverseButton.classList.add('reverseButtonDisplayReverse');
+
+    largeChannel.className = "";
+    largeBorder.className = "";
+    menuButtons.className = "";
+   
+    largeChannel.classList.add('largeChannelReverse');
+    largeBorder.classList.add('wiiborderLargeReverse');
+    menuButtons.classList.add('channelButtonsReverse');
+
+
+    backbutton.classList.remove('backbuttonAnimationInitial');
+    backbutton.classList.add('backbuttonAnimation');
+
+    button2.classList.remove('rightButtonSlide2');
+    button2.classList.add('rightButtonSlide');
+
+    document.body.style.backgroundImage = "url('/wiibg.png')";
+
+    darkElements.forEach(e1 => {
+        e1.classList.remove('darkanimation');
+        e1.classList.add('lightanimation');
+ 
+   setTimeout(() => { e1.classList.remove('lightanimation')}, 400);
+      });
+    })
+
+
+const channels = document.querySelectorAll('.beerpic');
+
 
 backbutton.addEventListener('mouseover', function() {
     clicksound2.play();
