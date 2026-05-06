@@ -33,6 +33,12 @@ $(document).on("contextmenu", function(e) {
     src: url(/contm.ttf);
 }
 
+@font-face {
+    font-family: mario64;
+    src: url(/Mario64.ttf);
+}
+
+
 img, input, a, div {
     user-select: none;
     -webkit-user-drag:none;
@@ -273,7 +279,7 @@ html, body {
     position: fixed;
     width: 30vw;
     margin: auto;
-    right: 35vw;
+    right: 3vw;
     bottom: 7.5vh;
     z-index: 101;
     filter: drop-shadow(0px 0px 0.4vw #006969);
@@ -295,6 +301,71 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.beerName {
+    position:absolute;
+    font-family: wii;
+    z-index: 9999;
+    bottom: 20vh;
+    left: 2vw;
+    font-size: 3.5vw;
+    width: 65vw;
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+     color: rgb(69, 69, 69);
+    text-shadow: 0.15vw 0.15vw 0.1vw darkgray;
+}
+
+.beerDescription {
+    display: flexbox;
+    position:absolute;
+    font-family: wii;
+    z-index: 9999;
+    top: 79vh;
+    left: 2vw;
+    font-size: 2vw;
+    width: 64vw;
+        margin: auto;
+    text-align: center;
+    height: 16vh;
+    align-content: center;
+     color: rgb(103, 103, 103);
+    text-shadow: 0.15vw 0.15vw 0.1vw darkgray;
+}
+
+#rating {
+    position: absolute;
+    width: 20vw;
+    left: 78vw;
+     top: 5vh;
+     z-index: 9999;
+     pointer-events: none;
+     
+         visibility: hidden;
+}
+
+.rating {
+    animation-name: ratinganimation;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+
+    filter: drop-shadow(4px 4px 2px black);
+
+}
+
+.ratingReverse {
+    animation-name: ratinganimationReverse;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
 
 .largeChannelReverse {
     animation-name: zoomanimationReverse;
@@ -636,7 +707,23 @@ html, body {
         visibility: visible !important;
 }
 
+@keyframes ratinganimation {
+    0% {opacity: 0%;
+        transform: translateY(-30vh);}
 
+    100% {
+        opacity: 100%;
+        transform: translateY(0vh);}
+}
+
+@keyframes ratinganimationReverse {
+    0% {opacity: 100%;
+        transform: translateY(0vh);}
+
+    100% {
+        opacity: 0%;
+        transform: translateY(-30vh);}
+}
 
 @keyframes zoomanimation {
     
@@ -1385,6 +1472,8 @@ transform: translateY(0vh)
 
 <img src="" id="largeChannel">
 
+<img src="" id="rating">
+
 <img src="/blackborder.png"  id="wiiborderLarge">
 
 <img src="/wiibgline.png"  id="channelButtons">
@@ -1397,13 +1486,43 @@ transform: translateY(0vh)
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
-
 <div class="tristanzone">Tristan zone</div>
+
+<div class="beerName" id="beerName"></div>
+
+<div class="beerDescription" id="beerDescription"></div>
 
 <br><br><br><br>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script>
+
+
+    <script>
+var h = 0;
+let txt = 'Lorem ipsum dummy text blabla.';
+var speed = 40;
+
+function typeWriter() {
+  if (h < txt.length) {
+    document.getElementById("beerName").innerHTML += txt.charAt(h);
+    h++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+var i = 0;
+let txt2 = 'Lorem ipsum dummy text blabla.';
+var speed2 = 25;
+
+function typeWriter2() {
+  if (i < txt2.length) {
+    document.getElementById("beerDescription").innerHTML += txt2.charAt(i);
+    i++;
+    setTimeout(typeWriter2, speed2);
+  }
+}
+
+
 
 function updateClock () {
     const now = new Date();
@@ -1463,6 +1582,19 @@ const clicksound5 = new Howl({
     volume: 0.1,
 });
 
+const talkSound = new Howl({
+    src: ['/spmtalk.wav'],
+    volume: 0.1,
+});
+
+const clicksound6 = new Howl({
+    src: ['/starget.wav'],
+    volume: 0.05,
+});
+
+
+const stars = document.getElementById('rating');
+
 const button2 = document.getElementById('lebronbutton');
 
 const reverseButton = document.getElementById('lebronbutton2');
@@ -1493,6 +1625,9 @@ const buttonBox11 = document.getElementById('box11');
 
 const buttonBox12 = document.getElementById('box12');
 
+const beerName = document.getElementById('beerName');
+
+const beerDescription = document.getElementById('beerDescription');
 
 const largeChannel = document.getElementById('largeChannel')
 
@@ -1521,6 +1656,18 @@ buttonBox1.addEventListener('click', function() {
     largeChannel.src = "https://bepisbackend.fly.dev/Bepiswiigif2.gif"
         clicksound4.play();
 
+    stars.src = "/5star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Super Bepis World";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "wow! it's super bepis world!";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
+
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
     menuButtons.classList.remove('channelButtonsReverse');
@@ -1543,10 +1690,21 @@ buttonBox1.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-   
 buttonBox2.addEventListener('click', function() {
     largeChannel.src = "/highlife.jpg"
         clicksound4.play();
+
+    stars.src = "/375star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Miller High Life";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "It’s elite";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1570,14 +1728,29 @@ buttonBox2.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-    
 buttonBox3.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/coorslight.jpg"
-
+    stars.src = "/275star.png"
+    
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
     menuButtons.classList.remove('channelButtonsReverse');
+    stars.classList.remove('ratingReverse');
+
+    function updateTxt() {
+    txt = "Coors Light";
+}
+    updateTxt();
+
+    setTimeout(() => {  typeWriter();}, 650);
+
+function updateTxt2() {
+    txt2 = "Mabel and I repping Sterling Marlin tonight";
+}
+    updateTxt2();
+
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     backbutton.classList.add('backbuttonAnimationInitial');
     button2.classList.add('rightButtonSlide2')
@@ -1585,6 +1758,8 @@ buttonBox3.addEventListener('click', function() {
     largeChannel.classList.add('largeChannel3');
     largeBorder.classList.add('wiiborderLarge3');
     menuButtons.classList.add('channelButtons');
+
+    setTimeout(() => {   stars.classList.add('rating');}, 450);
 
     largeChannel.style.pointerEvents ="all";
     reverseButton.classList.add('reverseButtonDisplay');
@@ -1600,6 +1775,18 @@ document.body.style.backgroundImage = "url('/black.png')";
 buttonBox4.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/prosim.jpg"
+
+    stars.src = "/35star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Prosim";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "High quality pilsner, typical of Mocama. Pretty solid with the meal too";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1623,10 +1810,21 @@ buttonBox4.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox5.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/fancypapers.jpg"
+
+    stars.src = "/35star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Fancy Papers";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "Got 2 packs of Cigar City IPAs on buy one get one free, can't beat it! This hazy is super fruity and citrusy tasting (as the can describes) not my favorite but goes down easy and will have again";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1650,14 +1848,29 @@ buttonBox5.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox6.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/newskool.jpg"
+    stars.src = "/375star.png"
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
     menuButtons.classList.remove('channelButtonsReverse');
+    stars.classList.remove('ratingReverse');
+
+function updateTxt() {
+    txt = "Small Batch New Skool West Coast IPA";
+}
+    updateTxt();
+
+    setTimeout(() => {  typeWriter();}, 650);
+
+function updateTxt2() {
+    txt2 = "Last beer of the day, this beer released today which is cool. It's a really good WCIPA, Mocama small batch projects are their best beers for sure";
+}
+    updateTxt2();
+
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     backbutton.classList.add('backbuttonAnimationInitial');
     button2.classList.add('rightButtonSlide2')
@@ -1665,6 +1878,8 @@ buttonBox6.addEventListener('click', function() {
     largeChannel.classList.add('largeChannel6');
     largeBorder.classList.add('wiiborderLarge6');
     menuButtons.classList.add('channelButtons');
+
+    setTimeout(() => {   stars.classList.add('rating'); }, 450);
 
     largeChannel.style.pointerEvents ="all";
     reverseButton.classList.add('reverseButtonDisplay');
@@ -1677,10 +1892,21 @@ buttonBox6.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox7.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/lubzerpils.jpg"
+
+    stars.src = "/325star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Lubzer Pils";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "By refusing to pay airport hotel prices I found a German “locals” grill? Super nice people and good food and beer. No complaints, honestly surprised by the experience";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1704,10 +1930,21 @@ buttonBox7.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox8.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/reefdonkey.jpg"
+
+    stars.src = "/35star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Reef Donkey";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "Another solid beer, good Florida pale ale";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1731,10 +1968,21 @@ buttonBox8.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox9.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/twoheart.jpg"
+
+    stars.src = "/4star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Two Hearted IPA";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "Birthday beer! Very solid one, advertised as an ale, but it’s an IPA. Nonetheless it’s super good. Decent ABV too";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1758,10 +2006,21 @@ buttonBox9.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox10.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/marzen.png"
+
+    stars.src = "/375star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Super Marzen Bros";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "Had this beer sitting in my room for almost 2 years, thought it’d be flat and kinda bleh tasting — turns out it’s perfectly fine. A malty, kinda sweet and bread-like beer. Something I saved from before Untappd so a rare beer!";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1784,11 +2043,22 @@ buttonBox10.addEventListener('click', function() {
     });
 document.body.style.backgroundImage = "url('/black.png')";
   });
-
-  
+ 
 buttonBox11.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/milkstout.jpg"
+
+    stars.src = "/325star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Milk Stout";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "Post essay (again) beer, but this time in the shower as dessert — it’s nice! An easy drinking beer that’s not overpowering and a bit sweet. Perfect as a reward/ night cap treat";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1812,10 +2082,21 @@ buttonBox11.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
 buttonBox12.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/floridaman.jpg"
+
+    stars.src = "/325star.png" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "Florida Man";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "The other part of the buy one get one free. Definitely a strong beer. Kinda sticky, sweet, and fruity. It’s solid enough";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1850,11 +2131,33 @@ document.body.style.backgroundImage = "url('/black.png')";
     largeChannel.className = "";
     largeBorder.className = "";
     menuButtons.className = "";
-   
+    stars.className = "";
+
+
+function updateTxt() {
+    txt = "";
+}
+    updateTxt();
+
+i = 0;
+
+    beerName.innerText = "";
+
+function updateTxt2() {
+    txt2 = "";
+}
+    updateTxt2();
+
+h = 0;
+
+    beerDescription.innerText = "";
+
+
+
     largeChannel.classList.add('largeChannelReverse');
     largeBorder.classList.add('wiiborderLargeReverse');
     menuButtons.classList.add('channelButtonsReverse');
-
+    stars.classList.add('ratingReverse');
 
     backbutton.classList.remove('backbuttonAnimationInitial');
     backbutton.classList.add('backbuttonAnimation');
@@ -1878,6 +2181,14 @@ const channels = document.querySelectorAll('.beerpic');
 
 backbutton.addEventListener('mouseover', function() {
     clicksound2.play();
+});
+
+reverseButton.addEventListener('mouseover', function() {
+    clicksound2.play();
+});
+
+reverseButton.addEventListener('click', function() {
+    clicksound1.play();
 });
 
 
