@@ -334,6 +334,25 @@ html, body {
     text-shadow: 0.15vw 0.15vw 0.1vw darkgray;
 }
 
+#beerDate {
+    position:fixed;
+    font-family: wii;
+    z-index: 9999;
+    bottom: 30vh;
+    right: 3vw;
+    font-size: 3.5vw;
+    width: 20vw;
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+     color: rgb(251, 251, 251);
+    text-shadow: 0.1vw 0.1vw 0.1vw rgb(43, 43, 43);
+     visibility: hidden;
+     z-index: 9999;
+     pointer-events: none;
+}
+
+
 #rating {
     position: absolute;
     width: 20vw;
@@ -359,6 +378,27 @@ html, body {
 
 .ratingReverse {
     animation-name: ratinganimationReverse;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.date {
+    animation-name: dateanimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+
+    filter: drop-shadow(4px 4px 2px black);
+
+}
+
+.dateReverse {
+    animation-name: dateanimationReverse;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -723,6 +763,24 @@ html, body {
     100% {
         opacity: 0%;
         transform: translateY(-30vh);}
+}
+
+@keyframes dateanimation {
+    0% {opacity: 0%;
+        transform: translateX(30vw);}
+
+    100% {
+        opacity: 100%;
+        transform: translateX(0vw);}
+}
+
+@keyframes dateanimationReverse {
+    0% {opacity: 100%;
+        transform: translateX(0vw);}
+
+    100% {
+        opacity: 0%;
+        transform: translateX(30vw);}
 }
 
 @keyframes zoomanimation {
@@ -1488,6 +1546,8 @@ transform: translateY(0vh)
 
 <div class="tristanzone">Tristan zone</div>
 
+<div class="" id="beerDate"></div>
+
 <div class="beerName" id="beerName"></div>
 
 <div class="beerDescription" id="beerDescription"></div>
@@ -1592,6 +1652,7 @@ const clicksound6 = new Howl({
     volume: 0.05,
 });
 
+const beerDate = document.getElementById('beerDate');
 
 const stars = document.getElementById('rating');
 
@@ -1656,6 +1717,10 @@ buttonBox1.addEventListener('click', function() {
     largeChannel.src = "https://bepisbackend.fly.dev/Bepiswiigif2.gif"
         clicksound4.play();
 
+    beerDate.innerText = "01/01/1901"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
+
     stars.src = "/5star.png" 
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
@@ -1693,6 +1758,10 @@ document.body.style.backgroundImage = "url('/black.png')";
 buttonBox2.addEventListener('click', function() {
     largeChannel.src = "/highlife.jpg"
         clicksound4.play();
+
+        beerDate.innerText = "04/11/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
     stars.src = "/375star.png" 
     stars.classList.remove('ratingReverse');
@@ -1732,6 +1801,10 @@ buttonBox3.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/coorslight.jpg"
     stars.src = "/275star.png"
+
+    beerDate.innerText = "04/25/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
     
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1776,6 +1849,10 @@ buttonBox4.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/prosim.jpg"
 
+    beerDate.innerText = "04/09/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
+
     stars.src = "/35star.png" 
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
@@ -1813,6 +1890,10 @@ document.body.style.backgroundImage = "url('/black.png')";
 buttonBox5.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/fancypapers.jpg"
+
+    beerDate.innerText = "04/14/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
     stars.src = "/35star.png" 
     stars.classList.remove('ratingReverse');
@@ -1852,6 +1933,10 @@ buttonBox6.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/newskool.jpg"
     stars.src = "/375star.png"
+
+    beerDate.innerText = "04/17/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
     largeChannel.classList.remove('largeChannelReverse');
     largeBorder.classList.remove('wiiborderLargeReverse');
@@ -1896,6 +1981,10 @@ buttonBox7.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/lubzerpils.jpg"
 
+    beerDate.innerText = "04/01/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
+
     stars.src = "/325star.png" 
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
@@ -1933,6 +2022,10 @@ document.body.style.backgroundImage = "url('/black.png')";
 buttonBox8.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/reefdonkey.jpg"
+
+    beerDate.innerText = "04/17/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
     stars.src = "/35star.png" 
     stars.classList.remove('ratingReverse');
@@ -1972,6 +2065,10 @@ buttonBox9.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/twoheart.jpg"
 
+    beerDate.innerText = "04/17/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
+
     stars.src = "/4star.png" 
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
@@ -2009,6 +2106,10 @@ document.body.style.backgroundImage = "url('/black.png')";
 buttonBox10.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/marzen.png"
+
+    beerDate.innerText = "04/05/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
     stars.src = "/375star.png" 
     stars.classList.remove('ratingReverse');
@@ -2048,6 +2149,10 @@ buttonBox11.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/milkstout.jpg"
 
+    beerDate.innerText = "04/10/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
+
     stars.src = "/325star.png" 
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
@@ -2085,6 +2190,10 @@ document.body.style.backgroundImage = "url('/black.png')";
 buttonBox12.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/floridaman.jpg"
+
+    beerDate.innerText = "04/15/2026"
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
     stars.src = "/325star.png" 
     stars.classList.remove('ratingReverse');
@@ -2132,6 +2241,7 @@ document.body.style.backgroundImage = "url('/black.png')";
     largeBorder.className = "";
     menuButtons.className = "";
     stars.className = "";
+    beerDate.className = "";
 
 
 function updateTxt() {
@@ -2158,6 +2268,7 @@ h = 0;
     largeBorder.classList.add('wiiborderLargeReverse');
     menuButtons.classList.add('channelButtonsReverse');
     stars.classList.add('ratingReverse');
+    beerDate.classList.add('dateReverse');
 
     backbutton.classList.remove('backbuttonAnimationInitial');
     backbutton.classList.add('backbuttonAnimation');
