@@ -479,6 +479,26 @@ html, body {
     visibility: visible !important;
 }
 
+.largeChannel2 {
+    animation-name: zoomanimation2;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+}
+
+.wiiborderLarge2 {
+    animation-name: zoomanimationBorder2;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+
+    visibility: visible !important;
+}
+
 
 .largeChannel4 {
     animation-name: zoomanimation4;
@@ -994,6 +1014,46 @@ transform: translateY(0vh)
     transform: translateY(0vh)
      scale(1, 1);}
 }
+
+
+@keyframes zoomanimation2 {
+    
+    0% {opacity: 0%;
+    width: 104vw;
+    height: 100vh;
+     display: block;
+    transform: translateY(-40vh)
+    translateX(-10vw)
+    scale(0.1, 0.1);}
+    25% {opacity: 100%;}
+    50% {width: 104vw;
+    height: 70vh;
+transform: translateY(0vh)
+    scale(1, 1);}
+    100% {display: block;
+    opacity: 100%;
+transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+@keyframes zoomanimationBorder2 {
+    
+   0% {opacity: 0%;
+        display: block;
+    transform: translateY(-40vh)
+    translateX(-10vw)
+    scale(0.1, 0.1) ;}
+   30% {opacity: 0%;}
+    50% {transform: translateY(0vh)
+       scale(1, 1) ;}
+70% {opacity: 100%;}
+    100% {display: block;
+    opacity: 100%;
+    transform: translateY(0vh)
+     scale(1, 1);}
+}
+
+
 
 
 
