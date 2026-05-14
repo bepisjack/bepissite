@@ -1560,6 +1560,9 @@ transform: translateY(0vh)
 
 
     <script>
+
+
+
 var h = 0;
 let txt = 'Lorem ipsum dummy text blabla.';
 var speed = 40;
@@ -1688,6 +1691,8 @@ const buttonBox11 = document.getElementById('box11');
 
 const buttonBox12 = document.getElementById('box12');
 
+const buttonBoxes = [buttonBox1, buttonBox2, buttonBox3, buttonBox4, buttonBox5, buttonBox6, buttonBox7, buttonBox8, buttonBox9, buttonBox10, buttonBox11, buttonBox12]
+
 const beerName = document.getElementById('beerName');
 
 const beerDescription = document.getElementById('beerDescription');
@@ -1699,6 +1704,74 @@ const largeBorder = document.getElementById('wiiborderLarge')
 const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
 
 const menuButtons = document.getElementById('channelButtons')
+
+async function refreshChannels() {
+  const response = await fetch('https://api.bepisesports.com/beer/channels');
+  const beerData = await response.json();
+  
+  beerData.sort((a, b) => b.date - a.date);
+
+  beerData.forEach((data, index) => {
+
+    if (index >= buttonBoxes.length) return; 
+
+    const currentButton = buttonBoxes[index];
+
+    const clonedButton = currentButton.cloneNode(true);
+    currentButton.parentNode.replaceChild(clonedButton, currentButton);
+    buttonBoxes[index] = clonedButton;
+
+    const thumbImage = clonedButton.querySelector('.beerpic');
+    if (thumbImage) thumbImage.src = "https://bepisbackend.fly.dev/uploads/" + data.image;
+
+    clonedButton.style.display = "block"; 
+
+
+        clonedButton.addEventListener('click', function() {
+            largeChannel.src = "https://bepisbackend.fly.dev/uploads/" + data.image;
+            beerDate.innerText = data.date;
+            stars.src = "/" + data.rating + ".png";
+
+            function updateTxt() { txt = data.beer; }
+            updateTxt();
+            setTimeout(() => { typeWriter(); }, 650);
+
+            function updateTxt2() { txt = data.description; }
+            updateTxt2();
+            setTimeout(() => { typeWriter2(); }, 1600);
+
+    
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => { beerDate.classList.add('date'); }, 200);
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add(`largeChannel${index + 1}`);
+    largeBorder.classList.add(`wiiborderLarge${index + 1}`);
+    menuButtons.classList.add(`channelButtons${index + 1}`);
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+        });
+     };
+
 
 button2.addEventListener('mouseover', function() {
     clicksound2.play();
@@ -1727,11 +1800,11 @@ buttonBox1.addEventListener('click', function() {
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
 
-    function updateTxt() {txt = "Super Bepis World";}
+    function updateTxt() {txt = titleText;}
     updateTxt();
     setTimeout(() => {  typeWriter();}, 650);
 
-    function updateTxt2() { txt2 = "wow! it's super bepis world!";}
+    function updateTxt2() { txt2 = descText;}
     updateTxt2();
     setTimeout(() => {  typeWriter2();}, 1600);
 
@@ -1851,6 +1924,8 @@ buttonBox4.addEventListener('click', function() {
         clicksound4.play();
     largeChannel.src = "/prosim.jpg"
 
+    const box4text = "prosim"
+
     beerDate.innerText = "04/09/2026"
     beerDate.classList.remove('dateReverse');
     setTimeout(() => {  beerDate.classList.add('date');}, 200);
@@ -1859,7 +1934,7 @@ buttonBox4.addEventListener('click', function() {
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
 
-    function updateTxt() {txt = "Prosim";}
+    function updateTxt() {txt = box4text;}
     updateTxt();
     setTimeout(() => {  typeWriter();}, 650);
 
@@ -2329,6 +2404,7 @@ if (document.hidden) {
 
 
 updateClock();
+refreshChannels();
 </script>
 
 
