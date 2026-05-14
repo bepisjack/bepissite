@@ -1761,8 +1761,6 @@ const largeChannel = document.getElementById('largeChannel')
 
 const largeBorder = document.getElementById('wiiborderLarge')
 
-const darkElements = document.querySelectorAll('buttonBoxes, .beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
-
 const menuButtons = document.getElementById('channelButtons')
 
 async function refreshChannels() {
@@ -1838,6 +1836,8 @@ document.body.style.backgroundImage = "url('/black.png')";
 
         });
      };
+
+const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
 
 
 button2.addEventListener('mouseover', function() {
