@@ -1751,7 +1751,7 @@ const buttonBox11 = document.getElementById('box11');
 
 const buttonBox12 = document.getElementById('box12');
 
-const buttonBoxes = [buttonBox1, buttonBox2, buttonBox3, buttonBox4, buttonBox5, buttonBox6, buttonBox7, buttonBox8, buttonBox9, buttonBox10, buttonBox11, buttonBox12]
+const buttonBoxes = document.querySelector('.wiicontainer')
 
 const beerName = document.getElementById('beerName');
 
@@ -1777,6 +1777,8 @@ async function refreshChannels() {
 
     if (index >= buttonBoxes.length) return; 
 
+    const buttonNum = index + 1;
+
     const currentButton = buttonBoxes[index];
 
     const clonedButton = currentButton.cloneNode(true);
@@ -1784,9 +1786,16 @@ async function refreshChannels() {
     buttonBoxes[index] = clonedButton;
 
     const thumbImage = clonedButton.querySelector('.beerpic');
+
+    const hoverText = clonedButton.querySelect('.hover-text');
+
     if (thumbImage) {
   thumbImage.crossOrigin = "use-credentials";
   thumbImage.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+    }
+
+    if (hoverText) {
+        hoverText.innerHTML `${data.beer} <br> (★${data.rating})`;
     }
 
     clonedButton.style.display = "block"; 
