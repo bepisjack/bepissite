@@ -1751,7 +1751,7 @@ const buttonBox11 = document.getElementById('box11');
 
 const buttonBox12 = document.getElementById('box12');
 
-const buttonBoxes = document.querySelector('box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12')
+const buttonBoxes = document.querySelector('buttonBox1, buttonBox2, buttonBox3, buttonBox4, buttonBox5, buttonBox6, buttonBox7, buttonBox8, buttonBox9, buttonBox10, buttonBox11, buttonBox12')
 
 const beerName = document.getElementById('beerName');
 
@@ -1785,6 +1785,8 @@ async function refreshChannels() {
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
 
+    clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+
     const thumbImage = clonedButton.querySelector('.beerpic');
 
     const hoverText = clonedButton.querySelect('.hover-text');
@@ -1794,10 +1796,7 @@ async function refreshChannels() {
   thumbImage.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
     }
 
-    if (hoverText) {
-        hoverText.innerHTML `${data.beer} <br> (★${data.rating})`;
-    }
-
+    
     clonedButton.style.display = "block"; 
 
 
