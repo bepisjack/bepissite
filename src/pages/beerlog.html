@@ -121,7 +121,6 @@ body {
         const response = await fetch('https://api.bepisesports.com/beer/pictures', {
              method: 'POST',
             body: photoData,
-            enctype: "multipart/form-data"
         });
         const result = await response.json();
         console.log ('result');
