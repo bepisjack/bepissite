@@ -61,14 +61,13 @@ img, input, a, div {
     aspect-ratio: 16 / 9;
     width: 99%;
 
-        animation-name: loadinAnimation;
+    animation-name: loadinAnimation;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    visibility: visible !important;
+}
 
-        visibility: visible !important;
-}
-}
 
 .wiicontainer:hover .wiiborder {
     box-shadow: inset 0 0 1vw 1vw rgb(82, 200, 255);
@@ -2471,9 +2470,10 @@ if (document.hidden) {
     }
 });
 
-
+document.addEventListener('DOMContentLoaded', () => {
 updateClock();
 refreshChannels();
+});
 </script>
 
 
