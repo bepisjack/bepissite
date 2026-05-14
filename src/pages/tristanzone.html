@@ -1785,16 +1785,11 @@ async function refreshChannels() {
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
 
-    clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
 
-    const thumbImage = clonedButton.querySelector('.beerpic');
-
-    const hoverText = clonedButton.querySelect('.hover-text');
-
-    if (thumbImage) {
-  thumbImage.crossOrigin = "use-credentials";
-  thumbImage.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
-    }
+    
+  clonedButton.crossOrigin = "use-credentials";
+  clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+    
 
     
     clonedButton.style.display = "block"; 
