@@ -60,6 +60,14 @@ img, input, a, div {
     max-width: 99%;
     aspect-ratio: 16 / 9;
     width: 99%;
+
+        animation-name: loadinAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+        visibility: visible !important;
+}
 }
 
 .wiicontainer:hover .wiiborder {
@@ -767,6 +775,13 @@ html, body {
     animation-fill-mode: forwards;
 
         visibility: visible !important;
+}
+
+@keyframes loadinAnimation {
+    0% {opacity: 0%;
+    }
+    100% {
+        opacity: 100%;}
 }
 
 @keyframes ratinganimation {
