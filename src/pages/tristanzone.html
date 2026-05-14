@@ -60,12 +60,16 @@ img, input, a, div {
     max-width: 99%;
     aspect-ratio: 16 / 9;
     width: 99%;
+}
 
+.loadin {
     animation-name: loadinAnimation;
-    animation-duration: 0.3s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     visibility: visible !important;
+    animation-iteration-count: 1;
+
 }
 
 
@@ -819,52 +823,6 @@ html, body {
         transform: translateX(30vw);}
 }
 
-@keyframes zoomanimation {
-    
-    0% {opacity: 0%;
-            width: 104vw;
-    height: 100vh;
-        display: block;
-    transform: translateY(-40vh)
-    translateX(-10vw)
-    scale(0.1, 0.1)
-    ;}
-    25% {opacity: 100%;}
-    50% {        width: 104vw;
-    height: 70vh;
-transform: translateY(0vh)
-       scale(1, 1)
-    ;}
-    
-    100% {display: block;
-    opacity: 100%;
-
-    transform: translateY(0vh)
-    
-     scale(1, 1);}
-}
-
-@keyframes zoomanimationBorder {
-    
-   0% {opacity: 0%;
-        display: block;
-    transform: translateY(-40vh)
-    translateX(-10vw)
-    scale(0.1, 0.1)
-    ;}
-   30% {opacity: 0%;}
-    50% {
-transform: translateY(0vh)
-       scale(1, 1)
-    ;}
-
- 70% {opacity: 100%;}
-    100% {display: block;
-    opacity: 100%;
-    transform: translateY(0vh)
-     scale(1, 1);}
-}
-
 
 
 @keyframes zoomanimationButtons {
@@ -1495,29 +1453,29 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box1" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box2" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box2" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box3" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box3" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box4" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box4" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 </div>
@@ -1527,29 +1485,29 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box5" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box5" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box6" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box6" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box7" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box7" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box8" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box8" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 </div>
@@ -1559,29 +1517,29 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box9" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box9" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box10" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box10" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box11" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box11" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box12" class="beerpic">
-<div class="hover-text">
+<img src="/bepisblank.png" id="box12" class="loadin beerpic">
+<div class="hover-text">nothing yet!
 </div>
 </div>
 </div>
@@ -1623,7 +1581,7 @@ transform: translateY(0vh)
 
     <script>
 
-
+updateClock();
 
 var h = 0;
 let txt = 'Lorem ipsum dummy text blabla.';
@@ -1765,6 +1723,9 @@ const largeBorder = document.getElementById('wiiborderLarge')
 
 const menuButtons = document.getElementById('channelButtons')
 
+const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
+
+
 async function refreshChannels() {
   const response = await fetch('https://api.bepisesports.com/beer/channels', {
             credentials: 'include'
@@ -1839,7 +1800,6 @@ document.body.style.backgroundImage = "url('/black.png')";
         });
      };
 
-const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
 
 
 button2.addEventListener('mouseover', function() {
@@ -1858,49 +1818,7 @@ button2.addEventListener('click', function() {
 
 
 buttonBox1.addEventListener('click', function() {
-    largeChannel.src = ""
-        clicksound4.play();
-
-    beerDate.innerText = ""
-    beerDate.classList.remove('dateReverse');
-    setTimeout(() => {  beerDate.classList.add('date');}, 200);
-
-    stars.src = "" 
-    stars.classList.remove('ratingReverse');
-    setTimeout(() => {  stars.classList.add('rating');}, 450);
-
-    function updateTxt() {txt = "yes";}
-    updateTxt();
-    setTimeout(() => {  typeWriter();}, 650);
-
-    function updateTxt2() { txt2 = "yes";}
-    updateTxt2();
-    setTimeout(() => {  typeWriter2();}, 1600);
-
-    largeChannel.classList.remove('largeChannelReverse');
-    largeBorder.classList.remove('wiiborderLargeReverse');
-    menuButtons.classList.remove('channelButtonsReverse');
-
-    backbutton.classList.add('backbuttonAnimationInitial');
-    button2.classList.add('rightButtonSlide2')
-
-    largeChannel.classList.add('largeChannel1');
-    largeBorder.classList.add('wiiborderLarge1');
-    menuButtons.classList.add('channelButtons');
-
-    largeChannel.style.pointerEvents ="all";
-    reverseButton.classList.add('reverseButtonDisplay');
-    reverseButton.classList.remove('reverseButtonDisplayReverse');
- 
-    darkElements.forEach(e1 => {
-          e1.classList.remove('lightanimation');
-        e1.classList.add('darkanimation');
-    });
-document.body.style.backgroundImage = "url('/black.png')";
-  });
-
-buttonBox2.addEventListener('click', function() {
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
         clicksound4.play();
 
         beerDate.innerText = ""
@@ -1926,8 +1844,52 @@ buttonBox2.addEventListener('click', function() {
     backbutton.classList.add('backbuttonAnimationInitial');
     button2.classList.add('rightButtonSlide2')
 
-    largeChannel.classList.add('largeChannel');
-    largeBorder.classList.add('wiiborderLarge');
+    largeChannel.classList.add('largeChannel1');
+    largeBorder.classList.add('wiiborderLarge1');
+    menuButtons.classList.add('channelButtons');
+
+    largeChannel.style.pointerEvents ="all";
+    reverseButton.classList.add('reverseButtonDisplay');
+    reverseButton.classList.remove('reverseButtonDisplayReverse');
+ 
+    darkElements.forEach(e1 => {
+          e1.classList.remove('lightanimation');
+        e1.classList.add('darkanimation');
+    });
+document.body.style.backgroundImage = "url('/black.png')";
+  });
+
+
+
+buttonBox2.addEventListener('click', function() {
+     largeChannel.src = "/bepisblank.png"
+        clicksound4.play();
+
+        beerDate.innerText = ""
+    beerDate.classList.remove('dateReverse');
+    setTimeout(() => {  beerDate.classList.add('date');}, 200);
+
+    stars.src = "" 
+    stars.classList.remove('ratingReverse');
+    setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    function updateTxt() {txt = "";}
+    updateTxt();
+    setTimeout(() => {  typeWriter();}, 650);
+
+    function updateTxt2() { txt2 = "";}
+    updateTxt2();
+    setTimeout(() => {  typeWriter2();}, 1600);
+
+    largeChannel.classList.remove('largeChannelReverse');
+    largeBorder.classList.remove('wiiborderLargeReverse');
+    menuButtons.classList.remove('channelButtonsReverse');
+
+    backbutton.classList.add('backbuttonAnimationInitial');
+    button2.classList.add('rightButtonSlide2')
+
+    largeChannel.classList.add('largeChannel2');
+    largeBorder.classList.add('wiiborderLarge2');
     menuButtons.classList.add('channelButtons');
 
     largeChannel.style.pointerEvents ="all";
@@ -1943,7 +1905,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox3.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
     stars.src = ""
 
     beerDate.innerText = "04/25/2026"
@@ -1991,7 +1953,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox4.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
 
   
     beerDate.innerText = ""
@@ -2034,7 +1996,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox5.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2076,10 +2038,10 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox6.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
     stars.src = ""
 
-    beerDate.innerText = "6"
+    beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
     setTimeout(() => {  beerDate.classList.add('date');}, 200);
 
@@ -2124,7 +2086,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox7.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+     largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2166,7 +2128,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox8.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2208,7 +2170,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox9.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2250,7 +2212,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox10.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+   largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2292,7 +2254,7 @@ document.body.style.backgroundImage = "url('/black.png')";
  
 buttonBox11.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+    largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2334,7 +2296,7 @@ document.body.style.backgroundImage = "url('/black.png')";
 
 buttonBox12.addEventListener('click', function() {
         clicksound4.play();
-    largeChannel.src = ""
+     largeChannel.src = "/bepisblank.png"
 
     beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');
@@ -2374,7 +2336,7 @@ buttonBox12.addEventListener('click', function() {
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-
+const channels = document.querySelectorAll('.beerpic');
 
   reverseButton.addEventListener('click', function() {
         clicksound5.play();
@@ -2387,7 +2349,6 @@ document.body.style.backgroundImage = "url('/black.png')";
     menuButtons.className = "";
     stars.className = "";
     beerDate.className = "";
-
 
 function updateTxt() {
     txt = "";
@@ -2431,9 +2392,13 @@ h = 0;
       });
     })
 
+     channels.forEach(e1 => {
+ 
+   setTimeout(() => { e1.classList.remove('loadin')}, 400);
+      });
 
-const channels = document.querySelectorAll('.beerpic');
 
+     
 
 backbutton.addEventListener('mouseover', function() {
     clicksound2.play();
@@ -2470,10 +2435,8 @@ if (document.hidden) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-updateClock();
-refreshChannels();
-});
+
+
 </script>
 
 
