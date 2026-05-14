@@ -135,6 +135,49 @@ body {
     text-shadow: 2px 2px 0px rgb(0, 0, 0), 0px 0px 2px black;
 }
 
+
+#back {
+    bottom: 2vh;
+    left: 1vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px red;
+    height: 22px;
+    width: 60px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    
+}
+
+#back:hover {
+    background-color: rgb(30, 11, 171);
+    transform: scale(1.1);
+}
+
+#tzone {
+    bottom: 2vh;
+    right: 1vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(0, 18, 106);
+    height: 22px;
+    width: 200px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    
+}
+
+#tzone:hover {
+    background-color: rgb(2, 30, 105);
+    transform: scale(1.1);
+}
+
 </style>
 
 <body>
@@ -162,6 +205,14 @@ body {
 <br>
 <div id="errorMessage" class="errormessage" style="color: red; display: none;">invalid review!</div>
 </form>
+
+<a href="https://bepisesports.com/">
+    <button id="back">> back</button>
+</a>
+
+<a href="https://bepisesports.com/tristanzone">
+    <button id="tzone">> tristan zone</button>
+</a>
 
 
 <script>
