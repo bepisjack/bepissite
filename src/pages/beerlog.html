@@ -166,6 +166,37 @@ form.addEventListener('submit', async (event) => {
     } catch (error) {
         console.error('Error:', error);
     }
+
+    const refreshChannels = async function() {
+    try {
+        const response = await fetch('https://api.bepisesports.com/accounts/leaderboard');
+        const boardData = await response.json(); 
+        boardData.sort((a, b) => b.currency - a.currency);
+        const leaderboardDisplay = document.getElementById('leaderboard');
+        leaderboardDisplay.innerHTML = " ";
+
+        boardData.forEach(element => {
+           const row = document.createElement('p');
+           row.className = 'board-log-entry';
+
+           row.innerHTML = `
+           <span class="board-user">${element.username}</span> -
+           <span class="board-balance">${element.currency}</span> bepiscoin
+           `
+            leaderboardDisplay.appendChild(row); 
+        });
+
+        setTimeout(() => {
+            leaderboardDisplay.scrollTop = leaderboardDisplay.scrollHeight;
+}, 0);
+        if (leaderboardDisplay.scrollHeight - leaderboardDisplay.scrollTop <= leaderboardDisplay.clientHeight + 100) {
+    leaderboardDisplay.scrollTop = leaderboardDisplay.scrollHeight;
+}
+        } catch (err) {
+            console.error("could not refresh ticker!". err);
+        }
+    };    
+
 });
 
 
