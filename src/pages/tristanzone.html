@@ -1722,13 +1722,13 @@ async function refreshChannels() {
     buttonBoxes[index] = clonedButton;
 
     const thumbImage = clonedButton.querySelector('.beerpic');
-    if (thumbImage) thumbImage.src = "https://bepisbackend.fly.dev/uploads/" + data.image;
+    if (thumbImage) thumbImage.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
 
     clonedButton.style.display = "block"; 
 
 
         clonedButton.addEventListener('click', function() {
-            largeChannel.src = "https://bepisbackend.fly.dev/uploads/" + data.image;
+            largeChannel.src = "https://bepisbackend.fly.dev/data/photos" + data.image;
             beerDate.innerText = data.date;
             stars.src = "/" + data.rating + ".png";
 
