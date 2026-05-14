@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+
+<link rel="preload" as="image" href="/testbg7.png">
+
+
+<title>logging on</title>
+</head>
+    <style>
+body {
+     background: url(/testbg7.png), rgba(0, 0, 0, 0.418);
+    background-size: 80%;
+    background-blend-mode: multiply;
+}
+
+@font-face {
+    font-family: test;
+    src: url(/GothicByte.ttf);
+}
+
+@font-face {
+    font-family: test2;
+    src: url(/StarCrush.ttf);
+}
+
+.form1 {
+    display: flex;
+    font-family: test2;
+    width: auto;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    text-align: center;
+    width: 200px;
+    align-items: center;
+    
+}
+
+.beerlabel {
+    color: white;
+    font-size: 34pt;
+    text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+}
+
+.beerEntry {
+  height: 40px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.271);
+    background-blend-mode: multiply;
+    color: white;
+    font-family: test2;
+    font-size: 26pt;
+    text-align: center;
+        box-shadow: 2px 2px 0px black;
+}
+
+.picEntry {
+  height: 40px;
+    width: 60vw;
+    background-color: rgba(0, 0, 0, 0.271);
+    background-blend-mode: multiply;
+    color: white;
+    font-family: test2;
+    font-size: 26pt;
+    text-align: center;
+        box-shadow: 2px 2px 0px black;
+}
+
+
+.beerDescription {
+    color: white;
+    font-size: 28pt;
+  text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+  line-height: 1.4;
+}
+
+
+.descriptionEntry {
+  height: 40px;
+    width: 90px;
+    background-color: rgba(0, 0, 0, 0.271);
+    background-blend-mode: multiply;
+    color: white;
+    font-family: test2;
+    font-size: 26pt;
+    text-align: center;
+    box-shadow: 2px 2px 0px black;
+}
+
+.registerbutton {
+    font-family: test2;
+    background-color: rgba(0, 0, 0, 0.267);
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    font-size: 14pt;
+    filter: drop-shadow(0px 0px 1px rgb(34, 24, 141));
+    border: 2px outset black;
+}
+
+.errormessage {
+    color: orangered;
+    font-size: 24pt;
+    width: 400px;
+    text-shadow: 2px 2px 0px rgb(0, 0, 0), 0px 0px 2px black;
+}
+
+</style>
+
+<script>
+
+    async function uploadPhoto() {
+    const uploadedPhoto = document.getElementById('beerPicture');
+    const file = uploadedPhoto.files[0];
+
+    const photoData = new FormData();
+    photoData.append('image', file);
+
+    try {
+        const response = await fetch('https://api.bepisesports.com/beer/pictures', {
+             method: 'POST',
+            body: photoData,
+            enctype: "multipart/form-data"
+        });
+        const result = await response.json();
+        console.log ('result');
+    } catch (error) {
+        console.error('error');
+    }
+}
+</script>
+
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br>
+<form class="form1">
+
+<label for="beerName" class="beerlabel">beer</label>
+
+<input type="text" id="beerEntry" name="beerName" class="beerEntry"  required></textarea>
+
+<label for="beerDescription" class="beerDescription">Review</label>
+<input type="text" id="DescriptionEntry" name="beerDescription" class="descriptionEntry" required></textarea>
+
+<label for="beer name" class="beerlabel">rating</label>
+
+<input type="number" id="beerEntry" name="beerRating" class="beerEntry" min="0" max="5" step="0.25" required></textarea>
+
+<label for="beer name" class="beerlabel">date</label>
+
+<input type="date" id="beerEntry" name="beerName" class="beerEntry"  required></textarea>
+
+<label for="beer name" class="beerlabel">picture!</label>
+
+<input type="file" id="beerPicture" name="beerPicture" class="picEntry" required></textarea>
+
+
+<br><br>
+<button type="submit" class="registerbutton" id="submitButton"  onclick=uploadPhoto()>review!</button>
+<br>
+<div id="errorMessage" class="errormessage" style="color: red; display: none;">invalid review!</div>
+</form>
+
+
+<script>
+window.onload = () => {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('error') === 'invalid') {
+    document.getElementById('errorMessage').style.display = 'block';
+    }
+};
+
+const form = document.querySelector('.form1');
+
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch('https://api.bepisesports.com/beer/post', {
+            method: 'POST', 
+            body: formData,
+        });
+        if (response.ok) {
+            console.log('good');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+
+
+</script>
+
+</body>
