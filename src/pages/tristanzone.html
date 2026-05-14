@@ -1783,10 +1783,10 @@ async function refreshChannels() {
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
 
-currentButton.crossOrigin = "use-credentials";
-currentButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+clonedButton.crossOrigin = "use-credentials";
+clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
     
-const hoverText = currentButton.parentNode.querySelector('.hover-text');
+const hoverText = clonedButton.parentNode.querySelector('.hover-text');
 if (hoverText) {
     hoverText.innerHTML = `${data.beer} <br> (★${data.rating})`;
 }
