@@ -178,10 +178,16 @@ body {
     transform: scale(1.1);
 }
 
+#statusDiv {color: white;
+    font-size: 34pt;
+  text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+  line-height: 1.4;
+}
+
 </style>
 
 <body>
-    <br><br><br><br><br>
+    <br><br><br>
 <form class="form1">
 
 <label for="beerName" class="beerlabel">beer</label>
@@ -203,7 +209,8 @@ body {
 <br><br>
 <button type="submit" class="registerbutton" id="submitButton">post!</button>
 <br>
-<div id="errorMessage" class="errormessage" style="color: red; display: none;">invalid review!</div>
+<div id="statusDiv" class="statusDiv" style="display: block;"></div>
+
 </form>
 
 <a href="https://bepisesports.com/">
@@ -223,6 +230,8 @@ if (urlParams.get('error') === 'invalid') {
     }
 };
 
+const statusDiv = document.getElementById("statusDiv");
+
 const form = document.querySelector('.form1');
 
 form.addEventListener('submit', async (event) => {
@@ -236,10 +245,10 @@ form.addEventListener('submit', async (event) => {
             body: formData,
         });
         if (response.ok) {
-            console.log('good');
+              statusDiv.innerText = "posted!";
         }
     } catch (error) {
-        console.error('Error:', error);
+        statusDiv.innerText = "failed to post!";
     }
 });
 
