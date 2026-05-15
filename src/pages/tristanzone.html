@@ -2431,7 +2431,7 @@ reverseButton.addEventListener('click', function() {
 });
 
 
-channels.forEach(button => {
+ setTimeout(() => { channels.forEach(button => {
     button.addEventListener('click', function() {
      clicksound1.play();
     });
@@ -2440,7 +2440,10 @@ channels.forEach(button => {
     button.addEventListener('mouseover', function() {
      clicksound2.play();
     });
-});
+});}, 1200);
+
+
+
 
 document.addEventListener("visibilitychange", function() {
 if (document.hidden) {
