@@ -2432,6 +2432,9 @@ reverseButton.addEventListener('click', function() {
 
 
  setTimeout(() => { channels.forEach(button => {
+
+    const channels = document.querySelectorAll('.beerpic');
+
     button.addEventListener('click', function() {
      clicksound1.play();
     });
