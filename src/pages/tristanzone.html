@@ -1764,6 +1764,15 @@ async function refreshChannels() {
 
     const clonedButton = currentButton.cloneNode(true);
 
+    clonedButton.addEventListener('click', function() {
+     clicksound1.play();
+    });
+
+   clonedButton.addEventListener('mouseover', function() {
+     clicksound2.play();
+    });
+
+
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
 
@@ -1812,13 +1821,6 @@ if (hoverText) {
     reverseButton.classList.add('reverseButtonDisplay');
     reverseButton.classList.remove('reverseButtonDisplayReverse');
 
-    addEventListener('click', function() {
-     clicksound1.play();
-    });
-
-    addEventListener('mouseover', function() {
-     clicksound2.play();
-    });
 
     darkElements.forEach(e1 => {
           e1.classList.remove('lightanimation');
