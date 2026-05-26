@@ -1774,8 +1774,8 @@ async function refreshChannels() {
 
     const clonedButton = currentButton.cloneNode(true);
 
-    clonedButton.style.opacity = 0;
-clonedButton.style.transition = "opacity 0.5s ease-in-out";
+    clonedButton.style.opacity = "0"; 
+    clonedButton.style.transition = "opacity 0.5s ease-in-out";
 
     clonedButton.addEventListener('click', function() {
      clicksound4.play();
@@ -1789,6 +1789,9 @@ clonedButton.style.transition = "opacity 0.5s ease-in-out";
 
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
+
+    clonedButton.offsetHeight; 
+    clonedButton.style.opacity = "1";
 
 clonedButton.crossOrigin = "use-credentials";
 clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
