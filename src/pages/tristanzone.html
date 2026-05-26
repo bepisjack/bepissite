@@ -60,7 +60,13 @@ img, input, a, div {
     max-width: 99%;
     aspect-ratio: 16 / 9;
     width: 99%;
+    opacity: 0;
 }
+
+.loaded {
+    opacity: 1;
+}
+
 
 .loadin {
     animation-name: loadinAnimation;
@@ -69,6 +75,7 @@ img, input, a, div {
     animation-fill-mode: forwards;
     visibility: visible !important;
     animation-iteration-count: 1;
+
 
 }
 
@@ -2426,6 +2433,7 @@ h = 0;
     channels.forEach(e1 => {
   const runAnimation = () => {
     e1.classList.add('loadin');
+    e1.classList.add('loaded');
     setTimeout(() => { e1.classList.remove('loadin'); }, 400);
   };
   
