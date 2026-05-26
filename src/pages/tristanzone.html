@@ -61,6 +61,7 @@ img, input, a, div {
     aspect-ratio: 16 / 9;
     width: 99%;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .loaded {
@@ -1460,14 +1461,14 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box1" class="beerpic">
+<img src="/bepisblank.png" id="box1" class="beerpic" onload="this.style.opacity='1'">>
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box2" class="beerpic">
+<img src="/bepisblank.png" id="box2" class="beerpic" onload="this.style.opacity='1'">>
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -2430,20 +2431,7 @@ h = 0;
     })
 
 
-    channels.forEach(e1 => {
-  const runAnimation = () => {
-    e1.classList.add('loadin');
-    setTimeout(() => { e1.classList.add('loaded'); }, 350);
-    setTimeout(() => { e1.classList.remove('loadin'); }, 400);
-  };
   
-if (e1.tagName === 'IMG' && e1.complete) {
-    runAnimation();
-} else {
-    e1.addEventListener('load', runAnimation);
-}
-    });
-
    
 
 
