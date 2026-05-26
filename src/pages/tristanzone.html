@@ -2433,7 +2433,7 @@ h = 0;
     channels.forEach(e1 => {
   const runAnimation = () => {
     e1.classList.add('loadin');
-    e1.classList.add('loaded');
+    setTimeout(() => { e1.classList.add('loaded'); }, 350);
     setTimeout(() => { e1.classList.remove('loadin'); }, 400);
   };
   
