@@ -1453,28 +1453,28 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box1" class="loadin beerpic">
+<img src="/bepisblank.png" id="box1" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box2" class="loadin beerpic">
+<img src="/bepisblank.png" id="box2" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box3" class="loadin beerpic">
+<img src="/bepisblank.png" id="box3" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box4" class="loadin beerpic">
+<img src="/bepisblank.png" id="box4" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -1485,28 +1485,28 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box5" class="loadin beerpic">
+<img src="/bepisblank.png" id="box5" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box6" class="loadin beerpic">
+<img src="/bepisblank.png" id="box6" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box7" class="loadin beerpic">
+<img src="/bepisblank.png" id="box7" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box8" class="loadin beerpic">
+<img src="/bepisblank.png" id="box8" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -1517,28 +1517,28 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box9" class="loadin beerpic">
+<img src="/bepisblank.png" id="box9" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box10" class="loadin beerpic">
+<img src="/bepisblank.png" id="box10" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box11" class="loadin beerpic">
+<img src="/bepisblank.png" id="box11" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box12" class="loadin beerpic">
+<img src="/bepisblank.png" id="box12" class="beerpic">
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -1746,6 +1746,7 @@ const largeBorder = document.getElementById('wiiborderLarge')
 const menuButtons = document.getElementById('channelButtons')
 
 const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
+
 
 
 async function refreshChannels() {
@@ -2421,10 +2422,21 @@ h = 0;
       });
     })
 
-     channels.forEach(e1 => {
- 
-   setTimeout(() => { e1.classList.remove('loadin')}, 400);
-      });
+
+    channels.forEach(e1 => {
+  const runAnimation = () => {
+    e1.classList.add('loadin');
+    setTimeout(() => { e1.classList.remove('loadin'); }, 400);
+  };
+  
+if (e1.tagName === 'IMG' && e1.complete) {
+    runAnimation();
+} else {
+    e1.addEventListener('load', runAnimation);
+}
+    });
+
+   
 
 
      
@@ -2463,6 +2475,9 @@ if (document.hidden) {
           bgm.fade(0, 0.2, 4000); 
     }
 });
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 refreshChannels();
 });
