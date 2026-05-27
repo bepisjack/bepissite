@@ -1789,23 +1789,22 @@ async function refreshChannels() {
     buttonBoxes[index] = clonedButton;
 
     clonedButton.style.opacity = "0"; 
-clonedButton.style.transition = "opacity 0.45s ease"; // Ensure CSS transition is active
+clonedButton.style.transition = "opacity 0.45s ease"; 
 
-// 2. Target the actual image element inside (assuming it is an <img> or has a class)
 const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
 
 function fadeInImage() {
-    clonedButton.offsetHeight; // Force a browser reflow
+    clonedButton.offsetHeight; 
     setTimeout(() => {
         clonedButton.style.opacity = "1";
-    }, 50); // Small delay to let the DOM settle
+    }, 50); 
 }
 
 if (imgElement) {
     imgElement.crossOrigin = "use-credentials";
     imgElement.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
 
-    // 3. Check if cached, otherwise wait for load
+    // 3. 
     if (imgElement.complete) {
         fadeInImage();
     } else {
