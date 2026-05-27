@@ -1789,10 +1789,14 @@ async function refreshChannels() {
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
 
+    clonedButton.addEventListener('load', function() {
+
+
     clonedButton.offsetHeight; 
      setTimeout(() => {  
     clonedButton.style.opacity = "1"}, 450);
     
+     })
 
 clonedButton.crossOrigin = "use-credentials";
 clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
