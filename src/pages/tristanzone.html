@@ -1774,7 +1774,7 @@ async function refreshChannels() {
 
     const clonedButton = currentButton.cloneNode(true);
 
-        
+
 
     clonedButton.addEventListener('click', function() {
      clicksound4.play();
@@ -1790,7 +1790,9 @@ async function refreshChannels() {
     buttonBoxes[index] = clonedButton;
 
     clonedButton.offsetHeight; 
-    clonedButton.style.opacity = "1";
+     setTimeout(() => {  
+    clonedButton.style.opacity = "1"}, 450);
+    
 
 clonedButton.crossOrigin = "use-credentials";
 clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
