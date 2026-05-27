@@ -1462,28 +1462,28 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box1" class="beerpic">>
+<img src="/bepisblank.png" id="box1" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box2" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box2" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box3" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box3" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box4" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box4" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -1494,28 +1494,28 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box5" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box5" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box6" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box6" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box7" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box7" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box8" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box8" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -1526,28 +1526,28 @@ transform: translateY(0vh)
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box9" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box9" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box10" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box10" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box11" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box11" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
 
 <div class="wiicontainer">
 <img src="/wiitransparent.png" class="wiiborder">
-<img src="/bepisblank.png" id="box12" class="beerpic" onload="this.style.opacity='1'">>
+<img src="/bepisblank.png" id="box12" class="beerpic" onload="this.style.opacity='1'">
 <div class="hover-text">nothing yet!
 </div>
 </div>
@@ -1789,18 +1789,30 @@ async function refreshChannels() {
     currentButton.parentNode.replaceChild(clonedButton, currentButton);
     buttonBoxes[index] = clonedButton;
 
-    clonedButton.addEventListener('load', function() {
+    clonedButton.style.opacity = "0"; 
+clonedButton.style.transition = "opacity 0.45s ease"; // Ensure CSS transition is active
 
-   
+// 2. Target the actual image element inside (assuming it is an <img> or has a class)
+const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
 
-    clonedButton.offsetHeight; 
-     setTimeout(() => {  
-    clonedButton.style.opacity = "1"}, 450);
-    
-     })
+function fadeInImage() {
+    clonedButton.offsetHeight; // Force a browser reflow
+    setTimeout(() => {
+        clonedButton.style.opacity = "1";
+    }, 50); // Small delay to let the DOM settle
+}
 
-clonedButton.crossOrigin = "use-credentials";
-clonedButton.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+if (imgElement) {
+    imgElement.crossOrigin = "use-credentials";
+    imgElement.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+
+    // 3. Check if cached, otherwise wait for load
+    if (imgElement.complete) {
+        fadeInImage();
+    } else {
+        imgElement.addEventListener('load', fadeInImage);
+    }
+}
     
 const hoverText = clonedButton.parentNode.querySelector('.hover-text');
 if (hoverText) {
