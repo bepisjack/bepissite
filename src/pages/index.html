@@ -584,6 +584,14 @@ function makeClickSound() {
 
 }
 
+function makeClickSound2() {
+    window.addEventListener('mousedown', () => {
+  clickSound2.play();
+});
+
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     refreshcard();
     refreshTicker();
