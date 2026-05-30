@@ -304,20 +304,20 @@ input[type=range]:focus::-ms-fill-upper {
 
 <div class="purchasing" id="costViewer">0 bepiscoin</div>
     
-<label for="cursor1" style="color: white;">wii pointer (5)</label>
+<label for="cursor1" id="label1" style="color: white;">wii pointer (5)</label>
 <input type="image" class="allothers" src="/wii.cur" id="cursor1"></div>
 
-<label for="cursor2" style="color: white;">gauntlet (4)</label>
+<label for="cursor2" id="label2" style="color: white;">gauntlet (4)</label>
 <input type="image" class="allothers" src="/gauntlet.cur" id="cursor2"></div>
 
-<label for="cursor3" style="color: white;">diamond sword (3)</label>
+<label for="cursor3" id="label3" style="color: white;">diamond sword (3)</label>
 <input type="image" class="allothers" src="/diamondsword.cur" id="cursor3"></div>
 
-<label for="cursor4" style="color: white;">sonic (2)</label>
+<label for="cursor4" id="label4" style="color: white;">sonic (2)</label>
 <input type="image" class="allothers" src="/sonic.cur" id="cursor4"></div>
 
-<label for="cursor5" style="color: white;">goblin hand (1)</label>
-<input type="image" class="allothers" src="/goblinhand.cur" id="cursor5"></div>
+<label for="cursor5" id="label5" style="color: white;">goblin hand (1)</label>
+<input type="image" class="allothers" src="/goblinhand.cur" id="cursor5" ></div>
 
 
 
@@ -538,8 +538,63 @@ function makeClickSound() {
 }
 
 
+async function loadWardrobe() {
+    try {
+        const response = await fetch('https://api.bepisesports.com/preferences/wardrobe', {
+            credentials: 'include'
+        });
+  if (response.ok) {
+    const data = await response.json();
+    const myCursors = data.cursors;
+    const mySounds = data.sounds;
+  
+
+  if (myCursors.includes("wii")) {
+    document.getElementById("cursor1").style.pointerEvents = 'none'
+      document.getElementById("cursor1").innerText = 'wii pointer (owned!)'
+  }
+
+ if (myCursors.includes("gauntlet")) {
+    document.getElementById("cursor2").style.pointerEvents = 'none'
+    document.getElementById("cursor2").innerText = 'gauntlet (owned!)'
+  }
+
+   if (myCursors.includes("diamondsword")) {
+      document.getElementById("cursor3").style.pointerEvents = 'none'
+      document.getElementById("cursor3").innerText = 'diamond sword (owned!)'
+  }
+
+   if (myCursors.includes("sonic")) {
+      document.getElementById("cursor4").style.pointerEvents = 'none'
+      document.getElementById("cursor4").innerText = 'sonic (owned!)'
+  }
+
+   if (myCursors.includes("goblinhand")) {
+      document.getElementById("cursor5").style.pointerEvents = 'none'
+      document.getElementById("cursor5").innerText = 'goblin hand (owned!)'
+  }
+
+   if (mySounds.includes("cat")) {
+    document.getElementById("meowon").style.display = 'inline-block'
+  }
+
+    if (mySounds.includes("off")) {
+  document.getElementById("meowoff").style.display = 'inline-block'
+  }
+
+   if (mySounds.includes("papermario")) {
+  document.getElementById("papermarioid").style.display = 'inline-block'
+  }
+}
+
+} catch (err) {
+        console.error("Error loading wardrobe:", err);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     userPrefs();
+    loadWardrobe();
   });   
 
 
