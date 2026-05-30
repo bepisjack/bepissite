@@ -347,9 +347,12 @@ input[type=range]:focus::-ms-fill-upper {
 <input type="hidden" name="cursor" id="cursorPref" required>
 
 <div id="meowoff">
-<label for="off" style="color: white;">no meow</label><input type="radio" name="sound" id="off" value="off" required></div>
+<label for="off" style="color: white;">no sound</label><input type="radio" name="sound" id="off" value="off" required></div>
 <div id="meowon">
-<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="on" require></div>
+<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="on" required></div>
+<div id="papermario">
+<label for="third" style="color: white;">paper mario</label><input type="radio" name="sound" id="third" value="on" required></div>
+ 
  
 <button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
 
@@ -593,14 +596,19 @@ async function loadWardrobe() {
     document.getElementById("cursor5").style.display = 'inline-block'
   }
 
-   if (mySounds.includes("on")) {
+   if (mySounds.includes("cat")) {
     document.getElementById("meowon").style.display = 'inline-block'
   }
 
     if (mySounds.includes("off")) {
   document.getElementById("meowoff").style.display = 'inline-block'
   }
+
+   if (mySounds.includes("papermario")) {
+  document.getElementById("meowoff").style.display = 'inline-block'
+  }
 }
+
 } catch (err) {
         console.error("Error loading wardrobe:", err);
     }
