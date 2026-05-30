@@ -1698,8 +1698,9 @@ const clicksound5 = new Howl({
 });
 
 const talkSound = new Howl({
-    src: ['/spmtalk.wav'],
+    src: ['/pm64dialogue.mp3'],
     volume: 0.1,
+    loop: true,
 });
 
 const clicksound6 = new Howl({
@@ -1778,6 +1779,7 @@ async function refreshChannels() {
     clonedButton.addEventListener('click', function() {
      clicksound4.play();
      clicksound1.play();
+   
     });
 
    clonedButton.addEventListener('mouseover', function() {
@@ -1882,6 +1884,7 @@ button2.addEventListener('click', function() {
 buttonBox1.addEventListener('click', function() {
     largeChannel.src = "/bepisblank.png"
         clicksound4.play();
+        
 
         beerDate.innerText = ""
     beerDate.classList.remove('dateReverse');

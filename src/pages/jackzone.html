@@ -526,10 +526,12 @@ const userPrefs = async function() {
             }
                 `;
             }
-                            if (soundPick === "on") {
+                            if (soundPick === "cat") {
                     makeClickSound();
                 }
-               
+                if (soundPick === "papermario") {
+                    makeClickSound2();
+                }
                 
         } 
     }
@@ -545,6 +547,14 @@ function makeClickSound() {
 });
 
 }
+
+function makeClickSound2() {
+    window.addEventListener('mousedown', () => {
+  clickSound2.play();
+});
+
+}
+
 
 
 async function loadWardrobe() {
