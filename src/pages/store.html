@@ -301,26 +301,34 @@ input[type=range]:focus::-ms-fill-upper {
 
 <span id="airborne" class="jackzone">jack zone</span>
 <br><br><br>
-    
 
+<div class="purchasing" id="costViewer">0 bepiscoin</div>
+    
+<label for="cursor1" style="color: white;">wii pointer (5)</label>
 <input type="image" class="allothers" src="/wii.cur" id="cursor1"></div>
 
+<label for="cursor2" style="color: white;">gauntlet (4)</label>
 <input type="image" class="allothers" src="/gauntlet.cur" id="cursor2"></div>
 
+<label for="cursor3" style="color: white;">diamond sword (3)</label>
 <input type="image" class="allothers" src="/diamondsword.cur" id="cursor3"></div>
 
+<label for="cursor4" style="color: white;">sonic (2)</label>
 <input type="image" class="allothers" src="/sonic.cur" id="cursor4"></div>
 
+<label for="cursor5" style="color: white;">goblin hand (1)</label>
 <input type="image" class="allothers" src="/goblinhand.cur" id="cursor5"></div>
 
 
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
 <input type="hidden" name="cursor" id="cursorPref" required>
+
 <label for="off" style="color: white;">none</label><input type="radio" name="sound" id="off" value="off" required>
 <label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="cat" required>
 <label for="third" style="color: white;">paper mario</label><input type="radio" name="sound" id="third" value="papermario" required>
  
+<input type="hidden" name="price" id="totalCost" required>
 
 <button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
 
@@ -347,30 +355,41 @@ const button5 = document.getElementById('cursor5');
 button1.addEventListener('click', function() {
 
     document.getElementById('cursorPref').value = "wii";
+    document.getElementById('totalCost').value = "5"
+    document.getElementById('costViewer').innerText = "5 bepiscoin"
 
     });
     
 button2.addEventListener('click', function() {
   
     document.getElementById('cursorPref').value = "gauntlet";
+    document.getElementById('totalCost').value = "4"
+    document.getElementById('costViewer').innerText = "4 bepiscoin"
+
 
     });
     
 button3.addEventListener('click', function() {
 
     document.getElementById('cursorPref').value = "diamondsword";
+  document.getElementById('totalCost').value = "3"
+  document.getElementById('costViewer').innerText = "3 bepiscoin"
 
     });
     
 button4.addEventListener('click', function() {
 
     document.getElementById('cursorPref').value = "sonic";
+document.getElementById('totalCost').value = "2"
+document.getElementById('costViewer').innerText = "2 bepiscoin"
 
     });
     
 button5.addEventListener('click', function() {
   
     document.getElementById('cursorPref').value = "goblinhand";
+    document.getElementById('totalCost').value = "1"
+    document.getElementById('costViewer').innerText = "1 bepiscoin"
 
     });
 
@@ -433,6 +452,7 @@ $(document).on("contextmenu", function(e) {
 async function submitPref() {
     const cursorValue = document.getElementById('cursorPref').value;
     const soundValue = document.querySelector('input[name="sound"]:checked').value;
+    const priceValue = document.getElementById('totalCost').value;
 
     if (!cursorValue) {
       console.log("none selected");
@@ -442,11 +462,12 @@ async function submitPref() {
 const itemsData = { 
   cursors: cursorValue,
   sounds: soundValue,
+  price: priceValue,
 
 };
 
 try {
-    const response = await fetch ('https://api.bepisesports.com/preferences/updateitems', {
+    const response = await fetch ('https://api.bepisesports.com/preferences/purchase', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
