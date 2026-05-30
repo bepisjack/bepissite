@@ -479,12 +479,12 @@ if (response.ok) {
     console.log(result.message); 
 } else {
           
-            const errorResult = await response.json();
-            console.log("Server Error:", errorResult.error);
+            const errorResult = await response.text();
+            console.log("Server Error:", errorResult);
         }
     } catch (err) {
         
-        console.log("Network Error:", err);
+        console.log("Network Error:", err.message);
     }
   }
 
