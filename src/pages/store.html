@@ -382,7 +382,7 @@ font-weight: 450;
     <script>
 
 const clickSound = new Howl({
-  src: ['/mario-meow.mp3'],
+  src: ['/cat.mp3'],
   volume: 0.1
 });
 
@@ -558,6 +558,7 @@ if (response.ok) {
     console.log(result.message); 
     loadWardrobe();
     userPrefs();
+    clearSelection()
 } else {
           
             const errorResult = await response.text();
@@ -568,6 +569,11 @@ if (response.ok) {
         console.log("Network Error:", err.message);
     }
   }
+
+  
+async function clearSelection() {
+    document.getElementById('cursorPref').value = ""
+}
 
 const userPrefs = async function() {
     try {
