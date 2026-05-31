@@ -1784,6 +1784,12 @@ async function refreshChannels() {
         });
   const beerData = await response.json();
 
+  beerData.forEach(data => {
+    const img = new Image();
+    img.crossOrigin = "use-credentials";
+    img.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
+});
+
   const activeSortButton = document.getElementById('lebronbutton');
 
   if (activeSortButton) {
