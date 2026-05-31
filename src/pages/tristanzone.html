@@ -291,7 +291,9 @@ html, body {
     z-index: 10;
     filter: drop-shadow(0vw 0vw 0.4vw #006969);
     cursor: url(/wii2.cur), pointer;
+    
 }
+
 
 
 #lebronbutton2 {
@@ -1571,7 +1573,7 @@ transform: translateY(0vh)
 
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
-<input type="image" src="" class="lebronbutton" id="lebronbutton" onclick="sortStep()">
+<input type="image" src="/datedown.png" class="lebronbutton" id="lebronbutton" onclick="sortStep()">
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2">
 
@@ -1704,6 +1706,12 @@ const clicksound4 = new Howl({
 
 const clicksound5 = new Howl({
     src: ['/wiiexit.wav'],
+    volume: 0.1,
+});
+
+
+const pageSound = new Howl({
+    src: ['/wiipage.wav'],
     volume: 0.1,
 });
 
@@ -1899,6 +1907,9 @@ document.body.style.backgroundImage = "url('/black.png')";
         });
      };
 
+button2.addEventListener('click', function() {
+    pageSound.play();
+});
 
 
 button2.addEventListener('mouseover', function() {
