@@ -1590,9 +1590,6 @@ transform: translateY(0vh)
 
     <script>
 
-        const button2 = document.getElementById('lebronbutton');
-
-
 let sortIndex = 0
 const MAX_INDEX = 3;
 
@@ -1725,6 +1722,8 @@ const beerDate = document.getElementById('beerDate');
 
 const stars = document.getElementById('rating');
 
+const button2 = document.getElementById('lebronbutton');
+
 const reverseButton = document.getElementById('lebronbutton2');
 
 const backbutton = document.getElementById('backbutton');
@@ -1774,10 +1773,14 @@ async function refreshChannels() {
         });
   const beerData = await response.json();
 
-  if (sortIndex === "0") button2.src = "/datedown.png";
-  else if (sortIndex === "1") button2.src = "/dateup.png";
-  else if (sortIndex === "2") button2.src = "/ratingdown.png";
-  else if (sortIndex === "3") button2.src = "/ratingup.png";
+  const activeSortButton = document.getElementById('lebronbutton');
+
+  if (activeSortButton) {
+  if (sortIndex === "0") activeSortButton.src = "/datedown.png";
+  else if (sortIndex === "1") activeSortButton.src = "/dateup.png";
+  else if (sortIndex === "2") activeSortButton.src = "/ratingdown.png";
+  else if (sortIndex === "3") activeSortButton.src = "/ratingup.png";
+  }
 
   beerData.sort((a, b) => {
     if (sortIndex === "0") {
