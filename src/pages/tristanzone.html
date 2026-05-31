@@ -1773,19 +1773,20 @@ async function refreshChannels() {
         });
   const beerData = await response.json();
 
+  if (sortIndex === "0") button2.src = "/datedown.png";
+  else if (sortIndex === "1") button2.src = "/dateup.png";
+  else if (sortIndex === "2") button2.src = "/ratingdown.png";
+  else if (sortIndex === "3") button2.src = "/ratingup.png";
+
   beerData.sort((a, b) => {
     if (sortIndex === "0") {
-        return new Date(a.date) - new Date(b.date);
-        button2.src = "/datedown.png";
+        return new Date(a.date) - new Date(b.date);    
     } else if (sortIndex === "1") {
-        return new Date(b.date) - new Date(a.date);
-        button2.src = "/dateup.png";
+        return new Date(b.date) - new Date(a.date);    
     } else if  (sortIndex === "2") {
        return b.rating - a.rating;
-       button2.src = "/ratingdown.png";
     } else if (sortIndex === "3") {
        return a.rating - b.rating;
-       button2.src = "/ratingup.png";
     }
     return 0;
   });
