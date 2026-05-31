@@ -1867,8 +1867,8 @@ if (hoverText) {
             if (typewriterTimeout1) clearTimeout(typewriterTimeout1);
             if (typewriterTimeout2) clearTimeout(typewriterTimeout2);
 
-            document.getElementById(beerName).innerHTML = "";
-            document.getElementById(beerDescription).innerHTML = "";
+            document.getElementById("beerName").innerHTML = "";
+            document.getElementById("beerDescription").innerHTML = "";
 
             i = 0;
             j = 0;
@@ -1885,7 +1885,7 @@ if (hoverText) {
 
             function updateTxt2() { txt2 = data.description; }
             updateTxt2();
-            
+
             setTimeout(() => { typeWriter2(); }, 1600);
 
     
