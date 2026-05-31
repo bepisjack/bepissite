@@ -336,6 +336,17 @@ input[type=range]:focus::-ms-fill-upper {
 <label for="cursor5" id="label5" style="color: white;">goblin hand (1)</label>
 <input type="image" class="allothers" src="/goblinhand.cur" id="cursor5" ></div>
 
+<label for="cursor6" id="label6" style="color: white;">ds stylus (1)</label>
+<input type="image" class="allothers" src="/ds.cur" id="cursor6" ></div>
+
+<label for="cursor7" id="label7" style="color: white;">wizard 101 (1)</label>
+<input type="image" class="allothers" src="/wizard.cur" id="cursor7" ></div>
+
+<label for="cursor8" id="label8" style="color: white;">skyrim (1)</label>
+<input type="image" class="allothers" src="/skyrim.cur" id="cursor8" ></div>
+
+<label for="cursor9" id="label9" style="color: white;">cookie clicker (1)</label>
+<input type="image" class="allothers" src="/cookie.cur" id="cursor9" ></div>
 
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
@@ -359,13 +370,15 @@ const clickSound = new Howl({
 });
 
 
-
 const button1 = document.getElementById('cursor1');
 const button2 = document.getElementById('cursor2');
 const button3 = document.getElementById('cursor3');
 const button4 = document.getElementById('cursor4');
 const button5 = document.getElementById('cursor5');
-
+const button6 = document.getElementById('cursor6');
+const button7 = document.getElementById('cursor7');
+const button8 = document.getElementById('cursor8');
+const button9 = document.getElementById('cursor9');
 
 
 
@@ -405,6 +418,38 @@ document.getElementById('costViewer').innerText = "2 bepiscoin"
 button5.addEventListener('click', function() {
   
     document.getElementById('cursorPref').value = "goblinhand";
+    document.getElementById('totalCost').value = "1"
+    document.getElementById('costViewer').innerText = "1 bepiscoin"
+
+    });
+
+button6.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "ds";
+    document.getElementById('totalCost').value = "1"
+    document.getElementById('costViewer').innerText = "1 bepiscoin"
+
+    });
+
+button7.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "wizard";
+    document.getElementById('totalCost').value = "1"
+    document.getElementById('costViewer').innerText = "1 bepiscoin"
+
+    });
+
+button8.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "skyrim";
+    document.getElementById('totalCost').value = "1"
+    document.getElementById('costViewer').innerText = "1 bepiscoin"
+
+    });
+
+button9.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "cookie";
     document.getElementById('totalCost').value = "1"
     document.getElementById('costViewer').innerText = "1 bepiscoin"
 
