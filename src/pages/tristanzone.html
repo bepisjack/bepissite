@@ -1571,7 +1571,7 @@ transform: translateY(0vh)
 
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
-<img src="" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
+<input type="image" src="" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
@@ -1590,10 +1590,17 @@ transform: translateY(0vh)
 
     <script>
 
+        const button2 = document.getElementById('lebronbutton');
+
+
 let sortIndex = 0
 const MAX_INDEX = 3;
 
-
+function sortStep() {
+    sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
+    console.log(sortIndex);
+    refreshChannels();
+}
 
 updateClock();
 
@@ -1717,8 +1724,6 @@ const clicksound6 = new Howl({
 const beerDate = document.getElementById('beerDate');
 
 const stars = document.getElementById('rating');
-
-const button2 = document.getElementById('lebronbutton');
 
 const reverseButton = document.getElementById('lebronbutton2');
 
@@ -1889,11 +1894,7 @@ document.body.style.backgroundImage = "url('/black.png')";
         });
      };
 
-function sortStep() {
-    sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
-    console.log(sortIndex);
-    refreshChannels();
-}
+
 
 button2.addEventListener('mouseover', function() {
     clicksound2.play();
