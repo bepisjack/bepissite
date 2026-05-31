@@ -1776,10 +1776,10 @@ async function refreshChannels() {
   const activeSortButton = document.getElementById('lebronbutton');
 
   if (activeSortButton) {
-  if (sortIndex === "0") activeSortButton.src = "/datedown.png";
-  else if (sortIndex === "1") activeSortButton.src = "/dateup.png";
-  else if (sortIndex === "2") activeSortButton.src = "/ratingdown.png";
-  else if (sortIndex === "3") activeSortButton.src = "/ratingup.png";
+  if (sortIndex === 0) activeSortButton.src = "/datedown.png";
+  else if (sortIndex === 1) activeSortButton.src = "/dateup.png";
+  else if (sortIndex === 2) activeSortButton.src = "/ratingdown.png";
+  else if (sortIndex === 3) activeSortButton.src = "/ratingup.png";
   } else {
     console.error("Could not find button2 in the live DOM!");
 }
