@@ -1571,7 +1571,7 @@ transform: translateY(0vh)
 
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
-<input type="image" src="" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
+<img src="" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
@@ -1593,11 +1593,7 @@ transform: translateY(0vh)
 let sortIndex = 0
 const MAX_INDEX = 3;
 
-function sortStep() {
-    sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
-    console.log(sortIndex);
-    refreshChannels()
-}
+
 
 updateClock();
 
@@ -1893,7 +1889,11 @@ document.body.style.backgroundImage = "url('/black.png')";
         });
      };
 
-
+function sortStep() {
+    sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
+    console.log(sortIndex);
+    refreshChannels();
+}
 
 button2.addEventListener('mouseover', function() {
     clicksound2.play();
