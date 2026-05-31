@@ -346,6 +346,13 @@ input[type=range]:focus::-ms-fill-upper {
 
 <input type="image" class="allothers" src="/goblinhand.cur" id="cursor5"></div>
 
+<input type="image" class="allothers" src="/ds.cur" id="cursor6"></div>
+
+<input type="image" class="allothers" src="/wizard.cur" id="cursor7"></div>
+
+<input type="image" class="allothers" src="/skyrim.cur" id="cursor8"></div>
+
+<input type="image" class="allothers" src="/cookie.cur" id="cursor9"></div>
 
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
@@ -382,6 +389,10 @@ const button2 = document.getElementById('cursor2');
 const button3 = document.getElementById('cursor3');
 const button4 = document.getElementById('cursor4');
 const button5 = document.getElementById('cursor5');
+const button6 = document.getElementById('cursor6');
+const button7 = document.getElementById('cursor7');
+const button8 = document.getElementById('cursor8');
+const button9 = document.getElementById('cursor9');
 
 
 
@@ -413,6 +424,30 @@ button4.addEventListener('click', function() {
 button5.addEventListener('click', function() {
   
     document.getElementById('cursorPref').value = "goblinhand";
+
+    });
+
+    button6.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "ds";
+
+    });
+
+    button7.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "wizard";
+
+    });
+
+    button8.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "skyrim";
+
+    });
+
+    button9.addEventListener('click', function() {
+  
+    document.getElementById('cursorPref').value = "cookie";
 
     });
 
