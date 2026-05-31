@@ -1612,7 +1612,11 @@ var speed = 40;
 
 function typeWriter() {
     if (typewriterTimeout1) clearTimeout(typewriterTimeout1);
- 
+    if (h < txt.length) {
+        document.getElementById("beerName").innerHTML += txt.charAt(h);
+        h++;
+        typewriterTimeout1 = setTimeout(typeWriter, 50);
+    }
 }
 
 var i = 0;
@@ -1621,10 +1625,12 @@ var speed2 = 25;
 
 function typeWriter2() {
     if (typewriterTimeout2) clearTimeout(typewriterTimeout2);
-
+    if (i < txt2.length) {
+        document.getElementById("beerDescription").innerHTML += txt2.charAt(i);
+        i++;
+        typewriterTimeout2 = setTimeout(typeWriter2, 30);
+    }
 }
-
-
 
 function updateClock () {
     const now = new Date();
