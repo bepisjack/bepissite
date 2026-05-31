@@ -1568,9 +1568,16 @@ transform: translateY(0vh)
 
 
 <a href="https://bepisesports.com/">
+
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
-<input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton"></a>
+<input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton" onclick="refreshChannels()"></a>
+
+<select id="sortMethod" onchange="refreshChannels()">
+    <option value="dateNewest">Date by Newest</option>
+    <option value="dateOldest">Date by Oldest</option>
+    <option value="ratingHighest">Rating by Highest</option>
+    <option value="ratingLowest">Rating by Lowest</option>
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
@@ -1757,15 +1764,26 @@ const menuButtons = document.getElementById('channelButtons')
 const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
 
 
-
 async function refreshChannels() {
   const response = await fetch('https://api.bepisesports.com/beer/channels', {
             credentials: 'include'
         });
   const beerData = await response.json();
-  
-  beerData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+  const method = document.getElementById("sortMethod").value;
+
+  beerData.sort((a, b) => {
+    if (method === "dateOldest") {
+        return new Date(a.date) - Date(b.date);
+    } else if (method === "dateNewest") {
+        return new Date(b.date) - Date(a.date);
+    } else if  (method === "ratingHighest") {
+        a.rating - b.rating;
+    } else if (method === "ratingLowest") {
+        b.rating - a.rating;
+    }
+  });
+  
   beerData.forEach((data, index) => {
 
     if (index >= buttonBoxes.length) return; 
