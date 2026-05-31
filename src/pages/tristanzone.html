@@ -1571,7 +1571,7 @@ transform: translateY(0vh)
 
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
-<input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
+<input type="image" src="" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
@@ -1776,12 +1776,16 @@ async function refreshChannels() {
   beerData.sort((a, b) => {
     if (sortIndex === "0") {
         return new Date(a.date) - new Date(b.date);
+        button2.src = "/datedown.png"
     } else if (sortIndex === "1") {
         return new Date(b.date) - new Date(a.date);
+        button2.src = "/dateup.png"
     } else if  (sortIndex === "2") {
        return b.rating - a.rating;
+       button2.src = "/ratingdown.png"
     } else if (sortIndex === "3") {
        return a.rating - b.rating;
+       button2.src = "/ratingup.png"
     }
     return 0;
   });
@@ -1893,12 +1897,6 @@ document.body.style.backgroundImage = "url('/black.png')";
 button2.addEventListener('mouseover', function() {
     clicksound2.play();
 });
-
-
-button2.addEventListener('click', function() {
-    clicksound3.play();
-   
-    });
 
 
 buttonBox1.addEventListener('click', function() {
