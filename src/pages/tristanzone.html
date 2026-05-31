@@ -1816,8 +1816,6 @@ async function refreshChannels() {
 
 
     clonedButton.addEventListener('click', function() {
-        const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
-
      clicksound4.play();
      clicksound1.play();
    
@@ -1898,8 +1896,9 @@ if (hoverText) {
     reverseButton.classList.add('reverseButtonDisplay');
     reverseButton.classList.remove('reverseButtonDisplayReverse');
 
+const darkElements2 = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
 
-    darkElements.forEach(e1 => {
+    darkElements2.forEach(e1 => {
           e1.classList.remove('lightanimation');
         e1.classList.add('darkanimation');
     });
