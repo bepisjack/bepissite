@@ -1571,13 +1571,7 @@ transform: translateY(0vh)
 
 <img src="/backbutton.png" class="backbutton" id="backbutton"></a>
 
-<input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton" onclick="refreshChannels()"></a>
-
-<select id="sortMethod" onchange="refreshChannels()">
-    <option value="dateNewest">Date by Newest</option>
-    <option value="dateOldest">Date by Oldest</option>
-    <option value="ratingHighest">Rating by Highest</option>
-    <option value="ratingLowest">Rating by Lowest</option></select>
+<input type="image" src="/23button.png" class="lebronbutton" id="lebronbutton" onclick="sortStep()"></a>
 
 <input type="image" src="/wiimenubutton.png" class="lebronbutton2" id="lebronbutton2"></a>
 
@@ -1595,6 +1589,15 @@ transform: translateY(0vh)
 
 
     <script>
+
+let sortIndex = 0
+const MAX_INDEX = 3;
+
+function sortStep() {
+    sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
+    console.log(sortIndex);
+    refreshChannels()
+}
 
 updateClock();
 
@@ -1770,16 +1773,14 @@ async function refreshChannels() {
         });
   const beerData = await response.json();
 
-  const method = document.getElementById("sortMethod").value;
-
   beerData.sort((a, b) => {
-    if (method === "dateOldest") {
+    if (sortIndex === "0") {
         return new Date(a.date) - new Date(b.date);
-    } else if (method === "dateNewest") {
+    } else if (sortIndex === "1") {
         return new Date(b.date) - new Date(a.date);
-    } else if  (method === "ratingHighest") {
+    } else if  (sortIndex === "2") {
        return b.rating - a.rating;
-    } else if (method === "ratingLowest") {
+    } else if (sortIndex === "3") {
        return a.rating - b.rating;
     }
     return 0;
