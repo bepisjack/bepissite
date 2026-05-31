@@ -2486,6 +2486,9 @@ h = 0;
 
     document.body.style.backgroundImage = "url('/wiibg.png')";
 
+    const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .wiibottom, .tristanzone')
+
+
     darkElements.forEach(e1 => {
         e1.classList.remove('darkanimation');
         e1.classList.add('lightanimation');
