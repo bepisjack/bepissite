@@ -1774,14 +1774,15 @@ async function refreshChannels() {
 
   beerData.sort((a, b) => {
     if (method === "dateOldest") {
-        return new Date(a.date) - Date(b.date);
+        return new Date(a.date) - new Date(b.date);
     } else if (method === "dateNewest") {
-        return new Date(b.date) - Date(a.date);
+        return new Date(b.date) - new Date(a.date);
     } else if  (method === "ratingHighest") {
-        a.rating - b.rating;
+       return b.rating - a.rating;
     } else if (method === "ratingLowest") {
-        b.rating - a.rating;
+       return a.rating - b.rating;
     }
+    return 0;
   });
   
   beerData.forEach((data, index) => {
