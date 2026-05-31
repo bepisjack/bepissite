@@ -1764,7 +1764,7 @@ async function refreshChannels() {
         });
   const beerData = await response.json();
   
-  beerData.sort((a, b) => a.date - b.date);
+  beerData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   beerData.forEach((data, index) => {
 
