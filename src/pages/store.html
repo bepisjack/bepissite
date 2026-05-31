@@ -695,6 +695,8 @@ async function loadWardrobe() {
     }
 }
 
+setTimeout(loadWardrobe, 10000);
+
 document.addEventListener('DOMContentLoaded', () => {
     userPrefs();
     loadWardrobe();
