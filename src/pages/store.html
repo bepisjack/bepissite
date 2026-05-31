@@ -307,6 +307,17 @@ input[type=range]:focus::-ms-fill-upper {
 
 }
 
+#label1, #label2, #label3, #label4, #label5, #label6, #label7, #label8, #label9, #soundlabel1, #soundlabel2, #soundlabel3 {
+  font-family: custom1;
+  font-size: 1.5rem;
+  
+}
+
+.allothers {
+  height: 2rem;
+  width: 2rem;
+}
+
 </style>
 
  <a href="https://bepisesports.com/" class="back">> back</a>
@@ -320,7 +331,8 @@ input[type=range]:focus::-ms-fill-upper {
 <br><br><br>
 
 <div class="purchasing" id="costViewer">0 bepiscoin</div>
-    
+<br>
+
 <label for="cursor1" id="label1" style="color: white;">wii pointer (5)</label>
 <input type="image" class="allothers" src="/wii.cur" id="cursor1"></div>
 
@@ -348,13 +360,16 @@ input[type=range]:focus::-ms-fill-upper {
 <label for="cursor9" id="label9" style="color: white;">cookie clicker (1)</label>
 <input type="image" class="allothers" src="/cookie.cur" id="cursor9" ></div>
 
+<br><br>
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
 <input type="hidden" name="cursor" id="cursorPref" required>
 
-<label for="off" style="color: white;">none</label><input type="radio" name="sound" id="off" value="off" required>
-<label for="on" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="cat" required>
-<label for="third" style="color: white;">paper mario</label><input type="radio" name="sound" id="third" value="papermario" required>
+<label for="off" id="soundlabel1" style="color: white;">none</label><input type="radio" name="sound" id="off" value="off" required>
+<label for="on" id="soundlabel2" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="cat" required>
+<label for="third" id="soundlabel3" style="color: white;">paper mario</label><input type="radio" name="sound" id="third" value="papermario" required>
+
+<br><br>
  
 <input type="hidden" name="price" id="totalCost" required>
 
@@ -589,6 +604,7 @@ const userPrefs = async function() {
     catch (error) { 
         console.error("Failed to load preferences:", error);
     }
+    loadWardrobe()
 }; 
 
 
