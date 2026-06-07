@@ -482,6 +482,7 @@ button9.addEventListener('click', function() {
 
 buttonS1.addEventListener('click', function() {
     document.getElementById('soundPref').value = "cat";
+    clickSound.play()
    
     const changed = buttonS1.parentElement;
     selectedDisplay(changed)
@@ -489,6 +490,7 @@ buttonS1.addEventListener('click', function() {
 
 buttonS2.addEventListener('click', function() {
     document.getElementById('soundPref').value = "papermario";
+    clickSound2.play()
    
     const changed = buttonS2.parentElement;
     selectedDisplay(changed)
