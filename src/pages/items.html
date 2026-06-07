@@ -206,9 +206,7 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 2.5rem;
      justify-self: center;
      font-family: custom1;
-
 }
-
 
 .submitPref {
   font-family: custom2;
@@ -301,9 +299,19 @@ transform: translateY(3px) translateX(1px);
   justify-content: center;
    align-items: center;
   justify-self: center;
-
 }
 
+.statusAnimation {
+    animation-name: statusAnimation;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes statusAnimation {
+    0% {transform: translateY(60vh)}
+    20% {transform: translateY(0vh)}
+    100% {transform: translateY(0vh)}
+}
 
 
 </style>
