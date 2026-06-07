@@ -638,13 +638,18 @@ changed.style.backgroundColor = "lightblue";
 };
 
 async function submitPref() {
+    
     const cursorValue = document.getElementById('cursorPref').value;
     const soundValue = document.getElementById('soundPref').value;
 
     if (!cursorValue && !soundValue) {
-       
-    statusDiv.innerText = "nothing selected!";
-    statusDiv.classList.add('statusAnimation2');
+
+
+ statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
+    void statusDiv.offsetWidth;
+     statusDiv.innerText = "nothing selected!";
+    statusDiv.classList.add('statusAnimation2')
+  
       return;
     }
 
@@ -666,7 +671,10 @@ if (response.ok) {
     const result = await response.json(); 
     userPrefs();
     console.log(result.message); 
-    statusDiv.innerText = result.message;
+
+    statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
+    void statusDiv.offsetWidth;
+     statusDiv.innerText = result.message;
     statusDiv.classList.add('statusAnimation');
 } else {
           
