@@ -553,6 +553,19 @@ button9.addEventListener('click', function() {
     document.getElementById('cursorPref').value = "cookie";
     });
 
+buttonS1.addEventListener('click', function() {
+    document.getElementById('soundPref').value = "cat";
+    });
+
+buttonS2.addEventListener('click', function() {
+    document.getElementById('soundPref').value = "papermario";
+    });
+
+buttonS3.addEventListener('click', function() {
+    document.getElementById('soundPref').value = "off";
+    });
+
+
       var playlist = ['/Forest Frenzy.mp3', '/Untamed Heart.mp3', '/Worlds End Valentine.mp3', '/Paramnesiac.mp3', '/Head in the Clouds.mp3', '/Time.mp3', '/................mp3'];
         var currentIndex = 0;
 
@@ -721,53 +734,61 @@ async function loadWardrobe() {
   if (myCursors.includes("wii")) {
     const parent1 = button1.parentElement;
     parent1.style.display = 'inline-block'
-  } else {
-     const parent1 = button1.parentElement;
-    parent1.style.display = 'none'
-  }
+  } 
 
  if (myCursors.includes("gauntlet")) {
-    document.getElementById("cursor2").style.display = 'inline-block'
+    const parent2 = button2.parentElement;
+    parent2.style.display = 'inline-block'
   }
 
    if (myCursors.includes("diamondsword")) {
-    document.getElementById("cursor3").style.display = 'inline-block'
+    const parent3 = button3.parentElement;
+    parent3.style.display = 'inline-block'
   }
 
    if (myCursors.includes("sonic")) {
-    document.getElementById("cursor4").style.display = 'inline-block'
+    const parent4 = button4.parentElement;
+    parent4.style.display = 'inline-block'
   }
 
    if (myCursors.includes("goblinhand")) {
-    document.getElementById("cursor5").style.display = 'inline-block'
+    const parent5 = button5.parentElement;
+    parent5.style.display = 'inline-block'
   }
 
     if (myCursors.includes("ds")) {
-    document.getElementById("cursor6").style.display = 'inline-block'
+    const parent6 = button6.parentElement;
+    parent6.style.display = 'inline-block'
   }
 
     if (myCursors.includes("wizard")) {
-    document.getElementById("cursor7").style.display = 'inline-block'
+    const parent7 = button7.parentElement;
+    parent7.style.display = 'inline-block'
   }
 
     if (myCursors.includes("skyrim")) {
-    document.getElementById("cursor8").style.display = 'inline-block'
+    const parent8 = button8.parentElement;
+    parent8.style.display = 'inline-block'
   }
 
     if (myCursors.includes("cookie")) {
-    document.getElementById("cursor9").style.display = 'inline-block'
+    const parent9 = button9.parentElement;
+    parent9.style.display = 'inline-block'
   }
 
    if (mySounds.includes("cat")) {
-    document.getElementById("meowon").style.display = 'inline-block'
+    const parentS1 = buttonS1.parentElement;
+    parentS1.style.display = 'inline-block'
   }
 
     if (mySounds.includes("off")) {
-  document.getElementById("meowoff").style.display = 'inline-block'
+    const parentS3 = buttonS3.parentElement;
+    parentS3.style.display = 'inline-block'
   }
 
    if (mySounds.includes("papermario")) {
-  document.getElementById("papermarioid").style.display = 'inline-block'
+    const parentS2 = buttonS2.parentElement;
+    parentS2.style.display = 'inline-block'
   }
 }
 
