@@ -733,14 +733,12 @@ async function loadWardrobe() {
     document.getElementById("cursor1").style.pointerEvents = 'none'
     document.getElementById("label1").style.pointerEvents = 'none'
       document.getElementById("label1").innerText = 'wii pointer (owned!)'
-      button1.parentElement.style.pointerEvents = 'none'
   }
 
  if (myCursors.includes("gauntlet")) {
     document.getElementById("cursor2").style.pointerEvents = 'none'
     document.getElementById("label2").style.pointerEvents = 'none'
     document.getElementById("label2").innerText = 'gauntlet (owned!)'
-    button2.parentElement.style.pointerEvents = 'none'
   }
 
    if (myCursors.includes("diamondsword")) {
@@ -780,7 +778,16 @@ async function loadWardrobe() {
       document.getElementById("label9").style.pointerEvents = 'none'
       document.getElementById("label9").innerText = 'cookie clicker (owned!)'
   }
-
+   if (mySounds.includes("cat")) {
+      document.getElementById("on").style.pointerEvents = 'none'
+      document.getElementById("on").style.pointerEvents = 'none'
+      document.getElementById("on").innerText = 'meow (owned!)'
+  }
+ if (myCursors.includes("papermario")) {
+      document.getElementById("third").style.pointerEvents = 'none'
+      document.getElementById("third").style.pointerEvents = 'none'
+      document.getElementById("third").innerText = 'paper mario (owned!)'
+  }
 
 }
 
