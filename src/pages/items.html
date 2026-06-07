@@ -423,7 +423,7 @@ const buttonS1 = document.getElementById('on');
 const buttonS2 = document.getElementById('third');
 const buttonS3 = document.getElementById('off');
 
-
+let activeParent = null;
 
 button1.addEventListener('click', function() {
     document.getElementById('cursorPref').value = "wii";
@@ -565,6 +565,31 @@ $(document).on("contextmenu", function(e) {
     return false; // Blocks the right-click menu
 });
 
+
+async function selectedDisplay(changed) {
+ if (activeParent === changed) {
+    activeParent.style.backgroundColor = "";
+    activeParent.style.border = "";
+   activeParent.style.transform = "scale(1)";
+    document.getElementById('cursorPref').value = "";
+    document.getElementById('soundPref').value = "";
+    
+  activeParent = null;
+  return;
+}
+
+  if (activeParent !== null) {
+    activeParent.style.backgroundColor = "";
+    activeParent.style.border = "0.2rem outset white";
+    activeParent.style.transform = "scale(1)"; 
+  }
+
+changed.style.transform = "scale(1.1)";
+changed.style.border = "0.2rem outset lightblue";
+changed.style.backgroundColor = "lightblue";
+
+  activeParent = changed;
+};
 
 async function submitPref() {
     const cursorValue = document.getElementById('cursorPref').value;
