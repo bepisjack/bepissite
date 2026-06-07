@@ -650,12 +650,7 @@ const userPrefs = async function() {
             }
                 `;
             }
-                            if (soundPick === "cat") {
-                    makeClickSound();
-                }
-                if (soundPick === "papermario") {
-                    makeClickSound2();
-                }
+        
                 
         } 
     }
@@ -664,20 +659,6 @@ const userPrefs = async function() {
     }
 }; 
 
-
-function makeClickSound() {
-    window.addEventListener('mousedown', () => {
-  clickSound.play();
-});
-
-}
-
-function makeClickSound2() {
-    window.addEventListener('mousedown', () => {
-  clickSound2.play();
-});
-
-}
 
 
 
