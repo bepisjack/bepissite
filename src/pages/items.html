@@ -7,6 +7,7 @@ body {
  background-image: url("/stairs.gif");
  background-repeat:repeat;
  background-size: 25%;
+ overflow-y: hidden;
 }
 
 .jackzone {
@@ -314,7 +315,7 @@ transform: translateY(3px) translateX(1px);
     animation-name: statusAnimation;
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
-    animation-fill-mode: forward;
+    animation-fill-mode: forwards;
   
 }
 
@@ -323,24 +324,26 @@ transform: translateY(3px) translateX(1px);
     animation-name: statusAnimation2;
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
-    animation-fill-mode: forward;
+    animation-fill-mode: forwards;
   
 }
 
 @keyframes statusAnimation {
     0% {color: chartreuse}
-    0% {top: -10%}
-    10% {top: 30%}
-    90% {top: 30%}
-    100% {top: -10%}
+    0% {top: 120%}
+    10% {top: 75%}
+    90% {top: 75%}
+    100% {top: 120%}
+     100% {color: chartreuse}
 }
 
 @keyframes statusAnimation2 {
     0% {color: rgb(246, 64, 64);}
-    0% {top: -10%}
-    10% {top: 30%}
-    90% {top: 30%}
-    100% {top: -10%}
+    0% {top: 120%}
+    10% {top: 75%}
+    90% {top: 75%}
+    100% {top: 120%}
+     100% {color: rgb(246, 64, 64);}
 }
 
 
