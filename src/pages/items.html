@@ -305,6 +305,7 @@ transform: translateY(3px) translateX(1px);
     animation-name: statusAnimation;
     animation-duration: 6s;
     animation-timing-function: ease-in-out;
+    animation-fill-mode: forward;
 }
 
 @keyframes statusAnimation {
@@ -629,6 +630,7 @@ if (response.ok) {
     userPrefs();
     console.log(result.message); 
     statusDiv.innerText = result.message;
+    statusDiv.classList.add('statusAnimation');
 } else {
           
             const errorResult = await response.json();
