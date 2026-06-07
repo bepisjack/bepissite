@@ -208,7 +208,7 @@ input[type=range]:focus::-ms-fill-upper {
 
  
     position: absolute;
-    color: chartreuse;
+   
     text-shadow: 2px 2px 0px black;
     font-size: 2.5rem;
      justify-self: center;
@@ -318,7 +318,25 @@ transform: translateY(3px) translateX(1px);
   
 }
 
+statusAnimatio2n {
+
+    animation-name: statusAnimation;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forward;
+  
+}
+
 @keyframes statusAnimation {
+    0% {color: chartreuse}
+    0% {transform: translateY(60vh)}
+    10% {transform: translateY(0vh)}
+    90% {transform: translateY(0vh)}
+    100% {transform: translateY(60vh)}
+}
+
+@keyframes statusAnimation2 {
+    0% {color: rgb(246, 64, 64);}
     0% {transform: translateY(60vh)}
     10% {transform: translateY(0vh)}
     90% {transform: translateY(0vh)}
@@ -621,7 +639,9 @@ async function submitPref() {
     const soundValue = document.getElementById('soundPref').value;
 
     if (!cursorValue && !soundValue) {
-      console.log("none selected");
+       
+    statusDiv.innerText = "nothing selected!";
+    statusDiv.classList.add('statusAnimation2');
       return;
     }
 
