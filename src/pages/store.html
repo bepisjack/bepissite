@@ -1,104 +1,11 @@
 <!DOCTYPE html>
 <title>item shop</title>
 <head>
-<script type="text/javascript">
-// <![CDATA[
-var speed=15; // speed of flight, lower is faster
-var count=240; // number of frames before animation complete
 
-/***************************\
-*    Airborne Text Effect   *
-*(c) 2003-6 mf2fm web-design*
-*  http://www.mf2fm.com/rv  *
-* DON'T EDIT BELOW THIS BOX *
-\***************************/
-var airbon, airtxt, airtop, airlef;
-var swide=800;
-var shigh=600;
-var frame=count;
-var ax=new Array();
-var ay=new Array();
-window.onload=function() { if (document.getElementById) {
-  var i, y, airme, airli;
-  set_width();
-  airbon=document.getElementById("airborne");
-  if (!document.all) airbon.style.position="relative"; // ie bug fix
-  airtxt=airbon.firstChild.nodeValue;
-  while (airbon.childNodes.length) airbon.removeChild(airbon.childNodes[0]);
-  for (i=0; i<airtxt.length; i++) {
-    airli=document.createElement("span");
-    airli.setAttribute("id", "airb"+i);
-    airli.appendChild(document.createTextNode(airtxt.charAt(i)));
-    airbon.appendChild(airli);
-  }
-  y=getPageTop(airbon);
-  for (i=0; i<airtxt.length; i++) ax[i]=getPageLeft(document.getElementById("airb"+i));
-  for (i=0; i<airtxt.length; i++) {
-    if (Math.random()<0.5) {
-      ax[i]=((Math.random()<0.5)?0:swide)-ax[i];
-      ay[i]=(Math.floor(Math.random()*shigh))-y;
-    }
-    else {
-      ay[i]=((Math.random()<0.5)?0:shigh)-y;
-      ax[i]=(Math.floor(Math.random()*swide))-ax[i];
-    }
-    airme=document.getElementById("airb"+i);
-    airme.style.position="relative";
-    airme.style.left=ax[i]+"px";
-    airme.style.top=ay[i]+"px";
-  }
-  fly_me();
-}}
-
-function set_width() {
-  if (typeof(self.innerWidth)=="number") {
-    swide=self.innerWidth;
-    shigh=self.innerHeight;
-  }
-  else if (document.documentElement && document.documentElement.clientWidth) {
-    swide=document.documentElement.clientWidth;
-    shigh=document.documentElement.clientHeight;
-  }
-  else if (document.body.clientWidth) {
-    swide=document.body.clientWidth;
-    shigh=document.body.clientHeight;
-  }
-}
-
-function getPageLeft(el) {
-  var x=0;
-  do { x+=el.offsetLeft }
-  while ((el=el.offsetParent)!=null) ;
-  return x;
-}
-
-function getPageTop(el) {
-  var y=0;
-  do { y+=el.offsetTop }
-  while ((el=el.offsetParent)!=null) ;
-  return y;
-}
-
-function fly_me() {
-  var airme;
-  for (var i=0; i<airtxt.length; i++) {
-	ax[i]-=swide*ax[i]*Math.random()/(frame*(count-1));
-	ay[i]-=shigh*ay[i]*Math.random()/(frame*(count-1));
-    airme=document.getElementById("airb"+i);
-	airme.style.left=Math.round(ax[i])+"px";
-	airme.style.top=Math.round(ay[i])+"px";
-  }
-  if (--frame) setTimeout("fly_me()", speed);
-}
-// ]]>
-</script>
-  
 <meta charset="UTF-8"></head>
 <style>
 body {
- background-image: url("/stairs.gif");
- background-repeat:repeat;
- background-size: 25%;
+ background-color: rgb(203, 203, 203);
 }
 
 .jackzone {
@@ -108,6 +15,7 @@ text-align: center;
 font-family: cursive; 
 font-size: 80px; color:rgb(100, 1, 87); 
 text-shadow: 2px 2px 1px rgb(0, 0, 0), 0px 0px 25px rgb(29, 4, 175), 3px 3px 15px rgba(255, 255, 255, 0.329);
+pointer-events: none;
 }
 
 .react {
@@ -210,8 +118,11 @@ input[type=range]::-ms-track {
 .purchasing {
   color: white;
   font-family: custom1;
-  font-size: 8vh;
-  text-shadow: 4px 4px 0px black;
+  font-size: 4rem;
+  text-shadow: 3px 3px 1px black;
+  justify-self: center;
+  transition-duration: 0.8s;
+
 }
 
 input[type=range] {
@@ -301,22 +212,103 @@ input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
 
-
   .back {
     color: rgba(255, 255, 255, 0.678);
+}
+
+.submitPref {
+  font-family: custom2;
+  font-size: 2rem;
+  height: 5.4vh;
+display: flex;
+  border: 0.2rem outset white;
+  width: fit-content;
+  justify-content: center;
+  padding: 0rem 1.2rem;
+  background-color: white;
+   box-shadow: 2px 2px 2px black;
+   transition-duration: 0.3s;
+  align-items: center;
+  gap: 10px;
+  justify-self: center;
+}
+
+.submitPref:active {
+background-color: rgb(43, 222, 112);
+border-color: rgb(7, 235, 7);
+transform: translateY(3px) translateX(1px);
 
 }
+
+.cursorHeader {
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+  font-family: custom1;
+  text-shadow: 4px 4px 0px black;
+}
+
+.soundHeader {
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+  font-family: custom1;
+  text-shadow: 4px 4px 0px black;
+}
+
 
 #label1, #label2, #label3, #label4, #label5, #label6, #label7, #label8, #label9, #soundlabel1, #soundlabel2, #soundlabel3 {
   font-family: custom2;
-  font-size: 1.5rem;
-font-weight: 450;
+  font-size: 2rem;
+font-weight: 550;
+color: black;
+    text-align: center;
+    
+  
 }
 
 .allothers {
-  height: 2rem;
-  width: 2rem;
+  
+  scale: 1.1;
+
 }
+
+.cursorBox {
+  height: 5.4vh;
+ 
+  display: flex;
+  border: 0.2rem outset white;
+  width: fit-content;
+  justify-content: center;
+
+padding: 0rem 1.2rem;
+  background-color: white;
+    box-shadow: 2px 2px 2px black;
+    transition-duration: 0.2s;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.cursorBox:active {
+  
+transform: translateY(3px) translateX(1px);
+
+}
+
+.shopFlex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 70vw;
+  margin: auto;
+  row-gap: 16px;
+  column-gap: 16px;
+  justify-content: center;
+
+}
+
+
 
 </style>
 
@@ -325,57 +317,79 @@ font-weight: 450;
 <div class="ticker-wrap">
 <div id="song-display" class="ticker-content"></div></div>
 <input type="range" id="volume-slider" min="0" max=".2" step="0.005" value="0.1" class="slider">
-<br><br><br><br><br><br>
+<br><br>
 
-<span id="airborne" class="jackzone">item shop</span>
-<br><br><br>
-
-<div class="purchasing" id="costViewer">0 bepiscoin</div>
+<div class="cursorHeader">Cursors</div>
 <br>
 
-<label for="cursor1" id="label1" style="color: white;">wii pointer (5)</label>
+<div class="shopFlex">
+<div class="cursorBox">
+<label for="cursor1" id="label1">wii pointer (5)</label>
 <input type="image" class="allothers" src="/wii.cur" id="cursor1"></div>
 
-<label for="cursor2" id="label2" style="color: white;">gauntlet (4)</label>
+<div class="cursorBox">
+<label for="cursor2" id="label2">gauntlet (4)</label>
 <input type="image" class="allothers" src="/gauntlet.cur" id="cursor2"></div>
 
-<label for="cursor3" id="label3" style="color: white;">diamond sword (3)</label>
+<div class="cursorBox">
+<label for="cursor3" id="label3">diamond sword (3)</label>
 <input type="image" class="allothers" src="/diamondsword.cur" id="cursor3"></div>
 
-<label for="cursor4" id="label4" style="color: white;">sonic (2)</label>
+<div class="cursorBox">
+<label for="cursor4" id="label4">sonic (2)</label>
 <input type="image" class="allothers" src="/sonic.cur" id="cursor4"></div>
 
-<label for="cursor5" id="label5" style="color: white;">goblin hand (1)</label>
+<div class="cursorBox">
+<label for="cursor5" id="label5">goblin hand (1)</label>
 <input type="image" class="allothers" src="/goblinhand.cur" id="cursor5" ></div>
 
-<br><br>
-
-<label for="cursor6" id="label6" style="color: white;">ds stylus (1)</label>
+<div class="cursorBox">
+<label for="cursor6" id="label6">ds stylus (1)</label>
 <input type="image" class="allothers" src="/ds.cur" id="cursor6" ></div>
 
-<label for="cursor7" id="label7" style="color: white;">wizard 101 (1)</label>
+<div class="cursorBox">
+<label for="cursor7" id="label7">wizard 101 (1)</label>
 <input type="image" class="allothers" src="/wizard.cur" id="cursor7" ></div>
 
-<label for="cursor8" id="label8" style="color: white;">skyrim (1)</label>
+<div class="cursorBox">
+<label for="cursor8" id="label8">skyrim (1)</label>
 <input type="image" class="allothers" src="/skyrim.cur" id="cursor8" ></div>
 
-<label for="cursor9" id="label9" style="color: white;">cookie clicker (1)</label>
-<input type="image" class="allothers" src="/cookie.cur" id="cursor9" ></div>
+<div class="cursorBox">
+<label for="cursor9" id="label9">cookie clicker (1)</label>
+<input type="image" class="allothers" src="/cookie.cur" id="cursor9" ></div></div>
 
-<br><br>
+<br>
+<hr style="width: 40vw; border: 3px outset white; box-shadow: 2px 2px 2px black;">
+<br>
+
+<div class="soundHeader">Sounds</div>
+<br>
+
+<div class="shopFlex">
+<div class="cursorBox">
+<label for="on" id="soundlabel2">meow (2)</label>
+<input type="image" class="allothers" src="/wii.cur" id="on"></div>
+
+
+<div class="cursorBox">
+<label for="third" id="soundlabel3">paper mario (2)</label>
+<input type="image" class="allothers" src="/diamondsword.cur" id="third"></div></div>
+
 
 <form class="betting" onsubmit="event.preventDefault(); submitPref();">
-<input type="hidden" name="cursor" id="cursorPref" required>
+<input type="hidden" name="cursor" id="cursorPref">
+<input type="hidden" name="sound" id="soundPref">
 
-<label for="off" id="soundlabel1" style="color: white;">none</label><input type="radio" name="sound" id="off" value="off" required>
-<label for="on" id="soundlabel2" style="color: white;">meow</label><input type="radio" name="sound" id="on" value="cat" required>
-<label for="third" id="soundlabel3" style="color: white;">paper mario</label><input type="radio" name="sound" id="third" value="papermario" required>
+<br>
+<hr style="width: 40vw; border: 3px outset white; box-shadow: 2px 2px 2px black;">
 
-<br><br>
  
 <input type="hidden" name="price" id="totalCost" required>
 
-<button type="submit" id="submitButton" class="submitPref">submit !!</button></form>
+<div class="purchasing" id="costViewer">0 bepiscoin</div>
+<br>
+<button type="submit" id="submitButton" class="submitPref">purchase !!</button></form>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -385,6 +399,12 @@ const clickSound = new Howl({
   src: ['/cat.mp3'],
   volume: 0.1
 });
+
+const clickSound2 = new Howl({
+  src: ['/papermario.mp3'],
+  volume: 0.1
+});
+
 
 
 const button1 = document.getElementById('cursor1');
@@ -397,7 +417,12 @@ const button7 = document.getElementById('cursor7');
 const button8 = document.getElementById('cursor8');
 const button9 = document.getElementById('cursor9');
 
+const buttonS1 = document.getElementById('on');
+const buttonS2 = document.getElementById('third');
 
+const runningTotal = document.getElementById('costViewer');
+
+let activeParent = null;
 
 button1.addEventListener('click', function() {
 
@@ -405,6 +430,8 @@ button1.addEventListener('click', function() {
     document.getElementById('totalCost').value = "5"
     document.getElementById('costViewer').innerText = "5 bepiscoin"
 
+    const changed = button1.parentElement;
+    selectedDisplay(changed)
     });
     
 button2.addEventListener('click', function() {
@@ -413,15 +440,18 @@ button2.addEventListener('click', function() {
     document.getElementById('totalCost').value = "4"
     document.getElementById('costViewer').innerText = "4 bepiscoin"
 
-
+  const changed = button2.parentElement;
+    selectedDisplay(changed)
     });
     
 button3.addEventListener('click', function() {
 
-    document.getElementById('cursorPref').value = "diamondsword";
+  document.getElementById('cursorPref').value = "diamondsword";
   document.getElementById('totalCost').value = "3"
   document.getElementById('costViewer').innerText = "3 bepiscoin"
 
+  const changed = button3.parentElement;
+    selectedDisplay(changed)
     });
     
 button4.addEventListener('click', function() {
@@ -430,6 +460,8 @@ button4.addEventListener('click', function() {
 document.getElementById('totalCost').value = "2"
 document.getElementById('costViewer').innerText = "2 bepiscoin"
 
+const changed = button4.parentElement;
+    selectedDisplay(changed)
     });
     
 button5.addEventListener('click', function() {
@@ -438,6 +470,8 @@ button5.addEventListener('click', function() {
     document.getElementById('totalCost').value = "1"
     document.getElementById('costViewer').innerText = "1 bepiscoin"
 
+    const changed = button5.parentElement;
+    selectedDisplay(changed)
     });
 
 button6.addEventListener('click', function() {
@@ -446,6 +480,8 @@ button6.addEventListener('click', function() {
     document.getElementById('totalCost').value = "1"
     document.getElementById('costViewer').innerText = "1 bepiscoin"
 
+   const changed = button6.parentElement;
+    selectedDisplay(changed)
     });
 
 button7.addEventListener('click', function() {
@@ -454,6 +490,8 @@ button7.addEventListener('click', function() {
     document.getElementById('totalCost').value = "1"
     document.getElementById('costViewer').innerText = "1 bepiscoin"
 
+    const changed = button7.parentElement;
+    selectedDisplay(changed)
     });
 
 button8.addEventListener('click', function() {
@@ -462,6 +500,8 @@ button8.addEventListener('click', function() {
     document.getElementById('totalCost').value = "1"
     document.getElementById('costViewer').innerText = "1 bepiscoin"
 
+    const changed = button8.parentElement;
+    selectedDisplay(changed)
     });
 
 button9.addEventListener('click', function() {
@@ -470,6 +510,30 @@ button9.addEventListener('click', function() {
     document.getElementById('totalCost').value = "1"
     document.getElementById('costViewer').innerText = "1 bepiscoin"
 
+    const changed = button9.parentElement;
+    selectedDisplay(changed)
+    });
+
+ buttonS1.addEventListener('click', function() {
+  
+    document.getElementById('soundPref').value = "cat";
+    document.getElementById('totalCost').value = "2"
+    document.getElementById('costViewer').innerText = "2 bepiscoin"
+    clickSound.play();
+
+    const changed = buttonS1.parentElement;
+    selectedDisplay(changed)
+    });
+
+buttonS2.addEventListener('click', function() {
+  
+    document.getElementById('soundPref').value = "papermario";
+    document.getElementById('totalCost').value = "2"
+    document.getElementById('costViewer').innerText = "2 bepiscoin"
+    clickSound2.play();
+
+    const changed = buttonS2.parentElement;
+    selectedDisplay(changed)
     });
 
       var playlist = ['/Forest Frenzy.mp3', '/Untamed Heart.mp3', '/Worlds End Valentine.mp3', '/Paramnesiac.mp3', '/Head in the Clouds.mp3', '/Time.mp3', '/................mp3'];
@@ -528,12 +592,42 @@ $(document).on("contextmenu", function(e) {
 });
 
 
+async function selectedDisplay(changed) {
+ if (activeParent === changed) {
+    activeParent.style.backgroundColor = "";
+    activeParent.style.border = "";
+   activeParent.style.transform = "scale(1)";
+    document.getElementById('cursorPref').value = "";
+    document.getElementById('soundPref').value = "";
+    document.getElementById('totalCost').value = ""
+     runningTotal.style.color = "white";
+    document.getElementById('costViewer').innerText = "0 bepiscoin"
+
+  activeParent = null;
+  return;
+}
+
+  if (activeParent !== null) {
+    activeParent.style.backgroundColor = "";
+    activeParent.style.border = "0.2rem outset white";
+    activeParent.style.transform = "scale(1)";
+    
+  }
+
+  changed.style.transform = "scale(1.1)";
+ changed.style.border = "0.2rem outset lightblue";
+  changed.style.backgroundColor = "lightblue";
+  runningTotal.style.color = "mediumseagreen";
+
+  activeParent = changed;
+};
+
 async function submitPref() {
     const cursorValue = document.getElementById('cursorPref').value;
-    const soundValue = document.querySelector('input[name="sound"]:checked').value;
+    const soundValue = document.getElementById('soundPref').value;
     const priceValue = document.getElementById('totalCost').value;
 
-    if (!cursorValue) {
+    if (!cursorValue && !soundValue) {
       console.log("none selected");
       return;
     }
@@ -558,7 +652,7 @@ if (response.ok) {
     console.log(result.message); 
     loadWardrobe();
     userPrefs();
-    clearSelection()
+    clearSelection();
 } else {
           
             const errorResult = await response.text();
@@ -604,9 +698,7 @@ const userPrefs = async function() {
             }
                 `;
             }
-                            if (soundPick === "on") {
-                    makeClickSound();
-                }
+                          
                
                 
         } 
@@ -641,12 +733,14 @@ async function loadWardrobe() {
     document.getElementById("cursor1").style.pointerEvents = 'none'
     document.getElementById("label1").style.pointerEvents = 'none'
       document.getElementById("label1").innerText = 'wii pointer (owned!)'
+      button1.parentElement.style.pointerEvents = 'none'
   }
 
  if (myCursors.includes("gauntlet")) {
     document.getElementById("cursor2").style.pointerEvents = 'none'
     document.getElementById("label2").style.pointerEvents = 'none'
     document.getElementById("label2").innerText = 'gauntlet (owned!)'
+    button2.parentElement.style.pointerEvents = 'none'
   }
 
    if (myCursors.includes("diamondsword")) {
@@ -708,6 +802,5 @@ document.addEventListener('DOMContentLoaded', () => {
 <br>
 <br>
 
-<div class="react">
-<img src="/tuckergreen.gif"></div>
+
 </body>
