@@ -730,7 +730,7 @@ if (response.ok) {
     clearSelection();
 } else {
           
-            const errorResult = await response.text();
+            const errorResult = await response.status();
             
             statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
     void statusDiv.offsetWidth;
