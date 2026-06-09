@@ -681,6 +681,10 @@ if (response.ok) {
           
             const errorResult = await response.json();
             console.log("Server Error:", errorResult.error);
+            statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
+    void statusDiv.offsetWidth;
+     statusDiv.innerText = errorResult.error;
+    statusDiv.classList.add('statusAnimation2');
         }
     } catch (err) {
         
