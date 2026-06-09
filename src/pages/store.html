@@ -272,6 +272,10 @@ input[type=range]:focus::-ms-fill-upper {
     color: rgba(255, 255, 255, 0.678);
 }
 
+  .toinventory {
+    color: rgba(255, 255, 255, 0.678);
+}
+
 .submitPref {
   font-family: custom2;
   font-size: 2rem;
@@ -364,12 +368,62 @@ transform: translateY(3px) translateX(1px);
 
 }
 
+#loginButton {
+    top: 2vh;
+    right: 2vw;
+    position: fixed;
+    border: 2px rgb(0, 0, 0);
+    background-color: black;
+    color: rgb(255, 255, 255);
+    box-shadow: -2px 2px 0px rgb(168, 168, 168);
+    height: 22px;
+    width: 54px;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
 
+#loginButton:hover {
+       background-color:rgb(104, 104, 104);
+    transform: scale(1.1);
+}
+
+#inventoryButton {
+    top: 2vh;
+    right: 2vw;
+    position: fixed;
+    border: 2px rgb(0, 0, 0);
+    background-color: black;
+    color: rgb(255, 255, 255);
+    box-shadow: -2px 2px 0px rgb(168, 168, 168);
+    height: 22px;
+    width: 54px;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+#inventoryButton:hover {
+       background-color:rgb(104, 104, 104);
+    transform: scale(1.1);
+}
 
 </style>
 
+<a href="/racelogin">
+    <button id="loginButton">login!!</button>
+</a>
+
+<a href="/items">
+    <button id="inventoryButton">my inventory</button>
+</a>
+
+
  <a href="https://bepisesports.com/" class="back">> back</a>
 
+
+
+ 
 <div class="ticker-wrap">
 <div id="song-display" class="ticker-content"></div></div>
 <input type="range" id="volume-slider" min="0" max=".2" step="0.005" value="0.1" class="slider">
@@ -814,6 +868,7 @@ async function loadWardrobe() {
     const data = await response.json();
     const myCursors = data.cursors;
     const mySounds = data.sounds;
+    document.getElementById('inventoryButton').style.display = 'block';
   
 
   if (myCursors.includes("wii")) {
@@ -880,6 +935,7 @@ async function loadWardrobe() {
 
 } catch (err) {
         console.error("Error loading wardrobe:", err);
+        document.getElementById('loginButton').style.display = 'block';
     }
 }
 
