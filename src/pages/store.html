@@ -469,6 +469,11 @@ const clickSound3 = new Howl({
   volume: 0.1
 });
 
+const buySound = new Howl({
+  src: ['/Trophy Obtained.mp3'],
+  volume: 0.1
+});
+
 
 const button1 = document.getElementById('cursor1');
 const button2 = document.getElementById('cursor2');
@@ -729,6 +734,7 @@ if (response.ok) {
     loadWardrobe();
     userPrefs();
     clearSelection();
+    buySound.play();
 } else {
           
             const errorResult = await response.json();
