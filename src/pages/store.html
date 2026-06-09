@@ -731,11 +731,11 @@ if (response.ok) {
     clearSelection();
 } else {
           
-            const errorResult = response.statusText;
+            const errorResult = await response.json();
             
             statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
     void statusDiv.offsetWidth;
-     statusDiv.innerText = errorResult;
+     statusDiv.innerText = errorResult.error;
     statusDiv.classList.add('statusAnimation2')
         }
     } catch (err) {
