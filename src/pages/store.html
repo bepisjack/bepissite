@@ -212,6 +212,60 @@ input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
 
+
+.statusDiv {
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    position: absolute;
+   
+    text-shadow: 2px 2px 0px black;
+    font-size: 2.5rem;
+     justify-self: center;
+     font-family: custom1;
+     
+}
+
+
+.statusAnimation {
+
+    animation-name: statusAnimation;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  
+}
+
+.statusAnimation2 {
+
+    animation-name: statusAnimation2;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  
+}
+
+@keyframes statusAnimation {
+    0% {color: chartreuse}
+    0% {top: 120%}
+    10% {top: 75%}
+    90% {top: 75%}
+    100% {top: 120%}
+     100% {color: chartreuse}
+}
+
+@keyframes statusAnimation2 {
+    0% {color: rgb(246, 64, 64);}
+    0% {top: 120%}
+    10% {top: 75%}
+    90% {top: 75%}
+    100% {top: 120%}
+     100% {color: rgb(246, 64, 64);}
+}
+
+
   .back {
     color: rgba(255, 255, 255, 0.678);
 }
@@ -391,6 +445,9 @@ transform: translateY(3px) translateX(1px);
 <br>
 <button type="submit" id="submitButton" class="submitPref">purchase !!</button></form>
 
+<div class="statusDiv" id="statusDiv"></div>
+
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
@@ -423,6 +480,9 @@ const button9 = document.getElementById('cursor9');
 
 const buttonS1 = document.getElementById('on');
 const buttonS2 = document.getElementById('third');
+
+const statusDiv = document.getElementById('statusDiv');
+
 
 const runningTotal = document.getElementById('costViewer');
 
@@ -635,7 +695,10 @@ async function submitPref() {
     const priceValue = document.getElementById('totalCost').value;
 
     if (!cursorValue && !soundValue) {
-      console.log("none selected");
+      statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
+      void statusDiv.offsetWidth;
+      statusDiv.innerText = "nothing selected!";
+      statusDiv.classList.add('statusAnimation2');
       return;
     }
 
@@ -656,6 +719,10 @@ try {
 
 if (response.ok) {
     const result = await response.json(); 
+    statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
+    void statusDiv.offsetWidth;
+     statusDiv.innerText = result.message;
+    statusDiv.classList.add('statusAnimation')
     console.log(result.message); 
     loadWardrobe();
     userPrefs();
@@ -663,7 +730,11 @@ if (response.ok) {
 } else {
           
             const errorResult = await response.text();
-            console.log("Server Error:", errorResult);
+            
+            statusDiv.classList.remove('statusAnimation', 'statusAnimation2')
+    void statusDiv.offsetWidth;
+     statusDiv.innerText = errorResult;
+    statusDiv.classList.add('statusAnimation2')
         }
     } catch (err) {
         
@@ -674,6 +745,7 @@ if (response.ok) {
   
 async function clearSelection() {
     document.getElementById('cursorPref').value = "";
+    document.getElementById('soundPref').value = "";
 }
 
 const userPrefs = async function() {
