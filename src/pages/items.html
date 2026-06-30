@@ -371,7 +371,10 @@ transform: translateY(3px) translateX(1px);
 
 <div class="username" id="usernameBlank">jack</div>
 
-<div class="currency" id="currencyBlank">1 billion</div></div>
+<div class="currency" id="currencyBlank">1 billion</div>
+
+<div class="currency" id="cursorCount">none pizza</div></div>
+
 
 <div class="cursorHeader">Cursors</div>
 <br>
@@ -790,6 +793,10 @@ async function loadWardrobe() {
     const data = await response.json();
     const myCursors = data.cursors;
     const mySounds = data.sounds;
+    const cursorCollection = data.cursorCount;
+
+    document.getElementById('cursorCount').innerText = `${cursorCollection} bepiscoin`;
+
     document.getElementById('storeButton').style.display = 'block';
   
 
