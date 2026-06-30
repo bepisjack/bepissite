@@ -591,23 +591,23 @@ buttonS1.addEventListener('click', function() {
     document.getElementById('soundPref').value = "cat";
     clickSound.play()
    
-    const changed = buttonS1.parentElement;
-    selectedDisplay(changed)
+    const changedS = buttonS1.parentElement;
+    selectedDisplayS(changedS)
     });
 
 buttonS2.addEventListener('click', function() {
     document.getElementById('soundPref').value = "papermario";
     clickSound2.play()
    
-    const changed = buttonS2.parentElement;
-    selectedDisplay(changed)
+    const changedS = buttonS2.parentElement;
+    selectedDisplayS(changedS)
     });
 
 buttonS3.addEventListener('click', function() {
     document.getElementById('soundPref').value = "off";
    
-    const changed = buttonS3.parentElement;
-    selectedDisplay(changed)
+    const changedS = buttonS3.parentElement;
+    selectedDisplayS(changedS)
     });
 
 
@@ -666,7 +666,6 @@ async function selectedDisplay(changed) {
     activeParent.style.border = "";
    activeParent.style.transform = "scale(1)";
     document.getElementById('cursorPref').value = "";
-    document.getElementById('soundPref').value = "";
     
   activeParent = null;
   return;
@@ -683,6 +682,31 @@ changed.style.border = "0.2rem outset lightblue";
 changed.style.backgroundColor = "lightblue";
 
   activeParent = changed;
+};
+
+
+async function selectedDisplayS(changedS) {
+ if (activeParentS === changedS) {
+    activeParentS.style.backgroundColor = "";
+    activeParentS.style.border = "";
+   activeParentS.style.transform = "scale(1)";
+    document.getElementById('soundPref').value = "";
+    
+  activeParentS = null;
+  return;
+}
+
+  if (activeParentS !== null) {
+    activeParentS.style.backgroundColor = "";
+    activeParentS.style.border = "0.2rem outset white";
+    activeParentS.style.transform = "scale(1)"; 
+  }
+
+changedS.style.transform = "scale(1.1)";
+changedS.style.border = "0.2rem outset lightblue";
+changedS.style.backgroundColor = "lightblue";
+
+  activeParentS = changedS;
 };
 
 async function submitPref() {
