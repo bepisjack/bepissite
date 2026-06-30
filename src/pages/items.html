@@ -404,9 +404,9 @@ transform: translateY(3px) translateX(1px);
 
 <div class="displayFlexColumn">
 
-<div class="cursorCollection" id="cursorCount">none pizza</div>
+<div class="cursorCollection" id="cursorCount"></div>
 
-<div class="soundCollection" id="soundCount">none pizza</div></div></div>
+<div class="soundCollection" id="soundCount"></div></div></div>
 
 
 <div class="cursorHeader">Cursors</div>
@@ -786,7 +786,7 @@ const loadUsername = async function() {
 
     if (!response.ok) {
             document.getElementById('usernameBlank').innerText = "not logged in!!";
-            document.getElementById('currencyBlank').innerText = "0 bepiscoin";
+            
 
             return;
         }
@@ -797,7 +797,7 @@ const loadUsername = async function() {
         document.getElementById('usernameBlank').innerText = data.username;
     } else {
         document.getElementById('usernameBlank').innerText = "not logged in!";
-        document.getElementById('currencyBlank').innerText = "0 bepiscoin";
+        
     }
 
       }
