@@ -317,6 +317,25 @@ transform: translateY(3px) translateX(1px);
   padding-top: 2vh;
 }
 
+.displayFlex {
+  display: flex;
+  width: 72vw;
+}
+
+.username {
+  font-family: custom2;
+  color: rgb(255, 255, 255);
+  padding-left: 1vw;
+  margin-right: auto;
+}
+
+.currency {
+  font-family: custom2;
+  color: rgb(255, 255, 255);
+  padding-right: 1vw;
+  margin-left: auto;
+}
+
 
 </style>
 
@@ -339,8 +358,14 @@ transform: translateY(3px) translateX(1px);
 
 <div class="sitecontainer">
 
-  <div class="storeHeader">your inventory</div>
+<div class="storeHeader">your inventory</div>
 <br>
+
+<div class="displayFlex">
+
+<div class="username" id="usernameBlank">jack</div>
+
+<div class="currency" id="currencyBlank">1 billion</div></div>
 
 <div class="cursorHeader">Cursors</div>
 <br>
@@ -711,7 +736,43 @@ const userPrefs = async function() {
     }
 }; 
 
+const loadUsername = async function() {
+    try {
+   const response = await fetch('https://api.bepisesports.com/accounts/me', {
+    credentials: 'include'
+    });
 
+    if (!response.ok) {
+            document.getElementById('usernameBlank').innerText = "not logged in!!";
+            document.getElementById('currencyBlank').innerText = "0 bepiscoin";
+
+            return;
+        }
+
+    const data = await response.json();
+
+    if (data && data.username) {
+        document.getElementById('usernameBlank').innerText = data.username;
+    } else {
+        document.getElementById('usernameBlank').innerText = "not logged in!";
+        document.getElementById('currencyBlank').innerText = "0 bepiscoin";
+    }
+
+      }
+    catch (error) {
+        console.error("Error fetching data", error);
+    }
+}
+
+const loadBalance = async () => {
+    const response = await fetch('https://api.bepisesports.com/accounts/balances', {
+        credentials: 'include'
+    });
+    if (response.ok) {
+        const data = await response.json();
+        document.getElementById('currencyBlank').innerText = `${data.currency} bepiscoin`;
+    }
+};
 
 
 async function loadWardrobe() {
@@ -794,6 +855,8 @@ async function loadWardrobe() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    loadUsername();
+    loadBalance();
     userPrefs();
     loadWardrobe();
   });   
