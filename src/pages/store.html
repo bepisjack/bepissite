@@ -403,15 +403,15 @@ transform: translateY(3px) translateX(1px);
 
 <div class="shopFlex">
 <div class="cursorBox">
-<label for="cursor1" id="label1">wii pointer (5)</label>
+<label for="cursor1" id="label1">wii pointer (3)</label>
 <input type="image" class="allothers" src="/wii.cur" id="cursor1"></div>
 
 <div class="cursorBox">
-<label for="cursor2" id="label2">gauntlet (4)</label>
+<label for="cursor2" id="label2">gauntlet (2)</label>
 <input type="image" class="allothers" src="/gauntlet.cur" id="cursor2"></div>
 
 <div class="cursorBox">
-<label for="cursor3" id="label3">diamond sword (3)</label>
+<label for="cursor3" id="label3">diamond sword (4)</label>
 <input type="image" class="allothers" src="/diamondsword.cur" id="cursor3"></div>
 
 <div class="cursorBox">
@@ -419,23 +419,23 @@ transform: translateY(3px) translateX(1px);
 <input type="image" class="allothers" src="/sonic.cur" id="cursor4"></div>
 
 <div class="cursorBox">
-<label for="cursor5" id="label5">goblin hand (1)</label>
+<label for="cursor5" id="label5">goblin hand (2)</label>
 <input type="image" class="allothers" src="/goblinhand.cur" id="cursor5" ></div>
 
 <div class="cursorBox">
-<label for="cursor6" id="label6">ds stylus (1)</label>
+<label for="cursor6" id="label6">ds stylus (3)</label>
 <input type="image" class="allothers" src="/ds.cur" id="cursor6" ></div>
 
 <div class="cursorBox">
-<label for="cursor7" id="label7">wizard 101 (1)</label>
+<label for="cursor7" id="label7">wizard 101 (3)</label>
 <input type="image" class="allothers" src="/wizard.cur" id="cursor7" ></div>
 
 <div class="cursorBox">
-<label for="cursor8" id="label8">skyrim (1)</label>
+<label for="cursor8" id="label8">skyrim (2)</label>
 <input type="image" class="allothers" src="/skyrim.cur" id="cursor8" ></div>
 
 <div class="cursorBox">
-<label for="cursor9" id="label9">cookie clicker (1)</label>
+<label for="cursor9" id="label9">cookie clicker (2)</label>
 <input type="image" class="allothers" src="/cookie.cur" id="cursor9" ></div></div>
 
 <br>
@@ -447,12 +447,12 @@ transform: translateY(3px) translateX(1px);
 
 <div class="shopFlex">
 <div class="cursorBox">
-<label for="on" id="soundlabel2">meow (2)</label>
+<label for="on" id="soundlabel2">meow (4)</label>
 <input type="image" class="allothers" src="/mmcat.png" id="on"></div>
 
 
 <div class="cursorBox">
-<label for="third" id="soundlabel3">paper mario (2)</label>
+<label for="third" id="soundlabel3">paper mario (3)</label>
 <input type="image" class="allothers" src="/papermariohead.png" id="third"></div></div>
 
 
@@ -520,11 +520,13 @@ const runningTotal = document.getElementById('costViewer');
 
 let activeParent = null;
 
+
 button1.addEventListener('click', function() {
 
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "wii";
-    document.getElementById('totalCost').value = "5"
-    document.getElementById('costViewer').innerText = "5 bepiscoin"
+    document.getElementById('totalCost').value = "3"
+    document.getElementById('costViewer').innerText = "3 bepiscoin"
     clickSound3.play();
 
     const changed = button1.parentElement;
@@ -533,9 +535,10 @@ button1.addEventListener('click', function() {
     
 button2.addEventListener('click', function() {
   
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "gauntlet";
-    document.getElementById('totalCost').value = "4"
-    document.getElementById('costViewer').innerText = "4 bepiscoin"
+    document.getElementById('totalCost').value = "2"
+    document.getElementById('costViewer').innerText = "2 bepiscoin"
     clickSound3.play();
 
   const changed = button2.parentElement;
@@ -544,9 +547,10 @@ button2.addEventListener('click', function() {
     
 button3.addEventListener('click', function() {
 
+    document.getElementById('soundPref').value = "";
   document.getElementById('cursorPref').value = "diamondsword";
-  document.getElementById('totalCost').value = "3"
-  document.getElementById('costViewer').innerText = "3 bepiscoin"
+  document.getElementById('totalCost').value = "4"
+  document.getElementById('costViewer').innerText = "4 bepiscoin"
   clickSound3.play();
 
   const changed = button3.parentElement;
@@ -555,6 +559,7 @@ button3.addEventListener('click', function() {
     
 button4.addEventListener('click', function() {
 
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "sonic";
 document.getElementById('totalCost').value = "2"
 document.getElementById('costViewer').innerText = "2 bepiscoin"
@@ -565,9 +570,10 @@ const changed = button4.parentElement;
     
 button5.addEventListener('click', function() {
   
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "goblinhand";
-    document.getElementById('totalCost').value = "1"
-    document.getElementById('costViewer').innerText = "1 bepiscoin"
+    document.getElementById('totalCost').value = "2"
+    document.getElementById('costViewer').innerText = "2 bepiscoin"
 
     const changed = button5.parentElement;
     selectedDisplay(changed)
@@ -575,9 +581,10 @@ button5.addEventListener('click', function() {
 
 button6.addEventListener('click', function() {
   
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "ds";
-    document.getElementById('totalCost').value = "1"
-    document.getElementById('costViewer').innerText = "1 bepiscoin"
+    document.getElementById('totalCost').value = "3"
+    document.getElementById('costViewer').innerText = "3 bepiscoin"
 
    const changed = button6.parentElement;
     selectedDisplay(changed)
@@ -585,9 +592,10 @@ button6.addEventListener('click', function() {
 
 button7.addEventListener('click', function() {
   
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "wizard";
-    document.getElementById('totalCost').value = "1"
-    document.getElementById('costViewer').innerText = "1 bepiscoin"
+    document.getElementById('totalCost').value = "3"
+    document.getElementById('costViewer').innerText = "3 bepiscoin"
 
     const changed = button7.parentElement;
     selectedDisplay(changed)
@@ -595,9 +603,10 @@ button7.addEventListener('click', function() {
 
 button8.addEventListener('click', function() {
   
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "skyrim";
-    document.getElementById('totalCost').value = "1"
-    document.getElementById('costViewer').innerText = "1 bepiscoin"
+    document.getElementById('totalCost').value = "2"
+    document.getElementById('costViewer').innerText = "2 bepiscoin"
 
     const changed = button8.parentElement;
     selectedDisplay(changed)
@@ -605,9 +614,10 @@ button8.addEventListener('click', function() {
 
 button9.addEventListener('click', function() {
   
+    document.getElementById('soundPref').value = "";
     document.getElementById('cursorPref').value = "cookie";
-    document.getElementById('totalCost').value = "1"
-    document.getElementById('costViewer').innerText = "1 bepiscoin"
+    document.getElementById('totalCost').value = "2"
+    document.getElementById('costViewer').innerText = "2 bepiscoin"
 
     const changed = button9.parentElement;
     selectedDisplay(changed)
@@ -615,9 +625,10 @@ button9.addEventListener('click', function() {
 
  buttonS1.addEventListener('click', function() {
   
+    document.getElementById('cursorPref').value = "";
     document.getElementById('soundPref').value = "cat";
-    document.getElementById('totalCost').value = "2"
-    document.getElementById('costViewer').innerText = "2 bepiscoin"
+    document.getElementById('totalCost').value = "4"
+    document.getElementById('costViewer').innerText = "4 bepiscoin"
     clickSound.play();
 
     const changed = buttonS1.parentElement;
@@ -626,11 +637,13 @@ button9.addEventListener('click', function() {
 
 buttonS2.addEventListener('click', function() {
   
+    document.getElementById('cursorPref').value = "";
     document.getElementById('soundPref').value = "papermario";
-    document.getElementById('totalCost').value = "2"
-    document.getElementById('costViewer').innerText = "2 bepiscoin"
+    document.getElementById('totalCost').value = "3"
+    document.getElementById('costViewer').innerText = "3 bepiscoin"
     clickSound2.play();
 
+    
     const changed = buttonS2.parentElement;
     selectedDisplay(changed)
     });
@@ -692,7 +705,7 @@ async function selectedDisplay(changed) {
    activeParent.style.transform = "scale(1)";
     document.getElementById('cursorPref').value = "";
     document.getElementById('soundPref').value = "";
-    document.getElementById('totalCost').value = ""
+    document.getElementById('totalCost').value = "";
      runningTotal.style.color = "white";
     document.getElementById('costViewer').innerText = "0 bepiscoin"
 
