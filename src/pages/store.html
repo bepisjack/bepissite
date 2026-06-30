@@ -335,7 +335,7 @@ transform: translateY(3px) translateX(1px);
   font-size: 4rem;
   font-family: custom3;
   text-shadow: 3px 3px 0px rgb(176, 131, 17);
-  background: url(/moneybackground.png), rgba(12, 21, 76, 0.709);
+  background: url(/moneybackgroundsmall.jpg), rgba(12, 21, 76, 0.709);
   background-blend-mode: multiply;
   border-bottom: solid 4px rgb(113, 113, 113);
   padding-bottom: 1.5vh;
@@ -394,9 +394,9 @@ transform: translateY(3px) translateX(1px);
 
 <div class="displayFlex">
 
-<div class="username" id="usernameBlank">jack</div>
+<div class="username" id="usernameBlank"></div>
 
-<div class="currency" id="currencyBlank">1 billion</div></div>
+<div class="currency" id="currencyBlank"></div></div>
 
 <div class="cursorHeader">Cursors</div>
 <br>
@@ -834,7 +834,7 @@ const loadUsername = async function() {
 
     if (!response.ok) {
             document.getElementById('usernameBlank').innerText = "not logged in!!";
-            document.getElementById('currencyBlank').innerText = "0 bepiscoin";
+            
 
             return;
         }
@@ -845,7 +845,7 @@ const loadUsername = async function() {
         document.getElementById('usernameBlank').innerText = data.username;
     } else {
         document.getElementById('usernameBlank').innerText = "not logged in!";
-        document.getElementById('currencyBlank').innerText = "0 bepiscoin";
+        
     }
 
       }
