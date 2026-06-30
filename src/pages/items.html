@@ -321,8 +321,17 @@ transform: translateY(3px) translateX(1px);
 .displayFlex {
   display: flex;
   width: 72vw;
-  margin-top: -0.8vh;
+  margin-top: -0.6vh;
 }
+
+.displayFlexColumn {
+  display: flex;
+  width: 72vw;
+  margin-top: -0.8vh;
+  flex-direction: column;
+  row-gap: 0.2vh;
+}
+
 
 .username {
   font-family: custom2;
@@ -334,6 +343,24 @@ transform: translateY(3px) translateX(1px);
 }
 
 .currency {
+  font-family: custom2;
+  color: rgb(255, 255, 255);
+  padding-left: 1vw;
+  margin-right: auto;
+  font-size: 1.6rem;
+  text-shadow: 1px 1px rgb(226, 136, 82);
+}
+
+.cursorCollection {
+  font-family: custom2;
+  color: rgb(255, 255, 255);
+  padding-right: 1vw;
+  margin-left: auto;
+  font-size: 1.6rem;
+  text-shadow: 1px 1px rgb(226, 136, 82);
+}
+
+.soundCollection {
   font-family: custom2;
   color: rgb(255, 255, 255);
   padding-right: 1vw;
@@ -369,11 +396,17 @@ transform: translateY(3px) translateX(1px);
 
 <div class="displayFlex">
 
+<div class="displayFlexColumn">
+
 <div class="username" id="usernameBlank">jack</div>
 
-<div class="currency" id="currencyBlank">1 billion</div>
+<div class="currency" id="currencyBlank">1 billion</div></div>
 
-<div class="currency" id="cursorCount">none pizza</div></div>
+<div class="displayFlexColumn">
+
+<div class="cursorCollection" id="cursorCount">none pizza</div>
+
+<div class="soundCollection" id="soundCount">none pizza</div></div></div>
 
 
 <div class="cursorHeader">Cursors</div>
@@ -794,8 +827,11 @@ async function loadWardrobe() {
     const myCursors = data.cursors;
     const mySounds = data.sounds;
     const cursorCollection = data.cursorCount;
+    const soundCollection = data.soundCount;
 
     document.getElementById('cursorCount').innerText = `${cursorCollection}/9 cursors collected!`;
+    document.getElementById('cursorCount').innerText = `${soundCollection}/2 sounds collected!`;
+
 
     document.getElementById('storeButton').style.display = 'block';
   
