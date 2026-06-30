@@ -390,7 +390,7 @@ transform: translateY(3px) translateX(1px);
 
 <div class="username" id="usernameBlank">jack</div>
 
-<div class="currency" id="currentyBlank">1 billion</div></div>
+<div class="currency" id="currencyBlank">1 billion</div></div>
 
 <div class="cursorHeader">Cursors</div>
 <br>
@@ -747,6 +747,7 @@ if (response.ok) {
     loadWardrobe();
     userPrefs();
     clearSelection();
+    loadBalance();
     buySound.play();
 } else {
           
@@ -853,7 +854,7 @@ const loadBalance = async () => {
     });
     if (response.ok) {
         const data = await response.json();
-        document.getElementById('currencyDisplay').innerText = `${data.currency} bepiscoin`;
+        document.getElementById('currencyBlank').innerText = `${data.currency} bepiscoin`;
     }
 };
 
