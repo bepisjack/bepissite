@@ -8,11 +8,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.11",
+    "astro": "^7.0.7",
     "body-parser": "^2.2.2",
     "dotenv": "^17.2.3",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "guifier": "^1.0.33",
     "three": "^0.183.2"
   },
   "description": "",
