@@ -6,6 +6,8 @@
 
 <button type="submit" class="editButton" id="submitButton">submit edits</button>
 
+<div id="theStatusDiv"></div>
+
 <script type="module">
 import Guifier from 'https://cdn.jsdelivr.net/npm/guifier/dist/Guifier.js'
 
@@ -37,8 +39,9 @@ refreshChannels();
 
 });
 
+const statusDiv = document.getElementById("theStatusDiv");
 
-const submitEdit = document.getElementById("submitButton")
+const submitEdit = document.getElementById("submitButton");
 
 submitEdit.addEventListener('click', async (event) => {
     event.preventDefault();
