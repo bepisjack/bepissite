@@ -24,7 +24,7 @@ async function refreshChannels() {
 
   const params = {
     elementSelector: '#guifier',
-    data: JSON.stringify(rawData),
+    data: rawData,
     dataType: 'json'
 };
 
@@ -46,14 +46,16 @@ const submitEdit = document.getElementById("submitButton");
 submitEdit.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const editedData = guifier.getData('json')
+    const badData = guifier.getData();
+
+    const cleanData = JSON.stringify(badData);
 
     try {const response = await fetch('https://api.bepisesports.com/beer/edit', {
             method: 'PUT', 
             headers: {
         'Content-Type': 'application/json' 
     },
-            body: editedData,
+            body: cleanData,
         });
         if (response.ok) {
               statusDiv.innerText = "edited!";
