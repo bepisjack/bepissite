@@ -24,7 +24,7 @@ async function refreshChannels() {
 
   const params = {
     elementSelector: '#guifier',
-    data: rawData,
+    data: JSON.stringify(rawData),
     dataType: 'json'
 };
 
