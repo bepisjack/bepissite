@@ -135,6 +135,27 @@ body {
     text-shadow: 2px 2px 0px rgb(0, 0, 0), 0px 0px 2px black;
 }
 
+#editPosts {
+    bottom: 5vh;
+    left: 1vw;
+    position: fixed;
+    border: 1px white;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 0px rgb(165, 1, 206);
+    height: 22px;
+    width: 100px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    
+}
+
+#editPosts:hover {
+    background-color: rgb(137, 36, 146);
+    transform: scale(1.1);
+}
+
 
 #back {
     bottom: 2vh;
@@ -152,8 +173,9 @@ body {
     
 }
 
+
 #back:hover {
-    background-color: rgb(30, 11, 171);
+    background-color: rgb(236, 41, 41);
     transform: scale(1.1);
 }
 
@@ -220,6 +242,12 @@ body {
 <a href="https://bepisesports.com/tristanzone">
     <button id="tzone">> tristan zone</button>
 </a>
+
+<a href="https://bepisesports.com/beeredit">
+    <button id="editPosts">>edit posts</button>
+</a>
+
+
 
 
 <script>
