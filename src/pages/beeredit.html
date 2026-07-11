@@ -46,7 +46,7 @@ const submitEdit = document.getElementById("submitButton");
 submitEdit.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const badData = guifier.getData();
+    const badData = guifier.getData(js);
 
     const cleanData = JSON.stringify(badData);
 
