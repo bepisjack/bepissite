@@ -4,6 +4,7 @@
 
 <div id="guifier"></div>
 
+<button type="submit" class="editButton" id="submitButton">submit edits</button>
 
 <script type="module">
 import Guifier from 'https://cdn.jsdelivr.net/npm/guifier/dist/Guifier.js'
@@ -33,6 +34,27 @@ const guifierInstance = new Guifier(params);
 refreshChannels();
 
 });
+
+
+const submitEdit = getElementById("submitButton")
+
+submitEdit.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const editedData = guifier.getData('json')
+
+    try {const response = await fetch('https://api.bepisesports.com/beer/edit', {
+            method: 'PUT', 
+            body: JSON.stringify(editedData),
+        });
+        if (response.ok) {
+              statusDiv.innerText = "edited!";
+        }
+    } catch (error) {
+        statusDiv.innerText = "failed to edit!";
+    }
+});
+
 
 </script>
 
