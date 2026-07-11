@@ -24,7 +24,7 @@ async function refreshChannels() {
     dataType: 'json'
 };
 
-const guifierInstance = new Guifier(params);
+const guifier = new Guifier(params);
 
 } catch (error) {
     console.error("failed to load beer data", error);
@@ -41,14 +41,14 @@ const submitEdit = document.getElementById("submitButton")
 submitEdit.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const editedData = guifierInstance.getData('json')
+    const editedData = guifier.getData('json')
 
     try {const response = await fetch('https://api.bepisesports.com/beer/edit', {
             method: 'PUT', 
             headers: {
         'Content-Type': 'application/json' 
     },
-            body: JSON.stringify(editedData),
+            body: editedData,
         });
         if (response.ok) {
               statusDiv.innerText = "edited!";
