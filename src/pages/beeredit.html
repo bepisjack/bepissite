@@ -41,7 +41,7 @@ const submitEdit = document.getElementById("submitButton")
 submitEdit.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const editedData = guifier.getData('json')
+    const editedData = guifierInstance.getData('json')
 
     try {const response = await fetch('https://api.bepisesports.com/beer/edit', {
             method: 'PUT', 
