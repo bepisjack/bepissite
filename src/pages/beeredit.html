@@ -2,11 +2,13 @@
 
 <body>
 
-<script src="https://cdn.jsdelivr.net/npm/guifier/dist/Guifier.js"></script>
+<script src="https://jsdelivr.net"></script>
 
 <div id="guifier"></div>
 
 <script>
+
+document.addEventListener("DOMContentLoaded", function() {
 
 async function refreshChannels() {
     try {
@@ -25,10 +27,12 @@ const guifierInstance = new Guifier(params);
 
 } catch (error) {
     console.error("failed to load beer data", error);
-}
+    }
 }
 
 refreshChannels();
+
+});
 
 </script>
 
