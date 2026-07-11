@@ -9,6 +9,8 @@
 <script type="module">
 import Guifier from 'https://cdn.jsdelivr.net/npm/guifier/dist/Guifier.js'
 
+let guifier;
+
 document.addEventListener("DOMContentLoaded", function() {
 
 async function refreshChannels() {
@@ -24,7 +26,7 @@ async function refreshChannels() {
     dataType: 'json'
 };
 
-const guifier = new Guifier(params);
+guifier = new Guifier(params);
 
 } catch (error) {
     console.error("failed to load beer data", error);
