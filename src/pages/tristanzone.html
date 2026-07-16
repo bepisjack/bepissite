@@ -1947,6 +1947,8 @@ if (hoverText) {
             beerDate.innerText = data.date;
             stars.src = "/" + data.rating + ".png";
 
+            if (data.author = "jack") document.getElementById("beerAuthor").style.fontFamily = "mario64";
+
             beerAuthor.innerText = data.author;
 
             function updateTxt() { txt = data.beer; }
