@@ -375,6 +375,25 @@ html, body {
      pointer-events: none;
 }
 
+#beerAuthor {
+    position:fixed;
+    font-family: wii;
+    z-index: 9999;
+    bottom: 30vh;
+    left: 3vw;
+    font-size: 3.5vw;
+    width: 20vw;
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+     color: rgb(251, 251, 251);
+    text-shadow: 0.25vw 0.25vw 0.1vw rgb(26, 26, 26);
+     visibility: hidden;
+     z-index: 9999;
+     pointer-events: none;
+}
+
+
 
 #rating {
     position: absolute;
@@ -420,8 +439,28 @@ html, body {
 
 }
 
+.author {
+    animation-name: authoranimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    visibility: visible !important;
+
+
+}
+
 .dateReverse {
     animation-name: dateanimationReverse;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.authorReverse {
+    animation-name: authoranimationReverse;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -824,6 +863,15 @@ html, body {
         transform: translateX(0vw);}
 }
 
+@keyframes authoranimation {
+    0% {opacity: 0%;
+        transform: translateX(-30vw);}
+
+    100% {
+        opacity: 100%;
+        transform: translateX(0vw);}
+}
+
 @keyframes dateanimationReverse {
     0% {opacity: 100%;
         transform: translateX(0vw);}
@@ -831,6 +879,15 @@ html, body {
     100% {
         opacity: 0%;
         transform: translateX(30vw);}
+}
+
+@keyframes authoranimationReverse {
+    0% {opacity: 100%;
+        transform: translateX(0vw);}
+
+    100% {
+        opacity: 0%;
+        transform: translateX(-30vw);}
 }
 
 
@@ -1581,6 +1638,8 @@ transform: translateY(0vh)
 
 <div class="" id="beerDate"></div>
 
+<div class="" id="beerAuthor"></div>
+
 <div class="beerName" id="beerName"></div>
 
 <div class="beerDescription" id="beerDescription"></div>
@@ -1728,6 +1787,8 @@ const clicksound6 = new Howl({
     src: ['/starget.wav'],
     volume: 0.05,
 });
+
+const beerAuthor = document.getElementById('beerAuthor');
 
 const beerDate = document.getElementById('beerDate');
 
@@ -1886,6 +1947,8 @@ if (hoverText) {
             beerDate.innerText = data.date;
             stars.src = "/" + data.rating + ".png";
 
+            beerAuthor.innerText = data.author;
+
             function updateTxt() { txt = data.beer; }
             updateTxt();
 
@@ -1899,6 +1962,9 @@ if (hoverText) {
     
     stars.classList.remove('ratingReverse');
     setTimeout(() => {  stars.classList.add('rating');}, 450);
+
+    beerAuthor.classList.remove('authorReverse');
+    setTimeout(() => { beerAuthor.classList.add('author'); }, 200);
 
     beerDate.classList.remove('dateReverse');
     setTimeout(() => { beerDate.classList.add('date'); }, 200);
