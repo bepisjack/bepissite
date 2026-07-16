@@ -102,6 +102,12 @@ body {
   line-height: 1.4;
 }
 
+.beerAuthor {
+    color: white;
+    font-size: 34pt;
+  text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+  line-height: 1.4;
+}
 
 .descriptionEntry {
   height: 14vh;
@@ -114,6 +120,85 @@ body {
     text-align: center;
     box-shadow: 2px 2px 0px black;
     
+}
+
+
+
+.authorEntry {
+  height: 6vh;
+    width: 14vw;
+    background-color: rgba(0, 0, 0, 0.271);
+    background-blend-mode: multiply;
+    color: white;
+    font-family: test2;
+    font-size: 26pt;
+    text-align: center;
+    box-shadow: 2px 2px 0px black;
+    appearance: base-select;
+    border: 2px inset black;
+    border-radius: 0%;
+}
+
+.authorEntry::picker-icon {
+    color:white;
+    transform: scale(0.7);
+}
+
+::picker(select) {
+    appearance: base-select;
+    opacity: 0;
+    transition: all 0.1s allow-discrete;
+    
+}
+
+:open::picker(select) {
+    opacity: 1;
+}
+
+@starting-style {
+  :open::picker(select) {
+    opacity: 0;
+  }
+}
+
+
+.authorEntry::picker(select) {
+    background-color: rgba(0, 0, 0, 0.705);
+    background-blend-mode: multiply;
+}
+
+option {
+        display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+color: white;
+   text-shadow: 4px 4px 0px black, 0px 0px 2px black;
+  padding: 4px;
+  transition: 0.4s;
+  font-size: 26pt;
+  padding-left: 15px;
+  border: 1px outset black;
+}
+
+option:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.507);
+    background-blend-mode: multiply;
+    
+}
+
+option:hover {
+    transition: 0.2s;
+    font-size: 30pt;
+    background-color: rgba(0, 0, 0, 0.788);
+}
+
+option::checkmark {
+    display: none;
+}
+
+option:checked {
+    color: #FFFDD0;
+    font-weight: 500;
 }
 
 .registerbutton {
@@ -209,24 +294,33 @@ body {
 </style>
 
 <body>
-    <br><br><br>
+    <br><br>
 <form class="form1">
 
-<label for="beerName" class="beerlabel">beer</label>
+<label for="beerEntry" class="beerlabel">beer</label>
 <input type="text" id="beerEntry" name="beerName" class="beerEntry"  required></textarea>
 <br>
-<label for="beerDescription" class="beerDescription">review</label>
+<label for="DescriptionEntry" class="beerDescription">review</label>
 <textarea id="DescriptionEntry" name="beerDescription" class="descriptionEntry" required></textarea>
 <br>
-<label for="beer name" class="beerlabel">rating</label>
-<input type="number" id="beerEntry" name="beerRating" class="beerRating" min="0" max="5" step="0.25" required></textarea>
+<label for="RatingEntry" class="beerlabel">rating</label>
+<input type="number" id="RatingEntry" name="beerRating" class="beerRating" min="0" max="5" step="0.25" required></textarea>
 <br>
-<label for="beer name" class="beerlabel">date</label>
-<input type="date" id="beerEntry" name="beerDate" class="beerDate"  required></textarea>
+<label for="authorEntry" class="beerAuthor">author</label>
+<select id="authorEntry" name="beerAuthor" class="authorEntry" required>
+    <option value="" disabled selected hidden></option>
+    <option value="tristan">tristan</option>
+    <option value="jack">jack</option>
+    <option value="corben">corben</option>
+    <option value="eva">eva</option>
+    <option value="hayden">hayden</option>
+</select>
 <br>
-<label for="beer name" class="beerlabel">picture!</label>
+<label for="DateEntry" class="beerlabel">date</label>
+<input type="date" id="DateEntry" name="beerDate" class="beerDate"  required></textarea>
+<br>
+<label for="beerPicture" class="beerlabel">picture!</label>
 <input type="file" id="beerPicture" name="beerPicture" class="picEntry" required></textarea>
-
 
 <br><br>
 <button type="submit" class="registerbutton" id="submitButton">post!</button>
