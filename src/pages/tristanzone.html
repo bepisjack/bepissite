@@ -34,8 +34,13 @@ $(document).on("contextmenu", function(e) {
 }
 
 @font-face {
-    font-family: mario64;
-    src: url(/Mario64.ttf);
+    font-family: jackfont;
+    src: url(/fs-marianne.otf);
+}
+
+@font-face {
+    font-family: corbenfont;
+    src: url(/ancient-modern-tales.otf);
 }
 
 
@@ -1947,7 +1952,9 @@ if (hoverText) {
             beerDate.innerText = data.date;
             stars.src = "/" + data.rating + ".png";
 
-            if (data.author = "jack") document.getElementById("beerAuthor").style.fontFamily = "mario64";
+            if (data.author = "jack") document.getElementById("beerAuthor").style.fontFamily = "jackfont";
+            if (data.author = "corben") document.getElementById("beerAuthor").style.fontFamily = "corbenfont";
+            if (data.author = "tristan") document.getElementById("beerAuthor").style.fontFamily = "wii";
 
             beerAuthor.innerText = data.author;
 
