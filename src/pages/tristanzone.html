@@ -2929,7 +2929,7 @@ wiiPlus.addEventListener('click', function() {
 
     currentPage++;
     console.log("current page is ", currentPage);
-
+    refreshChannels();
      setTimeout(() => { wiiPlusElement2.classList.remove('wiiRightClick'); }, 400);
 });
 
@@ -2939,7 +2939,7 @@ wiiMinus.addEventListener('click', function() {
 
     currentPage--;
     console.log("current page is ", currentPage);
-
+    refreshChannels();
      setTimeout(() => { wiiMinusElement2.classList.remove('wiiLeftClick'); }, 400);
 });
 
