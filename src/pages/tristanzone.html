@@ -2140,8 +2140,6 @@ const sliceData = beerData.slice(startIndex, endIndex);
 
   sliceData.forEach((data, index) => {
 
-    if (index >= buttonBoxes.length) return; 
-
     const currentButton = buttonBoxes[index];
 
     const clonedButton = currentButton.cloneNode(true);
