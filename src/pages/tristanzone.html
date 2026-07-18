@@ -2952,6 +2952,7 @@ wiiPlus.addEventListener('click', function() {
 
     currentPage++;
     console.log("current page is ", currentPage);
+    pageChecker();
     refreshChannels();
      setTimeout(() => { wiiPlusElement2.classList.remove('wiiRightClick'); }, 400);
 });
@@ -2962,10 +2963,17 @@ wiiMinus.addEventListener('click', function() {
 
     currentPage--;
     console.log("current page is ", currentPage);
+    pageChecker();
     refreshChannels();
+   
      setTimeout(() => { wiiMinusElement2.classList.remove('wiiLeftClick'); }, 400);
 });
 
+function pageChecker () {
+    if (currentPage <= 1) {
+        wiiLeftElement.style.visibility = "hidden";
+    } 
+}
 
 
 
@@ -3008,8 +3016,9 @@ if (document.hidden) {
 
 document.addEventListener('DOMContentLoaded', () => {
 refreshChannels();
-
+pageChecker();
 });
+
 
 </script>
 
