@@ -2153,8 +2153,9 @@ sliceData.push(...blankChannels);
 
     const clonedButton = currentButton.cloneNode(true);
 
+    
     if (data.isBlank) {
-        const hoverText = clonedButton.parentNode.querySelector('.hover-text');
+        const hoverText = currentButton.parentNode.querySelector('.hover-text');
         if (hoverText) {
             hoverText.innerHTML = "nothing yet!";
         }
