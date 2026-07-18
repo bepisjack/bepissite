@@ -1886,6 +1886,7 @@ const MAX_INDEX = 3;
 function sortStep() {
     sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
     console.log(sortIndex);
+    currentPage = 1; 
     refreshChannels();
 }
 
