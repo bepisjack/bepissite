@@ -2138,13 +2138,24 @@ const endIndex = startIndex + pageSize;
 
 const sliceData = beerData.slice(startIndex, endIndex);
 
+ if (sliceData.length < pageSize) {
+    const missingCount = pageSize - sliceData.length;
+    const blankChannels = new Array(missingCount).fill({ isBlank: true});
+sliceData.push(...blankChannels);
+ }
+
+
+
   sliceData.forEach((data, index) => {
 
     const currentButton = buttonBoxes[index];
 
     const clonedButton = currentButton.cloneNode(true);
 
+    if (data.isBlank) {
+        clonedButton.innerText = "nothing yet!"
 
+    }
 
     clonedButton.addEventListener('click', function() {
      clicksound4.play();
