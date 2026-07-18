@@ -2154,8 +2154,19 @@ sliceData.push(...blankChannels);
     const clonedButton = currentButton.cloneNode(true);
 
     if (data.isBlank) {
-        beerName.innerText = "nothing yet!"
-    }
+        const hoverText = clonedButton.parentNode.querySelector('.hover-text');
+        if (hoverText) {
+            hoverText.innerHTML = "nothing yet!";
+        }
+
+        const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
+        if (imgElement) {
+            imgElement.src = "/bepisblank.png";
+    }};
+
+    currentButton.parentNode.replaceChild(clonedButton, currentButton);
+    buttonboxes[index] = clonedButton;
+    return;
 
 
     clonedButton.addEventListener('click', function() {
