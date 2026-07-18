@@ -2090,6 +2090,9 @@ const wiiPlusElement2 = document.getElementById('wiiPlusElement2')
 
 const wiiMinusElement2 = document.getElementById('wiiMinusElement2')
 
+let currentPage = 1;
+
+let pageSize = 12;
 
 async function refreshChannels() {
   const response = await fetch('https://api.bepisesports.com/beer/channels', {
@@ -2128,7 +2131,12 @@ async function refreshChannels() {
   });
   
 
-const sliceData = beerData.slice(0, 3);
+
+const startIndex = (currentPage - 1) * pageSize;
+const endIndex = startIndex + pageSize;
+
+
+const sliceData = beerData.slice(startIndex, endIndex);
 
   sliceData.forEach((data, index) => {
 
@@ -2920,12 +2928,20 @@ wiiMinusElement.addEventListener('mouseleave', function() {
 wiiPlus.addEventListener('click', function() {
      wiiPlusElement2.classList.add('wiiRightClick');
      clicksound7.play();
+
+    currentPage++;
+    console.log("current page is ", currentPage);
+
      setTimeout(() => { wiiPlusElement2.classList.remove('wiiRightClick'); }, 400);
 });
 
 wiiMinus.addEventListener('click', function() {
      wiiMinusElement2.classList.add('wiiLeftClick');
      clicksound7.play();
+
+    currentPage--;
+    console.log("current page is ", currentPage);
+
      setTimeout(() => { wiiMinusElement2.classList.remove('wiiLeftClick'); }, 400);
 });
 
