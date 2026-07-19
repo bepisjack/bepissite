@@ -2151,9 +2151,45 @@ sliceData.push(...blankChannels);
   sliceData.forEach((data, index) => {
 
     const currentButton = buttonBoxes[index];
+    if (!currentButton) return;
+
+    const parentContainer = currentButton.parentNode || document.querySelectorAll('.beerpic, .wiiborder')[index]?.parentNode;
+    if (!parentContainer) {
+        console.error('no valid spot for ${index}');
+        return;
+    }
+
+
 
     const clonedButton = currentButton.cloneNode(true);
+    clonedButton.style.opacity = "0"; 
+clonedButton.style.transition = "opacity 0.45s ease"; 
 
+
+const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
+
+    const hoverText = clonedButton.parentNode.querySelector('.hover-text');
+
+    function fadeInImage() {
+    clonedButton.offsetHeight; 
+    setTimeout(() => {
+        clonedButton.style.opacity = "1";
+    }, 50); 
+}
+
+    parentContainer.replaceChild(clonedButton, currentButton);
+    buttonBoxes[index] = clonedButton;
+
+
+    if (data.isBlank) {
+        if (hoverText) {
+            hoverText.innerHTML = "nothing yet!";
+        }
+  
+        
+        if (imgElement) {
+            imgElement.src = "/bepisblank.png";
+    }
     
     clonedButton.addEventListener('click', function() {
      clicksound4.play();
@@ -2164,40 +2200,21 @@ sliceData.push(...blankChannels);
    clonedButton.addEventListener('mouseover', function() {
      clicksound2.play();
     });
-
-      clonedButton.style.opacity = "0"; 
-clonedButton.style.transition = "opacity 0.45s ease"; 
-
-    
-    const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
-
-    
-function fadeInImage() {
-    clonedButton.offsetHeight; 
-    setTimeout(() => {
-        clonedButton.style.opacity = "1";
-    }, 50); 
-}
-
-    currentButton.parentNode.replaceChild(clonedButton, currentButton);
-    buttonBoxes[index] = clonedButton;
-    
-
-    const hoverText = clonedButton.parentNode.querySelector('.hover-text');
-    
-    if (data.isBlank) {
-        if (hoverText) {
-            hoverText.innerHTML = "nothing yet!";
-        }
-  
-        
-        if (imgElement) {
-            imgElement.src = "/bepisblank.png";
-    }
+return;
 }; 
     
 
-  
+
+  clonedButton.addEventListener('click', function() {
+     clicksound4.play();
+     clicksound1.play();
+   
+    });
+
+   clonedButton.addEventListener('mouseover', function() {
+     clicksound2.play();
+
+  });
 
 
 if (imgElement) {
