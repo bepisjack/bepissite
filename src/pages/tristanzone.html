@@ -2155,22 +2155,6 @@ sliceData.push(...blankChannels);
     const clonedButton = currentButton.cloneNode(true);
 
     
-    if (data.isBlank) {
-        const hoverText = currentButton.parentNode.querySelector('.hover-text');
-        if (hoverText) {
-            hoverText.innerHTML = "nothing yet!";
-        }
-
-        const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
-        if (imgElement) {
-            imgElement.src = "/bepisblank.png";
-    }};
-
-    currentButton.parentNode.replaceChild(clonedButton, currentButton);
-    buttonBoxes[index] = clonedButton;
-    
-
-
     clonedButton.addEventListener('click', function() {
      clicksound4.play();
      clicksound1.play();
@@ -2181,15 +2165,13 @@ sliceData.push(...blankChannels);
      clicksound2.play();
     });
 
-
-    currentButton.parentNode.replaceChild(clonedButton, currentButton);
-    buttonBoxes[index] = clonedButton;
-
-    clonedButton.style.opacity = "0"; 
+      clonedButton.style.opacity = "0"; 
 clonedButton.style.transition = "opacity 0.45s ease"; 
 
-const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
+    
+    const imgElement = clonedButton.classList.contains('beerpic') ? clonedButton : clonedButton.querySelector('.beerpic');
 
+    
 function fadeInImage() {
     clonedButton.offsetHeight; 
     setTimeout(() => {
@@ -2197,11 +2179,31 @@ function fadeInImage() {
     }, 50); 
 }
 
+    currentButton.parentNode.replaceChild(clonedButton, currentButton);
+    buttonBoxes[index] = clonedButton;
+    
+
+    const hoverText = clonedButton.parentNode.querySelector('.hover-text');
+    
+    if (data.isBlank) {
+        if (hoverText) {
+            hoverText.innerHTML = "nothing yet!";
+        }
+  
+        
+        if (imgElement) {
+            imgElement.src = "/bepisblank.png";
+    }
+}; 
+    
+
+  
+
+
 if (imgElement) {
     imgElement.crossOrigin = "use-credentials";
     imgElement.src = "https://bepisbackend.fly.dev/data/photos/" + data.image;
 
-    // 3. 
     if (imgElement.complete) {
         fadeInImage();
     } else {
@@ -2209,7 +2211,6 @@ if (imgElement) {
     }
 }
     
-const hoverText = clonedButton.parentNode.querySelector('.hover-text');
 if (hoverText) {
     hoverText.innerHTML = `${data.beer} <br> (★${data.rating})`;
 }
@@ -2284,7 +2285,7 @@ const darkElements = document.querySelectorAll('.beerpic, .wiiborder, .clock, .w
 document.body.style.backgroundImage = "url('/black.png')";
   });
 
-        });
+});
         
      };
 
