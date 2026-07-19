@@ -1544,6 +1544,7 @@ transform: translateY(0vh)
 
 #wiiLeftElement {
     height: 20vh;
+    visibility: hidden;
 }
 
 @keyframes wiiRightAnimation {
@@ -2974,7 +2975,7 @@ function pageChecker () {
     if (currentPage <= 1) {
         wiiLeftElement.style.visibility = "hidden";
     } 
-    if (currentPage >= 1) {
+    if (currentPage > 1) {
         wiiLeftElement.style.visibility = "visible";
     } 
 }
