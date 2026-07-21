@@ -44,6 +44,12 @@ $(document).on("contextmenu", function(e) {
 }
 
 
+@font-face {
+    font-family: evafont;
+    src: url(/myrtille.otf);
+}
+
+
 img, input, a, div {
     user-select: none;
     -webkit-user-drag:none;
@@ -2254,7 +2260,7 @@ if (hoverText) {
             if (data.author === "tristan") document.getElementById("beerAuthor").style.fontFamily = "wii";
             if (data.author === "jack") document.getElementById("beerAuthor").style.fontFamily = "jackfont";
             if (data.author === "corben") document.getElementById("beerAuthor").style.fontFamily = "corbenfont";
-            
+            if (data.author === "eva") document.getElementById("beerAuthor").style.fontFamily = "evafont";
 
             beerAuthor.innerText = data.author;
 
