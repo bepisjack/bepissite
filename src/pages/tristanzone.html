@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <body>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>tristan zone</title>
 </head>
@@ -131,6 +132,13 @@ img, input, a, div {
     pointer-events: none;
 }
 
+@media screen and (max-width: 800px) {
+    .hover-text {
+        display: none !important;
+    }
+}
+
+
 .wiicontainer:hover .hover-text {
     display: block;
         z-index: 9999;
@@ -148,6 +156,20 @@ img, input, a, div {
 justify-content: center;
 gap: 0vw;
 margin-top: 4vh;
+
+}
+
+@media screen and (max-width: 800px) {
+    .wiicontainer {
+        width: 35%;
+       height: 12vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .row1, .row2, .row3 {
+       flex-wrap: wrap;
+    }
 }
 
 .row2 {
@@ -188,6 +210,13 @@ html, body {
     top: 92%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 800px) {
+    .tristanzone {
+        font-size: 10vw;
+        width: 100%;
+    }
 }
 
 .wiibottom {
@@ -231,6 +260,12 @@ html, body {
     z-index: 10;
     filter: drop-shadow(0vw 0vw 0.4vw #006969);
     cursor: url(/wii2.cur), pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .backbutton {
+        width: 14vw;
+    }
 }
 
 
@@ -305,6 +340,12 @@ html, body {
     
 }
 
+@media screen and (max-width: 800px) {
+    #lebronbutton {
+        width: 14vw;
+    }
+}
+
 
 
 #lebronbutton2 {
@@ -317,6 +358,13 @@ html, body {
     filter: drop-shadow(0vw 0vw 0.4vw #006969);
     cursor: url(/wii2.cur), pointer;
     visibility: hidden;
+}
+
+@media screen and (max-width: 800px) {
+    #lebronbutton2 {
+        width: 44vw;
+        bottom: 6vh;
+    }
 }
 
 
@@ -334,6 +382,14 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 800px) {
+    .clock {
+        width: 95%;
+        font-size: 4vw;
+        top: 96%
+    }
+}
+
 .beerName {
     position:absolute;
     font-family: wii;
@@ -348,6 +404,13 @@ html, body {
      color: rgb(69, 69, 69);
     text-shadow: 0.15vw 0.15vw 0.1vw darkgray;
     pointer-events: none;
+}
+
+@media screen and (max-width: 800px) {
+    .beerName {
+        width: 95%;
+        font-size: 8vw;
+    }
 }
 
 .beerDescription {
@@ -368,6 +431,13 @@ html, body {
     pointer-events: none;
 }
 
+@media screen and (max-width: 800px) {
+    .beerDescription {
+        width: 95%;
+        font-size: 8vw;
+    }
+}
+
 #beerDate {
     position:fixed;
     font-family: wii;
@@ -384,6 +454,13 @@ html, body {
      visibility: hidden;
      z-index: 9999;
      pointer-events: none;
+}
+
+@media screen and (max-width: 800px) {
+    #beerDate {
+        width: 95%;
+        font-size: 8vw;
+    }
 }
 
 #beerAuthor {
@@ -404,7 +481,12 @@ html, body {
      pointer-events: none;
 }
 
-
+@media screen and (max-width: 800px) {
+    #beerAuthor {
+        width: 95%;
+        font-size: 8vw;
+    }
+}
 
 #rating {
     position: absolute;
@@ -1533,6 +1615,15 @@ transform: translateY(0vh)
     animation-iteration-count: infinite;
 }
 
+@media screen and (max-width: 800px) {
+    #wiiRight {
+        right: -4vw;
+        top: 37vh;
+    }
+}
+
+
+
 #wiiLeft {
     position: absolute;
     left: 4vw;
@@ -1544,15 +1635,38 @@ transform: translateY(0vh)
     animation-iteration-count: infinite;
 }
 
+@media screen and (max-width: 800px) {
+    #wiiLeft {
+        left: -4vw;
+        top: 37vh;
+    }
+}
+
+
 #wiiRightElement {
     max-height: 20vh;
     
 }
 
+
+@media screen and (max-width: 800px) {
+    #wiiRightElement {
+         max-height: 12vh;
+    }
+}
+
+
 #wiiLeftElement {
     max-height: 20vh;
     visibility: hidden;
 }
+
+@media screen and (max-width: 800px) {
+    #wiiLeftElement {
+         max-height: 12vh;
+    }
+}
+
 
 @keyframes wiiRightAnimation {
     0% {transform: translateX(0vw);}
@@ -1582,6 +1696,13 @@ transform: translateY(0vh)
     pointer-events: none;
 }
 
+@media screen and (max-width: 800px) {
+    #wiiPlus {
+         display: none !important;
+    }
+}
+
+
 #wiiMinus {
     position: absolute;
     left: 9vw;
@@ -1594,6 +1715,13 @@ transform: translateY(0vh)
 
     z-index: 100;
 }
+
+@media screen and (max-width: 800px) {
+    #wiiMinus {
+         display: none !important;
+    }
+}
+
 
 .wiiPlusClass {
     animation-name: wiiPlusAnimation;
