@@ -2044,6 +2044,7 @@ transform: translateY(0vh)
 let sortIndex = 0
 const MAX_INDEX = 3;
 
+
 function sortStep() {
     sortIndex = (sortIndex + 1) % (MAX_INDEX + 1);
     console.log(sortIndex);
@@ -3157,6 +3158,41 @@ function pageChecker () {
     } 
 }
 
+function handleTouch(startX, endX,
+     onSwipeLeft, onSwipeRight) {
+    var horizontalDistance = 
+    finalTouchX - initialTouchX;
+    var verticalDistance = 
+    finalTouchY - initialTouchY;
+
+    if (Math.abs(horizontalDistance) >
+     Math.abs(verticalDistance) &&
+      Math.abs(horizontalDistance) >
+       swipeThreshold) {
+        if (finalTouchX - 
+            initialTouchX < 0) {
+            onSwipeLeft(); 
+        } else {
+            onSwipeRight(
+                
+            ); 
+        }
+    }
+}
+
+function onSwipeLeft() {
+    currentPage--;
+    console.log("current page is ", currentPage);
+    pageChecker();
+    refreshChannels();
+}
+
+function onSwipeRight() {
+    currentPage++;
+    console.log("current page is ", currentPage);
+    pageChecker();
+    refreshChannels();
+}
 
 
 
